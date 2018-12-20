@@ -14,3 +14,7 @@ header {
 header:hover {
 	background-color: gold;
 }
+section {
+	font-size: 16px;
+	color: gold;
+}
