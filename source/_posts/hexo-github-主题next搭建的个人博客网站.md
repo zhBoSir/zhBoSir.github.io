@@ -1,8 +1,33 @@
 ---
 title: hexo-github-主题next搭建的个人博客网站
-date: 2018-06-12 15:33:07
+date: 2019-01-10 13:47:07
 tags:
 ---
-### 参考：
-##### [https://www.jianshu.com/p/f054333ac9e6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这个地址内容很可以，许多内容都是按照文中来的](https://www.jianshu.com/p/f054333ac9e6)
-##### [https://www.cnblogs.com/visugar/p/6821777.html &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hexo从零开始到搭建完整](https://www.cnblogs.com/visugar/p/6821777.html)
+> ###### 搭建自己博客网站时的几篇文章参考：
+##### [1. https://www.cnblogs.com/visugar/p/6821777.html](https://www.cnblogs.com/visugar/p/6821777.html)
+ hexo从零开始到搭建完成
+##### [2. https://www.jianshu.com/p/f054333ac9e6](https://www.jianshu.com/p/f054333ac9e6)
+这个地址内容很可以，许多内容都是按照文中来的
+##### [3. http://www.cnblogs.com/study-everyday/p/8902136.html](http://www.cnblogs.com/study-everyday/p/8902136.html)
+换了电脑如何使用hexo继续写博客
+##### [4. https://www.jianshu.com/p/0b1fccce74e0](https://www.jianshu.com/p/0b1fccce74e0)
+利用Hexo在多台电脑上提交和更新github pages博客
+
+> ###### 相关文档：
+> ###### Hexo生成博客的源码目录解释 :
+
+文件名 | 说明
+:------: | :------:
+_config.yml | 配置文件
+public	| 生成的静态文件，这个目录最终会发布到服务器
+scaffolds | 一些通用的markdown模板
+source	| 编写的markdown文件，_drafts草稿文件，_posts发布的文章
+themes	| 博客的模板
+
+> ###### 常用的命令
+
++ **hexo clean** (清理缓存)
++ **hexo g** (g即generate,生成静态网页)
++ **hexo s** (s即server,启动服务器，生成本地可以访问的url)
++ **hexo d** (d即deploy,部署命令)
++ <code>hexo d -g</code> (把git分支的修改部署到github的master分支上)
