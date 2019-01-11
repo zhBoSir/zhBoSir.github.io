@@ -14,4 +14,15 @@ tags:
 ```
 在Hexo生成的目录source文件夹的_posts文件夹.md文件的头部信息中添加【password: 密码】即可
 
+> ###### 2.新建博文文件的命令
+
+```
+hexo new '文件名字'
+```
+
+> ###### 3.更换博客网站的主题
+
+1. 将模板copy到themes目录下
+2. 修改_config.yml中的theme
+
 

@@ -130,6 +130,7 @@ scheme: Mist
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
   GitHub: https://github.com/zhBoSir || github
+  前端网: https://www.qdfuns.com/u/23906/works/articles || angellist
   #E-Mail: mailto:yourname@gmail.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -708,7 +709,7 @@ three_waves: false
 canvas_lines: false
 
 # canvas_sphere
-canvas_sphere: false
+canvas_sphere: true
 
 # Only fit scheme Pisces
 # Canvas-ribbon
@@ -821,4 +822,4 @@ passage_end_tag:
     enabled: true
 
 # 点击爆炸效果
-fireworks: true
+fireworks: false

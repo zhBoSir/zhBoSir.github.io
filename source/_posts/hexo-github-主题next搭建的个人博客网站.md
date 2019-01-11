@@ -29,5 +29,5 @@ themes	| 博客的模板
 + **hexo clean** (清理缓存)
 + **hexo g** (g即generate,生成静态网页)
 + **hexo s** (s即server,启动服务器，生成本地可以访问的url)
-+ **hexo d** (d即deploy,部署命令)
++ **hexo d** (d即deploy,上传部署命令,上传是只会上传public中生成的文件)
 + <code>hexo d -g</code> (把git分支的修改部署到github的master分支上)
