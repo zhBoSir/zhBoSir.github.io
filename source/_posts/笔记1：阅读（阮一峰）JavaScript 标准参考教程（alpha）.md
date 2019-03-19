@@ -104,3 +104,52 @@ switch (x) {
 // x 没有发生类型转换
 ```
 上面代码中，由于变量x没有发生类型转换，所以不会执行case true的情况。
+**11.** for语句的三个部分（初始化表达式、条件表达式、递增表达式），可以省略任何一个，也可以全部省略。
+```
+for ( ; ; ){
+  console.log('Hello World');
+}
+```
+上面代码省略了for语句表达式的三个部分，结果就导致了一个无限循环。
+**12.** break语句用于跳出代码块或循环。
+continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。
+```
+var i = 0;
+while (i < 100){
+  i++;
+  if (i % 2 === 0) continue;
+  console.log('i 当前为：' + i);
+}
+```
+上面代码只有在i为奇数时，才会输出i的值。如果i为偶数，则直接进入下一轮循环。
+<font color="blue">如果存在多重循环，不带参数的break语句和continue语句都只针对最内层循环。</font>
+**13.** JavaScript 的数据类型，共有六种<code>【数值（number）、字符串（string）、布尔值（boolean）、undefined、null、对象（object）】</code>（ES6 又新增了第七种 Symbol 类型的值。）
+对象是复杂的数据类型，又可以分成三个子类型<code>【狭义的对象（object）、数组（array）、函数（function）】</code>。
+**14.**  JavaScript 有三种方法，可以确定一个值到底是什么类型。
+- typeof运算符
+- instanceof运算符
+- Object.prototype.toString方法
+
+几种特殊的情况：
+```
+typeof undefined
+// "undefined"
+typeof null
+// "object"
+typeof window 
+// "object"
+typeof {} 
+// "object"
+typeof [] 
+// "object"
+```
+**15.** 数组本质上只是一种特殊的对象。这里顺便提一下，instanceof运算符可以区分数组和对象。
+```
+var o = {};
+var a = [];
+
+o instanceof Array // false
+a instanceof Array // true
+```
+
+
