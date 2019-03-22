@@ -1,5 +1,5 @@
 ---
-title: 阅读（阮一峰）JavaScript 标准参考教程（alpha）
+title: 笔记1：阅读（阮一峰）JavaScript 标准参考教程（alpha）
 date: 2019-03-07 09:48:51
 tags:
 ---
