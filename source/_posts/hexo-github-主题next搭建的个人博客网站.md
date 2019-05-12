@@ -13,6 +13,8 @@ tags:
 ##### [4. https://www.jianshu.com/p/0b1fccce74e0](https://www.jianshu.com/p/0b1fccce74e0)
 利用Hexo在多台电脑上提交和更新github pages博客
 
+##### 5.报没有hexo命令，试着npm istall hexo-cli -g
+
 > ###### 相关文档：
 > ###### Hexo生成博客的源码目录解释 :
 
