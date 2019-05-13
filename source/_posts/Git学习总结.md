@@ -29,4 +29,9 @@ date: 2019-05-12 00:29:39
 - <code>git log</code> 查看所有的提交记录
 - <code>git log --pretty=oneline 或 git log --oneline</code> 把所有的提交记录按每一条每一行显示出来
 - <code>多屏显示控制方式</code> 1.空格向下翻页  2.b向上翻页 3.q退出 如：有时候显示的内容比较多，一页没有显示完，可以通过这3个方式来操作。
+- <code>git reflog</code> 把提交记录按精简的方式展示出来。
+
+<code>===============================</code>
+- <code>HEAD</code> git命令窗口里面的HEAD代表的是指针的意思。HEAD在哪里就指向哪条数据。
+- <code>git reset --hard 某个提交记录的哈希值</code> 把git回退或者前进到具体的某个版本上。如：git reset --hard b8b2de0
 
