@@ -35,3 +35,9 @@ date: 2019-05-12 00:29:39
 - <code>HEAD</code> git命令窗口里面的HEAD代表的是指针的意思。HEAD在哪里就指向哪条数据。
 - <code>git reset --hard 某个提交记录的哈希值</code> 把git回退或者前进到具体的某个版本上。如：git reset --hard b8b2de0
 
+<code>===============================</code>
+- 从本地库删除文件的操作，第一步：<code>rm 文件名</code>，表示删除了工作区的文件；第二步：git add . ，删除了暂存区的这个文件；第三步： git commit -m '注释'，删除了本地库的这个文件。
+- <code>git diff [文件名]</code>将工作区中的文件和暂存区的文件比较。
+- <code>git diff [本地库中历史版本] [文件名]</code>将工作区中的文件和本地库历史记录的文件比较。
+- <code>git diff</code>不带文件名的话是比较多个文件。
+
