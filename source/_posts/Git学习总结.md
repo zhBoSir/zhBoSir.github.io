@@ -41,3 +41,13 @@ date: 2019-05-12 00:29:39
 - <code>git diff [本地库中历史版本] [文件名]</code>将工作区中的文件和本地库历史记录的文件比较。
 - <code>git diff</code>不带文件名的话是比较多个文件。
 
+<code>===============================</code>
+- <code>git branch</code> 列出当前分支清单
+- <code>git branch -a</code> 查看远程分支和本地分支
+- <code>git branch -v</code> 查看各个分支最后一个提交信息
+- <code>git branch [分支名]</code> 新建分支
+- <code>git checkout [分支名]</code> 切换到具体的分支
+- <code>合并分支的操作步骤：</code>
+- 第一步：<code>git checkout [要合并其他分支上内容的分支]</code>切换到接受修改的分支上，比如：在dev分支上修改了内容，想把内容合并到master分支，目前在dev分支上，就需要先切换到master分支上。
+- 第二步：<code>git merge [有新内容的分支名]</code> 执行merge命令。如：要把dev分支上的内容合并到master分支上，那么就是git merge dev
+
