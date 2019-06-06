@@ -155,3 +155,78 @@ x // 1
 '5' + undefined // "5undefined"
 '5' + null // "5null"
 ```
+
+**55.** Error 实例对象
+```
+var err = new Error('出错了');
+err.message // "出错了"
+```
+Error实例对象必须有message属性，表示出错时的提示信息
+
+**56.** JavaScript 最大的语法缺点，可能就是全局变量对于任何一个代码块，都是可读可写。这对代码的模块化和重复使用，非常不利。
+
+因此，建议避免使用<code>全局变量</code>。如果不得不使用，<code>可以考虑用大写字母表示</code>变量名，这样更容易看出这是全局变量，比如UPPER_CASE。
+
+**57.**debugger语句
+
+debugger语句主要用于除错，作用是设置断点。
+Chrome 浏览器中，当代码运行到debugger语句时，就会暂停运行，自动打开脚本源码界面。
+
+**58.**
+- 实例方法就是定义在Object原型对象Object.prototype上的方法
+- 凡是定义在Object.prototype对象上面的属性和方法，将被所有实例对象共享
+- instanceof运算符用来验证，一个对象是否为指定的构造函数的实例。
+
+**59.**
+Object.keys方法的参数是一个对象，返回一个数组。该数组的成员都是该对象自身的（而不是继承的）所有属性名。
+```
+var obj = {
+  p1: 123,
+  p2: 456
+}
+
+Object.keys(obj) // ["p1", "p2"]
+```
+Object.getOwnPropertyNames方法与Object.keys类似，也是接受一个对象作为参数，返回一个数组，包含了该对象自身的所有属性名。
+```
+var obj = {
+  p1: 123,
+  p2: 456
+};
+```
+Object.getOwnPropertyNames(obj) // ["p1", "p2"]
+对于一般的对象来说，Object.keys()和Object.getOwnPropertyNames()返回的结果是一样的。只有涉及不可枚举属性时，才会有不一样的结果。Object.keys方法只返回可枚举的属性，Object.getOwnPropertyNames方法还返回不可枚举的属性名。
+```
+var a = ['Hello', 'World'];
+
+Object.keys(a) // ["0", "1"]
+Object.getOwnPropertyNames(a) // ["0", "1", "length"]
+```
+上面代码中，数组的length属性是不可枚举的属性，所以只出现在Object.getOwnPropertyNames方法的返回结果中。
+
+由于 JavaScript 没有提供计算对象属性个数的方法，所以可以用这两个方法代替。
+```
+var obj = {
+  p1: 123,
+  p2: 456
+};
+
+Object.keys(obj).length // 2
+Object.getOwnPropertyNames(obj).length // 2
+```
+
+**60.**写出一个比typeof运算符更准确的类型判断函数。
+```
+var type = function (o){
+  var s = Object.prototype.toString.call(o);
+  return s.match(/\[object (.*?)\]/)[1].toLowerCase();
+};
+
+type({}); // "object"
+type([]); // "array"
+type(5); // "number"
+type(null); // "null"
+type(); // "undefined"
+type(/abcd/); // "regex"
+type(new Date()); // "date"
+```
