@@ -53,6 +53,20 @@ date: 2019-05-12 00:29:39
 
 >冲突===============================
 - git merge合并的时候出现冲突时，看一下是哪个文件冲突了。然后用<code>vim 文件名</code>打开文件，把文件里面的由于冲突产生的特殊标记删除掉，Head表示的是当前分支的内容，然后把冲突的地方不需要的代码删除掉。再用<code>git add .</code>后再用<code>git commit </code>提交即可【注意这一步commit的时候是不能带文件名的】。
+>远程分支=====================
+- <code>git remote -v</code>查看远程分支
+- <code>git remote add 远程分支别名 远程分支地址</code> 例如：git remote add origin https://github.com/zhBoSir/gittest.git
 
+- <code>git push 远程分支别名 远程分支的名字 </code> 例：git push origin master
+- <code>有时候用github和别人一起开发项目，自己建的git库，别人clone后push代码没有权限，应该怎么操作？</code>
+  - 第一步:点击GitHub仓库的【settings】
+  - 第二步：点击【collaborators】即合作者的意思
+  - 第三步：在【add collaborators输入框】里输入被邀请人的GitHub账号。
+  - 第四步：点击【copy invite link】把里面的链接发送给被邀请的人。
+  - 第五步：被邀请人只要接受邀请就有提交代码的权限了。
+- <code>git pull [远程分支别名] [远程分支的名字]</code>拉取远程分支的内容。
+- <code>git pull [远程分支别名] [远程分支的名字] = git fetch [远程分支别名] [远程分支的名字] + git merge</code>
+  - 第一步：git fetch 是把远程分支的内容抓取过来，抓取过来后，本地文件并没有改变。
+  - 第二步：git merge [远程分支别名/远程分支的名字] 是把远程分支上的内容合并到本地仓库上。
 
 
