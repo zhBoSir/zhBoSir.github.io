@@ -35,7 +35,7 @@ date: 2019-05-12 00:29:39
 - <code>HEAD</code> git命令窗口里面的HEAD代表的是指针的意思。HEAD在哪里就指向哪条数据。
 - <code>git reset --hard 某个提交记录的哈希值</code> 把git回退或者前进到具体的某个版本上。如：git reset --hard b8b2de0
 
->删除文件===============================
+>删除文件、比较文件===============================
 - 从本地库删除文件的操作，第一步：<code>rm 文件名</code>，表示删除了工作区的文件；第二步：git add . ，删除了暂存区的这个文件；第三步： git commit -m '注释'，删除了本地库的这个文件。
 - <code>git diff [文件名]</code>将工作区中的文件和暂存区的文件比较。
 - <code>git diff [本地库中历史版本] [文件名]</code>将工作区中的文件和本地库历史记录的文件比较。
@@ -53,12 +53,13 @@ date: 2019-05-12 00:29:39
 
 >冲突===============================
 - git merge合并的时候出现冲突时，看一下是哪个文件冲突了。然后用<code>vim 文件名</code>打开文件，把文件里面的由于冲突产生的特殊标记删除掉，Head表示的是当前分支的内容，然后把冲突的地方不需要的代码删除掉。再用<code>git add .</code>后再用<code>git commit </code>提交即可【注意这一步commit的时候是不能带文件名的】。
+
 >远程分支=====================
 - <code>git remote -v</code>查看远程分支
 - <code>git remote add 远程分支别名 远程分支地址</code> 例如：git remote add origin https://github.com/zhBoSir/gittest.git
 
 - <code>git push 远程分支别名 远程分支的名字 </code> 例：git push origin master
-- <code>有时候用github和别人一起开发项目，自己建的git库，别人clone后push代码没有权限，应该怎么操作？</code>
+- <code><font color="red">有时候用github和别人一起开发项目，自己建的git库，别人clone后push代码没有权限，应该怎么操作？（团队内部协作）</font></code>
   - 第一步:点击GitHub仓库的【settings】
   - 第二步：点击【collaborators】即合作者的意思
   - 第三步：在【add collaborators输入框】里输入被邀请人的GitHub账号。
@@ -68,5 +69,13 @@ date: 2019-05-12 00:29:39
 - <code>git pull [远程分支别名] [远程分支的名字] = git fetch [远程分支别名] [远程分支的名字] + git merge</code>
   - 第一步：git fetch 是把远程分支的内容抓取过来，抓取过来后，本地文件并没有改变。
   - 第二步：git merge [远程分支别名/远程分支的名字] 是把远程分支上的内容合并到本地仓库上。
+  
+><font color="red">Github上怎么给别人提交代码？（跨团队协作）</font>
+- 第一步：<code>fork</code>别人的远程仓库；
+- 第二步：把fork的仓库<code>clone</code>到本地；
+- 第三步：在clone下来的项目上修改代码然后；<code>push</code>到自己fork的自己的仓库；
+- 第四步：给对方发送<code>pull request</code> 
+点击<code>new request</code>再点击<code>create new request</code>
+- 第五步：对方接受到pull request后会在pull request的地方显示一个数字，审核后<code>merge</code>一下即可（merge pull request）。
 
 
