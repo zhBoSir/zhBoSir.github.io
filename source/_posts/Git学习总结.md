@@ -13,6 +13,7 @@ date: 2019-05-12 00:29:39
 - <code>ll</code> 查看当前文件夹下文件
 - <code>vim</code> 文件名，打开文件，没有这个文件的话就创建这个文件。打开文件后，按“I”按钮，可以进入编辑状态。如：vim a.txt 然后就可以在命令行中编辑a.txt文件了
 - <code>退出vim编辑模式</code>的操作：先按esc按钮推出插入状态，然后输入冒号:进入输入命令状态，输入wq，就保存并退出了。
+- <code>git bash退出vim编辑模式的操作：</code>vim 文件名，打开文件，然后按<code>i</code>开始输入，输入完成后按<code>esc</code>退出编辑模式，然后按<code>shift+:</code>后输入<code>wq</code>即可。
 - <code>cat 文件名</code> 用cat命令可以显示文件里面的内容
 
 >提交和撤销===============================
@@ -78,4 +79,9 @@ date: 2019-05-12 00:29:39
 点击<code>new request</code>再点击<code>create new request</code>
 - 第五步：对方接受到pull request后会在pull request的地方显示一个数字，审核后<code>merge</code>一下即可（merge pull request）。
 
+> 暂存
+
+stash命令可以很好的解决这样的问题。当你不想提交当前完成了一半的代码，但是却不得不修改一个紧急Bug，那么使用<code>Git stash</code>就可以将你当前未提交到本地(和服务器)的代码推入到git的栈中，这时候你的工作区间和上一次提交的内容是完全一样的，所以你可以放心的修 Bug，等到修完Bug，提交到服务器上后，再使用<code>git stash apply</code>将以前一半的工作应用回来。
+
+当你多次使用'git stash'命令后，你的栈里将充满了未提交的代码，这时候你会对将哪个版本应用回来有些困惑，<code>git stash list</code>命令可以将当前的Git栈信息打印出来，你只需要将找到对应的版本号，例如使用<code>git stash apply stash@{1}</code>就可以将你指定版本号为stash@{1}的工作取出来，当你将所有的栈都应用回来的时候，可以使用<code>git stash clear</code>来将栈清空
 
