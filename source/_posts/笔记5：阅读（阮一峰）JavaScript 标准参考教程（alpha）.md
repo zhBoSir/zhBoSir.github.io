@@ -79,3 +79,10 @@ arr.toString() // "1,2,3"
 var arr = [1, 2, 3, [4, 5, 6]];
 arr.toString() // "1,2,3,4,5,6"
 ```
+
+**64.** 
+```
+var obj = { 0: 'a', 1: 'b', length: 2 };
+Array.prototype.join.call(obj, '-')
+// 'a-b'
+```
