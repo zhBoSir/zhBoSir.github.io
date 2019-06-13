@@ -52,6 +52,14 @@ date: 2019-05-12 00:29:39
 - 第一步：<code>git checkout [要合并其他分支上内容的分支]</code>切换到接受修改的分支上，比如：在dev分支上修改了内容，想把内容合并到master分支，目前在dev分支上，就需要先切换到master分支上。
 - 第二步：<code>git merge [有新内容的分支名]</code> 执行merge命令。如：要把dev分支上的内容合并到master分支上，那么就是git merge dev
 
+>切换分支
+- <code>git checkout -b [本地创建分支名] origin/[远程分支名]</code>把分支切换到远程仓库新建的分支上，并在本地创建和远程分支对应的本地分支名
+
+>新建分支、删除分支
+- <code>git push --set-upstream origin [分支名]</code>新建远程分支 
+- <code>git branch -d [分支名]</code>删除分支
+- <code>git push origin -d [分支名]</code>删除远程分支
+
 >冲突===============================
 - git merge合并的时候出现冲突时，看一下是哪个文件冲突了。然后用<code>vim 文件名</code>打开文件，把文件里面的由于冲突产生的特殊标记删除掉，Head表示的是当前分支的内容，然后把冲突的地方不需要的代码删除掉。再用<code>git add .</code>后再用<code>git commit </code>提交即可【注意这一步commit的时候是不能带文件名的】。
 
