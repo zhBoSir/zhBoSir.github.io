@@ -1,5 +1,5 @@
 ---
-title: 笔记4：阅读（阮一峰）JavaScript 标准参考教程（alpha）
+title: 笔记5：阅读（阮一峰）JavaScript 标准参考教程（alpha）
 date: 2019-06-06 12:06:39
 ---
 
@@ -85,4 +85,161 @@ arr.toString() // "1,2,3,4,5,6"
 var obj = { 0: 'a', 1: 'b', length: 2 };
 Array.prototype.join.call(obj, '-')
 // 'a-b'
+```
+
+**65.**
+所谓“包装对象”，指的是与数值、字符串、布尔值分别相对应的Number、String、Boolean三个原生对象。这三个原生对象可以把原始类型的值变成（包装成）对象。
+```
+var v1 = new Number(123);
+var v2 = new String('abc');
+var v3 = new Boolean(true);
+
+typeof v1 // "object"
+typeof v2 // "object"
+typeof v3 // "object"
+
+v1 === 123 // false
+v2 === 'abc' // false
+v3 === true // false
+```
+上面代码中，基于原始类型的值，生成了三个对应的包装对象。可以看到，v1、v2、v3都是对象，且与对应的简单类型值不相等。
+```
+// 字符串转为数值
+Number('123') // 123
+
+// 数值转为字符串
+String(123) // "123"
+
+// 数值转为布尔值
+Boolean(123) // true
+```
+总结一下，这三个对象作为构造函数使用（带有new）时，可以将原始类型的值转为对象；作为普通函数使用时（不带有new），可以将任意类型的值，转为原始类型的值。
+
+**66.**
+valueOf()方法返回包装对象实例对应的原始类型的值。
+```
+new Number(123).valueOf()  // 123
+new String('abc').valueOf() // "abc"
+new Boolean(true).valueOf() // true
+```
+
+**67.** 
+注意，false对应的包装对象实例，布尔运算结果也是true。
+```
+if (new Boolean(false)) {
+  console.log('true');
+} // true
+
+if (new Boolean(false).valueOf()) {
+  console.log('true');
+} // 无输出
+```
+上面代码的第一个例子之所以得到true，是因为false对应的包装对象实例是一个对象，进行逻辑运算时，被自动转化成布尔值true（因为所有对象对应的布尔值都是true）。而实例的valueOf方法，则返回实例对应的原始值，本例为false。
+
+**68.** 
+对于一些特殊值，Boolean对象前面加不加new，会得到完全相反的结果，必须小心。
+```
+if (Boolean(false)) {
+  console.log('true');
+} // 无输出
+
+if (new Boolean(false)) {
+  console.log('true');
+} // true
+
+if (Boolean(null)) {
+  console.log('true');
+} // 无输出
+
+if (new Boolean(null)) {
+  console.log('true');
+} // true
+```
+**69.** 
+```
+Boolean(undefined) // false
+Boolean(null) // false
+Boolean(0) // false
+Boolean('') // false
+Boolean(NaN) // false
+
+Boolean(1) // true
+Boolean('false') // true
+Boolean([]) // true
+Boolean({}) // true
+Boolean(function () {}) // true
+Boolean(/foo/) // true
+```
+上面代码中几种得到true的情况，都值得认真记住。
+
+**70.**
+Number对象部署了自己的toString方法，用来将一个数值转为字符串形式。
+```
+(10).toString() // "10"
+```
+toString方法可以接受一个参数，表示输出的进制。如果省略这个参数，默认将数值先转为十进制，再输出字符串；否则，就根据参数指定的进制，将一个数字转化成某个进制的字符串。
+```
+(10).toString(2) // "1010"
+(10).toString(8) // "12"
+(10).toString(16) // "a"
+```
+上面代码中，10一定要放在括号里，这样表明后面的点表示调用对象属性。如果不加括号，这个点会被 JavaScript 引擎解释成小数点，从而报错。
+
+**71.**
+通过方括号运算符也可以调用toString方法。
+```
+10['toString'](2) // "1010"
+```
+
+**72.**
+toFixed()方法先将一个数转为指定位数的小数，然后返回这个小数对应的字符串。
+```
+(10).toFixed(2) // "10.00"
+10.005.toFixed(2) // "10.01"
+```
+由于浮点数的原因，小数5的四舍五入是不确定的，使用的时候必须小心。
+```
+(10.055).toFixed(2) // 10.05
+(10.005).toFixed(2) // 10.01
+```
+
+**73.** 
+replace方法用于替换匹配的子字符串，一般情况下只替换第一个匹配（除非使用带有g修饰符的正则表达式）。
+```
+'aaa'.replace('a', 'b') // "baa"
+```
+
+**74.**
+如果分割规则为空字符串，则返回数组的成员是原字符串的每一个字符。
+```
+'a|b|c'.split('') // ["a", "|", "b", "|", "c"]
+```
+如果省略参数，则返回数组的唯一成员就是原字符串。
+```
+'a|b|c'.split() // ["a|b|c"]
+```
+如果满足分割规则的两个部分紧邻着（即两个分割符中间没有其他字符），则返回数组之中会有一个空字符串。
+```
+'a||c'.split('|') // ['a', '', 'c']
+```
+如果满足分割规则的部分处于字符串的开头或结尾（即它的前面或后面没有其他字符），则返回数组的第一个或最后一个成员是一个空字符串。
+```
+'|b|c'.split('|') // ["", "b", "c"]
+'a|b|'.split('|') // ["a", "b", ""]
+```
+
+**75.** 
+实现一个总是返回数值的整数部分的函数。
+```
+function ToInteger(x) {
+  x = Number(x);
+  return x < 0 ? Math.ceil(x) : Math.floor(x);
+}
+
+ToInteger(3.2) // 3
+ToInteger(3.5) // 3
+ToInteger(3.8) // 3
+ToInteger(-3.2) // -3
+ToInteger(-3.5) // -3
+ToInteger(-3.8) // -3
 ```
