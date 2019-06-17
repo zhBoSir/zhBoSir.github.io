@@ -243,3 +243,68 @@ ToInteger(-3.2) // -3
 ToInteger(-3.5) // -3
 ToInteger(-3.8) // -3
 ```
+
+**额外补充1** 
+> 数组的some()
+
+some方法是只要一个成员的返回值是true，则整个some方法的返回值就是true，否则返回false。
+```
+var arr = [1, 2, 3, 4, 5];
+arr.some(function (elem, index, arr) {
+  return elem >= 3;
+});
+// true
+```
+> 数组的every()
+
+every方法是所有成员的返回值都是true，整个every方法才返回true，否则返回false。
+```
+var arr = [1, 2, 3, 4, 5];
+arr.every(function (elem, index, arr) {
+  return elem >= 3;
+});
+// false
+```
+
+**额外补充2**数组的reduce()，reduceRight()
+
+reduce方法和reduceRight方法依次处理数组的每个成员，最终累计为一个值。它们的差别是，reduce是从左到右处理（从第一个成员到最后一个成员），reduceRight则是从右到左（从最后一个成员到第一个成员），其他完全一样。
+```
+[1, 2, 3, 4, 5].reduce(function (a, b) {
+  console.log(a, b);
+  return a + b;
+})
+// 1 2
+// 3 3
+// 6 4
+// 10 5
+//最后结果：15
+```
+
+reduce方法和reduceRight方法的第一个参数都是一个函数。该函数接受以下四个参数。
+
+累积变量，默认为数组的第一个成员
+
+当前变量，默认为数组的第二个成员
+
+当前位置（从0开始）
+
+原数组
+
+这四个参数之中，只有前两个是必须的，后两个则是可选的。
+
+如果要对累积变量指定初值，可以把它放在reduce方法和reduceRight方法的第二个参数。
+```
+[1, 2, 3, 4, 5].reduce(function (a, b) {
+  return a + b;
+}, 10);
+// 25
+```
+上面代码指定参数a的初值为10，所以数组从10开始累加，最终结果为25。注意，这时b是从数组的第一个成员开始遍。
+
+**额外补充3** 
+```
+[NaN].indexOf(NaN) // -1
+[NaN].lastIndexOf(NaN) // -1
+```
+NaN是唯一一个不等于自身的值。
