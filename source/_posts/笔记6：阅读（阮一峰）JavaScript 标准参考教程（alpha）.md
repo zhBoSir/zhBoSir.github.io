@@ -133,3 +133,12 @@ function leftDays() {
   return Math.round((endYear.getTime() - today.getTime()) / msPerDay);
 }
 ```
+
+**86.**
+正则表达式消除字符串首尾两端的空格。
+```
+var str = '  #id div.class  ';
+
+str.replace(/^\s+|\s+$/g, '')
+// "#id div.class"
+```
