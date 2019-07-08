@@ -284,3 +284,71 @@ JavaScript 运行时，除了一个正在运行的主线程，引擎还提供一
 首先，主线程会去执行所有的同步任务。等到同步任务全部执行完，就会去看任务队列里面的异步任务。如果满足条件，那么异步任务就重新进入主线程开始执行，这时它就变成同步任务了。等到执行完，下一个异步任务再进入主线程开始执行。一旦任务队列清空，程序就结束执行。
 
 异步任务的写法通常是回调函数。一旦异步任务重新进入主线程，就会执行对应的回调函数。如果一个异步任务没有回调函数，就不会进入任务队列，也就是说，不会重新进入主线程，因为没有用回调函数指定下一步的操作。
+
+**104.** setTimeout有一个需要注意的地方，如果回调函数是对象的方法，那么setTimeout使得方法内部的this关键字指向全局环境，而不是定义时所在的那个对象。
+```
+var x = 1;
+
+var obj = {
+  x: 2,
+  y: function () {
+    console.log(this.x);
+  }
+};
+
+setTimeout(obj.y, 1000) // 1
+```
+上面代码输出的是1，而不是2。因为当obj.y在1000毫秒后运行时，this所指向的已经不是obj了，而是全局环境。
+为了防止出现这个问题，一种解决方法是将obj.y放入一个函数。
+```
+var x = 1;
+
+var obj = {
+  x: 2,
+  y: function () {
+    console.log(this.x);
+  }
+};
+
+setTimeout(function () {
+  obj.y();
+}, 1000);
+// 2
+```
+上面代码中，obj.y放在一个匿名函数之中，这使得obj.y在obj的作用域执行，而不是在全局作用域内执行，所以能够显示正确的值。
+
+另一种解决方法是，使用bind方法，将obj.y这个方法绑定在obj上面。
+```
+var x = 1;
+
+var obj = {
+  x: 2,
+  y: function () {
+    console.log(this.x);
+  }
+};
+
+setTimeout(obj.y.bind(obj), 1000)
+// 2
+```
+
+**105.** setInterval例子
+```
+var hash = window.location.hash;
+var hashWatcher = setInterval(function() {
+  if (window.location.hash != hash) {
+    updatePage();
+  }
+}, 1000);
+```
+setInterval指定的是“开始执行”之间的间隔，并不考虑每次任务执行本身所消耗的时间。因此实际上，两次执行之间的间隔会小于指定的时间。比如，setInterval指定每 100ms 执行一次，每次执行需要 5ms，那么第一次执行结束后95毫秒，第二次执行就会开始。如果某次执行耗时特别长，比如需要105毫秒，那么它结束后，下一次执行就会立即开始。
+
+为了确保两次执行之间有固定的间隔，可以不用setInterval，而是每次执行结束后，使用setTimeout指定下一次执行的具体时间。
+```
+var i = 1;
+var timer = setTimeout(function f() {
+  // ...
+  timer = setTimeout(f, 2000);
+}, 2000);
+```
+上面代码可以确保，下一次执行总是在本次执行结束之后的2000毫秒开始。
