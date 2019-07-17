@@ -164,3 +164,21 @@ var rect = document.body.getBoundingClientRect();
 Object.keys(rect) // []
 ```
 上面代码中，rect对象没有自身属性，而Object.keys方法只返回对象自身的属性，所以返回了一个空数组。
+
+**131.** <font color="orange"> <code>Element.focus()，Element.blur()</code>
+
+Element.focus方法用于将当前页面的焦点，转移到指定元素上。
+```
+document.getElementById('my-span').focus();
+```
+该方法可以接受一个对象作为参数。参数对象的preventScroll属性是一个布尔值，指定是否将当前元素停留在原始位置，而不是滚动到可见区域。
+```
+function getFocus() {
+  document.getElementById('btn').focus({preventScroll:false});
+}
+```
+上面代码会让btn元素获得焦点，并滚动到可见区域。
+
+最后，从document.activeElement属性可以得到当前获得焦点的元素。
+
+Element.blur方法用于将焦点从当前元素移除。</font>
