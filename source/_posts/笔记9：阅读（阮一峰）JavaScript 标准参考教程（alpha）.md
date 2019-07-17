@@ -122,3 +122,45 @@ function getElementPosition(e) {
   return {x: x, y: y};
 }
 ```
+
+**129.** <code>Element.scrollIntoView()</code>
+
+Element.scrollIntoView方法<code>滚动当前元素，进入浏览器的可见区域</code>，类似于设置window.location.hash的效果。
+```
+el.scrollIntoView(); // 等同于el.scrollIntoView(true)
+el.scrollIntoView(false);
+```
+该方法可以接受一个布尔值作为参数。如果为true，表示元素的顶部与当前区域的可见部分的顶部对齐（前提是当前区域可滚动）；如果为false，表示元素的底部与当前区域的可见部分的尾部对齐（前提是当前区域可滚动）。如果没有提供该参数，默认为true。
+
+**130.** <code>Element.getBoundingClientRect</code>方法返回一个对象，提供当前元素节点的大小、位置等信息，基本上就是 CSS 盒状模型的所有信息。
+```
+var rect = obj.getBoundingClientRect();
+```
+上面代码中，getBoundingClientRect方法返回的rect对象，具有以下属性（全部为只读）。
+
+<code>x</code>：元素左上角相对于视口的横坐标
+
+<code>y</code>：元素左上角相对于视口的纵坐标
+
+<code>height</code>：元素高度
+
+<code>width</code>：元素宽度
+
+<code>left</code>：元素左上角相对于视口的横坐标，与x属性相等
+
+<code>right</code>：元素右边界相对于视口的横坐标（等于x + width）
+
+<code>top</code>：元素顶部相对于视口的纵坐标，与y属性相等
+
+<code>bottom</code>：元素底部相对于视口的纵坐标（等于y + height）
+
+由于元素相对于视口（viewport）的位置，会随着页面滚动变化，因此表示位置的四个属性值，都不是固定不变的。如果想得到绝对位置，可以将left属性加上window.scrollX，top属性加上window.scrollY。dd
+
+注意，getBoundingClientRect方法的所有属性，都把边框（border属性）算作元素的一部分。也就是说，都是从边框外缘的各个点来计算。因此，width和height包括了元素本身 + padding + border。
+
+另外，上面的这些属性，都是继承自原型的属性，Object.keys会返回一个空数组，这一点也需要注意。
+```
+var rect = document.body.getBoundingClientRect();
+Object.keys(rect) // []
+```
+上面代码中，rect对象没有自身属性，而Object.keys方法只返回对象自身的属性，所以返回了一个空数组。
