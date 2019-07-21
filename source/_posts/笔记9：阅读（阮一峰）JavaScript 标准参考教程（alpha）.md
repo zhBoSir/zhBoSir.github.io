@@ -182,3 +182,67 @@ function getFocus() {
 最后，从document.activeElement属性可以得到当前获得焦点的元素。
 
 Element.blur方法用于将焦点从当前元素移除。</font>
+
+**132.** 
+```
+// HTML 代码为
+// <button>Hello World</button>
+var b = document.querySelector('button');
+b.setAttribute('name', 'myButton');
+b.setAttribute('disabled', true);
+```
+上面代码中，button元素的name属性被设成myButton，disabled属性被设成true。
+
+这里有两个地方需要注意，首先，属性值总是字符串，其他类型的值会自动转成字符串，比如布尔值true就会变成字符串true；其次，上例的disable属性是一个布尔属性，对于&lt;button&gt;元素来说，这个属性不需要属性值，只要设置了就总是会生效，因此setAttribute方法里面可以将disabled属性设成任意值。
+
+**133.**
+
+操作 CSS 样式最简单的方法，就是使用网页元素节点的getAttribute方法、setAttribute方法和removeAttribute方法，直接读写或删除网页元素的style属性。
+```
+div.setAttribute(
+  'style',
+  'background-color:red;' + 'border:1px solid black;'
+);
+```
+上面的代码相当于下面的 HTML 代码。
+```
+<div style="background-color:red; border:1px solid black;" />
+```
+
+**134.** 
+
+删除一个元素的所有行内样式，最简便的方法就是设置cssText为空字符串。
+```
+divStyle.cssText = '';
+```
+
+**134.**
+
+实例：<code>添加样式表</code>
+
+网页添加样式表有两种方式。一种是添加一张内置样式表，即在文档中添加一个&lt;style&gt;节点。
+```
+// 写法一
+var style = document.createElement('style');
+style.setAttribute('media', 'screen');
+style.innerHTML = 'body{color:red}';
+document.head.appendChild(style);
+
+// 写法二
+var style = (function () {
+  var style = document.createElement('style');
+  document.head.appendChild(style);
+  return style;
+})();
+style.sheet.insertRule('.foo{color:red;}', 0);
+```
+
+另一种是添加外部样式表，即在文档中添加一个<link>节点，然后将href属性指向外部样式表的 URL。
+```
+var linkElm = document.createElement('link');
+linkElm.setAttribute('rel', 'stylesheet');
+linkElm.setAttribute('type', 'text/css');
+linkElm.setAttribute('href', 'reset-min.css');
+
+document.head.appendChild(linkElm);
+```
