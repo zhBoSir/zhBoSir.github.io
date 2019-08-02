@@ -60,3 +60,13 @@ var spans = firstPara.getElementsByTagName('span');
 ```
 上面代码选中第一个p元素内部的所有span元素。
 
+**139.** <code>事件的传播</code>
+
+一个事件发生后，会在子元素和父元素之间传播（propagation）。这种传播分成三个阶段。
+
+第一阶段：从window对象传导到目标节点（上层传到底层），<code>称为“捕获阶段”（capture phase）</code>。
+
+第二阶段：在目标节点上触发，<code>称为“目标阶段”（target phase）</code>。
+
+第三阶段：从目标节点传导回window对象（从底层传回上层），<code>称为“冒泡阶段”（bubbling phase）</code>。
+
