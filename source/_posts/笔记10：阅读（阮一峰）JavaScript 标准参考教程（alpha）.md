@@ -70,3 +70,5 @@ var spans = firstPara.getElementsByTagName('span');
 
 第三阶段：从目标节点传导回window对象（从底层传回上层），<code>称为“冒泡阶段”（bubbling phase）</code>。
 
+**140.** click事件指的是，用户在同一个位置先完成mousedown动作，再完成mouseup动作。因此，触发顺序是，mousedown首先触发，mouseup接着触发，click最后触发。
+
