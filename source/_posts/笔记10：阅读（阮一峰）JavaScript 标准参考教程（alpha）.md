@@ -72,3 +72,39 @@ var spans = firstPara.getElementsByTagName('span');
 
 **140.** click事件指的是，用户在同一个位置先完成mousedown动作，再完成mouseup动作。因此，触发顺序是，mousedown首先触发，mouseup接着触发，click最后触发。
 
+**141.** <code>事件的代理</code>
+由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件。这种方法叫做事件的代理（delegation）。
+```
+var ul = document.querySelector('ul');
+
+ul.addEventListener('click', function (event) {
+  if (event.target.tagName.toLowerCase() === 'li') {
+    // some code
+  }
+});
+```
+上面代码中，click事件的监听函数定义在ul节点，但是实际上，它处理的是子节点li的click事件。这样做的好处是，只要定义一个监听函数，就能处理多个子节点的事件，而不用在每个li节点上定义监听函数。而且以后再添加子节点，监听函数依然有效。
+
+如果希望事件到某个节点为止，不再传播，可以使用事件对象的stopPropagation方法。
+```
+// 事件传播到 p 元素后，就不再向下传播了
+p.addEventListener('click', function (event) {
+  event.stopPropagation();
+}, true);
+
+// 事件冒泡到 p 元素后，就不再向上冒泡了
+p.addEventListener('click', function (event) {
+  event.stopPropagation();
+}, false);
+```
+
+**142.** 为了让元素节点可拖拉，可以将该节点的draggable属性设为true。
+```
+<div draggable="true">
+  此区域可拖拉
+</div>
+```
+draggable属性可用于任何元素节点，但是图片（img）和链接（a）不加这个属性，就可以拖拉。对于它们，用到这个属性的时候，往往是将其设为false，防止拖拉这两种元素。
+
+**143.** <font color="gold">假如有一个scroll事件，<code>requestAnimationFrame</code>方法保证每次页面重绘（每秒60次），只会触发一次scroll事件的监听函数。也就是说，将scroll事件的触发频率，限制在每秒60次。</font>
+
