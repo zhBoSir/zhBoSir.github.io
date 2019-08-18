@@ -108,3 +108,31 @@ draggable属性可用于任何元素节点，但是图片（img）和链接（a�
 
 **143.** <font color="gold">假如有一个scroll事件，<code>requestAnimationFrame</code>方法保证每次页面重绘（每秒60次），只会触发一次scroll事件的监听函数。也就是说，将scroll事件的触发频率，限制在每秒60次。</font>
 
+**144.** 用户在页面上按下鼠标的右键，会触发contextmenu事件，导致执行oncontextmenu()。如果该属性执行后返回false，就等于禁止了右键菜单。document.oncontextmenu与window.oncontextmenu效果一样。
+```
+document.oncontextmenu = function () {
+  return false;
+};
+```
+上面代码中，oncontextmenu属性执行后返回false，右键菜单就不会出现。
+
+**145.** 如果type属性的值，浏览器不认识，那么它不会执行其中的代码。利用这一点，可以在&lt;script&gt;标签之中嵌入任意的文本内容，只要加上一个浏览器不认识的type属性即可。
+```
+<script id="mydata" type="x-custom-data">
+  console.log('Hello World');
+</script>
+```
+上面的代码，浏览器不会执行，也不会显示它的内容，因为不认识它的type属性。但是，这个&lt;script&gt;节点依然存在于 DOM 之中，可以使用&lt;script&gt;节点的text属性读出它的内容。
+```
+document.getElementById('mydata').text
+//   console.log('Hello World');
+```
+
+**146.** 为了防止攻击者篡改外部脚本，script标签允许设置一个integrity属性，写入该外部脚本的 Hash 签名，用来验证脚本的一致性。
+```
+<script src="/assets/application.js"
+  integrity="sha256-TvVUHzSfftWg1rcfL6TIJ0XKEGrgLyEq6lEpcmrG9qs=">
+</script>
+```
+上面代码中，script标签有一个integrity属性，指定了外部脚本/assets/application.js的 SHA256 签名。一旦有人改了这个脚本，导致 SHA256 签名不匹配，浏览器就会拒绝加载。
+
