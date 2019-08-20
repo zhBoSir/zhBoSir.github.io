@@ -135,3 +135,18 @@ all_my_elements.forEach(doubleHeight);
 上面的第一段代码，每读一次 DOM，就写入新的值，会造成不停的重排和重流。第二段代码把所有的写操作，都累积在一起，从而 DOM 代码变动的代价就最小化了。
 
 **158.** JavaScript 是一种解释型语言，也就是说，它不需要编译，由解释器实时运行。
+
+**159.** 由于<code>window.open()</code>这个方法很容易被滥用，许多浏览器默认都不允许脚本自动新建窗口。只允许在用户点击链接或按钮时，脚本做出反应，弹出新窗口。因此，有必要检查一下打开新窗口是否成功。
+```
+var popup = window.open();
+if (popup === null) {
+  // 新建窗口失败
+}
+```
+
+<code>window.close()</code>
+
+window.close方法用于关闭当前窗口，一般只用来关闭window.open方法新建的窗口。
+
+popup.close()
+该方法只对顶层窗口有效，iframe框架之中的窗口使用该方法无效。
