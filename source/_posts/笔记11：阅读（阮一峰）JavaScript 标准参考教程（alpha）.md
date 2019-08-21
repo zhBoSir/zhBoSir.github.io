@@ -134,6 +134,35 @@ all_my_elements.forEach(doubleHeight);
 ```
 上面的第一段代码，每读一次 DOM，就写入新的值，会造成不停的重排和重流。第二段代码把所有的写操作，都累积在一起，从而 DOM 代码变动的代价就最小化了。
 
+<hr/>
+
+window.requestAnimationFrame()方法跟setTimeout类似，都是推迟某个函数的执行。不同之处在于，setTimeout必须指定推迟的时间，window.requestAnimationFrame()则是推迟到浏览器下一次重流时执行，执行完才会进行下一次重绘。重绘通常是 16ms 执行一次，不过浏览器会自动调节这个速率，比如网页切换到后台 Tab 页时，requestAnimationFrame()会暂停执行。
+
+<hr/>
+下面是一个window.requestAnimationFrame()执行网页动画的例子。
+
+```
+var element = document.getElementById('animate');
+element.style.position = 'absolute';
+
+var start = null;
+
+function step(timestamp) {
+  if (!start) start = timestamp;
+  var progress = timestamp - start;
+  // 元素不断向左移，最大不超过200像素
+  element.style.left = Math.min(progress / 10, 200) + 'px';
+  // 如果距离第一次执行不超过 2000 毫秒，
+  // 就继续执行动画
+  if (progress < 2000) {
+    window.requestAnimationFrame(step);
+  }
+}
+
+window.requestAnimationFrame(step);
+```
+上面代码定义了一个网页动画，持续时间是2秒，会让元素向右移动。
+
 **158.** JavaScript 是一种解释型语言，也就是说，它不需要编译，由解释器实时运行。
 
 **159.** 由于<code>window.open()</code>这个方法很容易被滥用，许多浏览器默认都不允许脚本自动新建窗口。只允许在用户点击链接或按钮时，脚本做出反应，弹出新窗口。因此，有必要检查一下打开新窗口是否成功。
@@ -150,3 +179,37 @@ window.close方法用于关闭当前窗口，一般只用来关闭window.open方
 
 popup.close()
 该方法只对顶层窗口有效，iframe框架之中的窗口使用该方法无效。
+
+**160.** window.scrollBy()方法用于将网页滚动指定距离（单位像素）。它接受两个参数：水平向右滚动的像素，垂直向下滚动的像素。
+```
+window.scrollBy(0, window.innerHeight)
+```
+上面代码用于将网页向下滚动一屏。
+
+**161.** iframe 元素
+
+对于iframe嵌入的窗口，document.getElementById方法可以拿到该窗口的 DOM 节点，然后使用contentWindow属性获得iframe节点包含的window对象。
+```
+var frame = document.getElementById('theFrame');
+var frameWindow = frame.contentWindow;
+```
+上面代码中，frame.contentWindow可以拿到子窗口的window对象。然后，在满足同源限制的情况下，可以读取子窗口内部的属性。
+```
+// 获取子窗口的标题
+frameWindow.title
+&lt;iframe&gt;元素的contentDocument属性，可以拿到子窗口的document对象。
+
+var frame = document.getElementById('theFrame');
+var frameDoc = frame.contentDocument;
+
+// 等同于
+var frameDoc = frame.contentWindow.document;
+```
+&lt;iframe&gt;元素遵守同源政策，只有当父窗口与子窗口在同一个域时，两者之间才可以用脚本通信，否则只有使用window.postMessage方法。
+
+&lt;iframe&gt;窗口内部，使用window.parent引用父窗口。如果当前页面没有父窗口，则window.parent属性返回自身。因此，可以通过window.parent是否等于window.self，判断当前窗口是否为iframe窗口。
+```
+if (window.parent !== window.self) {
+  // 当前窗口是子窗口
+}
+```
