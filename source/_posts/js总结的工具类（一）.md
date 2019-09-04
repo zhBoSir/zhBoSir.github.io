@@ -93,3 +93,6 @@ let result = arr.sort().reduce((init, current) => {
 }, []);
 console.log(result); //[1,2,3,4,5]
 ```
+参考来源：
+
+[Array.prototype.reduce()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
