@@ -213,3 +213,120 @@ if (window.parent !== window.self) {
   // 当前窗口是子窗口
 }
 ```
+
+**162.** Screen 对象
+
+Screen.orientation：返回一个对象，表示屏幕的方向。该对象的type属性是一个字符串，表示屏幕的具体方向，landscape-primary表示横放，landscape-secondary表示颠倒的横放，portrait-primary表示竖放，portrait-secondary。
+
+下面的例子保证屏幕分辨率大于 1024 x 768。
+```
+if (window.screen.width >= 1024 && window.screen.height >= 768) {
+  // 分辨率不低于 1024x768
+}
+```
+
+下面是根据屏幕的宽度，将用户导向不同网页的代码。
+```
+if ((screen.width <= 800) && (screen.height <= 600)) {
+  window.location.replace('small.html');
+} else {
+  window.location.replace('wide.html');
+}
+```
+
+**163.**
+## Cookie概述
+Cookie 是服务器保存在浏览器的一小段文本信息，每个 Cookie 的大小一般不能超过4KB。浏览器每次向服务器发出请求，就会自动附上这段信息。
+
+Cookie 主要用来分辨两个请求是否来自同一个浏览器，以及用来保存一些状态信息。它的常用场合有以下一些。
+
+对话（session）管理：保存登录、购物车等需要记录的信息。
+个性化：保存用户的偏好，比如网页的字体大小、背景色等等。
+追踪：记录和分析用户行为。
+有些开发者使用 Cookie 作为客户端储存。这样做虽然可行，但是并不推荐，因为 Cookie 的设计目标并不是这个，它的容量很小（4KB），缺乏数据操作接口，而且会影响性能。客户端储存应该使用 Web storage API 和 IndexedDB。
+
+Cookie 包含以下几方面的信息。
+
+- Cookie 的名字
+- Cookie 的值（真正的数据写在这里面）
+- 到期时间
+- 所属域名（默认是当前域名）
+- 生效的路径（默认是当前网址）
+
+## HTTP 请求：Cookie 的发送
+浏览器向服务器发送 HTTP 请求时，每个请求都会带上相应的 Cookie。也就是说，把服务器早前保存在浏览器的这段信息，再发回服务器。这时要使用 HTTP 头信息的Cookie字段。
+```
+Cookie: foo=bar
+```
+上面代码会向服务器发送名为foo的 Cookie，值为bar。
+
+Cookie字段可以包含多个 Cookie，使用分号（;）分隔。
+下面是一个例子。
+```
+GET /sample_page.html HTTP/1.1
+Host: www.example.org
+Cookie: yummy_cookie=choco; tasty_cookie=strawberry
+```
+
+document.cookie属性是可写的，可以通过它为当前网站添加 Cookie。
+```
+document.cookie = 'fontSize=14';
+```
+写入的时候，Cookie 的值必须写成key=value的形式。注意，等号两边不能有空格。另外，写入 Cookie 的时候，必须对分号、逗号和空格进行转义（它们都不允许作为 Cookie 的值），这可以用encodeURIComponent方法达到。
+
+但是，document.cookie一次只能写入一个 Cookie，而且写入并不是覆盖，而是添加。
+```
+document.cookie = 'test1=hello';
+document.cookie = 'test2=world';
+document.cookie
+// test1=hello;test2=world
+```
+
+document.cookie写入 Cookie 的例子如下。
+```
+document.cookie = 'fontSize=14; '
+  + 'expires=' + someDate.toGMTString() + '; '
+  + 'path=/subdirectory; '
+  + 'domain=*.example.com';
+```
+Cookie 的属性一旦设置完成，就没有办法读取这些属性的值。
+
+删除一个现存 Cookie 的唯一方法，是设置它的expires属性为一个过去的日期。
+```
+document.cookie = 'fontSize=;expires=Thu, 01-Jan-1970 00:00:01 GMT';
+```
+上面代码中，名为fontSize的 Cookie 的值为空，过期时间设为1970年1月1月零点，就等同于删除了这个 Cookie。
+
+**164.** 
+
+通过 JavaScript 的异步通信，从服务器获取 XML 文档从中提取数据，再更新当前网页的对应部分，而不用刷新整个网页。后来，AJAX 这个词就成为 JavaScript 脚本发起 HTTP 通信的代名词，也就是说，只要用脚本发起通信，就可以叫做 AJAX 通信。
+
+AJAX 包括以下几个步骤。
+
+- 创建 XMLHttpRequest 实例
+- 发出 HTTP 请求
+- 接收服务器传回的数据
+- 更新网页数据
+
+下面是XMLHttpRequest对象简单用法的完整例子。
+```
+var xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = function(){
+  // 通信成功时，状态值为4
+  if (xhr.readyState === 4){
+    if (xhr.status === 200){
+      console.log(xhr.responseText);
+    } else {
+      console.error(xhr.statusText);
+    }
+  }
+};
+
+xhr.onerror = function (e) {
+  console.error(xhr.statusText);
+};
+
+xhr.open('GET', '/endpoint', true);
+xhr.send(null);
+```
