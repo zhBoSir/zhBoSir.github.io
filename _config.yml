@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 【稻稻派】
 subtitle:
 description: '自律、沉淀...'
 keywords:
@@ -86,4 +86,4 @@ deploy:
 live2d:
   model: wanko
   bottom: -30
-  mobileShow: false 
+  mobileShow: false

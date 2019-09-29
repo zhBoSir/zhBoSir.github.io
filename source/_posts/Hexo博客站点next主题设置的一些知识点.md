@@ -8,6 +8,8 @@ tags:
 2018最新版Hexo博客Next主题6.0配置优化
 [https://blog.csdn.net/qq_32454537/article/details/79482896](https://blog.csdn.net/qq_32454537/article/details/79482896)
 
+[next主题官网](http://theme-next.iissnan.com/)
+
 > **1.next主题下有4种Scheme外观**
 
 Scheme的切换是通过更改<code>主题</code>配置文件（即next主题文件夹下_config.yml），搜索 scheme 关键字， 你会看到有四行 scheme 的配置，将你需用启用的 scheme 前面注释 # 去除即可。
