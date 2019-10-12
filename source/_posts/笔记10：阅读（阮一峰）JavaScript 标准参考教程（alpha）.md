@@ -156,3 +156,11 @@ reload方法使得浏览器重新加载当前网址，相当于按下浏览器�
 window.location.reload(true);
 ```
 
+** 149.** 
+
+<code>ArrayBuffer 对象</code>表示一段二进制数据，用来模拟内存里面的数据。
+
+<code>Blob 对象</code>表示一个二进制文件的数据内容，比如一个图片文件的内容就可以通过 Blob 对象读写。它通常用来读写文件，它的名字是 Binary Large Object （二进制大型对象）的缩写。它与 ArrayBuffer 的区别在于，它用于操作二进制文件，而 ArrayBuffer 用于操作内存。
+
+
+
