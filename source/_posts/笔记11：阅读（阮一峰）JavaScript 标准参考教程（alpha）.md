@@ -330,3 +330,52 @@ xhr.onerror = function (e) {
 xhr.open('GET', '/endpoint', true);
 xhr.send(null);
 ```
+
+165. JSONP
+
+JSONP 是服务器与客户端跨源通信的常用方法。最大特点就是简单易用，没有兼容性问题，老式浏览器全部支持，服务端改造非常小。
+
+它的做法如下。
+
+第一步，网页添加一个&lt;script&gt;元素，向服务器请求一个脚本，这不受同源政策限制，可以跨域请求。
+
+```
+<script src="http://api.foo.com?callback=bar"></script>
+```
+
+注意，请求的脚本网址有一个callback参数（?callback=bar），用来告诉服务器，客户端的回调函数名称（bar）。
+
+第二步，服务器收到请求后，拼接一个字符串，将 JSON 数据放在函数名里面，作为字符串返回（bar({...})）。
+
+第三步，客户端会将服务器返回的字符串，作为代码解析，因为浏览器认为，这是&lt;script&gt;标签请求的脚本内容。这时，客户端只要定义了bar()函数，就能在该函数体内，拿到服务器返回的 JSON 数据。
+
+下面看一个实例。首先，网页动态插入&lt;script&gt;元素，由它向跨域网址发出请求。
+
+```
+function addScriptTag(src) {
+  var script = document.createElement('script');
+  script.setAttribute('type', 'text/javascript');
+  script.src = src;
+  document.body.appendChild(script);
+}
+
+window.onload = function () {
+  addScriptTag('http://example.com/ip?callback=foo');
+}
+
+function foo(data) {
+  console.log('Your public IP address is: ' + data.ip);
+};
+```
+
+上面代码通过动态添加&lt;script&gt;元素，向服务器example.com发出请求。注意，该请求的查询字符串有一个callback参数，用来指定回调函数的名字，这对于 JSONP 是必需的。
+
+服务器收到这个请求以后，会将数据放在回调函数的参数位置返回。
+
+```
+foo({
+  'ip': '8.8.8.8'
+});
+```
+
+由于&lt;script&gt;元素请求的脚本，直接作为代码运行。这时，只要浏览器定义了foo函数，该函数就会立即调用。作为参数的 JSON 数据被视为 JavaScript 对象，而不是字符串，因此避免了使用JSON.parse的步骤。

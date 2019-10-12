@@ -136,3 +136,23 @@ document.getElementById('mydata').text
 ```
 上面代码中，script标签有一个integrity属性，指定了外部脚本/assets/application.js的 SHA256 签名。一旦有人改了这个脚本，导致 SHA256 签名不匹配，浏览器就会拒绝加载。
 
+**147.** 
+
+history.go(0); // 刷新当前页面
+
+<font color="red">
+注意，移动到以前访问过的页面时，页面通常是从浏览器缓存之中加载，而不是重新要求服务器发送新的网页。
+</font>
+
+** 148.**
+
+<code>Location.reload()</code>
+
+reload方法使得浏览器重新加载当前网址，相当于按下浏览器的刷新按钮。
+
+它接受一个布尔值作为参数。如果参数为true，浏览器将向服务器重新请求这个网页，并且重新加载后，网页将滚动到头部（即scrollTop === 0）。如果参数是false或为空，浏览器将从本地缓存重新加载该网页，并且重新加载后，网页的视口位置是重新加载前的位置。
+```
+// 向服务器重新请求当前网址
+window.location.reload(true);
+```
+
