@@ -4,7 +4,7 @@ date: 2019-01-10 17:02:38
 tags:
 ---
 
-> 点击非组件部分，让组件的弹框消失
+> <font color="gold">点击非组件部分，让组件的弹框消失</font>
 
 ```
 // vue代码，视具体情况具体修改
@@ -18,7 +18,7 @@ document.addEventListener('click', function (e) {
 
 ```
 
-> 判断是否是空对象
+> <font color="gold">判断是否是空对象</font>
 
 ```
 function isEmptyObject (obj) {
@@ -30,7 +30,7 @@ isEmptyObject({})  // 返回true
 isEmptyObject({'0': 'a'})  // 返回false
 ```
 
-> 数组reduce的示例：
+> <font color="gold">数组reduce的示例：</font>
 - 计算数组中每个元素出现的次数
 ```
 var names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
@@ -96,3 +96,29 @@ console.log(result); //[1,2,3,4,5]
 参考来源：
 
 [Array.prototype.reduce()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+
+> <font color="gold">判断是否是微信打开的页面</font>
+```
+export const isWeixin = () => {
+  var ua = navigator.userAgent.toLowerCase()
+  return /micromessenger/.test(ua)
+}
+```
+
+> <font color="gold">判断是否设备是Android</font>
+```
+export const isAndroid = () => {
+  var u = navigator.userAgent
+  var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1  // android终端
+  return isAndroid
+}
+```
+
+> <font color="gold">判断是否设备是ios设备</font>
+```
+export const isIOs = () => {
+  var u = navigator.userAgent
+  const isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) // ios终端
+  return isiOS
+}
+```
