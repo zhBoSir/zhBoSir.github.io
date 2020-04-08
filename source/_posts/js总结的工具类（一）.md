@@ -122,3 +122,50 @@ export const isIOs = () => {
   return isiOS
 }
 ```
+
+> <font color="gold">js判断设备是pc端还是移动端</font>
+```js
+function browserRedirect() {
+  const sUserAgent = navigator.userAgent.toLowerCase()
+  const bIsIpad = sUserAgent.match(/ipad/i) == "ipad"
+  const bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os"
+  const bIsMidp = sUserAgent.match(/midp/i) == "midp"
+  const bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4"
+  const bIsUc = sUserAgent.match(/ucweb/i) == "ucweb"
+  const bIsAndroid = sUserAgent.match(/android/i) == "android"
+  const bIsCE = sUserAgent.match(/windows ce/i) == "windows ce"
+  const bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile"
+  if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+    document.writeln("您的浏览设备为：phone")
+  } else {
+    document.writeln("您的浏览设备为：pc")
+  }
+}
+
+browserRedirect()
+```
+代码简化：
+```js
+function browserRedirect() {
+  const sUserAgent = navigator.userAgent.toLowerCase()
+  if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+    document.writeln("您的浏览设备为：phone")
+  } else {
+    document.writeln("您的浏览设备为：pc")
+  }
+}
+browserRedirect()
+```
+使用device.js插件来判断是否移动端设备
+
+插件GIT地址：https://github.com/matthewhudson/device.js
+
+参考：
+
+[详解JS判断页面是在手机端还是在PC端打开的方法](https://www.jb51.net/article/160272.htm)
+
+[js判断浏览器的环境（pc端，移动端，还是微信浏览器）](https://www.jb51.net/article/178066.htm)
+
+[js判断是移动端设备还是pc端设备代码](https://www.51xuediannao.com/javascript/jspdsyddsbhspcdsbdm_996.html)
+
+[JS-判断设备操作系统是Andorid还是IOS](https://blog.csdn.net/wang704987562/article/details/85227319)
