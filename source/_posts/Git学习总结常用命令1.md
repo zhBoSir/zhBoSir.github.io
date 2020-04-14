@@ -56,7 +56,7 @@ date: 2019-05-12 00:29:39
 - <code>git checkout -b [本地创建分支名] origin/[远程分支名]</code>把分支切换到远程仓库新建的分支上，并在本地创建和远程分支对应的本地分支名
 
 >新建分支、删除分支
-- <code>git push --set-upstream origin [分支名]</code>新建远程分支 
+- <code>git push --set-upstream origin [分支名]</code>新建远程分支 (也可以是把本地分支关联到这个远程分支上)
 - <code>git branch -d [分支名]</code>删除分支
 - <code>git push origin -d [分支名]</code>删除远程分支
 
