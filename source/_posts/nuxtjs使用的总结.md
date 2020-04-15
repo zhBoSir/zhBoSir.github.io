@@ -1,5 +1,5 @@
 ---
-title: Nuxt使用的总结
+title: nuxtjs使用的总结
 date: 2019-12-04 17:05:00
 ---
 
@@ -157,4 +157,6 @@ export default {
 参考：
 
 [Nuxt.js项目搭建配置踩坑](https://www.codercto.com/a/89756.html)
+
+[Nuxt.js知乎专题](https://www.zhihu.com/topic/20079546/top-answers)
 

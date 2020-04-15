@@ -3,9 +3,18 @@ title: vue中关于路由的一些知识点
 date: 2019-09-25 19:30:30
 ---
 
-> 监听路由发生变化
+> ### <font color="gold">router.push()、router.replace()、router.go()的区别</font>
 
-```
++ <code>router.push()</code>会向history栈(浏览器的历史记录)添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。
+
++ <code>router.replace()</code>不会向 history 添加新记录，而是替换掉当前的 history 记录。
+
++ <code>router.go()</code>方法的参数是一个整数，意思是在 history 记录中向前或者后退多少步，类似window.history.go(n) 
+
+
+> ### <font color="gold">监听路由发生变化</font>
+
+```js
 // 监听,当路由发生变化的时候执行
 watch:{
   $route(to,from){
@@ -43,7 +52,7 @@ methods: {
 - beforeRouteEnter
 - beforeRouteUpdate 
 - beforeRouteLeave
-```
+```js
 const Foo = {
   template: `...`,
   beforeRouteEnter (to, from, next) {
@@ -67,7 +76,7 @@ const Foo = {
 beforeRouteEnter 守卫 不能 访问 this，因为守卫在导航确认前被调用,因此即将登场的新组件还没被创建。
 
 不过，你可以通过传一个回调给 next来访问组件实例。在导航被确认的时候执行回调，并且把组件实例作为回调方法的参数。
-```
+```js
 beforeRouteEnter (to, from, next) {
   next(vm => {
     // 通过 `vm` 访问组件实例
