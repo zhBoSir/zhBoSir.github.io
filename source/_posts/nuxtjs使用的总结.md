@@ -3,7 +3,53 @@ title: nuxtjs使用的总结
 date: 2019-12-04 17:05:00
 ---
 
-> ## nuxtjs中window和document对象的使用
+> # SSR的概念
+
+<code>“服务器端渲染”简称 SSR(server side render)，就是在服务器端将数据和 HTML 融合后返回给浏览器。</code>
+
+<font color="gold" size="4">优点：</font>
+
++ SSR（服务端渲染）的页面初始加载时间显然优于单页首屏渲染
++ 可以方便的对 SEO 进行管理
+
+> # nuxtjs路由nuxt-link标签的激活类nuxt-link-active遇到的坑：
+
+<code>这个坑也适用于vue-router</code>
+
+举例：
+
+假如一个header里有【首页】（对应的路由path是“/”）、【新闻】(对应的路由path是“/news”）、【新闻详情】(对应的路由path是“/news/details”）、【中心】(对应的路由path是“/center”）4个菜单导航,在css里设置nuxt-link-active类的color:gold;
+
+<font color="pink" size="4">出现的问题：</font>
+
+当路由是“/”的时候，首页就会加上nuxt-link-active类，字体变成金色
+
+当路由是“/news” 或 “/center” 的时候，新闻 或 中心就会加上nuxt-link-active类，字体变成金色，同时首页也存在nuxt-link-active类的金色
+
+<font color="yellowgreen" size="4">最后在vue-router文档中找到解决办法：</font>
+
+只需在<nuxt-link to="/" exact></nuxt-link>加上exact
+
+<code>exact</code>
+
+类型: boolean
+
+默认值: false
+
+“是否激活”默认类名的依据是包含匹配。 举个例子，如果当前的路径是 /a 开头的，那么 <router-link to="/a"> 也会被设置 CSS 类名。
+
+按照这个规则，每个路由都会激活 <router-link to="/">！想要链接使用“精确匹配模式”，则使用 exact 属性：
+
+```js
+<!-- 这个链接只会在地址为 / 的时候被激活 -->
+<router-link to="/" exact></router-link>
+```
+
+参考：
+
+[vue-router文档](https://router.vuejs.org/zh/api/#tag)
+
+> # nuxtjs中window和document对象的使用
 
 在开发nuxt项目的时候，难免会使用到document来获取dom元素。如果直接在文件中使用就会报错。这是因为document是浏览器端的东西服务端并没有。
 
@@ -28,7 +74,7 @@ if (process.browser) {
 
 [nuxt.js初体验（爬坑之路）](https://www.jianshu.com/p/eb10a9966483)
 
-> ## 以下笔记拷自网上，不是自己总结的。
+> # 以下笔记拷自网上，不是自己总结的。
 
 公司项目需要用到nuxt.js的服务端渲染，所以使用了nuxt.js官方的脚手架搭建了项目，在这儿记录一些搭建过程中踩过的坑。
 
@@ -160,3 +206,4 @@ export default {
 
 [Nuxt.js知乎专题](https://www.zhihu.com/topic/20079546/top-answers)
 
+[合格前端系列第十一弹-初探 Nuxt.js 秘密花园](https://zhuanlan.zhihu.com/p/35280019)
