@@ -144,3 +144,78 @@ console.log(typeof Star) // ==> function
 
 ES6的类其实就是语法糖。
 
+> ## 严格模式（use strict）
+
+<code>"use strict" 指令只允许出现在脚本或函数的开头。</code>
+
++ 使用严格模式，未声明的变量使用会报错
+
++ 函数要先声明了才能调用
+```js
+"use strict";
+myFunction();
+
+function myFunction() {
+    y = 3.14;   // 报错 (y 未定义)
+}
+```
++ 不允许删除变量或对象。不允许删除函数。
+```js
+"use strict";
+var x = 3.14;
+delete x;   // 报错
+
+"use strict";
+function x(p1, p2) {};
+delete x;   // 报错
+```
++ 不允许变量重名:
+```js
+"use strict";
+function x(p1, p1) {};   // 报错
+```
+
++ 禁止this关键字指向全局对象。
+```js
+// 正常模式下，函数里的this指向window
+function f(){
+    return !this;
+} 
+// 返回false，因为"this"指向全局对象，"!this"就是false
+
+function f(){ 
+    "use strict";
+    return !this;
+} 
+// 返回true，因为严格模式下，this的值为undefined，所以"!this"为true。
+```
++ 保留关键字
+
+<font color="gold" size="4">为什么使用严格模式？</font>
+
++ 消除Javascript语法的一些不合理、不严谨之处，保证代码运行的安全；
+
++ 提高编译器效率，增加运行速度；
+
++ 为未来新版本的Javascript做好铺垫。
+
+> ## 高阶函数
+
+高阶函数是对其他函数进行操作的函数，它接收函数作为参数或将函数作为返回值输出。
+```js
+// 第一种情况：函数也是一种数据类型，同样可以作为参数，传递给另外一个参数使用，最典型的就是作为回调函数。
+function fn (callback) {
+  callback && callback()
+}
+
+fn(function() {
+  console.log('1')
+})
+// 第二种情况
+function fn () {
+  return function() {}
+}
+
+fn()
+```
+里面的fn就是一个高阶函数
