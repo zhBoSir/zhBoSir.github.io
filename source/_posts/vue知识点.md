@@ -53,6 +53,43 @@ var vm = new Vue({
 
 <code>methods则会每次执行</code>
 
+> ## v-bind绑定一个有属性的对象
+```js
+<div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
+
+// 或者
+
+<div v-bind="attrObj"></div>
+
+<script>
+  export default {
+    data: {
+      return {
+        attrObj: {
+          id: '11',
+          name: 'zhongguo',
+          age: 5000
+        }
+      }
+    }
+  }
+</script>
+```
+
+> ## router-view标签上绑定key的作用
+
+<code>在 router-view 上加上一个唯一的 key，来保证路由切换时都会重新渲染触发钩子。</code>
+```js
+<router-view :key="key"></router-view>
+
+computed: {
+  key() {
+    // 只要保证 key 唯一性就可以了，保证不同页面的 key 不相同
+    return this.$route.fullPath
+  }
+ }
+```
+
 
 参考：
 
