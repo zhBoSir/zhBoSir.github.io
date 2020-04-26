@@ -5,7 +5,7 @@ date: 2019-11-15 14:20:36
 
 <code>为什么JavaScript不能有多个线程呢,这样能提高效率啊。？</code>
 
-JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？所以，为了避免复杂性，从一诞生，JavaScript就是单线程。
+JavaScript的<font size="4"><code>单线程</code></font>，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？所以，为了避免复杂性，从一诞生，JavaScript就是单线程。
 
 <font color="skyblue">理论1：</font>
 
@@ -45,6 +45,64 @@ setTimeout(fn,0)的含义是，指定某个任务在主线程最早可得的空�
 
 需要注意的是，setTimeout()只是将事件插入了"任务队列"，必须等到当前代码（执行栈）执行完，主线程才会去执行它指定的回调函数。要是当前代码耗时很长，有可能要等很久，所以并没有办法保证，回调函数一定会在setTimeout()指定的时间执行。
 
+<hr>
+
+> <font color="gold" size="4">JavaScript为什么是单线程呢？</font>
+
+JavaScript作为脚本语言，最初被设计<code>用于浏览器</code>。如果JavaScript同时有两个线程，一个线程中执行在某个DOM节点上添加内容，另一个线程执行删除这个节点，这时浏览器会……
+
+<hr>
+
+HTML5的新特性<code>Web Worker</code>，可以创建多线程呀～
+
+是的，为了解决不可避免的耗时操作(多重循环、复杂的运算)，HTML5提出了Web Worker，它会在当前的js执行主线程中开辟出一个额外的线程来运行js文件，这个新的线程和js主线程之间不会互相影响，同时提供了数据交换的接口：postMessage和onMessage。
+
+但是因为它创建的子线程完全受控于主线程，且位于外部文件中，无法访问DOM。所以它并没有改变js单线程的本质。
+
+<font size="3">一切javascript版的"多线程"都是用单线程模拟出来的</font>
+
+<hr>
+
+单线程就意味着，所有的任务都需要排队。
+
+<hr>
+
+<font size="4"><code>setTimeout(fn,0)</code></font>的含义是，指定某个任务在主线程最早可得的空闲时间执行，意思就是不用再等多少秒了，只要主线程执行栈内的同步任务全部执行完成，栈为空就马上执行。
+
+对于<font size="4"><code>setInterval(fn,ms)</code></font>来说，我们已经知道不是每过ms秒会执行一次fn，而是每过ms秒，会有fn进入Event Queue。一旦setInterval的回调函数fn执行时间超过了延迟时间ms，那么就完全看不出来有时间间隔了。
+
+<hr>
+
+除了广义的同步任务和异步任务，我们对任务有更精细的定义：
+
++ macro-task(宏任务)：包括整体代码script块，setTimeout，setInterval
++ micro-task(微任务)：Promise，process.nextTick
+
+代码说明：
+```js
+setTimeout(function() {
+    console.log('setTimeout');
+})
+
+new Promise(function(resolve) {
+    console.log('promise');
+}).then(function() {
+    console.log('then');
+})
+
+console.log('console');
+```
++ 这段代码作为宏任务，进入主线程。
++ 先遇到setTimeout，那么将其回调函数注册后分发到宏任务Event Queue。(注册过程与上同，下文不再描述)
++ 接下来遇到了Promise，new Promise立即执行，then函数分发到微任务Event Queue。
++ 遇到console.log()，立即执行。
++ 好啦，整体代码script作为第一个宏任务执行结束，看看有哪些微任务？我们发现了then在微任务Event Queue里面，执行。
++ ok，第一轮事件循环结束了，我们开始第二轮循环，当然要从宏任务Event Queue开始。我们发现了宏任务Event Queue中setTimeout对应的回调函数，立即执行。
++ 结束。
+
+
 参考：
 
 [JavaScript 运行机制详解：再谈Event Loop](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
+
+[这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
