@@ -125,3 +125,19 @@ export function param2Obj(url) {
   )
 }
 ```
+
+> <font color="gold">js获取日期加或减多少天后的日期</font>
+```js
+function getTargetDate (startDate, days) {
+  let startTime
+  startTime = startDate ? new Date(startDate).getTime() : new Date().getTime()
+  let diff = days*86400*1000
+  let endTime = startTime + diff
+  let d = new Date(endTime)
+  var CurrentDate = ''
+  CurrentDate +=(d.getFullYear())
+  d.getMonth()+1 > 9 ? CurrentDate +="-"+(d.getMonth()+1) : CurrentDate +="-0"+(d.getMonth()+1)
+  d.getDate() > 9 ? CurrentDate+="-"+(d.getDate()) : CurrentDate+="-0"+(d.getDate())
+  return CurrentDate
+}
+```
