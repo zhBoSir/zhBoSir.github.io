@@ -141,3 +141,9 @@ function getTargetDate (startDate, days) {
   return CurrentDate
 }
 ```
+可以使用现成的第三方库<code>moment.js</code>，它里面也有加或减的方法
+```js
+moment().add(10, 'days').calendar()
+```
+
+[moment.js地址](http://momentjs.cn/)
