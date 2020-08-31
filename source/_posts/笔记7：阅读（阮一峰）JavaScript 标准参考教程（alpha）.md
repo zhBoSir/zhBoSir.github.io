@@ -1,6 +1,9 @@
 ---
 title: 笔记7：阅读（阮一峰）JavaScript 标准参考教程（alpha）
 date: 2019-06-29 23:52:39
+categories:
+  - JavaScript
+tags: 
 ---
 
 **91.**

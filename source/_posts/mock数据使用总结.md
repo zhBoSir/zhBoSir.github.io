@@ -1,6 +1,10 @@
 ---
 title: mock数据使用总结
 date: 2019-07-02 15:59:39
+categories:
+  - JavaScript
+tags: 
+  - mock
 ---
 
 ### 常用mock语法：

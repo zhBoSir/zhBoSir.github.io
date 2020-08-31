@@ -1,11 +1,10 @@
 ---
 title: css变量
-categories:
-  - css
-abbrlink: de85ea21
 date: 2020-08-27 13:39:02
+categories:
+  - Css
 tags:
-thumbnail: ./../topimages/timg.jpg
+  - Css
 ---
 
 声明变量的时候，变量名前面要加两根连词线（--）。CSS 变量（CSS variable）又叫做"CSS 自定义属性"

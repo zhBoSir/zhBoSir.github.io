@@ -1,6 +1,9 @@
 ---
 title: ES6中的计算属性名
 date: 2019-11-26 23:59:00
+categories:
+  - JavaScript
+tags: 
 ---
 
 ## 什么是计算属性名

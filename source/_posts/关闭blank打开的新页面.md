@@ -1,6 +1,9 @@
 ---
 title: 关闭blank打开的新页面
 date: 2020-06-22 23:31:00
+categories:
+  - JavaScript
+tags: 
 ---
 
 假设有两个页面a.html 与 b.html

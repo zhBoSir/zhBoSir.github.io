@@ -1,10 +1,10 @@
 ---
 title: vue相关第三方插件
+date: 2020-05-12 16:25:02
 categories:
   - Vue
-abbrlink: d487cccd
-date: 2020-05-12 16:25:02
 tags:
+  - Vue
 ---
 
 > vue-ls

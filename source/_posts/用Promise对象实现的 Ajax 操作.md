@@ -1,10 +1,9 @@
 ---
 title: 用Promise对象实现的 Ajax 操作
+date: 2020-04-28 10:11:57
 categories:
   - JavaScript
-abbrlink: f4e79f4d
-date: 2020-04-28 10:11:57
-tags:
+tags: 
 ---
 
 用Promise对象实现的 Ajax 操作的例子

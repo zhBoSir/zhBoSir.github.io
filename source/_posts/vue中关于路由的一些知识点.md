@@ -1,6 +1,10 @@
 ---
 title: vue中关于路由的一些知识点
 date: 2019-09-25 19:30:30
+categories:
+  - Vue
+tags:
+  - Vue
 ---
 
 > ### <font color="gold">router.push()、router.replace()、router.go()的区别</font>

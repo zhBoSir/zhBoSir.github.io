@@ -1,6 +1,9 @@
 ---
 title: Array的every和some方法
 date: 2020-03-17 23:41:35
+categories:
+  - JavaScript
+tags: 
 ---
 
 > ### 使用array.every()和array.some()实现一个复选框全选与否的表单效果

@@ -1,6 +1,10 @@
 ---
 title: vue知识点
 date: 2020-03-22 21:51:18
+categories:
+  - Vue
+tags:
+  - Vue
 ---
 
 > ## style绑定样式对象

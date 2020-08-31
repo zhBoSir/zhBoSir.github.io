@@ -1,9 +1,8 @@
 ---
 title: js设计模式
+date: 2020-06-02 14:20:02
 categories:
   - JavaScript
-abbrlink: c5f4529c
-date: 2020-06-02 14:20:02
 tags:
 ---
 

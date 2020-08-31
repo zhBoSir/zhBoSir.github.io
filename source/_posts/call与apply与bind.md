@@ -1,6 +1,9 @@
 ---
 title: call与apply与bind
 date: 2020-03-15 15:57:00
+categories:
+  - JavaScript
+tags: 
 ---
 
 > ### 1.call、apply、 bind使用总结：

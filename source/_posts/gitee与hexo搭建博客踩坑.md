@@ -1,10 +1,10 @@
 ---
 title: gitee与hexo搭建博客踩坑
-categories:
-  - 相关
-abbrlink: f4e79f4d
 date: 2020-04-23 13:46:57
+categories:
+  - 博客
 tags:
+  - 博客
 ---
 
 gitee搭建个人博客其实和github搭建博客大同小异，只是代码提交到gitee上后，使用【服务】里的【gitee pages】部署线上博客

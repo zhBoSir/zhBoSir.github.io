@@ -1,10 +1,10 @@
 ---
 title: git账号与密码输入错误后的处理办法
-categories:
-  - 相关
-abbrlink: 679a2756
 date: 2020-05-11 10:19:02
-tags:
+categories:
+  - Git
+tags: 
+  - Git
 ---
 
 操作流程：

@@ -1,6 +1,10 @@
 ---
 title: echarts踩坑
 date: 2020-03-09 18:15:00
+categories:
+  - Echarts
+tags:
+  - echarts图表
 ---
 
 > ### 1.遇到的问题： 用element-ui的el-collapse手风琴效果，每一个折叠项里都有echarts图表，默认第一项展开，所以第一项的图表尺寸正常；点击其他项的时候，里面的<code>echarts图表被压缩了</code>。

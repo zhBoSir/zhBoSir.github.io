@@ -1,6 +1,9 @@
 ---
 title: firefox火狐浏览器改placeholder注意事项
 date: 2019-06-19 16:28:39
+categories:
+  - 兼容性
+tags: 
 ---
 
 ><font color="gold" size="4">修改浏览器默认placeholder样式，火狐浏览器注意事项：</font>

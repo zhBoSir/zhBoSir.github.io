@@ -1,6 +1,9 @@
 ---
 title: js基础巩固（二）
 date: 2020-04-20 11:02:18
+categories:
+  - JavaScript
+tags: 
 ---
 
 > ## 闭包

@@ -1,10 +1,10 @@
 ---
 title: ant design pro vue使用总结
+date: 2020-05-26 15:32:02
 categories:
   - Vue
-abbrlink: 6d3071aa
-date: 2020-05-26 15:32:02
 tags:
+  - ant design vue
 ---
 
 ### form组件报警告的问题

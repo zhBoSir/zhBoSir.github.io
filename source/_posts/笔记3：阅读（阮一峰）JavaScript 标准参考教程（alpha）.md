@@ -1,7 +1,9 @@
 ---
 title: 笔记3：阅读（阮一峰）JavaScript 标准参考教程（alpha）
 date: 2019-03-18 16:03:29
-tags:
+categories:
+  - JavaScript
+tags: 
 ---
 
 **31.** 下面六个值会被转为false

@@ -1,6 +1,10 @@
 ---
 title: Vue的函数式组件
 date: 2020-04-21 09:41:39
+categories:
+  - Vue
+tags:
+  - Vue
 ---
 
 > ## vue的函数式组件

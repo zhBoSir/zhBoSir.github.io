@@ -1,10 +1,10 @@
 ---
 title: windows如何能在“运行”框输入名称就启动相应的软件
+date: 2020-05-25 22:29:02
 categories:
   - 相关
-abbrlink: 6ea6a169
-date: 2020-05-25 22:29:02
-tags:
+tags: 
+  - 相关
 ---
 
 ## windows如何能在“运行”框输入名称就启动相应的软件

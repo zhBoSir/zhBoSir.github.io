@@ -96,12 +96,12 @@ index_with_subtitle: false
 menu:
   home: / || home
   about: /about/ || user
-  #tags: /tags/ || tags
-  #categories: /categories/ || th
+  tags: /tags/ || tags
+  categories: /categories/ || th
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
-  commonweal: /404/ || heartbeat
+  # commonweal: /404/ || heartbeat
 
 # Enable/Disable menu icons.
 menu_icons:
@@ -130,7 +130,7 @@ scheme: Muse
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
   GitHub: https://github.com/zhBoSir || github
-  前端网: https://www.qdfuns.com/u/23906/works/articles || angellist
+  Gitee: https://gitee.com/zhbosir || gitee-fill-round
   #E-Mail: mailto:yourname@gmail.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -248,10 +248,9 @@ post_wordcount:
   #description: ex. subscribe to my blog by scanning my public wechat account
 
 # Reward
-reward_comment: 打赏
-wechatpay: /images/apple-touch-icon-next.png
-alipay: /images/alipay.jpg
-#bitcoin: /images/bitcoin.png
+reward_comment: 
+wechatpay: /images/weixin.png
+alipay: /images/zhifubao.png
 
 # Declare license on posts
 post_copyright:
@@ -401,7 +400,8 @@ valine:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC8zNzI2MC8xMzc5NA==
+# 评论关掉
+# livere_uid: MTAyMC8zNzI2MC8xMzc5NA==
 
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
@@ -427,11 +427,12 @@ gitment:
 #baidushare:
 ##  type: button
 
+# 分享评论
 # Share
 # This plugin is more useful in China, make sure you known how to use it.
 # And you can find the use guide at official webiste: http://www.jiathis.com/.
 # Warning: JiaThis does not support https.
-jiathis: true
+jiathis: false
   ##uid: Get this uid from http://www.jiathis.com/
 #add_this_id:
 
@@ -449,22 +450,22 @@ jiathis: true
 #           Delicious,StumbleUpon,Pinterest,Facebook,GooglePlus,Slashdot,
 #           Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,
 #           Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru
-needmoreshare2:
-  enable: false
-  postbottom:
-    enable: false
-    options:
-      iconStyle: box
-      boxForm: horizontal
-      position: bottomCenter
-      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
-  float:
-    enable: false
-    options:
-      iconStyle: box
-      boxForm: horizontal
-      position: middleRight
-      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
+# needmoreshare2:
+#   enable: false
+#   postbottom:
+#     enable: false
+#     options:
+#       iconStyle: box
+#       boxForm: horizontal
+#       position: bottomCenter
+#       networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
+#   float:
+#     enable: false
+#     options:
+#       iconStyle: box
+#       boxForm: horizontal
+#       position: middleRight
+#       networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/

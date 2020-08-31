@@ -1,7 +1,10 @@
 ---
 title: hexo-github-主题next搭建的个人博客网站
 date: 2019-01-10 13:47:07
+categories:
+  - 博客
 tags:
+  - 博客
 ---
 > ###### 搭建自己博客网站时的几篇文章参考：
 ##### [1. https://www.cnblogs.com/visugar/p/6821777.html](https://www.cnblogs.com/visugar/p/6821777.html)

@@ -1,7 +1,9 @@
 ---
 title: 笔记2：阅读（阮一峰）JavaScript 标准参考教程（alpha）
 date: 2019-03-09 09:48:51
-tags:
+categories:
+  - JavaScript
+tags: 
 ---
 
 **16.** Object.keys方法返回数组的所有键名。

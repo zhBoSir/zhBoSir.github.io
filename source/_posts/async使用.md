@@ -1,10 +1,9 @@
 ---
 title: async...await...用法
-categories:
-  - js
-abbrlink: 9b63ad8a
 date: 2020-08-26 22:18:02
-tags:
+categories:
+  - JavaScript
+tags: 
 ---
 
 async 函数的实现原理

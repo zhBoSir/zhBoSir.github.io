@@ -1,10 +1,9 @@
 ---
 title: enquirejs轻量级JavaScript媒体查询库
+date: 2020-05-12 15:54:18
 categories:
   - JavaScript
-abbrlink: 26b8ef5
-date: 2020-05-12 15:54:18
-tags:
+tags: 
 ---
 
 enquire.js 是轻量级，纯 JavaScript 实现的 CSS 媒体查询库。

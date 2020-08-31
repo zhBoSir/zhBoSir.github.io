@@ -1,6 +1,10 @@
 ---
 title: nuxtjs使用的总结
 date: 2019-12-04 17:05:00
+categories:
+  - Vue
+tags: 
+  - nuxtjs
 ---
 
 > # SSR的概念

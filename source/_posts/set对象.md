@@ -1,6 +1,9 @@
 ---
 title: set对象
 date: 2019-10-12 18:13:00
+categories:
+  - JavaScript
+tags: 
 ---
 
 > Set 对象

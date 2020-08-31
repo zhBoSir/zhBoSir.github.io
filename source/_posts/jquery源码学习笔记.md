@@ -1,6 +1,9 @@
 ---
 title: jquery源码学习笔记
 date: 2019-07-01 23:57:39
+categories:
+  - JavaScript
+tags: 
 ---
 
 > JQuery源码都包括哪些模块？

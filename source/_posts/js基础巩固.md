@@ -1,6 +1,9 @@
 ---
 title: js基础巩固
 date: 2020-03-25 23:27:18
+categories:
+  - JavaScript
+tags: 
 ---
 
 > ## this问题

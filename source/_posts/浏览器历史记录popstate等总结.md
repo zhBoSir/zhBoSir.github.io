@@ -1,6 +1,9 @@
 ---
 title: 浏览器历史记录popstate等总结
 date: 2019-09-12 15:47:29
+categories:
+  - JavaScript
+tags: 
 ---
 
 - HTML5新增的用来控制浏览器历史记录的api

@@ -1,6 +1,9 @@
 ---
 title: 学习JavaScript 运行机制与Event Loop
 date: 2019-11-15 14:20:36
+categories:
+  - JavaScript
+tags: 
 ---
 
 <code>为什么JavaScript不能有多个线程呢,这样能提高效率啊。？</code>

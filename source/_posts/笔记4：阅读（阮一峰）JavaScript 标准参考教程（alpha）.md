@@ -1,6 +1,9 @@
 ---
 title: 笔记4：阅读（阮一峰）JavaScript 标准参考教程（alpha）
 date: 2019-03-18 16:06:39
+categories:
+  - JavaScript
+tags: 
 ---
 
 **46.** 函数的toString方法返回一个字符串，内容是函数的源码。

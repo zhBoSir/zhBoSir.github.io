@@ -1,6 +1,10 @@
 ---
 title: Vue源码学习笔记
 date: 2019-08-11 13:16:39
+categories:
+  - Vue
+tags:
+  - Vue
 ---
 
 > 1. vue支持的最低浏览器是？以及为什么？

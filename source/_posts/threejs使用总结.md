@@ -1,6 +1,9 @@
 ---
 title: threejs使用总结
 date: 2019-12-04 17:53:00
+categories:
+  - JavaScript
+tags: 
 ---
 
 

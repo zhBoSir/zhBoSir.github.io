@@ -1,6 +1,10 @@
 ---
 title: animation-play-state 属性
 date: 2019-12-02 23:07:00
+categories:
+  - Css
+tags:
+  - Css
 ---
 
 <code>animation-play-state</code>属性规定动画正在运行还是暂停。

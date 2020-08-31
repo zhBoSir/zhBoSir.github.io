@@ -1,10 +1,10 @@
 ---
 title: vue源码笔记
+date: 2020-08-07 16:49:02
 categories:
   - Vue
-abbrlink: 5f99d77f
-date: 2020-08-07 16:49:02
 tags:
+  - Vue
 ---
 
 - 1.要想知道数据什么时候被读取了或数据什么时候被改写了，其实不难，JS为我们提供了<code>Object.defineProperty</code>方法，通过该方法我们就可以轻松的知道数据在什么时候发生变化。

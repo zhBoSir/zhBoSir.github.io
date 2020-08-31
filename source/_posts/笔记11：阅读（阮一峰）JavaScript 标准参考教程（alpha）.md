@@ -1,6 +1,9 @@
 ---
 title: 笔记11：阅读（阮一峰）JavaScript 标准参考教程（alpha）
 date: 2019-08-19 22:47:10
+categories:
+  - JavaScript
+tags: 
 ---
 
 **151.** script 元素   工作原理

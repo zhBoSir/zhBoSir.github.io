@@ -1,10 +1,11 @@
 ---
 title: 读Promise获得的知识点
+date: 2020-04-29 09:51:57
 categories:
   - JavaScript
-abbrlink: 9cfe46bd
-date: 2020-04-29 09:51:57
 tags:
+  - Promise
+  - JavaScript
 ---
 
 > Promise构造函数

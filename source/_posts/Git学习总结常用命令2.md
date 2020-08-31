@@ -1,7 +1,10 @@
 ---
 title: Git学习总结常用命令2
 date: 2020-02-17 23:33:39
-
+categories:
+  - Git
+tags: 
+  - Git
 ---
 
 **常用的一些命令**

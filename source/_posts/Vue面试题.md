@@ -1,6 +1,10 @@
 ---
 title: Vue源码学习笔记
 date: 2020-04-22 09:43:39
+categories:
+  - 面试
+tags: 
+  - 面试
 ---
 
 > ## <font color="gold" >1. 讲一讲MVVM？</font>

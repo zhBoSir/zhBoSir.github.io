@@ -1,10 +1,10 @@
 ---
 title: vue3相关
+date: 2020-05-04 20:59:02
 categories:
   - Vue
-abbrlink: 6d8dcd1e
-date: 2020-05-04 20:59:02
 tags:
+  - Vue
 ---
 
 + <code>tree shaking</code> 只打包必要的依赖项。比如引入一个ui框架，但是只用了button，那么就只会把button以及button的依赖项打进去。
