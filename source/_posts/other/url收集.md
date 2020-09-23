@@ -2,7 +2,7 @@
 title: url收集
 date: 2019-10-10 19:17:18
 categories:
-  - JavaScript
+  - other
 tags: 
   - 相关
 ---
