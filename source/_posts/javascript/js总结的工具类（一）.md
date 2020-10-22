@@ -6,7 +6,7 @@ categories:
 tags: 
 ---
 
-> <font color="gold">点击非组件部分，让组件的弹框消失</font>
+> <font color="gold">1.点击非组件部分，让组件的弹框消失</font>
 
 ```
 // vue代码，视具体情况具体修改
@@ -20,7 +20,7 @@ document.addEventListener('click', function (e) {
 
 ```
 
-> <font color="gold">判断是否是空对象</font>
+> <font color="gold">2.判断是否是空对象</font>
 
 ```
 function isEmptyObject (obj) {
@@ -32,7 +32,7 @@ isEmptyObject({})  // 返回true
 isEmptyObject({'0': 'a'})  // 返回false
 ```
 
-> <font color="gold">判断是否是微信打开的页面</font>
+> <font color="gold">3.判断是否是微信打开的页面</font>
 ```
 export const isWeixin = () => {
   var ua = navigator.userAgent.toLowerCase()
@@ -40,7 +40,7 @@ export const isWeixin = () => {
 }
 ```
 
-> <font color="gold">判断是否设备是Android</font>
+> <font color="gold">4.判断是否设备是Android</font>
 ```
 export const isAndroid = () => {
   var u = navigator.userAgent
@@ -49,7 +49,7 @@ export const isAndroid = () => {
 }
 ```
 
-> <font color="gold">判断是否设备是ios设备</font>
+> <font color="gold">5.判断是否设备是ios设备</font>
 ```
 export const isIOs = () => {
   var u = navigator.userAgent
@@ -58,7 +58,7 @@ export const isIOs = () => {
 }
 ```
 
-> <font color="gold">js判断设备是pc端还是移动端</font>
+> <font color="gold">6.js判断设备是pc端还是移动端</font>
 ```js
 function browserRedirect() {
   const sUserAgent = navigator.userAgent.toLowerCase()
@@ -105,7 +105,7 @@ browserRedirect()
 
 [JS-判断设备操作系统是Andorid还是IOS](https://blog.csdn.net/wang704987562/article/details/85227319)
 
-> <font color="gold">url的?后面参数转成对象</font>
+> <font color="gold">7.url的?后面参数转成对象</font>
 ```js
 /**
  * @param {string} url
@@ -128,7 +128,7 @@ export function param2Obj(url) {
 }
 ```
 
-> <font color="gold">js获取日期加或减多少天后的日期</font>
+> <font color="gold">8.js获取日期加或减多少天后的日期</font>
 ```js
 function getTargetDate (startDate, days) {
   let startTime
@@ -149,3 +149,11 @@ moment().add(10, 'days').calendar()
 ```
 
 [moment.js地址](http://momentjs.cn/)
+
+> <font color="gold">9.如果是一位数就在前面加0，变成01这种格式</font>
+```js
+const formatNumber = n => {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+```
