@@ -96,7 +96,7 @@ index_with_subtitle: false
 menu:
   home: / || home
   报表: /my/echarts/index.html || coffee
-  动画效果: /my/animation/index.html || leaf
+  成果: /my/achievement/index.html || leaf
   categories: /categories/ || th
   tags: /tags/ || tags
   archives: /archives/ || archive
@@ -147,7 +147,7 @@ social_icons:
   #icons_only: false
   #transition: false
   GitHub: github
-  
+
 
 # Blog rolls
 links_icon: link
@@ -250,7 +250,7 @@ post_wordcount:
   #description: ex. subscribe to my blog by scanning my public wechat account
 
 # Reward
-reward_comment: 
+reward_comment:
 wechatpay: /images/weixin.png
 alipay: /images/zhifubao.png
 
