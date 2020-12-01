@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>聚光灯效果</title>
+
+    <style>
+        html {
+            font-size: 15px;
+        }
+        body {
+            background-color: #222;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #333;
+            font-size: 8rem;
+            font-family: Helvetica;
+            letter-spacing: -.3rem;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        h1::after {
+            /* 伪类的content值可以从标签的属性中拿到 */
+            content: attr(data-spotlight);
+            color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+            clip-path: ellipse(100px 100px at 0% 50%);  /* 画一个直径100px的正圆形。即伪类的内容只显示画出圆形的这部分，其他的不显示。 */
+            animation: spotLight 5s infinite;
+            /* 这个背景颜色的来源是从这个网站上来的：https://gradienthunt.com/ */
+            background-image: linear-gradient( 109.6deg,  rgba(238,58,136,1) 11.2%, rgba(128,162,245,1) 91.1% );
+            -webkit-background-clip: text;
+            background-clip: text;  /* 背景被裁剪成文字的前景色。 */
+        }
+        @keyframes spotLight {
+            0% {
+                -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+                clip-path: ellipse(100px 100px at 0% 50%);
+            }
+            50% {
+                -webkit-clip-path: ellipse(100px 100px at 100% 50%);
+                clip-path: ellipse(100px 100px at 100% 50%);
+            }
+            100% {
+                -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+                clip-path: ellipse(100px 100px at 0% 50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 思路： -->
+    <!-- 1.在伪类中设置一个和h1内容相同的content，然后把他们重叠 -->
+    <!-- 2.在伪类内容上画一个圆形的遮罩层 -->
+
+    <!-- 用到的知识点： -->
+    <!-- 1.clip-path:CSS 属性使用裁剪方式创建元素的可显示区域。区域内的部分显示，区域外的隐藏。clip-path: ellipse(100px 100px at 0% 50%);（画一个直径100px的正圆形） -->
+    <!-- 2.伪类的content属性值可以从属性值中拿，通过attr() -->
+    <!-- 3.background-clip  设置元素的背景（背景图片或颜色）是否延伸到边框、内边距盒子、内容盒子下面。text:背景被裁剪成文字的前景色。 -->
+
+    <h1 data-spotlight="DaoDaoPaiCoding!">DaoDaoPaiCoding</h1>
+</body>
+
+</html>

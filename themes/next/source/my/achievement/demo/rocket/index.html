@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>火箭动画</title>
+    <style>
+        html,body {
+            background: #FCFFFC;
+        }
+        * { margin: 0; padding: 0; }
+        .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .rocket-wrapper {
+            width: 100%;
+            height: 600px;
+            position: relative;
+        }
+        .rocket-wrapper .rocket-wrapper__img {
+            width: 200px;
+            height: 200px;
+            z-index: 0;
+            animation: rocketAnima .4s linear 0s infinite alternate;
+        }
+        @keyframes rocketAnima {
+            0% {
+                transform: translate(-130px,-130px);
+            }
+            100% {
+                transform: translate(-116px,-116px);
+            }
+        }
+        .rocket-wrapper .rocket-wrapper__line-wrapper {
+            width: 600px;
+            height: 600px;
+        }
+        .rocket-wrapper .rocket-wrapper__line {
+            background: lightblue;
+            transform: rotate(-45deg);
+        }
+        .rocket-wrapper .rocket-wrapper__line1 {
+            width: 200px;
+            height: 3px;
+            position: absolute;
+            left: 100px;
+            top: 200px;
+            opacity: 0;
+            animation: lineAnima 1s linear 0s infinite;
+        }
+        .rocket-wrapper .rocket-wrapper__line2 {
+            width: 80px;
+            height: 3px;
+            position: absolute;
+            left: 450px;
+            top: 170px;
+            opacity: 0;
+            animation: lineAnima 1s linear 0s infinite;
+            animation: lineAnima 1s linear 0.5s infinite;
+        }
+        .rocket-wrapper .rocket-wrapper__line3 {
+            width: 80px;
+            height: 1px;
+            position: absolute;
+            left: 80px;
+            top: 250px;
+            opacity: 0;
+            animation: lineAnima 1s linear 1.5s infinite;
+        }
+        .rocket-wrapper .rocket-wrapper__line4 {
+            width: 120px;
+            height: 1px;
+            position: absolute;
+            left: 400px;
+            top: 250px;
+            opacity: 0;
+            animation: lineAnima 1s linear 0.5s infinite;
+        }
+        .rocket-wrapper .rocket-wrapper__line5 {
+            width: 120px;
+            height: 2px;
+            position: absolute;
+            left: 120px;
+            top: 360px;
+            opacity: 0;
+            animation: lineAnima 1s linear 0.8s infinite;
+        }
+        .rocket-wrapper .rocket-wrapper__line6 {
+            width: 120px;
+            height: 2px;
+            position: absolute;
+            left: 190px;
+            top: 330px;
+            opacity: 0;
+            animation: lineAnima 1s linear 0.2s infinite;
+        }
+        @keyframes lineAnima {
+            0% {
+                opacity: 0;
+                transform: rotate(-45deg) translate(200px,20px);
+            }
+            50% {
+                opacity: 1;
+                transform: rotate(-45deg) translate(0px,20px);
+            }
+            100% {
+                opacity: 0;
+                transform: rotate(-45deg) translate(-250px,20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="rocket-wrapper">
+        <img class="rocket-wrapper__img center" src="rocket.png" alt="">
+        <div class="rocket-wrapper__line-wrapper center">
+            <span class="rocket-wrapper__line rocket-wrapper__line1"></span>
+            <span class="rocket-wrapper__line rocket-wrapper__line2"></span>
+            <span class="rocket-wrapper__line rocket-wrapper__line3"></span>
+            <span class="rocket-wrapper__line rocket-wrapper__line4"></span>
+            <span class="rocket-wrapper__line rocket-wrapper__line5"></span>
+            <span class="rocket-wrapper__line rocket-wrapper__line6"></span>
+        </div>
+    </div>
+</body>
+</html>

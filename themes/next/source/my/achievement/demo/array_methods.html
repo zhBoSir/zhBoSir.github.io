@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>数组some等一些方法的例子</title>
+		<style>
+			.container {
+			width: 500px;
+			margin: 0 auto;
+		}
+		#startVal,#endVal {
+			width: 50px;
+		}
+		table {
+			border-collapse: collapse;
+		}
+		table td,table th {
+			border: 1px solid #999;
+		}
+	</style>
+	</head>
+	<body>
+		<div class="container">
+			<input type="text" id="startVal">~<input type="text" id="endVal"><input type="button" value="搜索" id="search"><br /><br />
+			<input type="text" id="name"><input type="button" value="查询" id="find"><br /><br />
+			<table>
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>年龄</th>
+						<th>性别</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		<script type="text/javascript">
+			const data = [{
+					name: '路飞',
+					age: '160',
+					sex: '男'
+				},
+				{
+					name: '索隆',
+					age: '27',
+					sex: '男'
+				},
+				{
+					name: '罗宾',
+					age: '6',
+					sex: '女'
+				}
+			]
+			let startInput = document.querySelector('#startVal')
+			let endInput = document.querySelector('#endVal')
+			let search = document.querySelector('#search')
+			let nameInput = document.querySelector('#name')
+			let find = document.querySelector('#find')
+			let tbody = document.querySelector('tbody')
+			
+			function setData (myData) {
+				tbody.innerHTML = ''
+				myData.forEach((item) => {
+					let tr = document.createElement('tr')
+					tr.innerHTML = `<td>${item.name}</td><td>${item.age}</td><td>${item.sex}</td>`
+					tbody.appendChild(tr)
+				})
+			}
+			setData(data)
+			// 搜索
+			search.addEventListener('click', () => {
+				let a = data.filter((item) => {
+					return parseInt(item.age) >= parseInt(startInput.value) && parseInt(item.age) <= parseInt(endInput.value)
+				})
+				setData(a)
+			})
+			// 查询
+			find.addEventListener('click', () => {
+				let arr = []
+				data.some((item) => {
+					if (item.name === nameInput.value) {
+						arr.push(item)
+						return true
+					}
+				})
+				setData(arr)
+			})
+		</script>
+	</body>
+</html>

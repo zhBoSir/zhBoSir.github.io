@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*实现效果：两边自适应大小，中间部分固定不变*/
+        /*需要flex布局的flex:1和max-width或者min-width配合*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul,li {
+            list-style-type: none;
+        }
+        ul {
+            display: flex;
+        }
+        li {
+            flex: 1;
+            border: 1px solid #000;
+        }
+        li.first {
+            height: 300px;
+            background: gold;
+        }
+        li.second {
+            min-width: 500px;
+            max-width: 500px;
+            background: lightblue;
+            height: 500px;
+        }
+        li.third {
+            height: 300px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="first">1</li>
+        <li class="second">2</li>
+        <li class="third">3</li>
+    </ul>
+</body>
+</html>

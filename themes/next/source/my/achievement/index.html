@@ -9,15 +9,34 @@
 </head>
 
 <body>
-  <div class="chart" style="width: 100%;height: 100%;background: pink;"></div>
-  <script type="text/javascript" src="./../echarts/js/flexible.js"></script>
+  <div class="chart"></div>
+
   <script src="./../echarts/js/echarts.min.js"></script>
   <script type="text/javascript">
+    let demos = {
+      2373: 'demo/water_drop.html',
+      5449: 'demo/card_open.html',
+      2289: 'demo/draw_lines.html',
+      2518: 'demo/flop.html',
+      4730: 'demo/layout01.html',
+      1952: 'demo/layout02.html',
+      926: 'demo/layout03.html',
+      4536: 'demo/array_methods.html',
+      750: 'demo/apple_se.html',
+      493: 'demo/finished_protocol.html',
+      385: 'demo/font_drop.html',
+      4960: 'demo/spotlight.html',
+      8694000: 'demo/rocket/index.html',
+      5668: 'demo/lazy_load/index01.html',
+      339: 'demo/lazy_load/index02.html',
+      27000: 'demo/lazy_load/index02.html',
+      671: 'demo/lazy_load/index02.html',
+    }
     var myChart = echarts.init(document.querySelector('.chart'))
     //跳转代码
     myChart.on('click', function (params) {
-      console.log(params.name);
-      window.open(params.data.url);
+      console.log(params)
+      window.open(demos[params.value]);
       // window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.value));
     });
 
@@ -46,7 +65,7 @@
       // 图表标题
       title: {
         show: true, //显示策略，默认值true,可选为：true（显示） | false（隐藏）
-        text: '"新时代"主题图谱', //主标题文本，'\n'指定换行
+        text: '动画效果demo', //主标题文本，'\n'指定换行
         x: 'center', // 水平安放位置，默认为左对齐，可选为：
         // 'center' ¦ 'left' ¦ 'right'
         // ¦ {number}（x坐标，单位px）
@@ -91,7 +110,7 @@
           }
         },
         data: [{
-          "name": "新冠肺炎愈后一般6个月内不会再得",
+          "name": "充电水滴效果",
           "value": 2373,
           "symbolSize": 48,
           "draggable": true,
@@ -103,7 +122,7 @@
             }
           }
         }, {
-          "name": "女篮两连胜后大喊武汉加油",
+          "name": "AppStroe卡片展开效果",
           "value": 5449,
           "symbolSize": 73,
           "draggable": true,
@@ -115,7 +134,7 @@
             }
           }
         }, {
-          "name": "火神山医院开微博",
+          "name": "读书动态划线效果",
           "value": 2289,
           "symbolSize": 67,
           "draggable": true,
@@ -127,7 +146,7 @@
             }
           }
         }, {
-          "name": "医疗队女队员集体理平头和光头",
+          "name": "翻牌效果",
           "value": 2518,
           "symbolSize": 50,
           "draggable": true,
@@ -139,7 +158,7 @@
             }
           }
         }, {
-          "name": "缅怀疫情中逝去的人们",
+          "name": "反双飞翼布局",
           "value": 4730,
           "symbolSize": 88,
           "draggable": true,
@@ -151,7 +170,7 @@
             }
           }
         }, {
-          "name": "妨害疫情防控的违法行为",
+          "name": "双飞翼布局",
           "value": 1952,
           "symbolSize": 55,
           "draggable": true,
@@ -163,7 +182,7 @@
             }
           }
         }, {
-          "name": "66岁重症患者8天快速康复",
+          "name": "圣杯布局",
           "value": 926,
           "symbolSize": 70,
           "draggable": true,
@@ -175,7 +194,7 @@
             }
           }
         }, {
-          "name": "别让快递小哥一直等在寒风中",
+          "name": "数组some等一些方法的例子",
           "value": 4536,
           "symbolSize": 67,
           "draggable": true,
@@ -187,7 +206,7 @@
             }
           }
         }, {
-          "name": "湖北以外地区新增病例数连降5天",
+          "name": "苹果SE官网切换手机颜色效果",
           "value": 750,
           "symbolSize": 47,
           "draggable": true,
@@ -199,7 +218,7 @@
             }
           }
         }, {
-          "name": "女儿写给战疫一线爸爸的信",
+          "name": "判断有没有阅读完协议",
           "value": 493,
           "symbolSize": 82,
           "draggable": true,
@@ -211,7 +230,7 @@
             }
           }
         }, {
-          "name": "青海连续3天无新增病例",
+          "name": "宽度缩小，字掉下去问题",
           "value": 385,
           "symbolSize": 59,
           "draggable": true,
@@ -223,7 +242,7 @@
             }
           }
         }, {
-          "name": "辽宁再派1000名医护人员驰援武汉",
+          "name": "聚光灯效果",
           "value": 4960,
           "symbolSize": 90,
           "draggable": true,
@@ -235,7 +254,7 @@
             }
           }
         }, {
-          "name": "抗击新型肺炎第一线",
+          "name": "火箭飞行动画",
           "value": 8694000,
           "symbolSize": 134,
           "draggable": true,
@@ -247,7 +266,7 @@
             }
           }
         }, {
-          "name": "12项疫情防控惠民政策",
+          "name": "图片懒加载（单张）",
           "value": 5668,
           "symbolSize": 75,
           "draggable": true,
@@ -259,7 +278,7 @@
             }
           }
         }, {
-          "name": "战疫一线的别样团圆",
+          "name": "图片懒加载（多张）",
           "value": 339,
           "symbolSize": 68,
           "draggable": true,
@@ -271,7 +290,7 @@
             }
           }
         }, {
-          "name": "31省区市心理援助热线",
+          "name": "星之灵",
           "value": 671,
           "symbolSize": 62,
           "draggable": true,
@@ -283,7 +302,7 @@
             }
           }
         }, {
-          "name": "元宵节亮灯为武汉加油",
+          "name": "复星金服",
           "value": 27000,
           "symbolSize": 114,
           "draggable": true,

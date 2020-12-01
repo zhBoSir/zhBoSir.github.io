@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>苹果SE官网切换手机颜色效果</title>
+
+    <style>
+        html {
+            font-size: 48px;
+
+            --iphone-black-bg: #000;
+            --iphone-black-text: #f2f2f2;
+
+            --iphone-white-bg: #fff;
+            --iphone-white-text: #8b8b99;
+            --iphone-white-text-highlight: #1d1d1f;
+
+            --iphone-red-bg: #960b19;
+            --iphone-red-text: #e57571;
+            --iphone-red-text-highlight: #f5f5f7;
+
+            --iphone-width: 460px;
+            --iphone-offscreen: -720px;
+        }
+        body {
+            margin: 0;
+            height: 3000px;
+            font-family: Helvetica;
+            background-color: #000;
+        }
+        .sticky-container {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sticky-container .iphone {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .sticky-container .iphone h3 {
+            font-size: 1rem;
+            margin: 0 0 60px 0;
+            width: var(--iphone-width);
+        }
+        .sticky-container .iphone img {
+            display: block;
+            width: var(--iphone-width);
+            /* 这块设置成margin-bottom为负值，效果就是让手机只显示一部分，其他部分隐藏 */
+            margin-bottom: var(--iphone-offscreen);
+        }
+        .sticky-container .iphone.black {
+            background-color: var(--iphone-black-bg);
+            z-index: 10;
+        }
+        .sticky-container .iphone.black h3 {
+            color: var(--iphone-black-text);
+        }
+
+        .sticky-container .iphone.white {
+            background-color: var(--iphone-white-bg);
+            z-index: 20;
+            clip-path: inset(100% 0 0 0);
+        }
+        .sticky-container .iphone.white h3 {
+            color: var(--iphone-white-text);
+        }
+        .sticky-container .iphone.white h3 span {
+            color: var(--iphone-white-text-highlight);
+        }
+
+        .sticky-container .iphone.red {
+            background-color: var(--iphone-red-bg);
+            z-index: 30;
+            clip-path: inset(100% 0 0 0);  /*inset括号里面是（上右下左）四个方面的值*/
+        }
+        .sticky-container .iphone.red h3 {
+            color: var(--iphone-red-text);
+        }
+        .sticky-container .iphone.red h3 span {
+            color: var(--iphone-red-text-highlight);
+        }
+
+        /* 到红色iphone区域去除position: sticky后，其他元素的样式设置 */
+        .sticky-container.no-sticky {
+            position: relative;
+            overflow: visible;  /* 关键代码，保证到红色区域底部后后面的内容可见 */
+        }
+        .sticky-container.no-sticky .iphone {
+            position: relative;
+        }
+        .sticky-container.no-sticky .iphone.red {
+            /* 之前在position: sticky; overflow:hidden;使用margin-bottom: -720px;让手机只显示一部分。变成position: relative;后要让红色手机全部显示出来，使用padding-bottom: 720px;把剩余的部分显示出来 */
+            /* 抵消margin-bottom: -720px的值 */
+            padding-bottom: calc(var(--iphone-offscreen) * -1)  /* 关键代码 */
+        }
+
+        .other {
+            width: 100%;
+            color: #fff;
+            font-size: 1rem;
+            text-align: center;
+            margin: 50px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 知识点： -->
+    <!-- 1.此效果的实现主要就涉及到两个知识点：一个是position: sticky;另一个是：clip-path: inset(100% 0 0 0);  -->
+    <!-- 2.clip-path CSS 属性使用裁剪方式创建元素的可显示区域。区域内的部分显示，区域外的隐藏。 -->
+    <!-- 3.Element.scrollTop 属性可以获取或设置一个元素的内容垂直滚动的像素数。
+    一个元素的 scrollTop 值是这个元素的内容顶部（卷起来的）到它的视口可见内容（的顶部）的距离的度量。当一个元素的内容没有产生垂直方向的滚动条，那么它的 scrollTop 值为0。 -->
+    <!-- 4.Element.scrollHeight 这个只读属性是一个元素内容高度的度量，包括由于溢出导致的视图中不可见内容。 -->
+    <!-- 5.clientHeight是元素内部的高度(单位像素)，包含内边距，但不包括水平滚动条、边框和外边距。 clientHeight 可以通过 CSS height + CSS padding - 水平滚动条高度 (如果存在)来计算. -->
+    <!-- 6.Element.getBoundingClientRect() 方法返回元素的大小及其相对于视口的位置。 -->
+
+
+    <div class="sticky-container">
+        <div class="iphone black">
+            <h3>
+                Comes in Black<br>
+                <!-- 这块为了和下面的布局保持一致使用一个空格符，这块这个空格很重要，保持了布局一致性。 -->
+                &nbsp;
+            </h3>
+            <img src="images/apple_black.png" alt="">
+        </div>
+        <div class="iphone white">
+            <h3>
+                Comes in Black<br/>
+                <span>white</span>
+            </h3>
+            <img src="images/apple_white.png" alt=""> 
+        </div>
+        <div class="iphone red">
+            <h3>
+                Comes in  Black<br/>
+                white <span> And Pow.</span>
+            </h3>
+            <img src="images/apple_red.png" alt="">
+        </div>
+        <div class="other">
+            iphone is beautiful, do you want a iphone <br>
+            how much money? <br>you look at the package!
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', (e)=> {
+            // 页面滚动到红色iphone的时候，就不在让有position: sticky; 到红色区域刚好是黑色区域和白色区域过去，黑色区域刚好是一个视口的高度，白色区域同理，所以到红色区域是两个视口的高度。
+            let noStickyOffset = document.documentElement.clientHeight * 2
+            // let scrolled = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight)
+
+            let scrolled = document.documentElement.scrollTop / noStickyOffset
+
+            let $white = document.querySelector('.white')
+            let $red = document.querySelector('.red')
+
+            // 由0%滚动到50%，由下而上显示白色iPhone，所以这里是0.5减
+            $white.style.clipPath = `inset(${((0.5 - scrolled) / 0.5) * 100}% 0 0 0)`
+            // 由50%滚动到100%，由下而上显示红色iphone，所以这里是1减
+            $red.style.clipPath = `inset(${((1 - scrolled) / 0.5) * 100}% 0 0 0)`
+
+            // 因为刚开始的时候设置的position: sticky,才能有滚动滚轮变换的效果，利用这个属性，加上height:100vh，保证了页面在滚轮滚动的时候页面不动; 到红色iphone的时候就要去掉position: sticky，因为滚动到红色iphone底部的时候要能让页面继续往下滚动，看到下面的部分，所以改为position: relative
+            if (scrolled >= 1) {
+                document.querySelector('.sticky-container').classList.add('no-sticky')
+            } else {
+                document.querySelector('.sticky-container').classList.remove('no-sticky')
+            }
+        })
+    </script>
+</body>
+
+</html>
