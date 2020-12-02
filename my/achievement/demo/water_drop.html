@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>充电水滴效果</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #000;
+      filter: contrast(30);  /* 关键代码 */
+    }
+    .drop {
+      width: 100px;
+      height: 100px;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      /* 水滴和收集器碰撞的时候特别融合，就是利用了这种高斯模糊效果实现的 */
+      filter: blur(20px);  /* 关键代码 */
+      opacity: 0;
+      animation: drop 2.5s linear infinite;
+    }
+    .drop:nth-child(2) {
+      animation-delay: .5s;
+    }
+    .drop:nth-child(3) {
+      animation-delay: .7s;
+    }
+    .collection {
+      width: 100px;
+      height: 100px;
+      background-color: #fff;
+      border-radius: 50%;
+      filter: blur(20px);
+      animation: collection 2.5s linear infinite;
+    }
+    span {
+      position: absolute;
+      font-family: Helvetica;
+      font-size: 30px;
+    }
+
+    /* 水滴的动画 */
+    @keyframes drop {
+      0% {
+        transform: scale(.7) translateY(-600%);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(.4) translateY(-80%);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(.3) translateY(0px);
+      }
+    }
+
+    /* 收集器的动画 */
+    @keyframes collection {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+      50% {  /* 关键代码，在动画执行到50%的时候，把圆形变成椭圆形，并改变两个圆角的度数，让收集器的动画更逼真些 */
+        transform: scale(1.3) rotate(180deg);
+        width: 90px;
+        border-top-left-radius: 40%;
+        border-bottom-left-radius: 45%;
+      }
+      100% {
+        transform: scale(1) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 知识点： -->
+  <!-- 1.filter CSS属性将模糊或颜色偏移等图形效果应用于元素。滤镜通常用于调整图像，背景和边框的渲染。 -->
+  <!-- blur()给图像设置高斯模糊，值越大越模糊 -->
+  <!-- contrast()调整图像的对比度。值是0%的话，图像会全黑。值是100%，图像不变。值可以超过100% -->
+  <!-- grayscale()将图像转换为灰度图像。值为100%则完全转为灰度图像，值为0%图像无变化。 -->
+
+  <div class="container">
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    
+    <div class="collection"></div>
+    <span><i id="num" style="font-style: normal;">20</i>%</span>
+  </div>
+
+  <script>
+    window.onload = function() {
+      let i = document.querySelector('#num')
+      let num = parseInt(i.innerHTML) 
+      let timer = setInterval( ()=> {
+        if (num >= 100) {
+          clearInterval(timer)
+          return
+        }
+        num+= 20
+        i.innerHTML = num
+      }, 3000)
+    }
+  </script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
