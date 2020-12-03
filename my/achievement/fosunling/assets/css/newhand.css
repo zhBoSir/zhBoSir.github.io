@@ -1,0 +1,31 @@
+@charset "utf-8";
+.newhand-banner{height: 600px;width: 100%;background: url(../images/newhand/newhand-bannerbg.jpg) no-repeat center center;min-width:1180px;}
+.newhand-content{height: auto;width: 100%;position: relative;background: url(../images/newhand/newhand_bg_bar.png) repeat center center;}
+.newhand-grounp{width:1180px;height:auto;margin:0 auto;position:relative;background:url(../images/newhand/newhand_bg_bend.png) no-repeat center 50px;}
+.newhand-top{height: 1051px;width: 100%;}
+.newhand-grounp .newhand-top .btn-regist{position:absolute;left:280px;top:235px;}
+.newhand-middle{height:790px ;width: 100%;position: relative;}
+.newhand-bottom{width: 100%;position: relative;}
+.newhand-top ,.newhand-middle ,.newhand-bottom{background: transparent;}
+.newhand-label1{line-height:120px ;position: absolute;padding:20px 0 0 140px;
+left: 80px;top: 102px;background: url(../images/newhand/numbg-1.png) no-repeat;width: 771px;height: 120px;background-size:790px 120px;}
+
+.newhand-label2{line-height:130px ;position: absolute;padding:25px 0 0 150px;
+left: 400px;top: 390px;background: url(../images/newhand/numbg-2.png) no-repeat;width: 685px;height: 130px;background-size:691px 130px;}
+
+.newhand-top .a-btn{display: block;background:#fd4f32 ;width: 280px;height:60px;left: 580px;top: 575px;position: absolute;border-radius: 45px;color: white;font-size: 26px;line-height: 60px;text-align: center;}
+.newhand-label3{line-height:35px ;position: absolute;padding: 66px 0 0 140px;
+left: 80px;top: -230px;background: url(../images/newhand/numbg-3.png) no-repeat;width: 710px;height: 258px;background-size:727px 170px;}
+
+.newhand-label4{line-height:35px ;position: absolute;left: 340px;bottom: 360px;background: url(../images/newhand/numbg-4.png) no-repeat;width: 710px;height: 140px;padding: 60px 0 0 140px;background-size:729px 160px;}
+
+
+.newhand-middle .a-btn{position: absolute;left: 280px;top: -10px;display: block;background: #fd4f32;width: 280px;height: 60px;font-size: 26px;border-radius: 45px ;color: white;line-height: 60px;text-align: center;}
+.newhand-bottom .a-btn{position: absolute;left: 540px;top:-200px;display: block;background: #fd4f32;width: 280px;height: 60px;font-size: 26px;border-radius: 45px ;color: white;line-height: 60px;text-align: center;}
+
+.newhand-rule{width:1176px;margin: auto;height: 290px;margin-top:-160px ;padding-left: 10px;}
+.newhand-rule h3{font-size: 26px;color:#813600 ;line-height: 60px;}
+.newhand-rule p{font-size: 22px;color: #813600;line-height: 40px;}
+
+ .newhand-text1{font-size: 30px;color: #753c1e;font-weight:bold;}
+ .newhand-text2{font-size: 26px;color: #753c1e;}

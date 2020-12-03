@@ -1,0 +1,10 @@
+.form-title{line-height:72px;}
+.form-wrap{padding:30px 50px 70px 10px;}
+.form-wrap .form-item-group{padding:20px 0;} 
+.form-wrap .form-item-group .item-name{width:150px;text-align:right;padding-right:20px;}
+.form-wrap .form-item-group .h40{height:40px;}
+.form-wrap .form-item-group .item-content .form-input{width:260px;height:40px;border:1px solid #e8e8e9;padding-left:10px;}
+.form-submit{width:275px;}
+.warm-tips{padding:30px 20px;background-color:#f2f2f2;}
+.warm-tips h5{padding-bottom:20px;}
+.warm-tips p{color:#999;font-size:16px;line-height:1.8;}

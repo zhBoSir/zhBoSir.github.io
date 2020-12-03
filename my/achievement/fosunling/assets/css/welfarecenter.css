@@ -1,0 +1,53 @@
+@charset "utf-8";
+/*福利中心-投资优惠券页面*/
+/*福利类型*/
+.wc-title,.wc-type-grounp ul{line-height:72px;}
+.wc-type-grounp ul li{float:left;}
+.wc-type-grounp ul li a{color:#999;padding:0 20px;border-right:1px solid #999;}
+.wc-type-grounp ul li a.border-right-none{border-right:none;}
+.wc-type-grounp ul .type-li-active a{color:#ef1719;}
+/*使用状态*/
+.wc-use-state ul{line-height:90px;}
+.wc-use-state ul li{float:left;}
+.wc-use-state ul li a{color:#666;padding:30px 40px;}
+.wc-use-state ul .active a{color:#ef1719;border-bottom:3px solid #ef1719;}
+.account-content .wc-coupon-wrap .tab-fade{display:none;}
+.account-content .wc-coupon-wrap .active{display:block;}
+/*抵用券*/
+.wc-coupon-wrap{padding-bottom:20px;}
+.wc-coupon-wrap .wc-cash-coupon{background:url(../images/myaccount/cash_coupon.png) no-repeat center center;margin-top:30px;width:825px;height:158px;}
+.wc-coupon-wrap .wc-cash-coupon .wc-coupon-left{width:276px;height:122px;padding:36px 0 0 0;text-align:center;}
+.wc-coupon-left .wc-coupon-p1{padding-bottom:26px;}
+.wc-coupon-left .wc-coupon-p2{padding-left:10px;}
+.wc-coupon-left p .wc-coupon-number{font-size:50px;padding-right:20px;}
+.wc-coupon-wrap .wc-cash-coupon .wc-coupon-right{width:523px;height:136px;padding:22px 0 0 26px;}
+.wc-left-line{border-left:1px solid #999;padding-left:10px;}
+.wc-coupon-right .wc-pt20{padding-top:20px;}
+.wc-coupon-wrap .wc-coffee-coupon{background:url(../images/myaccount/coffee_coupon.png) no-repeat center center;}
+.wc-coupon-wrap .wc-cake-coupon{background:url(../images/myaccount/cake_coupon.png) no-repeat center center;}
+/*已使用券页面、已过期券*/
+.wc-coupon-wrap .wc-used-coupon{background:url(../images/myaccount/gray-coupon.png) no-repeat center center;}
+
+/*福利中心-体验金页面*/
+.wc-lineh90{line-height:90px;}
+.wc-lineh90 .wc-pd-btn{margin:28px 0 0 25px;}
+.wc-gold-table{padding-bottom:20px;}
+.wc-gold-table tr{border:1px solid #e8e8e9;height:80px;color:#666;font-size:14px;}
+.wc-gold-table tr.wc-tr-title{background-color:#f3f3f3;height:40px;color:#000;font-size:16px;}
+.wc-gold-table tr .wc-td-gold{width:180px;text-align:center;}
+.wc-gold-table tr .wc-td-time{width:200px;}
+.wc-gold-table tr .wc-td-date{width:180px;}
+.wc-gold-table tr .wc-td-explain{width:150px;}
+.wc-gold-table tr .wc-td-state{width:120px;}
+
+/*福利中心-星币页面*/
+.coins-packet-table{padding-bottom:20px;}
+.coins-packet-table table tr.cp-table-title{background-color:#f3f3f3;height:38px;font-size:16px;color:#000;}
+.coins-packet-table table tr{border:1px solid #e8e8e9;height:110px;font-size:14px;color:#666;}
+.coins-packet-table tr td.cp-td-first{width:250px;padding-left:20px;}
+.coins-packet-table tr td.cp-td-second{width:220px;}
+.coins-packet-table tr td.cp-td-three{width:380px;}
+
+/*现金红包*/
+.red-packet-bg{background:url(../images/myaccount/red_packet.png) no-repeat center center;width:198px;height:80px;position:relative;}
+.red-packet-bg .money-num{position:absolute;top:30px;left:95px;color:#fff;font-size:46px;}

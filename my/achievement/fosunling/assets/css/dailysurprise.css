@@ -1,0 +1,37 @@
+.dailysurprise-container{width: 100%;background: url(../images/dailysurprise/bg.jpg) no-repeat center center;height:800px;}
+.dailysurprise-container .dailysurprise-center{width:825px;margin:0 auto;padding-top:300px;position: relative;}
+.dailysurprise-container .dailysurprise-center .center-baoxiang{position: absolute; top: 210px;left:365px;animation: shake 1.5s infinite;}
+@keyframes shake{0%{left: 365px;}12.5%{left:350px;}25%{left: 335px;}37.5%{left:350px;}50%{left:365px;}62.5%{left:380px;}75%{left:395px;}87.5%{left:380px;}100%{left:365px;}}
+.dailysurprise-container .dailysurprise-center .center-ellipse{display:block;background:url(../images/dailysurprise/ellipse.png) no-repeat center center;margin-top: 40px;width: 100%;height: 50px;text-align: center;}
+.dailysurprise-container .dailysurprise-center .ellipse{display:block;width: 232px;height:50px;margin: 0 auto;margin-top: 40px;}
+.dailysurprise-container .dailysurprise-center .center-ellipse span{display: inline-block;padding-top:13px;color: white;}
+.dailysurprise-container .dailysurprise-center .center-bg{width: 100%;height:96px;background: url(../images/dailysurprise/bg_top.png) no-repeat center center;margin-top: 40px;}
+.dailysurprise-container .dailysurprise-center .center-bg .bg-gift{width:760px;height: 70px;line-height:70px;margin: 0 auto;border-bottom: 2px dashed #b4b4b4;}
+.dailysurprise-container .dailysurprise-center .center-bg .bg-gift img{margin-top: -10px;padding-left: 14px;}
+.dailysurprise-container .dailysurprise-center .center-bg .bg-gift span{color:#666666;}
+.dailysurprise-container .dailysurprise-center .center-rules{background-color: #fff4ed;color:#666666;padding-bottom: 50px;padding-left: 50px;padding-top: 15px;}
+.dailysurprise-container .dailysurprise-center .center-rules p{font-weight: bold;}
+/*打开惊喜后*/
+.surpriseopen{display: none;}
+.surpriseopen-box{background-color:white;width:855px;margin: 0 auto;border-radius: 5px;}
+.surpriseopen-box .surpriseopen-baoxiang{width: 855px; height: 260px;position: relative;}
+.surpriseimg{position: absolute;top: 100px;left:377px;}
+.award{display:block;color:#773232;padding-top: 35px;display: none;font-size: 24px;}
+.surpriseopen-box .surpriseopen-baoxiang .award a{display: inline-block;color:#e63232;}
+.surpriseopen-box .surpriseopen-baoxiang .closebtn{position: absolute;top:14px;right:28px;color: black;z-index: 9999;cursor: pointer;}
+.position{position: absolute;left: 0;top: 0;}
+.awardps{position: absolute;z-index: 8888;left:50%;display: inline-block;width: 600px;margin-left:-300px;}
+.surpriseopen-box .surpriseopen-title{text-align: center;position: relative}
+.surpriseopen-box .surpriseopen-title .oneline,.surpriseopen-box .surpriseopen-title .twoline{display: inline-block;width:165px;border-top:1px solid #773232;position: absolute;}
+.surpriseopen-box .surpriseopen-title .oneline{left: 90px;top: 32px;}
+.surpriseopen-box .surpriseopen-title .twoline{right: 90px;top: 32px;}
+.surpriseopen-box .surpriseopen-title span{display:inline-block;margin-top: 20px;color:#773232;}
+.surpriseopen-box .surpriseopen-title span a{color:#e63232;padding: 0 8px;}
+.surpriseopen-box .surpriseopen-state ul{padding-top: 20px;width: 620px;margin: 0 auto;}
+.surpriseopen-box .surpriseopen-state ul li{display: inline-block;width: 120px;text-align:center;}
+.surpriseopen-box .surpriseopen-state ul li .close{margin-top: 46px;}
+.surpriseopen-box .surpriseopen-state ul li span{display: block;}
+.surpriseopen-box .surpriseopen-ellipse{display: block;background: url(../images/dailysurprise/ellipse.png) no-repeat center center;height: 50px;text-align: center;padding-top: 25px;color: white;}
+.surpriseopen-box .surpriseopen-remind{background-color: #fff2c1;height: 35px;line-height: 35px;text-align: center;}
+.surpriseopen-box .surpriseopen-remind img{margin-top: -4px;}
+.surprisebody .layui-layer-page .layui-layer-content {overflow: inherit;}

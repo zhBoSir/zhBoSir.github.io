@@ -1,0 +1,31 @@
+.security-banner{
+	width: 100%;
+	height: 600px;
+	background: url(../images/security/banner.jpg) no-repeat center center;
+}
+.security-content{
+	margin-top: 68px;
+	margin-bottom:85px;
+}
+.security-content ul li{
+	width: 1180px;
+	height: 110px;
+}
+.security-content ul li i{
+	display: inline-block;
+	width: 120px;
+	height: 110px;
+	line-height: 110px;
+	font-size:100px;
+	color: #d60808;
+}
+.security-content ul li span{
+	display: inline-block;
+	width: 1020px;
+}
+.mt85{
+	margin-top: 75px;
+}
+.security-content ul li .analysis{
+	font-size: 125px;
+}

@@ -1,0 +1,26 @@
+@charset "utf-8";
+/*banner*/
+.xenjoy-container .xenjoy-banner{background:url(../images/xenjoy/xenjoy_banner.jpg) no-repeat center center;width:100%;height:449px;min-width:1180px;position:relative;}
+.xenjoy-banner .xenjoy-formbox-parent{width:1180px;height:449px;position:absolute;top:0;left:50%;margin-left:-590px;}
+.xenjoy-banner .xenjoy-formbox{width:340px;padding:26px 25px 35px 30px;background-color:rgba(255,255,255,0.9);position:absolute;top:50px;right:50px;background-color:#fff;opacity:0.9;filter:alpha(opacity=90); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)"; 
+ filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=90);}
+.xenjoy-formbox .xenjoy-input-box{padding:15px 0 0 25px;}
+.xenjoy-formbox .xenjoy-input-box .xenjoy-input-item{padding-top:12px;}
+.xenjoy-formbox .xenjoy-input-box .xenjoy-input-item input{border-bottom:1px solid #c9c9c9;outline:0;margin:0 10px;background-color:rgba(255,255,255,0.1);font-size:16px;color:#333;}
+.xenjoy-formbox .xenjoy-input-box .xenjoy-form-btn{width:255px;}
+/*尊享私人订制服务*/
+.xenjoy-container .xenjoy-customized{padding-top:30px;}
+.xenjoy-common-title{padding:2px 5px;border-left:3px solid #ef1719;}
+.xenjoy-customized p{padding:20px 5px;}
+/*尊贵用户们*/
+.xenjoy-users{padding-top:40px;}
+.xenjoy-users .xenjoy-table-box tr.xenjoy-tr-title{background-color:#fffdfd;}
+.xenjoy-users .xenjoy-table-box tr td{text-align:center;height:46px;line-height:46px;border:1px solid #e8e8e9;font-size:14px;}
+.xenjoy-table-box tr td.xenjoy-td-user{width:156px;}
+.xenjoy-table-box tr td.xenjoy-td-customized{width:255px;}
+.xenjoy-table-box tr td.xenjoy-td-profit{width:184px;}
+.xenjoy-table-box tr td.xenjoy-td-term{width:224px;}
+.xenjoy-table-box tr td.xenjoy-td-date{width:186px;}
+.xenjoy-table-box tr td.xenjoy-td-state{width:168px;}
+.xenjoy-table-box tr td.xenjoy-td-money{text-align:right;color:#EF1719;padding-right:20px;}
+.xenjoy-users .xenjoy-paging{padding-top:10px;border-top:none;}

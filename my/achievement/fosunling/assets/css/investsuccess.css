@@ -1,0 +1,21 @@
+@charset "utf-8";
+/*恭喜您*/
+.success-container .success-info{text-align:center;background-color:#fff;padding:45px 0px;}
+.success-container .success-info .success-pt45{padding-top:45px;}
+/*流程*/
+.success-container .success-process{text-align:center;}
+.success-process .success-process-wrap{padding:35px 0;width:1180px;margin:0 auto;}
+.success-process .success-process-wrap ul{padding:15px 0 0 140px;}
+.success-process .success-process-wrap ul li{width:300px;}
+.success-process .success-process-wrap ul li p{padding-top:10px;}
+/*温馨提示*/
+.success-tips .success-tips-wrap{margin:0 auto;width:1050px;padding:45px 0 50px 130px;}
+.success-tips-wrap .success-tipsinfo p{padding-top:15px;}
+.success-tips-wrap .success-btnbox{padding:70px 0 0 150px;}
+.success-tips-wrap .success-btnbox a{width:226px;margin-left:55px;}
+/*开宝箱*/
+.success-container .success-chest{background:url(../images/mgmoney/chest.jpg) no-repeat center center;width:100%;height:660px;min-width:1180px;text-align:center;padding-top:50px;position:relative;}
+.success-chest .success-chest-btn{width:316px;height:70px;font-size:24px;text-align:center;line-height:70px;color:#fff;border-radius:35px;display:inline-block;position:absolute;bottom:120px;left:50%;margin-left:-190px;background-color:#ef1719;opacity:0.5;filter:alpha(opacity=50); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; 
+ filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50);}
+
+

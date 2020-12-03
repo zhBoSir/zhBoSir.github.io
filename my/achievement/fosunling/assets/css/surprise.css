@@ -1,0 +1,187 @@
+.surpriselb-banner{
+	width:100%;
+	height:545px;
+	background:url(../images/surprise/surprise.jpg) no-repeat center center;
+}
+.surpriselb-body{
+	width: 1180px;
+	margin:  0 auto;
+	margin-top: 45px;
+	margin-bottom: 110px;
+}
+.body{
+	width: 1180px;
+	background-color: white;
+}
+.surpriselb-body .body-bg{
+	width: 1180px;
+	background: url(../images/surprise/bg.png) no-repeat center center;
+	padding-bottom:40px;
+}
+.surpriselb-body .body-bg .bg-look{
+	width: 1042px;
+    height: 85px;
+    line-height:85px;
+	margin: 0 auto;
+	border-bottom: 1px dashed #e9e9e9 ;
+}
+.surpriselb-body .bg-look span{
+	color: #773232;
+}
+.surpriselb-body .bg-look span a{
+	color: #ff403b;
+}
+.surpriselb-body .bg-look img{
+	margin-top: -20px;
+}
+/*登陆前*/
+.surpriselb-body .body-baoxiang{
+	width: 1042px;
+	margin: 0 auto;
+	text-align: center;
+}
+.surpriselb-body .body-baoxiang .baoxiang{
+	width: 320px;
+	height: 306px;
+	position: relative;
+	top: 70px;
+	left: 370px;
+	animation: shake 1.5s infinite;
+}
+@keyframes shake{
+				0%{
+					top: 70px;
+				}
+				12.5%{
+					top:40px;
+				}
+				25%{
+					top: 10px;
+				}
+				37.5%{
+					top:40px;
+				}
+				50%{
+					top: 70px;
+				}
+				62.5%{
+					top:40px;
+				}
+				75%{
+					top: 10px;
+				}
+				87.5%{
+					top:40px;
+				}
+				100%{
+					top: 70px;
+				}
+			}
+
+.surpriselb-body .body-baoxiang .ellipse{
+	position: relative;
+	margin-top: 50px;
+	margin-bottom: 136px;
+}
+.surpriselb-body .body-baoxiang .ellipse .button{
+	display: inline-block;
+	position: absolute;
+	top: 45px;
+	left: 465px;
+	color: #F0F0F0;
+}
+.surpriselb-body .body-rules{
+	width: 1042px;
+	margin: 0 auto;
+	margin-top: 100px;
+	padding-bottom: 50px;
+}
+.surpriselb-body .body-rules p{
+	color: #666666;
+}
+.surpriselb-body .body-rules ul{
+	color: #858585;
+}
+/*登陆后*/
+.body-baoxiang .baoxiang-open{
+	width: 950px;
+	height: 520px;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+}
+.img{
+	position: absolute;
+	top:90px;
+	left:335px ;
+}
+.position{
+	position: static;
+}
+.award{
+	display: block;
+	color:#773232;
+	display: none;
+}
+.awardps{
+	position: absolute;
+	top: 425px;
+	left: 237px;
+}
+.body-baoxiang .baoxiang-open span a{
+	display: inline-block;
+	color: #e63232;
+	font-size: 42px;
+}
+.body-baoxiang .baoxiang-surprisegift{
+	text-align: center;
+	position: relative;
+}
+.body-baoxiang .baoxiang-surprisegift .oneline,.body-baoxiang .baoxiang-surprisegift .twoline{
+	display: inline-block;
+	width:250px;
+	border-top:1px solid #945151;
+	position: absolute;
+}
+.body-baoxiang .baoxiang-surprisegift .oneline{
+	left: 0;
+	top: 99px;
+}
+.body-baoxiang .baoxiang-surprisegift .twoline{
+	right: 0;
+	top: 99px;
+}
+.body-baoxiang .baoxiang-surprisegift .open,.body-baoxiang .baoxiang-surprisegift .day{
+	display: inline-block;
+}
+.body-baoxiang .baoxiang-surprisegift .open{
+	padding:0 63px;
+	color:#773232;
+}
+.body-baoxiang .baoxiang-surprisegift .day{
+	color: #e63232;
+	font-size: 40px;
+	padding: 0 10px;
+}
+.body-baoxiang .baoxiang-surprisegift .surprisegift-title{
+	margin-top: 60px;
+}
+.body-baoxiang .baoxiang-surprisegift p{
+	color: #773232;
+	font-weight: 700;
+}
+.body-baoxiang .baoxiang-state ul{
+	margin-top: 100px;
+}
+.body-baoxiang .baoxiang-state ul li{
+	display: inline-block;
+	width: 121px;
+	height: 240px;
+}
+.body-baoxiang .baoxiang-state ul li .close{
+	margin-top: 46px;
+}
+.body-baoxiang .baoxiang-state ul li span{
+	display: block;
+}
+
