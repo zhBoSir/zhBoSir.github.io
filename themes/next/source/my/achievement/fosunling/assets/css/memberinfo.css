@@ -1,0 +1,12 @@
+@charset "utf-8";
+/*会员信息最上部*/
+.vipinfo{line-height:72px;}
+.account-commontitle{padding: 0px 10px;border-left: 3px solid #E71F19;}
+/*会员账号、安全等级*/
+.mi-safe-level{padding:42px 0 30px 0px;}
+.mi-safe-level .mi-pl40{padding-left:40px;}
+/*会员信息公共样式*/
+.mi-common-block{padding:27px 0;}
+.mi-common-block .mi-inset-2,.mi-common-block .mi-inset-3{padding-top:25px;}
+.mi-common-block .mi-pt0{padding-top:0;}
+

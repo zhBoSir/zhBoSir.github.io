@@ -1,0 +1,38 @@
+@charset "utf-8";
+@import url("prodetails.css");
+@import url("investsuccess.css");
+/*星理财*/
+/*banner*/
+.mian-top-bg{position: relative;background:url(../../assets/images/mgmoney/02_02.jpg) no-repeat center center;min-width:1180;height:360px}
+/*新手任务*/
+.xlicai-formbox{width:292px;padding:26px 25px 35px 30px;background-color:rgba(255,255,255,0.9);position:absolute;top:50px;right:150px;background-color:#fff;opacity:0.9;filter:alpha(opacity=90); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)"; 
+ filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=90);text-align: center;}
+.xlicai-formbox a{margin: 0 auto; margin-top: 25px;}
+.xlicai-formbox .em#e1{width: 10px; border: 1px solid red;}
+.xlicai-formbox .em#e2{width: 10px; border: 1px solid red;}
+/*新手专享*/
+.mian-p30b40{padding:30px 0px 40px 0px;}
+.mian-p20b20{padding:30px 0px 20px 0px;}
+.mian-top .mian-top-left{width:274px;height:178px;position:relative;}
+.mian-top .mian-top-left .mgmoney-left-line{position:absolute;left:26px;top:85px;}
+.mian-top .mian-top-left h2{width:130px;position:absolute;left:82px;top:73px;}
+.mian-top .mian-top-left .mgmoney-right-line{position:absolute;left:204px;top:85px;}
+.mian-top .mian-top-box{padding:15px 0 15px 32px;width:418px;}
+.mian-top .mian-top-box .mian-tc-wrap{border-right:1px solid #e8e8e9;padding:45px 32px 39px 0;}
+.mian-top-box p{padding-top:20px;}
+.mian-top-box .mian-tc-wrap p .mian-pd20{padding-left:20px;}
+.mian-top-box .mian-tc-wrap .mian-tc-btn{padding-top:12px;}
+.mian-tc-btn a:hover{background-color:#ef1719;color:#fff;}
+.mian-top .mian-top-right{width:424px;}
+.mian-top .mian-top-right .mian-tc-wrap{border-right:none;padding:39px 10px 0 0;}
+/*产品菜单及列表*/
+.xlicai-product-wrap{border:1px solid #e8e8e9;}
+.xlicai-query{border-bottom:3px solid #f0f0f0;background-color:white;padding:0px 28px;}
+.xlicai-query ul li{float:left;font-size:22px;line-height:76px;padding:0px 10px 0px 10px;cursor:pointer;color:#4e4e4e;margin-right:30px;position:relative;margin-bottom:-3px;display:inline-block;font-weight:500;}
+.xlicai-query ul li.active{border-bottom:3px solid #e9565c;}
+.xlicai-query ul li a{color:#666;display: block;}
+.xlicai-query ul li.active a{color:#ef1719;}
+.zr-area-li{position:relative;}
+.hot-tag{width:26px;height:26px;border-radius:3px;border:1px solid #ef1719;text-align:center;line-height:26px;position:absolute;top:10px;left:105px;}
+
+

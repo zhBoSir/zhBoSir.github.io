@@ -1,0 +1,32 @@
+.main-nav .nav{width: 800px}
+.main-nav .nav .nav-box li{width: auto;margin-left: 20px;margin-right: 20px;}
+.footer{text-align: center;height: 80px;line-height: 80px; }
+a{color: #666666;}
+.register-container{background:url(../images/register/register_bg.png) no-repeat center center;height:648px;position:relative;}
+.register-box{top:86px; right:50%; margin-right:120px;position: absolute;width: 346px;background-color: rgba(255,255,255,0.8);overflow: hidden;color: #666666;}
+.register-box .inner-box{padding: 23px;}
+
+.header-tab{float: left;}
+.header-tab.l{width: 170px;font-size: 23px;}
+.header-tab.r{float: right;text-align: right;padding-top: 6px;font-size: 14px;}
+.form{margin-top: 40px;}
+.form .alert{position: relative;height: 25px;}
+.form .info{color: #e84646;display: none;}
+.form .info i{font-size: 14px;top:0px;}
+.form .info span{margin-left: 5px;}
+.form label{float: none;}
+.item{position: relative;margin-bottom: 15px;}
+.item-fox{border: 1px solid #bdbdbd;height: 38px;width: 298px;}
+.item-fox i{position: absolute;left: 10px;top: 8px;}
+.item-fox img{position: absolute;top: 0;right: 0;width: 88px;height: 38px;}
+.item-checkbox{position: absolute;top: 0;left: 0;width: 18px;height: 18px;}
+.itxt{line-height: 18px;height: 18px;border: 1;padding: 10px 0 10px 40px;width: 258px;float: none;overflow: hidden;font-size: 14px;}
+.icode{width: 180px;}
+.tools{height: 28px;padding-left: 2px;}
+.tools i{position: absolute;font-size: 14px;}
+.tools .xieyi{padding-left: 18px;}
+.tools .xieyi a{color:#118dd4}
+.tools .tuijian a{padding-left: 16px;}
+.mb0{margin-bottom: 0px !important;}
+.item-btn{text-align:center;width:100%;margin: 0;margin-bottom:0px;}
+.item-btn .btn{height: 38px;width: 100%;line-height: 38px;background-color: #e84646;border-radius: 4px;box-shadow: 0 0 4px rgba(187,187,187,.7);font-size: 18px;color:#ffffff;cursor:pointer;}

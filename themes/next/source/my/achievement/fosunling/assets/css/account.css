@@ -1,0 +1,87 @@
+@charset "utf-8";
+.account-container{border:1px solid #eee;width:1178px;margin:15px auto 66px;overflow:hidden;}
+/*公共样式（包括账户所有页面）*/
+.account-commontitle{padding: 0px 10px;border-left: 3px solid #E71F19;}
+.account-gray-btn,.account-red-btn{width:130px;height:32px;line-height:32px;display:block;text-align:center;border-radius: 5px;}
+.account-gray-btn{border:1px solid #999;color:#999;}
+.account-red-btn{border:1px solid #ef1719;color:#ef1719;}
+.account-container .account-content .account-pl0{padding-left:0;}
+.account-container .account-content .border-top-none{border-top:none;}
+/*账户左边列表*/
+.account-icon-box a img{margin-top:-19px;}
+.account-container .account-list{width:254px;text-align:center;}
+.account-container .account-list .account-headerimg{padding:45px 0 25px 0;}
+.account-list .account-list-ul{position:relative;}
+.account-list .account-list-ul .account-list-li{text-align:left;height:55px;line-height:55px;box-sizing: border-box;}
+.account-list .account-list-ul .account-white-line{}
+.account-list .account-list-li a{font-size:18px;color:#666;display: block;padding-left: 80px;}
+.account-list .account-list-active{position:absolute;height:53px;background: #fff;width: 251px;color:#000;background-color:#fff;border-left:4px solid #e71f19;border-top:1px solid #eee;border-bottom:1px solid #eee;}
+.account-list .account-list-ul li:hover{color:#000;background-color:#fbfbfc;}
+.account-list .account-list-active a{color:#000;}
+/*账户右边内容*/
+.account-container .account-content{width:853px;padding:0 40px 0 30px;border-left:1px solid #eee;min-height: 763px;}
+/*安全提升*/
+.account-content .account-safe-promote .account-sp-wrap{line-height:72px;text-align:right}
+.account-sp-wrap a{width:114px;height:30px;background-color:#4e9ff1;font-size:16px;line-height:30px;}
+.account-sp-wrap .promote-safe01{padding-right:15px;}
+/*资产部分*/
+.account-content .account-common-div{border-top:1px solid #eee;padding:36px 0;}
+.account-common-div .account-totle-left,.account-common-div .account-totle-right{width:50%;}
+.account-totle-left h3,.account-totle-left p{padding-left:30px;}
+.account-common-div .pt15{padding-top:15px;}
+.account-totle-left .account-circle{padding:50px 0 50px 70px;}
+.account-totle-right .account-bar {padding:32px 0 50px 0;}
+.account-usable{padding:20px 0;}
+.account-totle-left .account-btn-box{padding:20px 0 0px 37px;}
+.account-totle-left .account-btn-box .account-recharge-btn,.account-totle-left .account-btn-box .account-tixian-btn{width:100px;height:36px;line-height:36px;font-size:16px;}
+.account-totle-left .account-btn-box .account-recharge-btn{background-color:#4e9ff1;margin-right:10px;}
+.account-totle-left .account-btn-box .account-tixian-btn{background-color:#e8e8e8;color:#666;}
+.account-details{padding-left:100px;}
+.account-assets,.account-income{width:45%;}
+.account-assets{padding-left:37px;}
+/*福利中心*/
+.account-content .account-pl37{padding-left:37px;}
+.account-content .account-pl37 h2{padding:3px 10px;border-left:3px solid #E71F19;}
+.account-center-box a{width:390px;height:68px;border:1px solid #d9d6d6;text-align:center;line-height:68px;background-color:#fdfdfd;}
+.account-center-box .account-span-num{font-weight:bold;padding:0 10px;}
+.account-investdate{border-left:3px solid #E71F19;}
+/*精选理财推荐*/
+.account-common-div .product-list1-wrap .product-item{width:260px;}
+
+/*============================================================================*/
+/*风险承受能力评估页面*/
+.risk-container{margin:20px auto 40px;padding:20px 20px 60px 20px;background-color:#fff;border:1px solid #eee;width:1140px;}
+.risk-title{background-color:#ededed;padding:20px 15px;border-top:1px solid #c9c9c9;border-bottom:1px solid #c9c9c9;}
+.risk-title h4{font-size:14px;font-weight:600;}
+.risk-container .risk-out-ul .risk-out-li{font-size:14px;font-weight:600;padding:20px 10px;border-bottom:1px solid #c9c9c9;}
+.risk-container .risk-in-ul{padding:15px 25px;}
+.risk-container .risk-in-ul li{font-size:14px;padding:2px 0;font-weight:normal;}
+.risk-container .risk-in-ul li input{margin-right:10px;}
+.risk-container .risk-btn-box{padding-top:20px;}
+.risk-container .risk-btn-box input{margin:0 auto;}
+
+/*============================================================================*/
+/*我的星尊享页面*/
+.myxenjoy-title{line-height:80px;}
+.myxenjoy-state ul li{float:left;}
+.myxenjoy-state ul li a{font-size:16px;color:#999;padding:0 20px;}
+.myxenjoy-state ul li.active a{color:#ef1719;}
+.myxenjoy-state ul li a.myxenjoy-right-line{border-right:1px solid #c9c9c9;padding-left:0px;}
+.myxenjoy-item-wrap{padding:25px;border:1px solid #e7e7e7;}
+.myxenjoy-item-wrap .myxenjoy-item-up{padding-bottom:20px;border-bottom:1px solid #e7e7e7;}
+.myxenjoy-item-wrap .myxenjoy-item-up a{text-decoration:underline;color:#000;}
+#tab2 .myxenjoy-item-wrap .myxenjoy-item-up a{color:#999;}
+.myxenjoy-item-wrap .myxenjoy-item-center{padding-top:30px;}
+.myxenjoy-item-wrap .myxenjoy-center-left{width:170px;}
+.myxenjoy-rate-num span{font-size:34px;}
+.myxenjoy-rate-txt{padding:10px 0 15px 0;}
+.myxenjoy-direction{padding-top:5px}
+.myxenjoy-item-wrap .myxenjoy-center-center{width:202px;padding-left:68px}
+.myxenjoy-center-line{border-left:1px dashed #e1e1e1;height:80px;width:1px;margin-top:-10px;}
+.myxenjoy-item-wrap .myxenjoy-center-right{padding-left:30px;}
+.myxenjoy-pro-wrap{padding-top:20px;}
+.myxenjoy-item-wrap .myxenjoy-item-down{padding-top:20px;position:relative;}
+.myxenjoy-item-down .myxenjoy-down-center{padding-left:155px; }
+.myxenjoy-item-down .myxenjoy-down-right{padding-left:176px;}
+.myxenjoy-btn-box{position:absolute;top:40px;right:-200px;}
+#tab2 .myxenjoy-btn-box a{background-color:#999;}
