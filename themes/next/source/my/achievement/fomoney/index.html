@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页</title>
+  <link href="js/plugins/fullPage/jquery.fullPage.css" type="text/css" rel="stylesheet" />
+  <link href="js/plugins/layui/css/layui.css" type="text/css" rel="stylesheet" />
+  <link href="css/reset.css" type="text/css" rel="stylesheet" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+
+  <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="js/jquery.fomoney.js" type="text/javascript"></script>
+  <script src="js/plugins/layui/layui.js" type="text/javascript"></script>
+  <script type="text/javascript">var domain  = '${serverIp}'; fomoney.apiUrl = '${serverIp}/api/v1'; </script>
+  <script src="js/fomoney.common.js" type="text/javascript"></script>
+  <style type="text/css">	
+    .index-function-box{position:absolute;width:1200px;left:50%;margin-left:-600px;top:0;height:100%;z-index: 888}
+    .fp-slidesNav{left: 12%;}
+    .fp-slidesNav.bottom{bottom: 10%}
+    html{overflow-y: auto !important;height: auto !important;}	
+    .section .slide{
+        position: relative;
+    }
+    
+    .section .bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .section .bg img {
+        display: block;
+        width: 100%;
+    }
+    .active .bg1-1 {
+        opacity: 1;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+        -webkit-transition-delay: 0.7s;
+        -moz-transition-delay: 0.7s;
+        -ms-transition-delay: 0.7s;
+        -o-transition-delay: 0.7s;
+        transition-delay: 0.7s;
+    }
+    .bg1-1 {
+        position: absolute;
+        width: 432px;
+        height: 432px;
+        left: 32%;
+        top: 19%;
+        background-image: url('images/index/index_animation01.png');
+        opacity: 0;
+        -webkit-transform: scale(0.5, 0.5);
+        -moz-transform: scale(0.5, 0.5);
+        -ms-transform: scale(0.5, 0.5);
+        -o-transform: scale(0.5, 0.5);
+        transform: scale(0.5, 0.5);
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+    }
+    .active .bg1-2 {
+        opacity: 1;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+        -webkit-transition-delay: 0.5s;
+        -moz-transition-delay: 0.5s;
+        -ms-transition-delay: 0.5s;
+        -o-transition-delay: 0.5s;
+        transition-delay: 0.5s;
+    }
+    .bg1-2 {
+        position: absolute;
+        width: 379px;
+        height: 104px;
+        left: 56%;
+        top: 30%;
+        background-image: url('images/index/index_txt01.png');
+        opacity: 0; 
+        -webkit-transform: scale(0.6, 0.6);
+        -moz-transform: scale(0.6, 0.6);
+        -ms-transform: scale(0.6, 0.6);
+        -o-transform: scale(0.6, 0.6);
+        transform: scale(0.6, 0.6);
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+    }
+    .active .bg2-2 {
+        opacity: 1;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+        -webkit-transition-delay: 0.5s;
+        -moz-transition-delay: 0.5s;
+        -ms-transition-delay: 0.5s;
+        -o-transition-delay: 0.5s;
+        transition-delay: 0.5s;
+    }
+    .bg2-2 {
+        position: absolute;
+        width: 323px;
+        height: 103px;
+        left: 56%;
+        top: 30%;
+        background-image: url('images/index/index_txt02.png');
+        opacity: 0; 
+        -webkit-transform: scale(0.6, 0.6);
+        -moz-transform: scale(0.6, 0.6);
+        -ms-transform: scale(0.6, 0.6);
+        -o-transform: scale(0.6, 0.6);
+        transform: scale(0.6, 0.6);
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+    }
+    
+    .active .bg3-2 {
+        opacity: 1;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+        -webkit-transition-delay: 0.5s;
+        -moz-transition-delay: 0.5s;
+        -ms-transition-delay: 0.5s;
+        -o-transition-delay: 0.5s;
+        transition-delay: 0.5s;
+    }
+    .bg3-2 {
+        position: absolute;
+        width: 337px;
+        height: 105px;
+        left: 56%;
+        top: 32%;
+        background-image: url('images/index/index_txt03.png');
+        opacity: 0; 
+        -webkit-transform: scale(0.6, 0.6);
+        -moz-transform: scale(0.6, 0.6);
+        -ms-transform: scale(0.6, 0.6);
+        -o-transform: scale(0.6, 0.6);
+        transform: scale(0.6, 0.6);
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+    }
+    .active .bg4-2 {
+        opacity: 1;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+        -webkit-transition-delay: 0.5s;
+        -moz-transition-delay: 0.5s;
+        -ms-transition-delay: 0.5s;
+        -o-transition-delay: 0.5s;
+        transition-delay: 0.5s;
+    }
+    .bg4-2 {
+        position: absolute;
+        width: 379px;
+        height: 100px;
+        left:50%;
+        top: 26%;
+        background-image: url('images/index/index_txt04.png');
+        opacity: 0; 
+        -webkit-transform: scale(0.6, 0.6);
+        -moz-transform: scale(0.6, 0.6);
+        -ms-transform: scale(0.6, 0.6);
+        -o-transform: scale(0.6, 0.6);
+        transform: scale(0.6, 0.6);
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+    }
+    .active .bg5-2 {
+        opacity: 1;
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        transform: scale(1, 1);
+        -webkit-transition-delay: 0.5s;
+        -moz-transition-delay: 0.5s;
+        -ms-transition-delay: 0.5s;
+        -o-transition-delay: 0.5s;
+        transition-delay: 0.5s;
+    }
+    .bg5-2 {
+        position: absolute;
+        width: 323px;
+        height: 103px;
+        left:23%;
+        top: 30%;
+        background-image: url('images/index/index_txt05.png');
+        background-repeat: no-repeat;
+        opacity: 0; 
+        -webkit-transform: scale(0.6, 0.6);
+        -moz-transform: scale(0.6, 0.6);
+        -ms-transform: scale(0.6, 0.6);
+        -o-transform: scale(0.6, 0.6);
+        transform: scale(0.6, 0.6);
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+    }
+      
+    .active .bg-3 {
+        bottom: 5%;
+      margin-left: -200px;
+      opacity: .5;
+      -webkit-transition-delay: 1s;
+      -moz-transition-delay: 1s;
+      -ms-transition-delay: 1s;
+      -o-transition-delay: 1s;
+      transition-delay: 1s;
+    }
+    .bg-3 {
+        right:233px;
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+        background-image: url('images/index/icon_keji.svg');
+        background-size: 58px 51px;
+    }
+    
+    .active .bg-4 {
+        bottom: 5%;
+      margin-left: -200px;
+      opacity: .5;
+      -webkit-transition-delay: 0.7s;
+      -moz-transition-delay: 0.7s;
+      -ms-transition-delay: 0.7s;
+      -o-transition-delay: 0.7s;
+      transition-delay: 0.7s;
+    }
+    .bg-4 {
+        right:466px;
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+        background-image: url('images/index/icon_caifu.svg');
+        background-size:52px 50px;
+    }
+    
+    .active .bg-5 {
+        bottom: 5%;
+      margin-left: -200px;
+      opacity: .5;
+      -webkit-transition-delay: 0.5s;
+      -moz-transition-delay: 0.5s;
+      -ms-transition-delay: 0.5s;
+      -o-transition-delay: 0.5s;
+      transition-delay: 0.5s;
+    }
+    .bg-5 {
+        right:699px;
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+        background-image: url('images/index/icon_daikuan.svg');
+        background-size:56px 51px;
+    }
+    .active .bg-6 {
+        bottom: 5%;
+      margin-left: -200px;
+      opacity: .5;
+      -webkit-transition-delay: 1.2s;
+      -moz-transition-delay: 1.2s;
+      -ms-transition-delay: 1.2s;
+      -o-transition-delay: 1.2s;
+      transition-delay: 1.2s;
+    }
+    .bg-6 {
+        right:0px;
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+        background-image: url('images/index/icon_touzi.svg');
+        background-size:50px 46px;
+    }
+    h4{
+      margin-top:48%;
+      font-size:18px;
+      text-align: center;
+      color:#fff;
+    }
+    .bghor{
+      position: absolute; 
+        bottom: 2%; 
+        width:218px;
+        height:170px;
+        background-color:rgba(0,0,0,0);
+        background-color:#000;
+        opacity:0;
+        filter:alpha(opacity=0);
+        background-color:#000\0;
+        opacity:0.5\0;	    
+        filter:alpha(opacity=50)\0;
+        margin-left: -180px; 
+        background-repeat: no-repeat;
+        background-position: 50% 30%;
+        cursor: pointer;	    
+    }
+    .bghor:hover{
+      background-color:rgba(197,171,96,.7);
+      background-color:#c5ab60;
+      opacity:0.7;
+      filter:alpha(opacity=70);
+      -webkit-transition:all 1s;
+      -moz-transition:all 1s;
+      -ms-transition:all 1s;
+      -o-transition:all 1s;
+      transition:all 1s;
+    }
+    /*轮播小圆点*/
+    #fp-nav ul li a span, .fp-slidesNav ul li a span{width:12px;height:12px;background:none;border:1px solid #c9a96e;margin:0;}
+    #fp-nav ul li a.active span, .fp-slidesNav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span{margin:0;background-color:#c9a96e;}
+    #fp-nav ul li:hover a span,.fp-slidesNav ul li:hover a span{width:12px;height:12px;margin:0;}
+    /*3个功能弹框*/
+    .index-modal{width:860px;height:556px;text-align:center;font-size:14px;color:#d3b4a0;position:absolute;left:50%;margin-left:-430px;top:50%;margin-top:-258px;z-index:100;display:none;}
+    .load-serve{background:url(images/index_modal01.jpg) no-repeat center center;background-size:860px 556px;}
+    .index-modal .close_img{width:20px;height:20px;position:absolute;top:26px;right:26px;}
+    .index-modal h2{font-size:28px;font-weight:normal;padding:40px 0 30px;}
+    .index-modal .modal-btn-box{margin-top:50px;}
+    .index-modal .modal-btn-box .btn{font-size:22px;width:230px;height:60px;background-color:#c9a96e;line-height:60px;color:#fff;border-radius:30px;}
+    .index-modal .modal-btn-box .financial-btn{width:300px;}
+    .money-manage{background:url(images/index_modal02.jpg) no-repeat center center;background-size:863px 556px;}
+    .money-manage .circle-img{background:url(images/modal_img02.png) no-repeat center center;width:216px;height:205px;margin:10px auto 50px;text-align:center;color:#6ca9fa;}
+    .money-manage p{text-align: center;margin:0 auto;}
+    .financial-technology{height:526px;background:url(images/index_modal03.jpg) no-repeat center center;background-size:860px 526px;}
+    .financial-technology h2{padding:55px 0 45px;}
+    .financial-technology .modal-btn-box{margin-top:30px;}
+    .fp-slidesNav.bottom {z-index:900;}
+    .invest-team{background:url(images/index_modal04.jpg) no-repeat center center;background-size:863px 556px;}
+    .invest-team .middle-img{background:url(images/modal_img04.png) no-repeat center center;width:187px;height:121px;text-align:center;margin:20px auto 70px;}
+    .invest-team .p-content-box{margin:0 auto;text-align:center;}
+  
+    .animation1-box-div1{width:500px;height:500px;position:absolute;left:20%;top:30%;}
+    .animation1-box-div2{width:500px;height:500px;position:absolute;left:75%;top:22%;zoom:40%;-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);filter:grayscale(100%);opacity:0.4}
+    .animation1-ceng-box {width:394px;height:394px;position:relative;z-index:890;}
+    .animation1-ceng1 {background:url(images/index/111.png) no-repeat center center;width:394px;height:394px;position:relative;border-radius:50%;-webkit-animation:myrotate 8s infinite;-moz-animation:myrotate 8s infinite;-ms-animation:myrotate 8s infinite;animation:myrotate 8s infinite;z-index:890;-webkit-animation-timing-function:linear;-moz-animation-timing-function:linear;-ms-animation-timing-function:linear;animation-timing-function:linear;}
+    .animation1-ceng2 {background:url(images/index/222.png) no-repeat center center;width:363px;height:363px;position:absolute;left:50%;top:50%;margin-left:-181.5px;margin-top:-181.5px;border-radius:50%;-webkit-animation:myrotate 8s infinite alternate;-moz-animation:myrotate 8s infinite alternate;-ms-animation:myrotate 8s infinite alternate;animation:myrotate 8s infinite alternate;z-index:890;-webkit-animation-timing-function:linear;-moz-animation-timing-function:linear;-ms-animation-timing-function:linear;animation-timing-function:linear;}
+    .animation1-ceng3 {background:url(images/index/333.png) no-repeat center center;width:217px;height:217px;position:absolute;left:50%;top:50%;margin-left:-108.5px;margin-top:-108.5px;border-radius:50%;-webkit-animation:myrotate 8s infinite;-moz-animation:myrotate 8s infinite;-ms-animation:myrotate 8s infinite;animation:myrotate 8s infinite;z-index:890;-webkit-animation-timing-function:linear;-moz-animation-timing-function:linear;-ms-animation-timing-function:linear;animation-timing-function:linear;}
+    .new-animate{
+      -webkit-animation:myrotate1 5s infinite;-moz-animation:myrotate1 5s infinite;-ms-animation:myrotate1 5s infinite;animation:myrotate1 5s infinite;
+    }
+    
+    .animation2-box{
+      width:530px;height:430px;position:absolute;left:28%;top:23%;
+    }
+    .animation2-box .animation2-ceng1{width:425px;height:328px;background:url(images/index/animation_banner02_01.png) no-repeat center center;background-size:425px 328px;position:absolute;-webkit-animation:banner02-animate01 1.5s cubic-bezier(0,0.97,0.53,0.98);-moz-animation:banner02-animate01 1.5s cubic-bezier(0,0.97,0.53,0.98);-ms-animation:banner02-animate01 1.5s cubic-bezier(0,0.97,0.53,0.98);animation:banner02-animate01 1.5s cubic-bezier(0,0.97,0.53,0.98);-webkit-animation-fill-mode:forwards;-moz-animation-fill-mode:forwards;-ms-animation-fill-mode:forwards;animation-fill-mode:forwards;}
+    .animation2-box .animation2-ceng2{width:527px;height:421px;background:url(images/index/animation_banner02_02.png) no-repeat center center;position:absolute;top:-180px;left:-15px;-webkit-animation:banner02-animate02 3s ease-out 1.5s forwards,banner02-animate03 2.5s linear infinite 3s;-moz-animation:banner02-animate02 3s ease-out 1.5s forwards,banner02-animate03 2.5s linear infinite 3s;-ms-animation:banner02-animate02 3s ease-out 1.5s forwards,banner02-animate03 2.5s linear infinite 3s;animation:banner02-animate02 3s ease-out 1.5s forwards,banner02-animate03 2.5s linear infinite 3s;opacity:0;}
+    
+    .animation3-box{
+      width:680px;height:490px;position:absolute;left:30%;top:18%;zoom:70%;
+    }
+    .animation3-box .animation3-ceng1{width:676px;height:484px;background:url(images/index/animation_banner03_01.png) no-repeat center center;position:absolute;-webkit-animation:banner03-animate01 1.5s;-moz-animation:banner03-animate01 1.5s;-ms-animation:banner03-animate01 1.5s;animation:banner03-animate01 1.5s;}
+    .animation3-box .animation3-ceng2{width:457px;height:353px;background:url(images/index/animation_banner03_02.png) no-repeat center center;position:absolute;top:26px;left:146px;-webkit-animation:banner03-animate02 3s ease-out infinite 1.5s,banner03-animate03 2.5s linear infinite 3s;-moz-animation:banner03-animate02 3s ease-out infinite 1.5s,banner03-animate03 2.5s linear infinite 3s;-ms-animation:banner03-animate02 3s ease-out infinite 1.5s,banner03-animate03 2.5s linear infinite 3s;-o-animation:banner03-animate02 3s ease-out infinite 1.5s,banner03-animate03 2.5s linear infinite 3s;animation:banner03-animate02 3s ease-out infinite 1.5s,banner03-animate03 2.5s linear infinite 3s;opacity: 0;}
+  
+    .animation4-box{width:475px;height:570px;background:url(images/index/animation_banner04_01.png) no-repeat center center;position:absolute;left:20%;top:12%;-webkit-animation:myanimate04 1.5s cubic-bezier(0,0.97,0.53,0.98) ,myanimate0402 3s infinite 1.5s;-moz-animation:myanimate04 1.5s cubic-bezier(0,0.97,0.53,0.98) ,myanimate0402 3s infinite 1.5s;-ms-animation:myanimate04 1.5s cubic-bezier(0,0.97,0.53,0.98) ,myanimate0402 3s infinite 1.5s;animation:myanimate04 1.5s cubic-bezier(0,0.97,0.53,0.98) ,myanimate0402 3s infinite 1.5s;}
+  
+    .animation5-box{
+      width:606px;height:360px;position:absolute;left:20%;top:27%;background:url(images/index/animation_banner05_01.png) no-repeat left top;-webkit-animation:banner05-animate01 1s forwards;-moz-animation:banner05-animate01 1s forwards;-ms-animation:banner05-animate01 1s forwards;animation:banner05-animate01 1s forwards;opacity:0;
+    }
+    .animation5-box .animation5-ceng1{width:152px;height:152px;background:url(images/index/animation_banner05_02.png) no-repeat center center;position:absolute;top:30px;left:30px;-webkit-animation:banner05-animate01 2s forwards 1s,banner05-animate02 2s infinite;-moz-animation:banner05-animate01 2s forwards 1s,banner05-animate02 2s infinite;-ms-animation:banner05-animate01 2s forwards 1s,banner05-animate02 2s infinite;animation:banner05-animate01 2s forwards 1s,banner05-animate02 2s infinite;opacity:0;animation-timing-function:linear;}
+    .animation5-box .animation5-ceng2{width:263px;height:263px;background:url(images/index/animation_banner05_03.png) no-repeat center center;position:absolute;top:80px;left:170px;-webkit-animation:banner05-animate01 2s forwards 2s,banner05-animate03 10s infinite;-moz-animation:banner05-animate01 2s forwards 2s,banner05-animate03 10s infinite;-ms-animation:banner05-animate01 2s forwards 2s,banner05-animate03 10s infinite;animation:banner05-animate01 2s forwards 2s,banner05-animate03 10s infinite;opacity:0;-webkit-animation-timing-function:linear;-moz-animation-timing-function:linear;-ms-animation-timing-function:linear;animation-timing-function:linear;}
+    .animation5-box .animation5-ceng3{width:190px;height:184px;background:url(images/index/animation_banner05_04.png) no-repeat center center;position:absolute;top:-20px;right:-30px;-webkit-animation:banner05-animate01 2s forwards 3s,banner05-animate02 6s infinite;-moz-animation:banner05-animate01 2s forwards 3s,banner05-animate02 6s infinite;-ms-animation:banner05-animate01 2s forwards 3s,banner05-animate02 6s infinite;animation:banner05-animate01 2s forwards 3s,banner05-animate02 6s infinite;opacity:0;-webkit-animation-timing-function:linear;-moz-animation-timing-function:linear;-ms-animation-timing-function:linear;animation-timing-function:linear;}
+    /*第一个banner图动画*/
+    @keyframes myrotate {
+      0% {
+        -webkit-transform: rotate(0deg) scale(0.8);
+        -moz-transform: rotate(0deg) scale(0.8);
+        -ms-transform: rotate(0deg) scale(0.8);
+        transform: rotate(0deg) scale(0.8);
+      }
+      50% {
+        -webkit-transform: rotate(180deg) scale(1.1);
+        -moz-transform: rotate(180deg) scale(1.1);
+        -ms-transform: rotate(180deg) scale(1.1);
+        transform: rotate(180deg) scale(1.1);
+      }
+      100% {
+        -webkit-transform: rotate(360deg) scale(0.8);
+        -moz-transform: rotate(360deg) scale(0.8);
+        -ms-transform: rotate(360deg) scale(0.8);
+        transform: rotate(360deg) scale(0.8);
+      }
+    }
+  
+    @keyframes myrotate1 {
+      0% {
+        -webkit-transform: rotate(0deg) scale(0.8);
+        -moz-transform: rotate(0deg) scale(0.8);
+        -ms-transform: rotate(0deg) scale(0.8);
+        transform: rotate(0deg) scale(0.8);
+      }
+      50% {
+        -webkit-transform: rotate(180deg) scale(0.6);
+        -moz-transform: rotate(180deg) scale(0.6);
+        -ms-transform: rotate(180deg) scale(0.6);
+        transform: rotate(180deg) scale(0.6);
+      }
+      100% {
+        -webkit-transform: rotate(360deg) scale(0.8);
+        -moz-transform: rotate(360deg) scale(0.8);
+        -ms-transform: rotate(360deg) scale(0.8);
+        transform: rotate(360deg) scale(0.8);
+      }
+    }
+    /*第二个banner图动画*/
+    @keyframes banner02-animate01 {
+      0% {
+        -webkit-transform: scale(0);-moz-transform: scale(0);-ms-transform: scale(0);transform: scale(0);
+        left:50px;
+        top:260px;
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: scale(1);-moz-transform: scale(1);-ms-transform: scale(1);transform: scale(1);
+        left:0;
+        top:0px;
+        opacity: 1;
+      }
+    }
+    @keyframes banner02-animate02 {
+      0% {
+        opacity: 0;
+        top: -100px;
+      }
+      50% {
+        opacity: 1;
+        top: -170px;
+      }
+      100% {
+        top: -170px;
+      }
+    }
+    @keyframes banner02-animate03 {
+      0% {
+        opacity: 1;
+        top: -170px;
+      }
+      50% {
+        opacity: 1;
+        top: -150px;
+      }
+      100% {
+        opacity: 1;
+        top: -170px;
+      }
+    }
+    /*第三个banner图动画*/
+    @keyframes banner03-animate01 {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateX(-100px);
+        -moz-transform: translateX(-100px);
+        -ms-transform: translateX(-100px);
+        transform: translateX(-100px);
+      }
+      100% {
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+        -moz-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+        transform: translateX(0px);
+      }
+    }
+    @keyframes banner03-animate02 {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateX(-100px);
+        -moz-transform: translateX(-100px);
+        -ms-transform: translateX(-100px);
+        transform: translateX(-100px);
+      }
+      50% {
+        opacity: 1;
+        -webkit-transform: translateX(10px);
+        -moz-transform: translateX(10px);
+        -ms-transform: translateX(10px);
+        transform: translateX(10px);
+      }
+      100% {
+      
+        -webkit-transform: translateX(10px);
+        -moz-transform: translateX(10px);
+        -ms-transform: translateX(10px);
+        transform: translateX(10px);
+      }
+    }
+    @keyframes banner03-animate03 {
+      0% {
+        opacity: 1;
+        -webkit-transform: translateX(10px);
+        -moz-transform: translateX(10px);
+        -ms-transform: translateX(10px);
+        transform: translateX(10px);
+      }
+      50% {
+        opacity: 1;
+        -webkit-transform: translateX(-10px);
+        -moz-transform: translateX(-10px);
+        -ms-transform: translateX(-10px);
+        transform: translateX(-10px);
+      }
+      100% {
+        opacity: 1;
+        -webkit-transform: translateX(10px);
+        -moz-transform: translateX(10px);
+        -ms-transform: translateX(10px);
+        transform: translateX(10px);
+      }
+    }
+    /*第四个banner图动画*/
+    @keyframes myanimate04 {
+      0% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3,0.3,0.3);
+        -moz-transform: scale3d(0.3,0.3,0.3);
+        -ms-transform: scale3d(0.3,0.3,0.3);
+        transform: scale3d(0.3,0.3,0.3);
+      }
+      100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1,1,1);
+        -moz-transform: scale3d(1,1,1);
+        -ms-transform: scale3d(1,1,1);
+        transform: scale3d(1,1,1);
+      }
+    }
+    @keyframes myanimate0402 {
+      0% {
+        -webkit-transform: translate(0px,0px);
+        -moz-transform: translate(0px,0px);
+        -ms-transform: translate(0px,0px);
+        transform: translate(0px,0px);
+      }
+      50% {
+        -webkit-transform: translate(10px,0px);
+        -moz-transform: translate(10px,0px);
+        -ms-transform: translate(10px,0px);
+        transform: translate(10px,0px);
+      }
+      100% {
+        -webkit-transform: translate(0px,0px);
+        -moz-transform: translate(0px,0px);
+        -ms-transform: translate(0px,0px);
+        transform: translate(0px,0px);
+      }
+    }
+    /*第五个banner图动画*/
+    @keyframes banner05-animate01 {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes banner05-animate02 {
+      0% {
+        -webkit-transform: rotate(0deg) scale(1);
+        -moz-transform: rotate(0deg) scale(1);
+        -ms-transform: rotate(0deg) scale(1);
+        transform: rotate(0deg) scale(1);
+      }
+      50% {
+        -webkit-transform: rotate(180deg) scale(1.1);
+        -moz-transform: rotate(180deg) scale(1.1);
+        -ms-transform: rotate(180deg) scale(1.1);
+        transform: rotate(180deg) scale(1.1);
+      }
+      100% {
+        -webkit-transform: rotate(360deg) scale(1);
+        -moz-transform: rotate(360deg) scale(1);
+        -ms-transform: rotate(360deg) scale(1);
+        transform: rotate(360deg) scale(1);
+      }
+    }
+    @keyframes banner05-animate03 {
+      0% {
+        -webkit-transform: rotate(0deg) scale(1);
+        -moz-transform: rotate(0deg) scale(1);
+        -ms-transform: rotate(0deg) scale(1);
+        transform: rotate(0deg) scale(1);
+      }
+      50% {
+        -webkit-transform: rotate(-180deg) scale(0.8);
+        -moz-transform: rotate(-180deg) scale(0.8);
+        -ms-transform: rotate(-180deg) scale(0.8);
+        transform: rotate(-180deg) scale(0.8);
+      }
+      100% {
+        -webkit-transform: rotate(-360deg) scale(1);
+        -moz-transform: rotate(-360deg) scale(1);
+        -ms-transform: rotate(-360deg) scale(1);
+        transform: rotate(-360deg) scale(1);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <!--头部-->
+<div class="header">
+	<div class="hd-box wc1200 clearfix">
+		<a class="hd-logo fl" href="index.html">
+			<img src="images/logo.svg" alt="" title="科技金融智造未来" />
+		</a>
+		<ul class="nav fr clearfix">
+			<li class="active"><a href="index.html">首页</a></li>
+			<li><a href="personalIndex.html">个人通</a></li>
+			<li><a href="companyIndex.html">企业通</a></li>
+			<li><a href="enIndex.html">走进金服</a></li>
+			<li><a href="appDownload.html">APP下载</a></li>
+		</ul>
+	</div>
+</div>
+
+    <div id="fullpage">
+      <div class="section">
+        <div class="slide">
+            <div class="bg">
+              <img src="images/index/index01.jpg">
+         <div class="animation1-box">
+                   <div class="animation1-box-div1">
+                     <div class="animation1-ceng-box">
+                       <div class="animation1-ceng1"></div>								
+               <div class="animation1-ceng2"></div>								
+               <div class="animation1-ceng3"></div>
+             </div>
+                   </div>
+
+                   <div class="animation1-box-div2">
+                     <div class="animation1-ceng-box">
+                       <div class="animation1-ceng1 new-animate"></div>		
+               <div class="animation1-ceng2 new-animate"></div>		
+               <div class="animation1-ceng3 new-animate"></div>
+             </div>
+                   </div>
+         </div>
+           </div>
+         <div class="bg1-2"></div>
+        </div>
+        <div class="slide">
+          <div class="bg">
+            <img src="images/index/index02.jpg">
+            <div class="animation2-box" style="display:none;">
+              <div class="animation2-ceng1"></div>
+              <div class="animation2-ceng2"></div>
+            </div>
+          </div>
+               <div class="bg2-2"></div>
+        </div>
+        <div class="slide">
+          <div class="bg">
+            <img src="images/index/index03.jpg">
+            <div class="animation3-box" style="display:none;">
+              <div class="animation3-ceng1"></div>
+              <div class="animation3-ceng2"></div>
+            </div>
+          </div>
+               <div class="bg3-2"></div>
+        </div> 
+        <div class="slide">
+          <div class="bg">
+            <img src="images/index/index04.jpg">
+         <div class="animation4-box" style="display:none;"></div>                
+          </div>
+               <div class="bg4-2"></div>               
+        </div> 
+        <div class="slide">
+          <div class="bg">
+            <img src="images/index/index05.jpg">
+            <div class="animation5-box" style="display:none;">
+              <div class="animation5-ceng1"></div>
+              <div class="animation5-ceng2"></div>
+              <div class="animation5-ceng3"></div>
+            </div>
+          </div>
+               <div class="bg5-2"></div>
+        </div>
+        <div id="cdiv">
+             <div class="index-function-box">
+               <div class="bg-6 bghor"><h4>投资管理</h4></div>
+               <div class="bg-3 bghor"><h4>金融科技</h4></div>
+                 <div class="bg-4 bghor"><h4>财富管理</h4></div>
+                 <div class="bg-5 bghor"><h4>融资服务</h4></div>				     
+               </div>
+         </div>
+      </div>
+
+      <div>
+        <div class="footer text-center">
+          <div class="wc1200 content">
+            <ul class="clearfix">
+              <li><a href="https://www.fosun.com/" target="_blank" >复星集团</a></li>
+                <li><a href="aboutUs.html">关于金服</a></li>
+                <li><a href="developmentHistory.html">里程碑</a></li>
+                <li><a href="cooperativePartner.html">合作伙伴</a></li>
+                <li><a href="joinUs.html">加入我们</a></li>
+                <li><a class="ft-last-li" href="contactUs.html">联系我们</a></li>
+              </ul>
+              <p class="mt20">版权所有©掌星宝(上海)网络科技有限公司 &nbsp;&nbsp;
+                <!-- |&nbsp;&nbsp;沪公网安备  31010102002363&nbsp; -->
+                |&nbsp;&nbsp;沪ICP备17043191号
+              </p>
+              <p>服务热线：400-700-8808</p>
+              <div class="weixin">
+                <div>
+                  <span class='fuwu'>微信服务号</span>
+                    <span class='dingyue'>微信订阅号</span>
+                </div>
+                <div><img src="images/weixin.png" alt="" height="84px"></div>
+              </div>
+          </div>
+          <!-- <div>
+            <img src="images/icon_sina.png" alt="新浪" />&nbsp;&nbsp;&nbsp;
+            <img src="images/icon_wechat.png" alt="微信" />
+          </div> -->
+        </div>
+      </div>
+
+     </div> 
+   <!--弹框金融科技-->
+   <div class="index-modal financial-technology">
+    <img class="close_img close-financial-technology" src="images/icon_close.png" alt="关闭" />
+    <h2>金融科技</h2>
+    <p>坚持以科技引领金融，链接现在与未来，复星金服充分利用云计算、大数据、人工智能、区</p>
+    <p>块链等前沿技术，将科技运用于支付、征信、信贷等各个金融服务环节，携手</p>
+    <p>各个业务板块，不断探索创新，开拓科技金融的创新业务模式。</p>
+    <img class="mt45" src="images/modal_img03.png" alt="" />
+    <div class="modal-btn-box clearfix">
+     <a class="btn financial-btn" href="techCredit.html">体验金融科技服务>></a>		
+    </div>
+   </div>
+   <!--弹框财富管理-->
+   <div class="index-modal money-manage">
+    <img class="close_img close-money-manage" src="images/icon_close.png" alt="关闭" />
+    <h2>财富管理</h2>		
+    <div class="circle-img"></div>		  
+    <p>以服务高成长、高价值客户为核心，以复星集团战略为基础，复星金服通过向客户提供现金、信用、保</p>
+    <p>险、投资等一系列的金融服务，将客户的资产、负债、流动性进行管理，以满足客户</p>
+    <p>不同阶段的财务需求，综合考虑风险、收益、流动性、可行性等因</p>
+    <p>素，帮助客户达到降低风险，实现财富增值的目的。</p>
+   </div>
+     <!--弹框信贷业务-->
+     <div class="index-modal load-serve">
+   <img class="close_img close-load-serve" src="images/icon_close.png" alt="关闭" />
+   <h2>融资服务</h2>
+   <p>为帮助个人及企业用户合理规划成本，实现资产最大化，复星金服提供高效、便捷、安全</p>
+   <p>的融资服务，既以健康、居家、旅游、时尚、文化等为场景，满足用户品质生活的</p>
+   <p>一站式金融服务需求；同时，又以产业为依托，深耕产业链，为其上</p>
+   <p>下游企业提供流动性支持与综合金融服务。</p>
+   <img class="mt30" src="images/modal_img01.png" alt="" />
+   <div class="modal-btn-box">
+     <a class="btn" href="loanSunSalary.html">个人融资</a>
+     <a class="btn ml45" href="loanPlatform.html">企业融资</a>
+   </div>
+   </div>
+   <!--弹框投资管理-->
+   <div class="index-modal invest-team">
+    <img class="close_img close-invest-team" src="images/icon_close.png" alt="关闭" />
+    <h2>投资管理</h2>		
+    <div class="middle-img">
+    </div>
+    <div class="p-content-box">
+      <p>遵循复星集团“中国动力嫁接全球资源”的投资模式，复星金服通过对宏观与微观经济趋势的深入了解以</p>
+      <p>及对全球金融市场情况的深入分析，捕捉受惠于中国成长动力的投资机会，通过战略投资、二级</p>
+      <p>市场投资等形式，对全球银行、信托、融资租赁、金融科技以及相关领域布局，助力集</p>
+      <p>团实现C2M战略。目前，复星成功投资了葡萄牙千禧银行（BCP）、浙江网商银</p>
+      <p>行在内的一级市场及数个二级市场、债券市场资产配置项目。</p>
+    </div>
+   </div>
+   
+     <script src="js/plugins/fullPage/jquery.fullPage.min.js"></script>
+     <script type="text/javascript">
+       $(function(){
+         $("#fullpage").fullpage({
+               // anchors:['page01', 'page02','page03', 'page04', 'pageLast'],
+               css3: true,
+           scrollingSpeed: 500,
+               navigation: false,
+               controlArrows:false, 
+               slidesNavigation:true,
+               continuousVertical:true,
+               scrollOverflow:true,
+               afterSlideLoad: function(anchorLink,index,slideIndex,direction) {
+               $(".animation"+(slideIndex+1)+"-box").show();
+               }
+               
+           });
+           setInterval(function(){
+               $.fn.fullpage.moveSlideRight();
+           }, 6000);
+         
+         //4个功能弹框  		 		
+     $('.bg-3').click(function(){
+       $('.financial-technology').fadeIn();
+       $('.money-manage').hide();
+       $('.load-serve').hide();
+       $('.invest-team').hide();
+     });
+     $('.bg-4').click(function(){
+       $('.money-manage').fadeIn();
+       $('.load-serve').hide();
+       $('.financial-technology').hide();
+       $('.invest-team').hide();
+     });
+     $('.bg-5').click(function(){
+       $('.load-serve').fadeIn();
+       $('.money-manage').hide();
+       $('.financial-technology').hide();
+       $('.invest-team').hide();
+     });
+     $('.bg-6').click(function(){
+       $('.invest-team').fadeIn();
+       $('.money-manage').hide();
+       $('.financial-technology').hide();
+       $('.load-serve').hide();
+     });
+     $('.close-load-serve').click(function(){
+       $('.load-serve').fadeOut();
+     });
+     $('.close-money-manage').click(function(){
+       $('.money-manage').fadeOut();
+     });
+     $('.close-financial-technology').click(function(){
+       $('.financial-technology').fadeOut();
+     });
+     $('.close-invest-team').click(function(){
+       $('.invest-team').fadeOut();
+     });
+              
+       });
+     </script>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?b3c46369f5526cc1d8f00b42067449e6";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>走进金服</title>
+  <link href="js/plugins/fullPage/jquery.fullPage.css" type="text/css" rel="stylesheet" />
+  <link href="js/plugins/layui/css/layui.css" type="text/css" rel="stylesheet" />
+  <link href="css/reset.css" type="text/css" rel="stylesheet" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+
+  <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="js/jquery.fomoney.js" type="text/javascript"></script>
+  <script src="js/plugins/layui/layui.js" type="text/javascript"></script>
+  <script type="text/javascript">var domain  = '${serverIp}'; fomoney.apiUrl = '${serverIp}/api/v1'; </script>
+  <script src="js/fomoney.common.js" type="text/javascript"></script>
+  <style type="text/css">
+    .en-banner { 
+      height: 245px;
+      background: url('images/company_banner.jpg') no-repeat center center;
+      background-size: cover;
+    }
+    .company-invoice .title{margin-bottom:15px;padding-top:40px;}
+        .company-invoice .advantage{width: 520px;margin: 0 auto;}
+        .company-invoice .advantage li h2{font-size:23px;color:#c9a96e}
+        .company-invoice .advantage li p{font-size:18px}
+        .company-invoice .advantage li .line{display: block;width:30px;border-top: 2px solid #c9a96e;position: absolute;top:45px;left:44px}
+        .company-invoice .advantage li{text-align: center;position: relative}
+	    .company-invoice .advantage .user{margin-left: 95px}
+	    .company-invoice .mt45{margin-top: 45px}
+	    .company-invoice .color88{color: #888888}
+        .company-invoice .selectreason{width: 100%;height:710px;background: url(images/company_invoce.png) no-repeat center;background-size:cover;margin: 60px 0  50px 0}
+        .company-invoice .selectreason .fs30{padding: 55px 0 50px 0;color: #fff}
+        .company-invoice .selectreason ul{width: 1200px;color: #fff}
+        .company-invoice .selectreason ul li{float: left;height: 240px;padding-top: 20px}
+        .company-invoice .selectreason ul .borderleft{border-left: 1px solid #6d6c7c}
+        .company-invoice .selectreason ul .bordertop{border-top: 1px solid #6d6c7c}
+        .company-invoice .selectreason ul .mt15{margin-top: 15px}
+        .company-invoice .selectreason ul li a{width: 399px;height: 77px;display: block;}
+        .company-invoice .selectreason ul li p{width: 399px;padding:0 50px;}
+        .company-invoice .details{padding:35px 115px 40px}
+        .company-invoice .details ul li{font-size: 34px;color:#c9a96e;width: 35px;height: 35px;line-height: 35px}
+        .company-invoice .details p{width: 902px;text-align: left;font-size: 18px}
+        .company-invoice .apply{background-color: #fff;}
+        .company-invoice .apply .arrow{color: #fff;position:relative;top:2px;left: 8px }
+        .company-applyentry{width: 980px;margin: 0 auto}
+        .applyentry form .submit-btn{width: 200px;height: 45px;margin-top: 35px;}
+  </style>
+</head>
+<body>
+   <!--头部-->
+<div class="header">
+	<div class="hd-box wc1200 clearfix">
+		<a class="hd-logo fl" href="index.html">
+			<img src="images/logo.svg" alt="" title="科技金融智造未来" />
+		</a>
+		<ul class="nav fr clearfix">
+      <li><a href="index.html">首页</a></li>
+			<li><a href="personalIndex.html">个人通</a></li>
+			<li class="active"><a href="companyIndex.html">企业通</a></li>
+			<li><a href="enIndex.html">走进金服</a></li>
+			<li><a href="appDownload.html">APP下载</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="en-banner"></div>
+
+<!--主体部分-->
+<div class="company-invoice">
+  <div class="wc1200 text-center">
+    <p class="fs30 title">电子发票</p>
+    <ul class="advantage clearfix">
+            <li class="fl">
+              <h2>企业</h2>
+              <span class="line"></span>
+              <p>更高效&nbsp;更省钱</p>
+            </li>
+            <li class="fr">
+              <h2>税务</h2>
+              <span class="line"></span>
+              <p>更安全&nbsp;更全面</p>
+            </li>
+            <li class="fl user">
+              <h2>用户</h2>
+              <span class="line"></span>
+              <p>更方便&nbsp;更贴心</p>
+            </li>
+          </ul>
+          <p class="mt45 color88">电子发票是随着社会不断进步、网络高速发展以及电子商务快速崛起而产生的，在电子发票上附有电子税局的签名机制，</p>
+          <p class="color88">而税务局则通过电子发票数据的产生、流转、查验和应用，实现“以票控税”向“信息管税”的过渡。</p>
+          <p class="color88">复星金服电子发票服务，助力复星ONE Fosun战略，</p>
+          <p class="color88">从价值链形成服务闭环到形成开放的生态圈，强化产业能力和用户服务能力。</p>
+  </div>
+  <div class="selectreason">
+          <div class="wc1200 text-center">
+            <p class="fs30">为什么选择我们？</p>
+            <ul class="clearfix">
+              <li>
+                <p>安全性</p>
+                <a class="mt15"><img src="images/company_security.png" alt=""></a>
+                <p class="mt15">任何发票数据均由集团统一管理，确保数据安全</p>
+              </li>
+              <li class="borderleft">
+                <p>权威性</p>
+                <a class="mt15"><img src="images/company_authority.png" alt=""></a>
+                <p class="mt15">基于专业的技术架构打造的平台，拥有领先的技术和税务体系的服务支持</p>
+              </li>
+              <li class="borderleft">
+                <p>经济性</p>
+                <a class="mt15"><img src="images/company_economic.png" alt=""></a>
+                <p class="mt15">电子发票大大降低了开票场景中的人工成本</p>
+              </li>
+              <li class="bordertop">
+                <p>定制化</p>
+                <a class="mt15"><img src="images/company_custom.png" alt=""></a>
+                <p class="mt15">具备强大的技术力量，根据企业的不同特性提供贴合业务需求的解决方案</p>
+              </li>
+              <li class="bordertop borderleft">
+                <p>便捷化</p>
+                <a class="mt15"><img src="images/company_convenient.png" alt=""></a>
+                <p class="mt15">无论是在线远程还是现场开票，用户获得发票途径更丰富、更方便</p>
+              </li>
+              <li class="bordertop borderleft">
+                <p>用户运营</p>
+                <a class="mt15"><img src="images/company_usermanagement.png" alt=""></a>
+                <p class="mt15">提供从电子发票到整合营销的全套方案，帮助客户实现从线下到线上的联通</p>
+              </li>
+            </ul>
+          </div>	
+      </div>
+      <div class="wc1200 text-center">
+        <p class="fs30">特点与优势</p>
+        <div class="clearfix details">
+          <ul class="fl">
+            <li>省</li>
+            <li class="mt10">+</li>
+            <li class="mt10">快</li>
+            <li class="mt10">+</li>
+            <li class="mt10">稳</li>
+          </ul>
+          <div class="fr">
+            <p>“云+端” 税务信息化应用，大幅降低企业应用成本；减免发票管理过程中的繁冗环节，从而提升企业运营效率。</p>
+            <p class="mt40">实现所有开票环节向线上迁移，优化客户体验增加企业运营效率；多层级机构开票数据统一汇总统一管理，为企业快速决策提供依据。</p>
+            <p class="mt20">采用多种身份认证，全方位、高科技保证企业数据安全；支持复杂的业务系统无缝对接以满足企业内控需求；有效规避传统票据在传递中可能产生的税收管理风险。</p>
+                  <p class="mt10" style="text-align:center;">服务热线：400-700-8808</p>
+          </div>
+        </div>
+      </div>
+      <div class="apply">
+        <div class="wc1200 text-center applyentry company-applyentry">
+          <p class="fs30">企业申请入口</p>
+      <form  class="layui-form">
+          <table>
+            <tr class="basicinfor">
+              <td align="left"><a>*</a><label for="enterprisename">企业名称：</label></td>
+              <td align="left"><a>*</a><label for="contact">联系人：</label></td>
+              <td align="left"><a>*</a><label for="telphone">电话：</label></td>
+            </tr>
+            <tr class="basicinfor">
+              <td><input type="text" id="companyName" name="companyName" placeholder="请输入企业名称" lay-verify="required"></td>
+              <td><input type="text" id="name" name="name" placeholder="请输入联系人" lay-verify="required"></td>
+              <td><input type="text" id="phone" name="phone" placeholder="请输入电话"lay-verify="required|phone|number"></td>
+            </tr>
+            <tr>
+              <td align="left" class="note"><label for="note">备注（选填）：</label></td>
+            </tr>
+            <tr>
+              <td colspan="3"><textarea  id="remarks" name="remarks" placeholder="请控制在250个汉字以内" style="height:120px;"></textarea></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                              <button lay-submit lay-filter="formDemo" class="btn submit-btn" style="width:200px;height:44px;font-size:18px;margin-top:12px;background-color: #c9a96e;border-radius:22px">
+                            提交申请
+                            </button>
+                          </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+          <input type="hidden" value="2301" name="moduleType">
+        </form>
+        <p class="remind">* 请填写您的基本资料，提交申请后，我们会在3个工作日内和您联系 !</p>
+        </div>
+      </div>
+</div>
+
+<div class="footer text-center">
+  <div class="wc1200 content">
+    <ul class="clearfix">
+      <li><a href="https://www.fosun.com/" target="_blank" >复星集团</a></li>
+        <li><a href="aboutUs.html">关于金服</a></li>
+        <li><a href="developmentHistory.html">里程碑</a></li>
+        <li><a href="cooperativePartner.html">合作伙伴</a></li>
+        <li><a href="joinUs.html">加入我们</a></li>
+        <li><a class="ft-last-li" href="contactUs.html">联系我们</a></li>
+      </ul>
+      <p class="mt20">版权所有©掌星宝(上海)网络科技有限公司 &nbsp;&nbsp;
+        <!-- |&nbsp;&nbsp;沪公网安备  31010102002363&nbsp; -->
+        |&nbsp;&nbsp;沪ICP备17043191号
+      </p>
+      <p>服务热线：400-700-8808</p>
+      <div class="weixin">
+        <div>
+          <span class='fuwu'>微信服务号</span>
+            <span class='dingyue'>微信订阅号</span>
+        </div>
+        <div><img src="images/weixin.png" alt="" height="84px"></div>
+      </div>
+  </div>
+  <!-- <div>
+    <img src="images/icon_sina.png" alt="新浪" />&nbsp;&nbsp;&nbsp;
+    <img src="images/icon_wechat.png" alt="微信" />
+  </div> -->
+</div>
+
+<script type="text/javascript">
+	layui.use(['form', 'layer'], function(){
+        var $ = layui.jquery,
+        layer = layui.layer,
+        form = layui.form();
+        form.on('submit(formDemo)', function(data){
+			fomoney.callInterface({
+				url:'/comcompany/save',
+				method:'post',
+				data:data.field,
+			},function(data){
+				alert('提交申请成功！');
+				$(':input','.layui-form').val("");
+			});
+		    return false;
+		});
+              
+     });
+	</script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>领导团队</title>
+  <link href="js/plugins/fullPage/jquery.fullPage.css" type="text/css" rel="stylesheet" />
+  <link href="js/plugins/layui/css/layui.css" type="text/css" rel="stylesheet" />
+  <link href="css/reset.css" type="text/css" rel="stylesheet" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+
+  <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="js/jquery.fomoney.js" type="text/javascript"></script>
+  <script src="js/plugins/layui/layui.js" type="text/javascript"></script>
+  <script type="text/javascript">var domain  = '${serverIp}'; fomoney.apiUrl = '${serverIp}/api/v1'; </script>
+  <script src="js/fomoney.common.js" type="text/javascript"></script>
+  <style type="text/css">
+    .leadership-team .bg-image{background-image:url(images/en_leadership_team.png);background-size:670px 57px;}
+    /*个人介绍*/
+    .leadership-team .content .introduction-box .personal{height:530px;padding:0 0 0 88px;display:none;}
+    .leadership-team .content .introduction-box .leader-boss01{background:url(images/en_leader_julia.png) no-repeat 625px center;}
+    .leadership-team .content .introduction-box .leader-boss02{background:url(images/en_leader02.png) no-repeat 625px center;}
+    .leadership-team .content .introduction-box .leader-boss03{background:url(images/en_leader03.png) no-repeat 625px center;}
+    .leadership-team .content .introduction-box .leader-boss04{background:url(images/en_leader04.png) no-repeat 625px center;}
+    .leadership-team .content .introduction-box .leader-boss05{background:url(images/en_leader05.png) no-repeat 625px center;}
+    .leadership-team .content .introduction-box .personal h2{font-size:32px;color:#c5ab60;width:470px;}
+    .leadership-team .content .introduction-box .personal h2 span{font-size:24px;color:#c5ab60;padding-left:15px;font-weight:normal;}
+    .leadership-team .content .introduction-box .personal p{width:470px;color:#808080;font-size:16px;}
+    /*轮播图*/
+    
+    .leadership-team .content .team-box{position: relative;bottom: 80px;}
+    .leadership-team .content .team-box .swiper-slide{width:180px!important;}
+    .leadership-team .content .team-box .swiper-slide.active{width:360px!important;}
+    .leadership-team .content .team-box .swiper-slide .no-selected{display:block;}
+    .leadership-team .content .team-box .swiper-slide .yes-selected{display:none;background-color:#c5ab60;padding:10px;height:120px;}
+    .leadership-team .content .team-box .swiper-slide .yes-selected .img{width:160px;height:100px;}
+    .leadership-team .content .team-box .swiper-slide .yes-selected .txt{width:170px;text-align:center;color:#fff;}
+    .leadership-team .content .team-box .swiper-slide .yes-selected .txt p{line-height:1.2;}		
+    .leadership-team .content .team-box .swiper-slide.active .no-selected{display:none;}
+    .leadership-team .content .team-box .swiper-slide.active .yes-selected{display:block;}
+    
+    body{position:relative;}
+    .leadership-team-banner{margin:40px 0;cursor:pointer;}
+    .leadership-team-content{padding:50px 79px 140px 50px;}
+    .leadership-team-content p {font-size: 16px;color:#808080;}
+    .bigimg-box{width:100%;height:100%;position:absolute;left:0;top:0;z-index:100;}
+    .bigimg-box .bg-shadow{position:absolute;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,0.7);background-color:#000;opacity:0.7;filter:alpha(opacity=70);}
+    .bigimg-box img{position:absolute;left:50%;top:150px;margin-left:-650px;z-index:101;width:1300px;}
+    </style>
+</head>
+<body>
+   <!--头部-->
+<div class="header">
+	<div class="hd-box wc1200 clearfix">
+		<a class="hd-logo fl" href="index.html">
+			<img src="images/logo.svg" alt="" title="科技金融智造未来" />
+		</a>
+		<ul class="nav fr clearfix">
+			<li><a href="index.html">首页</a></li>
+			<li><a href="personalIndex.html">个人通</a></li>
+			<li><a href="companyIndex.html">企业通</a></li>
+			<li class="active"><a href="enIndex.html">走进金服</a></li>
+			<li><a href="appDownload.html">APP下载</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="en-banner">
+  <div class="wc1200 about">
+    <span class="fs30">走进金服</span>
+        <span class="fs22">ABOUT US</span>
+  </div>
+</div>
+
+<!--主体部分-->
+<div class="leadership-team wc1200">
+  <!-- <div class="content mt45">
+
+    <ul class="introduction-box" id="viewDetail">
+
+    </ul>
+    <script id="dataDetail" type="text/html">
+      <li class="personal leader-boss01" style="display:block;background: url({{data.original_img}}) no-repeat 625px 20px;">
+        <h2>{{data.name}}<span>{{data.en_name}}</span></h2>
+        <p class="pb20">
+        {{each data.positions as position}}
+        <span>{{position}}&nbsp;&nbsp;</span>
+        {{/each}}
+        </p>
+        <p>{{data.intro}}</p>
+      </li>
+      </script>
+    
+    <div class="team-box">
+      <div class="swiper-container">
+        <div class="swiper-wrapper" id="view">
+            </div>
+            
+        <script id="dataList" type="text/html">
+        {{each data as item i}}
+          {{if i == 0}}
+              <div class="swiper-slide active" style="margin-left:20px;" onclick="itemDetailData({{i}},this)">
+          {{else}}
+          <div class="swiper-slide" onclick="itemDetailData({{i}},this)">
+          {{/if}}
+                <img class="no-selected" src="{{item.thumb_img}}" alt="" style="height:120px;width:180px;"/>
+                <div class="yes-selected clearfix">
+                  <img class="img fl" src="{{item.thumb_img}}" alt="" style="width:150px;"/>
+                  <div class="txt fr">
+                    <h3 class="fs24 fw-normal">{{item.name}}</h3>
+                    <p>{{item.positions[0]}}</p>
+                    <p>{{item.positions[1]}}</p>
+                    <p>{{item.positions[2]}}</p>
+                  </div>
+                </div>
+              </div>
+        {{/each}}
+        </script>
+        
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- 9-12领导团队页面变动，去掉上面的注释，之前的领导团队效果还在 -->
+  <div class="leadership-team-banner"><img src="images/leaders-team-banner.jpg" alt="" /></div>
+  <div class="leadership-team-content">
+    <p>作为复星集团银行板块布局的实施者，我们将坚决贯彻集团“以家庭客户为中心”、“深耕健康、快乐、富足，通过深度产业运营、整合和投资，智造复星C2M幸福生态系统”的战略与愿景，充分利用内外部资源，发挥自我优势，明晰发展战略，致力于将复星金服打造成一个业界一流的金融服务平台。</p>
+    <p>“诚信自发、务实精进、助善共达、坦诚齐心”这十六个字，是我们的企业文化。复星金服是一支充满着活力与朝气的队伍，大多数同学都有着多年金融行业的经验，团队中有来自华夏银行、平安银行、招商银行、富国银行、陆金所、万达等知名企业的优秀人才，正是因为有了他们的加入，才使得金服有勇于拓展业务的信心以及创新业务的勇气。</p>
+    <p>“做难的事、做对的事、做长远的事”，复星金服的全体同学们将拥抱这个充满挑战与机会的社会，拥抱我们最忠实的用户们，用金服所有人的努力同所有用户们一起迈向更加灿烂辉煌的明天！</p>
+  </div>
+</div>
+
+<!-- 点击查看大图 -->
+<div class="bigimg-box" style="display:none;">
+  <div class="bg-shadow"></div>
+  <img src="images/leaders-team-banner2.jpg" alt="">
+</div>
+
+<div class="footer text-center">
+  <div class="wc1200 content">
+    <ul class="clearfix">
+      <li><a href="https://www.fosun.com/" target="_blank" >复星集团</a></li>
+        <li><a href="aboutUs.html">关于金服</a></li>
+        <li><a href="developmentHistory.html">里程碑</a></li>
+        <li><a href="cooperativePartner.html">合作伙伴</a></li>
+        <li><a href="joinUs.html">加入我们</a></li>
+        <li><a class="ft-last-li" href="contactUs.html">联系我们</a></li>
+      </ul>
+      <p class="mt20">版权所有©掌星宝(上海)网络科技有限公司 &nbsp;&nbsp;
+        <!-- |&nbsp;&nbsp;沪公网安备  31010102002363&nbsp; -->
+        |&nbsp;&nbsp;沪ICP备17043191号
+      </p>
+      <p>服务热线：400-700-8808</p>
+      <div class="weixin">
+        <div>
+          <span class='fuwu'>微信服务号</span>
+            <span class='dingyue'>微信订阅号</span>
+        </div>
+        <div><img src="images/weixin.png" alt="" height="84px"></div>
+      </div>
+  </div>
+  <!-- <div>
+    <img src="images/icon_sina.png" alt="新浪" />&nbsp;&nbsp;&nbsp;
+    <img src="images/icon_wechat.png" alt="微信" />
+  </div> -->
+</div>
+
+<script src="js/tpl/template.js"></script>
+	<script src="js/plugins/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript">
+  //9-12修改
+  $(document).ready(function(){
+    $('.leadership-team-banner img').on('click',function(){
+      $('.bigimg-box').fadeIn();
+    })
+    $('.bg-shadow').on('click',function(){
+      $('.bigimg-box').fadeOut();
+    })
+  });
+</script>
+</body>
+</html>

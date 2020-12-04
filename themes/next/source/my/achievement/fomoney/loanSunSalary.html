@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>走进金服</title>
+  <link href="js/plugins/fullPage/jquery.fullPage.css" type="text/css" rel="stylesheet" />
+  <link href="js/plugins/layui/css/layui.css" type="text/css" rel="stylesheet" />
+  <link href="css/reset.css" type="text/css" rel="stylesheet" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+
+  <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="js/jquery.fomoney.js" type="text/javascript"></script>
+  <script src="js/plugins/layui/layui.js" type="text/javascript"></script>
+  <script type="text/javascript">var domain  = '${serverIp}'; fomoney.apiUrl = '${serverIp}/api/v1'; </script>
+  <script src="js/fomoney.common.js" type="text/javascript"></script>
+  <style type="text/css">
+  .en-banner{height: 245px;background: url('images/personal_banner.png') no-repeat center center;background-size: cover;}
+     .en-banner .personal{color: #fff;padding-top: 130px}
+     .en-banner .personal .fs30{margin-right: 25px}
+     .en-banner .personal .fs22{color: #8b8c8f;font-size: 22px}
+    .about-us .bg-image{background-image: url(pcarimages/en_about_us.png);background-size: 378px 57px;}
+    .about-us .content{width: 1110px;margin:0 auto;}
+    .about-us .content .details{margin-top: 70px;}
+    .about-us .content .details a{display: block;}
+    .about-us .content .details .chuangfu{width: 150px;height: 48px;line-height: 48px;margin: 0 auto;}
+    .about-us .content .details .yuntong{width: 131px;height: 17px;line-height: 17px;margin: 80px auto 0 auto ;}
+    .about-us .content .details .name{height: 24px;line-height: 24px;}
+    .about-us .content .layui-tab-title{border-bottom: 0;height:150px;}
+    .about-us .content .layui-tab-brief>.layui-tab-more li.layui-this:after, .about-us .content .layui-tab-brief>.layui-tab-title .layui-this:after{border: 0;}
+    .about-us .content .loanservices,.about-us .content .wealthmanagement-active,.about-us .content .financialtechnology-active{display: none;}
+    </style>
+</head>
+<body>
+   <!--头部-->
+<div class="header">
+	<div class="hd-box wc1200 clearfix">
+		<a class="hd-logo fl" href="index.html">
+			<img src="images/logo.svg" alt="" title="科技金融智造未来" />
+		</a>
+		<ul class="nav fr clearfix">
+      <li><a href="index.html">首页</a></li>
+			<li class="active"><a href="personalIndex.html">个人通</a></li>
+			<li><a href="companyIndex.html">企业通</a></li>
+			<li><a href="enIndex.html">走进金服</a></li>
+			<li><a href="appDownload.html">APP下载</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="en-banner">
+  <div class="wc1200 personal">
+    <span class="fs30">个人通</span>
+    <span class="fs22">PERSONAL  BUSINESS</span>
+  </div>
+</div>
+
+<div class="personal-load-xxd personal-tong wc1200">
+  <div class="common-content clearfix">
+    <!--左边选项卡-->
+    <div class="common-left fl content-tab">
+      <div class="data-section">
+        <ul class="layui-tab-title line">
+          <!-- <li><a href="${ctx }/personalIndex/loanSunLearn.html"  class="data-pjax">星学贷</a></li> -->	
+          <li><a href="${ctx }/personalIndex/loanSunAttived.html" class="data-pjax">星抵贷</a></li>
+          <li class="layui-this"><a href="${ctx }/personalIndex/loanSunSalary.html" class="data-pjax">星薪贷</a></li>
+        </ul>
+      </div>
+    </div>
+    <!--右边内容-->
+    <div class="common-right fr .main_content">
+      <div class="ad"><img src="images/personal_xxind_ad.png" alt="星薪贷-复星员工专享" /></div>
+      <div class="info">
+        <h2>星薪贷介绍</h2>
+        <div class="clearfix">
+          <h3 class="fl">贷款金额：<span>1万元~5万元</span></h3>
+          <!-- <h3 class="fl">参考利息：<span>8%~15%</span></h3> -->
+        </div>
+        <div class="clearfix">
+          <h3 class="fl">贷款期限：<span>12个月以内</span></h3>
+          <h3 class="fl">还款方式：<span>等额本息</span></h3>					
+        </div>					
+        <p class="mt20">复星员工专享，快速审批，3天放款。</p>
+        <p>复星员工专属信用贷，审批快、无抵押。资料齐全后3日即可完成审批。</p>
+        <p class="mt20">服务热线：400-700-8808</p>
+        <div class="btn-box"><a class="btn common-btn" href="javascript:void(0);" id="applyButton">我要申请</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer text-center">
+  <div class="wc1200 content">
+    <ul class="clearfix">
+      <li><a href="https://www.fosun.com/" target="_blank" >复星集团</a></li>
+        <li><a href="aboutUs.html">关于金服</a></li>
+        <li><a href="developmentHistory.html">里程碑</a></li>
+        <li><a href="cooperativePartner.html">合作伙伴</a></li>
+        <li><a href="joinUs.html">加入我们</a></li>
+        <li><a class="ft-last-li" href="contactUs.html">联系我们</a></li>
+      </ul>
+      <p class="mt20">版权所有©掌星宝(上海)网络科技有限公司 &nbsp;&nbsp;
+        <!-- |&nbsp;&nbsp;沪公网安备  31010102002363&nbsp; -->
+        |&nbsp;&nbsp;沪ICP备17043191号
+      </p>
+      <p>服务热线：400-700-8808</p>
+      <div class="weixin">
+        <div>
+          <span class='fuwu'>微信服务号</span>
+            <span class='dingyue'>微信订阅号</span>
+        </div>
+        <div><img src="images/weixin.png" alt="" height="84px"></div>
+      </div>
+  </div>
+  <!-- <div>
+    <img src="images/icon_sina.png" alt="新浪" />&nbsp;&nbsp;&nbsp;
+    <img src="images/icon_wechat.png" alt="微信" />
+  </div> -->
+</div>
+</body>
+</html>

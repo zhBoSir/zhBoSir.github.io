@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>集团新闻</title>
+  <link href="js/plugins/fullPage/jquery.fullPage.css" type="text/css" rel="stylesheet" />
+  <link href="js/plugins/layui/css/layui.css" type="text/css" rel="stylesheet" />
+  <link href="css/reset.css" type="text/css" rel="stylesheet" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+
+  <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="js/jquery.fomoney.js" type="text/javascript"></script>
+  <script src="js/plugins/layui/layui.js" type="text/javascript"></script>
+  <script type="text/javascript">var domain  = '${serverIp}'; fomoney.apiUrl = '${serverIp}/api/v1'; </script>
+  <script src="js/fomoney.common.js" type="text/javascript"></script>
+  
+  <style type="text/css">
+    .news-center .bg-image{background-image:url(images/en_news_center.png);background-size: 523px 57px;}
+       .news-center .content-tab .content-left{width: 860px;border-right: 1px solid #f2f2f2;min-height: 650px;}
+       .news-center .content-tab .content-left .news-list{width: 810px;}
+       .news-center .content-tab .content-right{width: 340px;}
+       .news-center .content-tab .content-right ul{margin-left: 40px;}
+       .news-center .content-tab .group-news .firstnews{height: 236px;margin-top: 30px;}
+       .news-center .content-tab .group-news .firstnews .details{width: 400px;}
+       .news-center .content-tab .group-news .firstnews .details a.btn{width: 400px;}
+       .news-center .content-tab .news-list a.btn{width: 810px;margin-top: 25px;color: white;}
+       .news-center .content-tab .group-news .firstnews .details a,.news-center .content-tab .news-list a.btn{height: 50px;line-height: 50px;background-color:#ffcd54;}
+       .news-center .content-tab .group-news .firstnews .details .time{height:30px;line-height: 30px;color:#c5ab60;}
+       .news-center .content-tab .group-news .firstnews .details .title{height: 18px;line-height: 18px;font-weight: bold;}
+       .news-center .content-tab .group-news .firstnews .details .text{line-height:1.6;}
+       .news-center .content-tab .news-list ul li{width:810px;height: 136px;border-top: 1px solid #f2f2f2;border-bottom:1px solid #f2f2f2;}
+       .news-center .content-tab .news-list ul li a{display: block;height: 90px;vertical-align: middle;margin-top: 23px;}
+       .news-center .content-tab .news-list ul li .image{width: 88px;height: 90px;}
+       .news-center .content-tab .news-list ul li .text{width: 530px;margin-left: 20px;height: 90px;line-height: 1.5;}
+       .news-center .content-tab .news-list ul li .time{width: 100px;height: 90px;color:#d7dadc;}
+       .news-center .content-tab .news-list ul li .time .month{height: 36px;line-height: 36px;}
+       .news-center .content-tab .news-list ul li .time .years{height: 18px;line-height: 18px;margin-left: 50px;}
+       .news-center .content-tab .news-list ul li .text .title{font-weight: bold;}
+       .news-center .content-tab .media-reports .news-list a.btn{margin-top: 45px;}
+    </style>
+</head>
+<body>
+   <!--头部-->
+<div class="header">
+	<div class="hd-box wc1200 clearfix">
+		<a class="hd-logo fl" href="index.html">
+			<img src="images/logo.svg" alt="" title="科技金融智造未来" />
+		</a>
+		<ul class="nav fr clearfix">
+      <li><a href="index.html">首页</a></li>
+			<li><a href="personalIndex.html">个人通</a></li>
+			<li><a href="companyIndex.html">企业通</a></li>
+			<li class="active"><a href="enIndex.html">走进金服</a></li>
+			<li><a href="appDownload.html">APP下载</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="en-banner">
+  <div class="wc1200 about">
+    <span class="fs30">走进金服</span>
+        <span class="fs22">ABOUT US</span>
+  </div>
+</div>
+
+	<!--news center-->
+  <div class="news-center wc1200" id="app">
+    <div class="content-tab mb90 layui-tab layui-tab-brief mt45" lay-filter="docDemoTabBrief">
+      <ul class="layui-tab-title">
+        <li class="layui-this" lay-data='1'>集团新闻</li>
+        <li  lay-data='2'>媒体报道</li>
+        <li  lay-data='3'>资料专区</li>
+      </ul>
+      <div class="layui-tab-content">
+        <!--集团新闻-->
+      <div class="group-news clearfix">
+        <div class="fl content-left">
+          <div class="news-list">
+            <div id="view"></div>
+            <script id="dataList" type="text/html">
+            
+            <div class="firstnews clearfix">
+                      <div class="details fl">
+                          <p class="time fs30">{{data[0].viewDate.viewDayEn}},{{data[0].viewDate.viewYears}}</p>
+                          <p class="title fs18 mt20">{{data[0].title}}</p>
+                          <p class="fs14 text mt10">{{data[0].description}}</p>
+                          <a href="newsDetail.html?id={{data[0].id}}" class="btn mt20">
+                          <img src="images/en_news_view.png" alt="">
+                          </a>
+                      </div>
+                      <div class="fr"><img src="{{data[0].originalImage}}" alt="" style="width:362px;height:263px;"></div>
+                  </div>
+            
+            <ul class="mt20" style="margin-top:50px;">
+              {{each data as item i}}
+              {{if i!=0}}
+              <li>
+                <a href="newsDetail.html?id={{item.id}}" class="clearfix">
+                  <div class="fl image">
+                    <img src="{{item.originalImage}}" alt="" style="width:88px;height:90px;"/>
+                  </div>
+                  <div class="fr time">
+                    <p class="fs36 month">{{item.viewDate.viewDay}}</p>
+                    <p class="fs18 years">{{item.viewDate.viewYears}}</p>
+                  </div>
+                  <div class="text fl">
+                    <p class="fs18 title">{{item.title}}</p>
+                    <p class="fs14">{{item.description}}</p>
+                  </div>
+                </a>
+              </li>
+              {{/if}}
+              {{/each}}
+            </ul>
+            
+            </script>
+            <!--点击查看更多-->
+            <a class="btn" id="morelist" style="display: none;">点击查看更多</a>
+            <a class="btn" id="nomorelist" style="background-color: #e5e5e5;display: none;">没有更多了</a>
+          </div>
+        </div>
+        <div class="fr content-right mt20">
+          <ul>
+              <li><img src="images/en_news_investment.png" alt=""></li>
+              <li class="mt20"><img src="images/en_news_integration.png" alt=""></li>
+              <li class="mt20"><img src="images/en_news_unicorn.png" alt=""></li>
+              </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+<div class="footer text-center">
+  <div class="wc1200 content">
+    <ul class="clearfix">
+      <li><a href="https://www.fosun.com/" target="_blank" >复星集团</a></li>
+        <li><a href="aboutUs.html">关于金服</a></li>
+        <li><a href="developmentHistory.html">里程碑</a></li>
+        <li><a href="cooperativePartner.html">合作伙伴</a></li>
+        <li><a href="joinUs.html">加入我们</a></li>
+        <li><a class="ft-last-li" href="contactUs.html">联系我们</a></li>
+      </ul>
+      <p class="mt20">版权所有©掌星宝(上海)网络科技有限公司 &nbsp;&nbsp;
+        <!-- |&nbsp;&nbsp;沪公网安备  31010102002363&nbsp; -->
+        |&nbsp;&nbsp;沪ICP备17043191号
+      </p>
+      <p>服务热线：400-700-8808</p>
+      <div class="weixin">
+        <div>
+          <span class='fuwu'>微信服务号</span>
+            <span class='dingyue'>微信订阅号</span>
+        </div>
+        <div><img src="images/weixin.png" alt="" height="84px"></div>
+      </div>
+  </div>
+  <!-- <div>
+    <img src="images/icon_sina.png" alt="新浪" />&nbsp;&nbsp;&nbsp;
+    <img src="images/icon_wechat.png" alt="微信" />
+  </div> -->
+</div>
+
+<script src="js/tpl/template.js"></script>
+	<script type="text/javascript">
+	 layui.use('element', function(){
+		 var $ = layui.jquery,
+	     element = layui.element();
+		 element.on('tab(docDemoTabBrief)', function(){
+			 if($(this).attr('lay-data')==1){
+				 location.href="newsCenter.html";
+			 }else if($(this).attr('lay-data')==2){
+				 location.href="newsMedia.html";
+			 }else{
+				 location.href="newsDataSection.html";
+			 }
+      	});
+		 
+		fetchInitialData();
+        $("#morelist").on("click",function(){
+        	if(lists.pageNo==lists.totalPage){
+				$(this).hide();
+				$("#nomorelist").show();
+			}else{
+				fetchInitialData(lists.pageNo+1);
+			}
+        	
+        });
+     });
+	 
+	 var month=["January","February","March","April","May","June","July","August","September","October","November","December"];
+	 var lists = {
+			 data:[],
+			 pageNo:1,
+			 totalPage: 0
+	 }
+	 function fetchInitialData(pageNo){
+		if(!pageNo)pageNo=1;
+		var data = {
+				pageNo:pageNo,
+		        pageSize: 6,
+		        categoryId: 3
+		}
+		
+		fomoney.callInterface({
+			url:'/article/list',
+			data:data,
+		},function(data){
+			var list = data.list;
+			$.each(list,function (i,v) {
+				v.image = domain + v.image;
+	            v.originalImage = domain + v.originalImage;
+	            var updateDate = v.createDate;
+	            var updateDates = v.createDate.split(' ')[0].split('-');
+	            v.viewDate = {
+	                viewDay:updateDates[1]+'/'+updateDates[2],
+	                viewDayEn:month[parseInt(updateDates[1])-1]+' '+updateDates[2],
+	                viewYears:updateDates[0]
+	            }
+			});
+			if (pageNo == 1) {
+	            list = [].concat(list)
+	        } else {
+	            list = lists.data.concat(list)
+	        }
+			lists = {
+				data:list,
+				pageNo:pageNo,
+				totalPage:data.totalPage
+			}
+			var html = template('dataList', lists);
+			$('#view').html(html);
+			if(list.length>0){
+				$("#morelist").show();
+			}
+		});
+	}
+	</script>
+</body>
+</html>

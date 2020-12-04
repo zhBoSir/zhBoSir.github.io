@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>企业征信</title>
+  <link href="js/plugins/fullPage/jquery.fullPage.css" type="text/css" rel="stylesheet" />
+  <link href="js/plugins/layui/css/layui.css" type="text/css" rel="stylesheet" />
+  <link href="css/reset.css" type="text/css" rel="stylesheet" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+
+  <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="js/jquery.fomoney.js" type="text/javascript"></script>
+  <script src="js/plugins/layui/layui.js" type="text/javascript"></script>
+  <script type="text/javascript">var domain  = '${serverIp}'; fomoney.apiUrl = '${serverIp}/api/v1'; </script>
+  <script src="js/fomoney.common.js" type="text/javascript"></script>
+  <style type="text/css">
+    .en-banner { 
+      height: 245px;
+      background: url('images/company_banner.jpg') no-repeat center center;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+   <!--头部-->
+<div class="header">
+	<div class="hd-box wc1200 clearfix">
+		<a class="hd-logo fl" href="index.html">
+			<img src="images/logo.svg" alt="" title="科技金融智造未来" />
+		</a>
+		<ul class="nav fr clearfix">
+      <li><a href="index.html">首页</a></li>
+			<li><a href="personalIndex.html">个人通</a></li>
+			<li class="active"><a href="companyIndex.html">企业通</a></li>
+			<li><a href="enIndex.html">走进金服</a></li>
+			<li><a href="appDownload.html">APP下载</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="en-banner"></div>
+
+<!--主要内容块-->
+<div class="company-load-blyw company-common-finance wc1200">
+  <div class="common-content clearfix">
+    <!--左边选项卡-->
+    <div class="common-left fl content-tab">
+      <div class="data-section">
+        <ul class="layui-tab-title line">						
+          <li class="layui-this"><a href="companyIndex/techCredit.html">企业征信</a></li>
+          <li><a href="companyIndex/techRisk.html">云风控平台</a></li>
+          <li><a href="companyIndex/techCheat.html">反欺诈产品</a></li>
+          <li><a href="companyIndex/techCreditRisks.html">信用风险管理</a></li>
+        </ul>
+      </div>
+    </div>
+    <!--右边内容-->
+    <div class="common-right fr">
+      <div class="ad"><img src="images/company_qyzx_ad.png" alt="企业征信解决方案" /></div>
+      <div class="info">
+        <h2>企业征信解决方案</h2>					
+        <p>协助客户全面掌握供应商、客户、竞争对手、拟投资或收购兼并企业等目标对象的详细背景、经营状况、盈利能力、现金流和偿债意愿。凭借征信平台丰富的数据资源以及大数据处理能力，从企业背景、企业规模、财务状况以及行业展望等方面全方位地评估企业信用风险。通过提供全面、准确的征信报告，为客户建立信用管理体系、控制各种交易或投资风险、避免或减少交易损失，辅助客户制定合理的风险应对措施，从而最大程度地保障客户的商业利益。</p>	
+        <h3 class="fs16 mt30">企业征信报告可以帮助您：</h3>
+        <p>1）获取值得信赖的合作伙伴</p>
+        <p>2）有效控制信用风险</p>
+        <p>3）完善客户群的数据积累</p>
+        <p>4）发掘潜在商机</p>
+        <p class="mt20">服务热线：400-700-8808</p>
+        <div class="btn-box"><a class="btn common-btn" href="javascript:void(0);" id="applyButton">我要申请</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="footer text-center">
+  <div class="wc1200 content">
+    <ul class="clearfix">
+      <li><a href="https://www.fosun.com/" target="_blank" >复星集团</a></li>
+        <li><a href="aboutUs.html">关于金服</a></li>
+        <li><a href="developmentHistory.html">里程碑</a></li>
+        <li><a href="cooperativePartner.html">合作伙伴</a></li>
+        <li><a href="joinUs.html">加入我们</a></li>
+        <li><a class="ft-last-li" href="contactUs.html">联系我们</a></li>
+      </ul>
+      <p class="mt20">版权所有©掌星宝(上海)网络科技有限公司 &nbsp;&nbsp;
+        <!-- |&nbsp;&nbsp;沪公网安备  31010102002363&nbsp; -->
+        |&nbsp;&nbsp;沪ICP备17043191号
+      </p>
+      <p>服务热线：400-700-8808</p>
+      <div class="weixin">
+        <div>
+          <span class='fuwu'>微信服务号</span>
+            <span class='dingyue'>微信订阅号</span>
+        </div>
+        <div><img src="images/weixin.png" alt="" height="84px"></div>
+      </div>
+  </div>
+  <!-- <div>
+    <img src="images/icon_sina.png" alt="新浪" />&nbsp;&nbsp;&nbsp;
+    <img src="images/icon_wechat.png" alt="微信" />
+  </div> -->
+</div>
+</body>
+</html>
