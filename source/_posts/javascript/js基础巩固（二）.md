@@ -6,7 +6,7 @@ categories:
 tags: 
 ---
 
-> ## 闭包
+> ## <font color="gold">1.闭包</font>
 
 变量作用域的常识：
 
@@ -45,3 +45,21 @@ f()
 闭包的作用：
 
 <code>延伸了变量的作用范围</code>
+
+> ## <font color="gold">2.this指向</font>
+
+```js
+setTimeout(function () {
+  console.log(this)
+}, 1000)
+```
+setTimeout里的this指向window，因为是window调用了setTimeout。
+
+```js
+(function a() {
+  console.log(this)
+})()
+```
+立即执行函数里的this指向也是window。
+
+

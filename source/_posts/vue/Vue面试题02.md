@@ -89,5 +89,31 @@ history实际采用了HTML5中提供的API来实现，主要有<code>history.pus
 
 nextTick方法主要是使用了宏任务和微任务，定义了一个异步方法，多次调用nextTick会将方法存入队列中，通过这个异步方法清空当前队列。所以这个nextTick方法就是异步方法。
 
+## <font color="gold">5.为什么v-for和v-if不能连用</font>
+
+v-for会比v-if的优先级高一些，如果连用的话会把v-if给每个元素都添加一下，会造成性能问题。
+
+如果要用的话，可以使用computed
+```js
+<ul>
+  <li
+    v-for="user in showUsers"
+    :key="user.id"
+  >
+    {{ user.name }}
+  </li>
+</ul>
+
+
+
+computed: {
+  showUsers: function () {
+    return this.users.filter(function (user) {
+      return user.isShow
+    })
+  }
+}
+```
+
 
 

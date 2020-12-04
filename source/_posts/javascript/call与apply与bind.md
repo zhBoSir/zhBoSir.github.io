@@ -60,6 +60,9 @@ btn.onclick = function () {
 + apply经常跟数组有关系，比如借助数学对象（Math）实现数组中最大值与最小值。
 
 ```js
+Math.max.apply(Math, [1,2,3])
+// 输出3
+
 // Math.max() 函数返回一组数中的最大值。
 console.log(Math.max(-1, -3, -2));
 // expected output: -1
