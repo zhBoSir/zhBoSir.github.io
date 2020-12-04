@@ -926,7 +926,7 @@ rm -r 文件名  删除文件夹
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zhBoSir/2020/01/18/javascript/原型与原型链/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zhBoSir/2020/01/18/javascript/重排与重绘/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhBo">
@@ -945,7 +945,7 @@ rm -r 文件名  删除文件夹
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/18/javascript/原型与原型链/" itemprop="url">原型与原型链</a></h1>
+                <a class="post-title-link" href="/2020/01/18/javascript/重排与重绘/" itemprop="url">重排与重绘</a></h1>
         
 
         <div class="post-meta">
@@ -1019,11 +1019,23 @@ rm -r 文件名  删除文件夹
       
         
           
-          
-          
+          所谓重排，实际上是根据渲染树中每个渲染对象的信息，计算出各自渲染对象的几何信息（DOM对象的位置和尺寸大小），并将其安置在界面中的正确位置
+引起重排的操作有：
+页面首次渲染。
+
+浏览器窗口大小发生改变。
+
+元素尺寸或位置发生改变。
+
+元素内容变化（文字数量或图片大小等等）。
+
+元素字体大小变化。
+
+
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/01/18/javascript/原型与原型链/#more" rel="contents">
+            <a class="btn" href="/2020/01/18/javascript/重排与重绘/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

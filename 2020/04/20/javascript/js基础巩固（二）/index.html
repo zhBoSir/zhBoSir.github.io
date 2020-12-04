@@ -92,17 +92,17 @@
 
 
 
-<meta name="description" content="闭包 变量作用域的常识：  当函数执行完毕，本作用域内的局部变量会销毁。  闭包概念： 闭包指有权访问另一个函数作用域中变量的函数。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。12345678910111213141516171819202122232425// 第一个例子：fn内部的变量被fn内部的函数访问function fn () &amp;#123;  var num = 10">
+<meta name="description" content="1.闭包 变量作用域的常识：  当函数执行完毕，本作用域内的局部变量会销毁。  闭包概念： 闭包指有权访问另一个函数作用域中变量的函数。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。12345678910111213141516171819202122232425// 第一个例子：fn内部的变量被fn内部的函数访问function fn () &amp;#123;  var num =">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js基础巩固（二）">
 <meta property="og:url" content="https://github.com/zhBoSir/2020/04/20/javascript/js基础巩固（二）/index.html">
 <meta property="og:site_name" content="【稻稻派】">
-<meta property="og:description" content="闭包 变量作用域的常识：  当函数执行完毕，本作用域内的局部变量会销毁。  闭包概念： 闭包指有权访问另一个函数作用域中变量的函数。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。12345678910111213141516171819202122232425// 第一个例子：fn内部的变量被fn内部的函数访问function fn () &amp;#123;  var num = 10">
+<meta property="og:description" content="1.闭包 变量作用域的常识：  当函数执行完毕，本作用域内的局部变量会销毁。  闭包概念： 闭包指有权访问另一个函数作用域中变量的函数。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。12345678910111213141516171819202122232425// 第一个例子：fn内部的变量被fn内部的函数访问function fn () &amp;#123;  var num =">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-05T02:12:22.724Z">
+<meta property="og:updated_time" content="2020-12-04T04:22:18.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js基础巩固（二）">
-<meta name="twitter:description" content="闭包 变量作用域的常识：  当函数执行完毕，本作用域内的局部变量会销毁。  闭包概念： 闭包指有权访问另一个函数作用域中变量的函数。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。12345678910111213141516171819202122232425// 第一个例子：fn内部的变量被fn内部的函数访问function fn () &amp;#123;  var num = 10">
+<meta name="twitter:description" content="1.闭包 变量作用域的常识：  当函数执行完毕，本作用域内的局部变量会销毁。  闭包概念： 闭包指有权访问另一个函数作用域中变量的函数。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。12345678910111213141516171819202122232425// 第一个例子：fn内部的变量被fn内部的函数访问function fn () &amp;#123;  var num =">
 
 
 
@@ -390,7 +390,7 @@
 
       
         <blockquote>
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2></blockquote>
+<h2 id="1-闭包"><a href="#1-闭包" class="headerlink" title="1.闭包"></a><font color="gold">1.闭包</font></h2></blockquote>
 <p>变量作用域的常识：</p>
 <font color="pink" size="3"> 当函数执行完毕，本作用域内的局部变量会销毁。</font>
 
@@ -398,6 +398,12 @@
 <p><code><font color="pink">闭包</font>指有权访问另一个函数作用域中变量的<font color="pink">函数</font>。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一个例子：fn内部的变量被fn内部的函数访问</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> num = <span class="number">10</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// fun函数访问了fn函数的局部变量</span></span><br><span class="line">    <span class="built_in">console</span>.log(num)</span><br><span class="line">  &#125;</span><br><span class="line">  fun()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn()</span><br><span class="line"></span><br><span class="line"><span class="comment">// fn就是一个闭包函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二个例子：fn外部访问fn内部的变量</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> num = <span class="number">8</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(num)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = fn()  <span class="comment">// 用f接收返回来的函数，这样就实现了在fn外部访问到fn内部的变量</span></span><br><span class="line">f()</span><br></pre></td></tr></table></figure></p>
 <p>闭包的作用：</p>
 <p><code>延伸了变量的作用范围</code></p>
+<blockquote>
+<h2 id="2-this指向"><a href="#2-this指向" class="headerlink" title="2.this指向"></a><font color="gold">2.this指向</font></h2></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<p>setTimeout里的this指向window，因为是window调用了setTimeout。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<p>立即执行函数里的this指向也是window。</p>
 
       
     </div>
@@ -626,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-闭包"><span class="nav-number">1.</span> <span class="nav-text">1.闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-this指向"><span class="nav-number">2.</span> <span class="nav-text">2.this指向</span></a></li></ol></div>
             
 
           </div>
