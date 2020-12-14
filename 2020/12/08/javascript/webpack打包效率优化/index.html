@@ -81,7 +81,7 @@
 
 
 
-  <meta name="keywords" content="Vue,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -92,18 +92,17 @@
 
 
 
-<meta name="description" content="tree shaking 只打包必要的依赖项。比如引入一个ui框架，但是只用了button，那么就只会把button以及button的依赖项打进去。  vdom提升性能，核心思想：跳过静态节点，只处理动态节点。">
-<meta name="keywords" content="Vue">
+<meta name="description" content="1.webpack-bundle-analyzer 插件 可视化分析包大小； 可以直观分析打包出的文件包含哪些，大小占比如何，模块包含关系，依赖项，文件是否重复。  2.mini-css-extract-plugin  插件 剥离css，less文件  3.DllPlugin 和 DllReferencePlugin分离第三方类库 DllPlugin是webpack内置的插件，不需要额外安装，直">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue3相关">
-<meta property="og:url" content="https://github.com/zhBoSir/2020/05/04/vue/vue3相关/index.html">
+<meta property="og:title" content="webpack打包效率优化">
+<meta property="og:url" content="https://github.com/zhBoSir/2020/12/08/javascript/webpack打包效率优化/index.html">
 <meta property="og:site_name" content="【稻稻派】">
-<meta property="og:description" content="tree shaking 只打包必要的依赖项。比如引入一个ui框架，但是只用了button，那么就只会把button以及button的依赖项打进去。  vdom提升性能，核心思想：跳过静态节点，只处理动态节点。">
+<meta property="og:description" content="1.webpack-bundle-analyzer 插件 可视化分析包大小； 可以直观分析打包出的文件包含哪些，大小占比如何，模块包含关系，依赖项，文件是否重复。  2.mini-css-extract-plugin  插件 剥离css，less文件  3.DllPlugin 和 DllReferencePlugin分离第三方类库 DllPlugin是webpack内置的插件，不需要额外安装，直">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-05T02:12:22.793Z">
+<meta property="og:updated_time" content="2020-12-08T15:54:59.527Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue3相关">
-<meta name="twitter:description" content="tree shaking 只打包必要的依赖项。比如引入一个ui框架，但是只用了button，那么就只会把button以及button的依赖项打进去。  vdom提升性能，核心思想：跳过静态节点，只处理动态节点。">
+<meta name="twitter:title" content="webpack打包效率优化">
+<meta name="twitter:description" content="1.webpack-bundle-analyzer 插件 可视化分析包大小； 可以直观分析打包出的文件包含哪些，大小占比如何，模块包含关系，依赖项，文件是否重复。  2.mini-css-extract-plugin  插件 剥离css，less文件  3.DllPlugin 和 DllReferencePlugin分离第三方类库 DllPlugin是webpack内置的插件，不需要额外安装，直">
 
 
 
@@ -133,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/zhBoSir/2020/05/04/vue/vue3相关/">
+  <link rel="canonical" href="https://github.com/zhBoSir/2020/12/08/javascript/webpack打包效率优化/">
 
 
 
 
 
-  <title>vue3相关 | 【稻稻派】</title>
+  <title>webpack打包效率优化 | 【稻稻派】</title>
   
 
 
@@ -301,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zhBoSir/2020/05/04/vue/vue3相关/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zhBoSir/2020/12/08/javascript/webpack打包效率优化/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhBo">
@@ -318,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue3相关</h1>
+          <h1 class="post-title" itemprop="name headline">webpack打包效率优化</h1>
         
 
         <div class="post-meta">
@@ -330,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-04T20:59:02+08:00">
-                2020-05-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-08T16:39:00+08:00">
+                2020-12-08
               </time>
             
 
@@ -390,21 +389,29 @@
       
 
       
-        <ul>
-<li><p><code>tree shaking</code> 只打包必要的依赖项。比如引入一个ui框架，但是只用了button，那么就只会把button以及button的依赖项打进去。</p>
-</li>
-<li><p>vdom提升性能，<code>核心思想：跳过静态节点，只处理动态节点。</code></p>
-</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li><p>支持TypeScript</p>
-</li>
-<li><p>与vue2相比，之前的template里面必须有一个根元素，vue3中不需要了。</p>
-</li>
-<li><p>composition-api 逻辑复用 代替了mixin</p>
-</li>
-</ul>
+        <blockquote>
+<h2 id="1-webpack-bundle-analyzer-插件"><a href="#1-webpack-bundle-analyzer-插件" class="headerlink" title="1.webpack-bundle-analyzer 插件"></a><font color="gold">1.webpack-bundle-analyzer 插件</font></h2></blockquote>
+<p>可视化分析包大小；</p>
+<p>可以直观分析打包出的文件包含哪些，大小占比如何，模块包含关系，依赖项，文件是否重复。</p>
+<blockquote>
+<h2 id="2-mini-css-extract-plugin-插件"><a href="#2-mini-css-extract-plugin-插件" class="headerlink" title="2.mini-css-extract-plugin  插件"></a><font color="gold">2.mini-css-extract-plugin  插件</font></h2></blockquote>
+<p>剥离css，less文件</p>
+<blockquote>
+<h2 id="3-DllPlugin-和-DllReferencePlugin分离第三方类库"><a href="#3-DllPlugin-和-DllReferencePlugin分离第三方类库" class="headerlink" title="3.DllPlugin 和 DllReferencePlugin分离第三方类库"></a><font color="gold">3.DllPlugin 和 DllReferencePlugin分离第三方类库</font></h2></blockquote>
+<p>DllPlugin是webpack内置的插件，不需要额外安装，直接配置webpack.dll.config.js文件</p>
+<p>我们的代码都可以至少简单区分成业务代码和第三方库。如果不做处理，每次构建时都需要把所有的代码重新构建一次，耗费大量的时间。然而大部分情况下，很多第三方库的代码并不会发生变更（除非是版本升级），这时就可以用到dll：把复用性较高的第三方模块打包到动态链接库中，在不升级这些库的情况下，动态库不需要重新打包，每次构建只重新打包业务代码。</p>
+<blockquote>
+<h2 id="4-利用scope-histing-（变量提升）-减少代码闭包形成"><a href="#4-利用scope-histing-（变量提升）-减少代码闭包形成" class="headerlink" title="4.利用scope histing （变量提升） 减少代码闭包形成"></a><font color="gold">4.利用scope histing （变量提升） 减少代码闭包形成</font></h2></blockquote>
+<p>配置前：可以清晰的看到打包之后的代码分别生成了两个闭包函数（闭包函数的副作用占内存）</p>
+<p>配置后：可以看到效果已经没有了针对两个两个js的闭包代码块</p>
+<blockquote>
+<h2 id="5-Tree-shaking-删除没用的函数或者变量"><a href="#5-Tree-shaking-删除没用的函数或者变量" class="headerlink" title="5.Tree shaking 删除没用的函数或者变量"></a><font color="gold">5.Tree shaking 删除没用的函数或者变量</font></h2></blockquote>
+<p>webpack4中已经默认实现了tree shaking</p>
+<blockquote>
+<h2 id="6-压缩图片文件大小-image-webpack-loader"><a href="#6-压缩图片文件大小-image-webpack-loader" class="headerlink" title="6.压缩图片文件大小 image-webpack-loader"></a><font color="gold">6.压缩图片文件大小 image-webpack-loader</font></h2></blockquote>
+<p>参考：</p>
+<p><a href="https://www.cnblogs.com/moran1992/p/11233419.html" target="_blank" rel="noopener">https://www.cnblogs.com/moran1992/p/11233419.html</a></p>
+<p><a href="https://www.cnblogs.com/moran1992/p/11233419.html" target="_blank" rel="noopener">https://www.cnblogs.com/moran1992/p/11233419.html</a></p>
 
       
     </div>
@@ -461,12 +468,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Vue/" rel="tag"># Vue</a>
-          
-        </div>
-      
 
       
       
@@ -476,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/29/javascript/读Promise获得的知识点/" rel="next" title="读Promise获得的知识点">
-                <i class="fa fa-chevron-left"></i> 读Promise获得的知识点
+              <a href="/2020/12/05/vue/vue3笔记/" rel="next" title="vue3笔记">
+                <i class="fa fa-chevron-left"></i> vue3笔记
               </a>
             
           </div>
@@ -485,10 +486,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/05/04/wechat/小程序知识点/" rel="prev" title="小程序知识点">
-                小程序知识点 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -541,8 +538,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -559,7 +565,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">108</span>
+                  <span class="site-state-item-count">112</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -620,6 +626,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-webpack-bundle-analyzer-插件"><span class="nav-number">1.</span> <span class="nav-text">1.webpack-bundle-analyzer 插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-mini-css-extract-plugin-插件"><span class="nav-number">2.</span> <span class="nav-text">2.mini-css-extract-plugin  插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-DllPlugin-和-DllReferencePlugin分离第三方类库"><span class="nav-number">3.</span> <span class="nav-text">3.DllPlugin 和 DllReferencePlugin分离第三方类库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-利用scope-histing-（变量提升）-减少代码闭包形成"><span class="nav-number">4.</span> <span class="nav-text">4.利用scope histing （变量提升） 减少代码闭包形成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Tree-shaking-删除没用的函数或者变量"><span class="nav-number">5.</span> <span class="nav-text">5.Tree shaking 删除没用的函数或者变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-压缩图片文件大小-image-webpack-loader"><span class="nav-number">6.</span> <span class="nav-text">6.压缩图片文件大小 image-webpack-loader</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
