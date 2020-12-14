@@ -104,8 +104,6 @@ v-for会比v-if的优先级高一些，如果连用的话会把v-if给每个元�
   </li>
 </ul>
 
-
-
 computed: {
   showUsers: function () {
     return this.users.filter(function (user) {
@@ -113,6 +111,22 @@ computed: {
     })
   }
 }
+```
+
+## <font color="gold">6.vuex在什么场景下使用？</font>
+
+多个组件共享数据或者是跨组件传递数据时
+
+## <font color="gold">7.linkActiveClass与active-class？</font>
+
+都是router-link组件的属性，linkActiveClass是配置在全局，active-class是配置在标签上。
+
+<code>设置链接激活时使用的 CSS 类名。</code>
+
+## <font color="gold">8.vue中this.$router.push的query与params传参区别？</font>
+
+```js
+
 ```
 
 

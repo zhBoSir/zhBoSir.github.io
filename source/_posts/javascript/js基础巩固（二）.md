@@ -6,47 +6,7 @@ categories:
 tags: 
 ---
 
-> ## <font color="gold">1.闭包</font>
-
-变量作用域的常识：
-
-<font color="pink" size="3"> 当函数执行完毕，本作用域内的局部变量会销毁。</font>
-
-闭包概念：
-
-<code><font color="pink">闭包</font>指有权访问另一个函数作用域中变量的<font color="pink">函数</font>。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。</code>
-```js
-// 第一个例子：fn内部的变量被fn内部的函数访问
-function fn () {
-  var num = 10
-  function fun () {
-    // fun函数访问了fn函数的局部变量
-    console.log(num)
-  }
-  fun()
-}
-
-fn()
-
-// fn就是一个闭包函数
-
-// 第二个例子：fn外部访问fn内部的变量
-function fn () {
-  var num = 8
-
-  return function fun () {
-    console.log(num)
-  }
-}
-
-var f = fn()  // 用f接收返回来的函数，这样就实现了在fn外部访问到fn内部的变量
-f()
-```
-闭包的作用：
-
-<code>延伸了变量的作用范围</code>
-
-> ## <font color="gold">2.this指向</font>
+> ## <font color="gold">1.this指向</font>
 
 ```js
 setTimeout(function () {
@@ -61,5 +21,91 @@ setTimeout里的this指向window，因为是window调用了setTimeout。
 })()
 ```
 立即执行函数里的this指向也是window。
+
+> ## <font color="gold">2.递归</font>
+
+如果一个函数在内部可以调用其自身，那么这个函数就是递归函数。
+
+
+### 练习题：
+
+1.利用递归函数求1~n的阶乘 1 * 2 * 3 * .. n
+```js
+function fn (n) {
+  if ( n === 1 ) {
+    return 1
+  }
+  return n * fn(n - 1)
+}
+
+console.log(fn(5))  // 120
+```
+
+2.利用递归函数求<code>斐波那契数列</code>(兔子序列)1、1、2、3、5、8、13、21...
+用户输入一个数字n就可以求出这个数字对应的兔子序列值。
+
+斐波那契数列 就是<code>前两项相加等于第三项的值</code>
+```js
+function fn(n) {
+  if (n === 1 || n === 2) {
+    return 1
+  }
+  return fn(n-1) + fn(n-2)
+}
+console.log(fn(1))  // 1
+console.log(fn(2))  // 1
+console.log(fn(3))  // 2
+console.log(fn(4))  // 3
+console.log(fn(5))  // 5
+```
+
+3.从一个对象中，根据id找出对应的数据
+```js
+var objArray = [
+  {
+    id: 1,
+    name: 'zhangsan',
+    children: [
+      {
+        id: 11,
+        name: 'xiaozhangsan01'
+      },
+      {
+        id: 12,
+        name: 'xiaozhangsan02',
+        children: [
+          {
+            id: 111,
+            name: 'xiaoxiaozhangsan01'
+          },
+          {
+            id: 112,
+            name: 'xiaoxiaozhangsan02'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 1,
+    name: 'lisi',
+  }
+]
+
+function getById (array, id) {
+  array.forEach(item => {
+    if (item.id === id) {
+      console.log(item.name)
+    } else if (item.children && item.children.length > 0) {
+      getById(item.children, id)  // 利用递归
+    }
+  }) 
+}
+
+getById(objArray, 1)  // 'zhangsan'
+getById(objArray, 11)  // 'xiaozhangsan01'
+getById(objArray, 112)  // 'xiaoxiaozhangsan02'
+getById(objArray, 2)  // 'lisi'
+```
 
 
