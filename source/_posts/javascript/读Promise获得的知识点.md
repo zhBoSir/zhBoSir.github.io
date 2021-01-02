@@ -8,7 +8,7 @@ tags:
   - JavaScript
 ---
 
-> Promise构造函数
+> ## <font color="gold">Promise构造函数</font>
 
 <code>Promise构造函数</code>接受一个函数作为参数，该函数的两个参数分别是resolve和reject。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。 
 
@@ -151,3 +151,15 @@ Promise.any([rejected, alsoRejected]).catch(function (results) {
   console.log(results); // [-1, Infinity]
 });
 ```
+
+> ## <font color="gold">2.异步编程都包括哪些？</font>
+
++ fs文件操作
+
++ 数据库操作
+
++ AJAX
+
++ 定时器
+
+Promise是js中进行异步编程的<code>新的解决方案</code>，旧方案是单纯使用回调函数。
