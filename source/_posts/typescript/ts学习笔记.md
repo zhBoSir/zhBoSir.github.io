@@ -115,3 +115,56 @@ console.log(sex1name)  // 输出Man
 console.log(sex2name)  // 输出Woman
 ```
 
+> ## <code>7.类类型</code>
+
+类类型即类遵循接口的约束
+```js
+// 接口就是规范，继承它的都要遵循它的写法
+interface ClockInterface {
+  currentTime: Date  // 属性 // 一旦接口里定义了，继承的类就要实现
+  setTime (d: Date) {}  // 方法
+}
+
+class Clock implements ClockInterface {
+  currentTime: Date  // 实现
+  constructor (h: number, m: number) {
+    console.log(h, m)
+  }
+  setTime (d: Date) {
+    console.log(d)
+  }
+}
+```
+类继承接口用关键字<code>implements</code>
+
+> ## <code>8.接口的继承</code>
+
+```js
+interface Animal {
+  breed: string
+}
+interface Cat extends Animal {
+  color: string
+}
+let cat = {} as Cat
+
+cat.breed = '波斯猫'
+cat.color = 'red'
+
+
+// 继承两个接口
+interface Mammal {
+  leg: number
+}
+
+interface Dog extends Animal,Mammal {
+  color: string
+}
+let dog = {} as Dog
+
+dog.breed = '开啡狗'
+dog.color = 'orange'
+dog.leg = 4
+
+```
+
