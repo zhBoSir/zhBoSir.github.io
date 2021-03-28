@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="【稻稻派】">
 <meta property="og:description" content="定义一个random()函数，原理是随机数和最大值减最小值的差相乘 最后再加上最小值。 1234567function random(min, max) &amp;#123;  return Math.floor(Math.random() * (max - min)) + min;&amp;#125;random(1, 10)  // 生成1到10的随机数random(1, 100)  // 生成1到100的随">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-05T11:58:52.077Z">
+<meta property="og:updated_time" content="2020-12-14T11:57:59.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="生成一个随机数">
 <meta name="twitter:description" content="定义一个random()函数，原理是随机数和最大值减最小值的差相乘 最后再加上最小值。 1234567function random(min, max) &amp;#123;  return Math.floor(Math.random() * (max - min)) + min;&amp;#125;random(1, 10)  // 生成1到10的随机数random(1, 100)  // 生成1到100的随">
@@ -391,6 +391,7 @@
       
         <p>定义一个random()函数，原理是<code>随机数和最大值减最小值的差相乘 最后再加上最小值</code>。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">random</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min)) + min;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">random(<span class="number">1</span>, <span class="number">10</span>)  <span class="comment">// 生成1到10的随机数</span></span><br><span class="line">random(<span class="number">1</span>, <span class="number">100</span>)  <span class="comment">// 生成1到100的随机数</span></span><br><span class="line">random(<span class="number">95</span>, <span class="number">100</span>)  <span class="comment">// 生成95到100的随机数</span></span><br></pre></td></tr></table></figure>
+<p>另一种生成随机数的方法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rand</span> (<span class="params">m, n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.ceil(<span class="built_in">Math</span>.random() * (n-m+<span class="number">1</span>) + m <span class="number">-1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>练习题：</p>
 <p>生成一个5位数的随机数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">random</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min)) + min;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fiveNum</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> num = <span class="string">''</span>  <span class="comment">// 注意这里要定义成字符串，因为5位随机数也是靠字符串拼接的 </span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ ) &#123;</span><br><span class="line">    num+= random(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> num</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
@@ -541,7 +542,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">112</span>
+                  <span class="site-state-item-count">117</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -552,7 +553,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -563,7 +564,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -617,7 +618,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
