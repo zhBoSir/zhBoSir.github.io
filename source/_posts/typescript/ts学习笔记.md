@@ -168,3 +168,66 @@ dog.leg = 4
 
 ```
 
+> ## <code>9.interface接口可选属性</code>
+```js
+interface Circle {
+  color: string,
+  area: number
+}
+interface CircleConfig {
+  color?: string  // 接口属性可选
+  radius?: number // 接口属性可选
+}
+
+// demo
+function createCircle(config: CircleConfig): Circle {
+  let newCircle = {color: 'green', area: 100}
+  if (config.color) {
+    newCircle.color = config.color
+  }
+  if (config.radius) {
+    newCircle.area = Math.PI * config.radius * config.radius
+  }
+  return newCircle
+}
+```
+
+> ## <code>10.interface只读属性</code>
+```js
+interface FullName {
+  readonly firstName: string
+  readonly lastName: string
+}
+```
+只读数组
+```js
+let arr: ReadonlyArray<number> = [1,2,3,4]
+
+// 只读数组，这样
+// arr.push(5)
+// arr.pop()
+// arr[0] = 10
+// arr.length = 8
+// 这几个都不能用了
+```
+
+> ## <code>11.类型断言</code>
+
+断言的好处：可以让断言后变量身上的方法和属性被<code>.</code>出来，比如字符串的length、substr()、split()方法，数组的push()、pop()
+
+两种方式：
+```js
+// 第一种方式
+
+let obj: any = 'like it, it like'
+
+let str: string = (<string>obj).substr(0, 3)  
+// 通过<string>obj这种方式就可以断言obj为string类型，那么就可以使用string的属性和方法
+
+// 第二种方式
+
+let str: string = (obj as string).substr(0, 4)
+```
+
+
+

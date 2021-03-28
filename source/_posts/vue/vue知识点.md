@@ -94,6 +94,18 @@ computed: {
  }
 ```
 
+> ## baseUrl转换成publicPath
+
+<code>vue.config.js</codd>文件中，从vue cli3.3起baseUrl已弃用，得适用publicPath。
+
+> ## 使用prettier + prettier-eslint(vetur)格式化代码
+
+vscode的prettier格式化插件
+
+prettier插件可以把文件格式化
+
++ husky + lint-staged把关代码质量
+
 
 参考：
 
