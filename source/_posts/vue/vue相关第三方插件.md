@@ -7,7 +7,7 @@ tags:
   - Vue
 ---
 
-> vue-ls
+> 1.<code>vue-ls</code>
 
 vue-ls : vue插件，用于从Vue上下文中使用本地存储，会话存储和内存存储。
 
@@ -20,4 +20,12 @@ vue-ls : vue插件，用于从Vue上下文中使用本地存储，会话存储�
 [vue插件vue-ls](https://www.dazhuanlan.com/2019/11/30/5de15053e3589/)
 
 [Vue的Vue-ls使用](https://www.jianshu.com/p/ab7f67878279)
+
+> 2.<code>vue-print-nb打印插件</code>
+
+参考：
+
+[vue插件vue-print-nb](https://www.npmjs.com/package/vue-print-nb)
+
+
 

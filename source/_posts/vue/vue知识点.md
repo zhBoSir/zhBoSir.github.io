@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ---
 title: vue知识点
 date: 2020-03-22 21:51:18
@@ -7,7 +8,7 @@ tags:
   - Vue
 ---
 
-> ## style绑定样式对象
+> ## 1.style绑定样式对象
 
 ```html
 <template>
@@ -30,7 +31,7 @@ tags:
 </script>
 ```
 
-> ## computed计算属性具有缓存特性
+> ## 2.computed计算属性具有缓存特性
 
 computed本质是一个惰性求值的观察者，具有缓存性，只有当依赖变化后，第一次访问 computed 属性，才会计算新的值。
 
@@ -57,7 +58,7 @@ var vm = new Vue({
 
 <code>methods则会每次执行</code>
 
-> ## v-bind绑定一个有属性的对象
+> ## 3.v-bind绑定一个有属性的对象
 ```js
 <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
 
@@ -80,7 +81,7 @@ var vm = new Vue({
 </script>
 ```
 
-> ## router-view标签上绑定key的作用
+> ## 4.router-view标签上绑定key的作用
 
 <code>在 router-view 上加上一个唯一的 key，来保证路由切换时都会重新渲染触发钩子。</code>
 ```js
@@ -94,7 +95,7 @@ computed: {
  }
 ```
 
-> ## baseUrl转换成publicPath
+> ## 5.baseUrl转换成publicPath
 
 <code>vue.config.js</codd>文件中，从vue cli3.3起baseUrl已弃用，得适用publicPath。
 
@@ -105,6 +106,15 @@ vscode的prettier格式化插件
 prettier插件可以把文件格式化
 
 + husky + lint-staged把关代码质量
+
+
+参考：
+
+[Vue计算属性缓存(computed) vs 方法](https://www.cnblogs.com/Vanish-F/p/11730743.html)
+
+> ## 6.vue中的环境变量
+
+<code>process.env.NODE_ENV</code>来判断当前是开发环境（<code>development</code>）还是生产环境（<code>production</code>）
 
 
 参考：
