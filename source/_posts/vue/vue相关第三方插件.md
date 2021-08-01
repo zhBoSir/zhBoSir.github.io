@@ -27,5 +27,43 @@ vue-ls : vue插件，用于从Vue上下文中使用本地存储，会话存储�
 
 [vue插件vue-print-nb](https://www.npmjs.com/package/vue-print-nb)
 
+> 3.<code>v-charts基于Vue2.x的 Echarts 图表组件</code>
+
+参考：
+
+[v-charts](https://vue-echarts.github.io/)
+
+> 4.<code>qs.js的使用</code>
+
+安装
+```
+yarn add qs
+
+import qs from 'qs'
+```
+
+qs.stringify 把对象转换成字符串
+```js
+qs.stringify({ a: 'b' }), 
+// 'a=b'
+
+qs.stringify({ a: { b: 'c' } })
+// a[b]=c
+```
+
+qs.parse 把字符串转换为对象
+```js
+qs.parse('a=c'); 
+// {a:'c'}
+
+qs.parse('a=b&c=d')
+// {a: 'b', c: 'd'}
+
+// 去掉？号的写法
+qs.parse('?a=b&c=d', { ignoreQueryPrefix: true })
+// {a: 'b', c: 'd'}
+
+```
+
 
 
