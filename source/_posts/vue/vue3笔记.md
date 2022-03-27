@@ -105,6 +105,12 @@ console.log(a, b) // 这里的a,b才是响应式的
 
 ```
 
+> ## <font color="gold" >5. unplugin-auto-import 插件</font>
+
+自动引入插件
+
+[vue3+vite插件配置系列2-unplugin-auto-import](https://blog.csdn.net/qq_42611074/article/details/123036047)
+
 
 
 
