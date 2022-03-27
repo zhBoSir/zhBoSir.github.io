@@ -92,18 +92,18 @@
 
 
 
-<meta name="description" content="tree shaking 只打包必要的依赖项。比如引入一个ui框架，但是只用了button，那么就只会把button以及button的依赖项打进去。  vdom提升性能，核心思想：跳过静态节点，只处理动态节点。">
+<meta name="description" content="1. vue2.0和vue3.0对比  tree shaking 只打包必要的依赖项。比如引入一个ui框架，但是只用了button，那么就只会把button以及button的依赖项打进去。  vdom提升性能，核心思想：跳过静态节点，只处理动态节点。">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue3笔记">
 <meta property="og:url" content="https://github.com/zhBoSir/2020/12/05/vue/vue3笔记/index.html">
 <meta property="og:site_name" content="【稻稻派】">
-<meta property="og:description" content="tree shaking 只打包必要的依赖项。比如引入一个ui框架，但是只用了button，那么就只会把button以及button的依赖项打进去。  vdom提升性能，核心思想：跳过静态节点，只处理动态节点。">
+<meta property="og:description" content="1. vue2.0和vue3.0对比  tree shaking 只打包必要的依赖项。比如引入一个ui框架，但是只用了button，那么就只会把button以及button的依赖项打进去。  vdom提升性能，核心思想：跳过静态节点，只处理动态节点。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-06T12:23:14.454Z">
+<meta property="og:updated_time" content="2022-03-26T08:03:36.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue3笔记">
-<meta name="twitter:description" content="tree shaking 只打包必要的依赖项。比如引入一个ui框架，但是只用了button，那么就只会把button以及button的依赖项打进去。  vdom提升性能，核心思想：跳过静态节点，只处理动态节点。">
+<meta name="twitter:description" content="1. vue2.0和vue3.0对比  tree shaking 只打包必要的依赖项。比如引入一个ui框架，但是只用了button，那么就只会把button以及button的依赖项打进去。  vdom提升性能，核心思想：跳过静态节点，只处理动态节点。">
 
 
 
@@ -390,7 +390,9 @@
       
 
       
-        <ul>
+        <blockquote>
+<h2 id="1-vue2-0和vue3-0对比"><a href="#1-vue2-0和vue3-0对比" class="headerlink" title="1. vue2.0和vue3.0对比"></a><font color="gold">1. vue2.0和vue3.0对比</font></h2></blockquote>
+<ul>
 <li><p><code>tree shaking</code> 只打包必要的依赖项。比如引入一个ui框架，但是只用了button，那么就只会把button以及button的依赖项打进去。</p>
 </li>
 <li><p>vdom提升性能，<code>核心思想：跳过静态节点，只处理动态节点。</code></p>
@@ -406,7 +408,7 @@
 </li>
 </ul>
 <blockquote>
-<h2 id="vue2-0和vue3-0响应式原理对比"><a href="#vue2-0和vue3-0响应式原理对比" class="headerlink" title="vue2.0和vue3.0响应式原理对比"></a>vue2.0和vue3.0响应式原理对比</h2></blockquote>
+<h2 id="2-vue2-0和vue3-0响应式原理对比"><a href="#2-vue2-0和vue3-0响应式原理对比" class="headerlink" title="2. vue2.0和vue3.0响应式原理对比"></a><font color="gold">2. vue2.0和vue3.0响应式原理对比</font></h2></blockquote>
 <p>vue2.0使用的是Object.defineProperty方法实现响应式</p>
 <font color="pink">缺点：</font>
 
@@ -426,7 +428,7 @@
 <p>1.可以监测到代理对象属性的动态添加和删除</p>
 <p>2.可以监测到数组的下标和length属性的变化</p>
 <blockquote>
-<h2 id="vue3-0是如何变快的？"><a href="#vue3-0是如何变快的？" class="headerlink" title="vue3.0是如何变快的？"></a>vue3.0是如何变快的？</h2></blockquote>
+<h2 id="3-vue3-0是如何变快的？"><a href="#3-vue3-0是如何变快的？" class="headerlink" title="3. vue3.0是如何变快的？"></a><font color="gold">3. vue3.0是如何变快的？</font></h2></blockquote>
 <font color="pink">diff方法优化：</font>
 
 <ul>
@@ -444,6 +446,25 @@
 <li><p>vue3中对于不参与更新的元素，只会被创建一次，之后会在每次渲染时候被不停的复用。</p>
 </li>
 </ul>
+<blockquote>
+<h2 id="4-toRef-与-toRefs的区别"><a href="#4-toRef-与-toRefs的区别" class="headerlink" title="4. toRef 与 toRefs的区别"></a><font color="gold">4. toRef 与 toRefs的区别</font></h2></blockquote>
+<ul>
+<li><p>toRef：创建一个ref对象，其value值指向另一个对象中的某个属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">toRef语法：<span class="keyword">const</span> name = toRef(object , <span class="string">'property'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>toRefs：功能与toRef一致，但可以批量创建多个ref对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">toRefs语法：toRefs(object)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以用return { …toRefs(object)}的方式，将整个响应式对象object的所有属性提供给外部使用。</p>
+</li>
+<li><p>toRefs常用于es6的解构赋值操作，因为在对一个响应式对象直接解构时解构后的数据将不再有响应式，而使用toRefs可以方便解决这一问题。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; a, b &#125; = reactive(&#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解构出来不是响应式数据</span></span><br><span class="line"><span class="built_in">console</span>.log(a, b)  <span class="comment">// 1, 2</span></span><br><span class="line"></span><br><span class="line">================================</span><br><span class="line"></span><br><span class="line"><span class="comment">// 改成响应式的</span></span><br><span class="line"><span class="keyword">let</span> obj = reactive(&#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span>　&#123; a, b &#125; = toRefs(obj)</span><br><span class="line"><span class="built_in">console</span>.log(a, b) <span class="comment">// 这里的a,b才是响应式的</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="5-unplugin-auto-import-插件"><a href="#5-unplugin-auto-import-插件" class="headerlink" title="5. unplugin-auto-import 插件"></a><font color="gold">5. unplugin-auto-import 插件</font></h2></blockquote>
+<p>自动引入插件</p>
+<p><a href="https://blog.csdn.net/qq_42611074/article/details/123036047" target="_blank" rel="noopener">vue3+vite插件配置系列2-unplugin-auto-import</a></p>
 
       
     </div>
@@ -607,7 +628,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -618,7 +639,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -629,7 +650,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -678,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue2-0和vue3-0响应式原理对比"><span class="nav-number">1.</span> <span class="nav-text">vue2.0和vue3.0响应式原理对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue3-0是如何变快的？"><span class="nav-number">2.</span> <span class="nav-text">vue3.0是如何变快的？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-vue2-0和vue3-0对比"><span class="nav-number">1.</span> <span class="nav-text">1. vue2.0和vue3.0对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-vue2-0和vue3-0响应式原理对比"><span class="nav-number">2.</span> <span class="nav-text">2. vue2.0和vue3.0响应式原理对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-vue3-0是如何变快的？"><span class="nav-number">3.</span> <span class="nav-text">3. vue3.0是如何变快的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-toRef-与-toRefs的区别"><span class="nav-number">4.</span> <span class="nav-text">4. toRef 与 toRefs的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-unplugin-auto-import-插件"><span class="nav-number">5.</span> <span class="nav-text">5. unplugin-auto-import 插件</span></a></li></ol></div>
             
 
           </div>
@@ -699,7 +720,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

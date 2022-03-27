@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="【稻稻派】">
 <meta property="og:description" content="1.ts-node包1234// node中执行ts代码需要两个步骤：tsc hello.ts  // 把hello.ts转成hello.jsnode hello.js  安装ts-node包后，只需1ts-node hello.ts  2.将数字字符串类型转换成数字类型 12345console.log(2-&apos;1&apos;)  // 在ts里会报错，因为数字不能减字符串改成console.log(2-">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-28T08:00:16.524Z">
+<meta property="og:updated_time" content="2022-03-25T10:37:50.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ts学习笔记">
 <meta name="twitter:description" content="1.ts-node包1234// node中执行ts代码需要两个步骤：tsc hello.ts  // 把hello.ts转成hello.jsnode hello.js  安装ts-node包后，只需1ts-node hello.ts  2.将数字字符串类型转换成数字类型 12345console.log(2-&apos;1&apos;)  // 在ts里会报错，因为数字不能减字符串改成console.log(2-">
@@ -426,10 +426,6 @@
 <h2 id="10-interface只读属性"><a href="#10-interface只读属性" class="headerlink" title="10.interface只读属性"></a><code>10.interface只读属性</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interface FullName &#123;</span><br><span class="line">  readonly firstName: string</span><br><span class="line">  readonly lastName: string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>只读数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr: ReadonlyArray&lt;number&gt; = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只读数组，这样</span></span><br><span class="line"><span class="comment">// arr.push(5)</span></span><br><span class="line"><span class="comment">// arr.pop()</span></span><br><span class="line"><span class="comment">// arr[0] = 10</span></span><br><span class="line"><span class="comment">// arr.length = 8</span></span><br><span class="line"><span class="comment">// 这几个都不能用了</span></span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<h2 id="11-类型断言"><a href="#11-类型断言" class="headerlink" title="11.类型断言"></a><code>11.类型断言</code></h2></blockquote>
-<p>断言的好处：可以让断言后变量身上的方法和属性被<code>.</code>出来，比如字符串的length、substr()、split()方法，数组的push()、pop()</p>
-<p>两种方式：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种方式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj: any = <span class="string">'like it, it like'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> str: string = (<span class="xml"><span class="tag">&lt;<span class="name">string</span>&gt;</span>obj).substr(0, 3)  </span></span><br><span class="line">// 通过&lt;string&gt;obj这种方式就可以断言obj为string类型，那么就可以使用string的属性和方法</span><br><span class="line"></span><br><span class="line">// 第二种方式</span><br><span class="line"></span><br><span class="line">let str: string = (obj as string).substr(0, 4)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -587,7 +583,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -598,7 +594,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -609,7 +605,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -658,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-ts-node包"><span class="nav-number">1.</span> <span class="nav-text">1.ts-node包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-将数字字符串类型转换成数字类型"><span class="nav-number">2.</span> <span class="nav-text">2.将数字字符串类型转换成数字类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-break与continue"><span class="nav-number">3.</span> <span class="nav-text">3.break与continue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-声明数组的方式"><span class="nav-number">4.</span> <span class="nav-text">4.声明数组的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-元组（数组的升级）"><span class="nav-number">5.</span> <span class="nav-text">5.元组（数组的升级）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-枚举类型"><span class="nav-number">6.</span> <span class="nav-text">6.枚举类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-类类型"><span class="nav-number">7.</span> <span class="nav-text">7.类类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-接口的继承"><span class="nav-number">8.</span> <span class="nav-text">8.接口的继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-interface接口可选属性"><span class="nav-number">9.</span> <span class="nav-text">9.interface接口可选属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-interface只读属性"><span class="nav-number">10.</span> <span class="nav-text">10.interface只读属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-类型断言"><span class="nav-number">11.</span> <span class="nav-text">11.类型断言</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-ts-node包"><span class="nav-number">1.</span> <span class="nav-text">1.ts-node包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-将数字字符串类型转换成数字类型"><span class="nav-number">2.</span> <span class="nav-text">2.将数字字符串类型转换成数字类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-break与continue"><span class="nav-number">3.</span> <span class="nav-text">3.break与continue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-声明数组的方式"><span class="nav-number">4.</span> <span class="nav-text">4.声明数组的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-元组（数组的升级）"><span class="nav-number">5.</span> <span class="nav-text">5.元组（数组的升级）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-枚举类型"><span class="nav-number">6.</span> <span class="nav-text">6.枚举类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-类类型"><span class="nav-number">7.</span> <span class="nav-text">7.类类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-接口的继承"><span class="nav-number">8.</span> <span class="nav-text">8.接口的继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-interface接口可选属性"><span class="nav-number">9.</span> <span class="nav-text">9.interface接口可选属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-interface只读属性"><span class="nav-number">10.</span> <span class="nav-text">10.interface只读属性</span></a></li></ol></div>
             
 
           </div>
@@ -679,7 +675,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

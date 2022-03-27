@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="【稻稻派】">
 <meta property="og:description" content="1.vue-ls  vue-ls : vue插件，用于从Vue上下文中使用本地存储，会话存储和内存存储。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-28T08:03:51.410Z">
+<meta property="og:updated_time" content="2021-04-15T15:48:40.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue相关第三方插件">
 <meta name="twitter:description" content="1.vue-ls  vue-ls : vue插件，用于从Vue上下文中使用本地存储，会话存储和内存存储。">
@@ -404,6 +404,17 @@
 </blockquote>
 <p>参考：</p>
 <p><a href="https://www.npmjs.com/package/vue-print-nb" target="_blank" rel="noopener">vue插件vue-print-nb</a></p>
+<blockquote>
+<p>3.<code>v-charts基于Vue2.x的 Echarts 图表组件</code></p>
+</blockquote>
+<p>参考：</p>
+<p><a href="https://vue-echarts.github.io/" target="_blank" rel="noopener">v-charts</a></p>
+<blockquote>
+<p>4.<code>qs.js的使用</code></p>
+</blockquote>
+<p>安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add qs</span><br><span class="line"></span><br><span class="line">import qs from &apos;qs&apos;</span><br></pre></td></tr></table></figure></p>
+<p>qs.stringify 把对象转换成字符串<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">qs.stringify(&#123; <span class="attr">a</span>: <span class="string">'b'</span> &#125;), </span><br><span class="line"><span class="comment">// 'a=b'</span></span><br><span class="line"></span><br><span class="line">qs.stringify(&#123; <span class="attr">a</span>: &#123; <span class="attr">b</span>: <span class="string">'c'</span> &#125; &#125;)</span><br><span class="line"><span class="comment">// a[b]=c</span></span><br></pre></td></tr></table></figure></p>
+<p>qs.parse 把字符串转换为对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">qs.parse(<span class="string">'a=c'</span>); </span><br><span class="line"><span class="comment">// &#123;a:'c'&#125;</span></span><br><span class="line"></span><br><span class="line">qs.parse(<span class="string">'a=b&amp;c=d'</span>)</span><br><span class="line"><span class="comment">// &#123;a: 'b', c: 'd'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 去掉？号的写法</span></span><br><span class="line">qs.parse(<span class="string">'?a=b&amp;c=d'</span>, &#123; <span class="attr">ignoreQueryPrefix</span>: <span class="literal">true</span> &#125;)</span><br><span class="line"><span class="comment">// &#123;a: 'b', c: 'd'&#125;</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -558,7 +569,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -569,7 +580,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -580,7 +591,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -634,7 +645,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="【稻稻派】">
 <meta property="og:description" content="1.hash路由和history路由location.hash的值实际就是URL中#后面的东西。 history实际采用了HTML5中提供的API来实现，主要有history.pushState()和history.replaceState()。 2.请说一下你对响应式数据的理解？ 对象：使用Object.defineProperty将属性进行劫持（只会劫持已经存在的属性）；多层对象是通过递归来实">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-08T08:39:13.950Z">
+<meta property="og:updated_time" content="2021-08-08T16:34:46.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue面试题02">
 <meta name="twitter:description" content="1.hash路由和history路由location.hash的值实际就是URL中#后面的东西。 history实际采用了HTML5中提供的API来实现，主要有history.pushState()和history.replaceState()。 2.请说一下你对响应式数据的理解？ 对象：使用Object.defineProperty将属性进行劫持（只会劫持已经存在的属性）；多层对象是通过递归来实">
@@ -410,7 +410,27 @@
 <h2 id="6-vuex在什么场景下使用？"><a href="#6-vuex在什么场景下使用？" class="headerlink" title="6.vuex在什么场景下使用？"></a><font color="gold">6.vuex在什么场景下使用？</font></h2><p>多个组件共享数据或者是跨组件传递数据时</p>
 <h2 id="7-linkActiveClass与active-class？"><a href="#7-linkActiveClass与active-class？" class="headerlink" title="7.linkActiveClass与active-class？"></a><font color="gold">7.linkActiveClass与active-class？</font></h2><p>都是router-link组件的属性，linkActiveClass是配置在全局，active-class是配置在标签上。</p>
 <p><code>设置链接激活时使用的 CSS 类名。</code></p>
-<h2 id="8-vue中this-router-push的query与params传参区别？"><a href="#8-vue中this-router-push的query与params传参区别？" class="headerlink" title="8.vue中this.$router.push的query与params传参区别？"></a><font color="gold">8.vue中this.$router.push的query与params传参区别？</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="8-vue中v-for与v-if能同时使用吗？哪个优先级高？"><a href="#8-vue中v-for与v-if能同时使用吗？哪个优先级高？" class="headerlink" title="8.vue中v-for与v-if能同时使用吗？哪个优先级高？"></a><font color="gold">8.vue中v-for与v-if能同时使用吗？哪个优先级高？</font></h2><p>通过看vue的源码，源码里</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for是在前面的，所以v-for的优先级高</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (el.for) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (el.if) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>结论：</code></p>
+<ul>
+<li><p>v-for优先于v-if被解析</p>
+</li>
+<li><p>如果同时出现，每次渲染都会先执行循环再判断条件，无论如何循环都不可避免，浪费了性能</p>
+</li>
+<li><p>要避免出现这种情况，则在外层嵌套template，在上面进行v-if判断，然后在内部进行v-for循环</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template v-<span class="keyword">if</span>=<span class="string">"isShow"</span>&gt;</span><br><span class="line">  &lt;p v-<span class="keyword">for</span>=<span class="string">"item in list"</span>&gt;&#123;&#123;item&#125;&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="9-vue中data为什么是一个函数不是一个对象？vue的根实例为什么又是一个对象？"><a href="#9-vue中data为什么是一个函数不是一个对象？vue的根实例为什么又是一个对象？" class="headerlink" title="9.vue中data为什么是一个函数不是一个对象？vue的根实例为什么又是一个对象？"></a><font color="gold">9.vue中data为什么是一个函数不是一个对象？vue的根实例为什么又是一个对象？</font></h2><ul>
+<li><p>vue组件可能存在多个实例，如果使用对象形式定义data，就会导致它们公用一个data对象，那么状态变更将会影响所有组件实例，这是不合理的，采用函数形式定义，在initData时会将其作为工厂函数返回全新data对象，有效规避多实例之间状态污染问题。</p>
+</li>
+<li><p>而在vue根实例创建过程中则不存在限制，是因为根实例只能有一个，不需要担心这种情况。</p>
+</li>
+</ul>
+<h2 id="10-vue中key的作用？"><a href="#10-vue中key的作用？" class="headerlink" title="10.vue中key的作用？"></a><font color="gold">10.vue中key的作用？</font></h2><ul>
+<li>key的作用主要是为了高效的更新虚拟Dom,其原理是vue在patch过程中通过key可以精准判断两个节点是否是同一个，从而避免频繁更新不同元素，使得整个patch过程更加高效，减少Dom操作量,提高性能。</li>
+</ul>
 
       
     </div>
@@ -574,7 +594,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -585,7 +605,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -596,7 +616,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -645,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-hash路由和history路由"><span class="nav-number">1.</span> <span class="nav-text">1.hash路由和history路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-请说一下你对响应式数据的理解？"><span class="nav-number">2.</span> <span class="nav-text">2.请说一下你对响应式数据的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-为何vue采用异步渲染？"><span class="nav-number">3.</span> <span class="nav-text">3.为何vue采用异步渲染？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-nextTick实现原理？"><span class="nav-number">4.</span> <span class="nav-text">4.nextTick实现原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-为什么v-for和v-if不能连用"><span class="nav-number">5.</span> <span class="nav-text">5.为什么v-for和v-if不能连用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-vuex在什么场景下使用？"><span class="nav-number">6.</span> <span class="nav-text">6.vuex在什么场景下使用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-linkActiveClass与active-class？"><span class="nav-number">7.</span> <span class="nav-text">7.linkActiveClass与active-class？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-vue中this-router-push的query与params传参区别？"><span class="nav-number">8.</span> <span class="nav-text">8.vue中this.$router.push的query与params传参区别？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-hash路由和history路由"><span class="nav-number">1.</span> <span class="nav-text">1.hash路由和history路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-请说一下你对响应式数据的理解？"><span class="nav-number">2.</span> <span class="nav-text">2.请说一下你对响应式数据的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-为何vue采用异步渲染？"><span class="nav-number">3.</span> <span class="nav-text">3.为何vue采用异步渲染？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-nextTick实现原理？"><span class="nav-number">4.</span> <span class="nav-text">4.nextTick实现原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-为什么v-for和v-if不能连用"><span class="nav-number">5.</span> <span class="nav-text">5.为什么v-for和v-if不能连用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-vuex在什么场景下使用？"><span class="nav-number">6.</span> <span class="nav-text">6.vuex在什么场景下使用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-linkActiveClass与active-class？"><span class="nav-number">7.</span> <span class="nav-text">7.linkActiveClass与active-class？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-vue中v-for与v-if能同时使用吗？哪个优先级高？"><span class="nav-number">8.</span> <span class="nav-text">8.vue中v-for与v-if能同时使用吗？哪个优先级高？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-vue中data为什么是一个函数不是一个对象？vue的根实例为什么又是一个对象？"><span class="nav-number">9.</span> <span class="nav-text">9.vue中data为什么是一个函数不是一个对象？vue的根实例为什么又是一个对象？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-vue中key的作用？"><span class="nav-number">10.</span> <span class="nav-text">10.vue中key的作用？</span></a></li></ol></div>
             
 
           </div>
@@ -666,7 +686,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
