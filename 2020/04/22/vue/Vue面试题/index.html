@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="【稻稻派】">
 <meta property="og:description" content="1. 讲一讲MVVM？ MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。  2.说一下Vue的生命周期 beforeCr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-02T09:25:05.582Z">
+<meta property="og:updated_time" content="2022-03-29T06:26:34.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue面试题01">
 <meta name="twitter:description" content="1. 讲一讲MVVM？ MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。  2.说一下Vue的生命周期 beforeCr">
@@ -411,7 +411,7 @@
 <p>组件的销毁操作是先父后子，销毁完成的顺序是先子后父。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">加载渲染过程</span><br><span class="line">父beforeCreate-&gt;父created-&gt;父beforeMount-&gt;子beforeCreate-&gt;子created-&gt;子beforeMount- &gt;子mounted-&gt;父mounted</span><br><span class="line"></span><br><span class="line">子组件更新过程</span><br><span class="line">父beforeUpdate-&gt;子beforeUpdate-&gt;子updated-&gt;父updated</span><br><span class="line"></span><br><span class="line">父组件更新过程</span><br><span class="line">父 beforeUpdate -&gt; 父 updated</span><br><span class="line"></span><br><span class="line">销毁过程</span><br><span class="line">父beforeDestroy-&gt;子beforeDestroy-&gt;子destroyed-&gt;父destroyed</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>fathe组件的beforeMount时，child子组件的vue创建生命周期已经完成到mounted阶段。说明father在执行dom模板渲染（渲染dom模板只是在内存中，并非是在HTML中的DOM结构中渲染，内存中渲染DOM可以理解为是Virtual DOM技术）的时候，会监测模板中是否有自定义的vue子组件。如果有，就进入子组件的生命周期的创建阶段，等到所有子组件的完成创建并挂载（mounted）到父组件的模板当中后。才能表明父组件在内存中的模板渲染完成。</p>
+<li><p>father组件的beforeMount时，child子组件的vue创建生命周期已经完成到mounted阶段。说明father在执行dom模板渲染（渲染dom模板只是在内存中，并非是在HTML中的DOM结构中渲染，内存中渲染DOM可以理解为是Virtual DOM技术）的时候，会监测模板中是否有自定义的vue子组件。如果有，就进入子组件的生命周期的创建阶段，等到所有子组件的完成创建并挂载（mounted）到父组件的模板当中后。才能表明父组件在内存中的模板渲染完成。</p>
 </li>
 <li><p>在beforeDestroy与destroyed之间，组件开始注销自己的属性、方法、事件以及自己的子组件。只有等到所有都已注销完成（子组件达到destroyed阶段），父组件才能够进入destroyed阶段。</p>
 </li>
