@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="【稻稻派】">
 <meta property="og:description" content="this问题  es6的class类里constructor里面的this指向实例对象，方法里面的this指向这个方法的调用者。   对象创建 ES6是基于类class创建对象。 ES6之前是用一种称为构造函数的特殊函数来定义对象和他们的特征。  new在执行时做的四件事 1, 在内存中创建一个新的空对象； 2, 让this指向这个新的对象； 3, 执行构造函数里面的代码，给这个新对象添加属性和">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-05T02:12:22.723Z">
+<meta property="og:updated_time" content="2022-03-30T10:09:47.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js基础巩固">
 <meta name="twitter:description" content="this问题  es6的class类里constructor里面的this指向实例对象，方法里面的this指向这个方法的调用者。   对象创建 ES6是基于类class创建对象。 ES6之前是用一种称为构造函数的特殊函数来定义对象和他们的特征。  new在执行时做的四件事 1, 在内存中创建一个新的空对象； 2, 让this指向这个新的对象； 3, 执行构造函数里面的代码，给这个新对象添加属性和">
@@ -470,7 +470,7 @@
 </ul>
 <blockquote>
 <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2></blockquote>
-<p>高阶函数是对其他函数进行操作的函数，它接收函数作为参数或将函数作为返回值输出。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种情况：函数也是一种数据类型，同样可以作为参数，传递给另外一个参数使用，最典型的就是作为回调函数。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params">callback</span>) </span>&#123;</span><br><span class="line">  callback &amp;&amp; callback()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'1'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 第二种情况</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn()</span><br></pre></td></tr></table></figure></p>
+<p>高阶函数是对其他函数进行操作的函数，它接收函数作为参数或将函数作为返回值输出。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种情况：函数也是一种数据类型，同样可以作为参数，传递给另外一个函数使用，最典型的就是作为回调函数。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params">callback</span>) </span>&#123;</span><br><span class="line">  callback &amp;&amp; callback()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'1'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 第二种情况</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn()</span><br></pre></td></tr></table></figure></p>
 <p>里面的fn就是一个高阶函数</p>
 
       
@@ -629,7 +629,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">130</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -640,7 +640,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
