@@ -92,7 +92,6 @@ Vue.component('async-example', function (resolve, reject) {
 
 > # 5.保证函数只执行一次
 
-<code>(暂未理解清楚)</code>
 ```js
 /**
  * Ensure a function is called only once.

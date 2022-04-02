@@ -11,6 +11,8 @@ tags:
 
 MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。
 
+MVVM就是一个双向绑定的过程。在vue中数据都是响应式的，数据变化了会驱动视图，视图更改了数据也会发生变化，比如v-model就实现了一个双向数据绑定的过程。
+
 > ## <font color="gold" >2.说一下Vue的生命周期</font>
 
 <code>beforeCreate</code>是new Vue()之后触发的第一个钩子，<font color="pink">在当前阶段data、methods、computed以及watch上的数据和方法都不能被访问。</font>
