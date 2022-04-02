@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="【稻稻派】">
 <meta property="og:description" content="微前端：将后端微服务的理念应用于浏览器端，即将 Web 应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。Demo: 美团HR系统是由30多个微前端应用聚合而成，包含1000多个页面，300多个导航菜单项。对用户来说，HR系统是一个单页应用，整个交互过程非常顺畅；对开发者同学来说，各个应用均可独立开发、独立测试、独立发布，大大提高了开发效率。 另一个开发者的理解：微前端主要是借鉴后端微服">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-05T02:12:22.735Z">
+<meta property="og:updated_time" content="2022-04-02T06:23:57.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微前端概念和一些理论">
 <meta name="twitter:description" content="微前端：将后端微服务的理念应用于浏览器端，即将 Web 应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。Demo: 美团HR系统是由30多个微前端应用聚合而成，包含1000多个页面，300多个导航菜单项。对用户来说，HR系统是一个单页应用，整个交互过程非常顺畅；对开发者同学来说，各个应用均可独立开发、独立测试、独立发布，大大提高了开发效率。 另一个开发者的理解：微前端主要是借鉴后端微服">
@@ -394,6 +394,26 @@
 <li><code>微前端：将后端微服务的理念应用于浏览器端，即将 Web 应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。</code><br>Demo: 美团HR系统是由30多个微前端应用聚合而成，包含1000多个页面，300多个导航菜单项。对用户来说，HR系统是一个单页应用，整个交互过程非常顺畅；对开发者同学来说，各个应用均可独立开发、独立测试、独立发布，大大提高了开发效率。</li>
 <li>另一个开发者的理解：<code>微前端主要是借鉴后端微服务的概念。简单地说，就是将一个巨无霸的前端工程拆分成一个一个的小工程。别小看这些小工程，它们也是“麻雀虽小，五脏俱全”，完全具备独立的开发、运行能力。整个系统就将由这些小工程协同合作，实现所有页面的展示与交互。</code></li>
 </ul>
+<ul>
+<li><p>因为微前端架构与框架无关，当一个应用由多个团队进行开发时，每个团队都可以使用自己擅长的技术栈进行开发。</p>
+</li>
+<li><p>各个子系统之间通过约定进行互相调用。</p>
+</li>
+</ul>
+<blockquote>
+<h2 id="阿里的微前端-qiankun"><a href="#阿里的微前端-qiankun" class="headerlink" title="阿里的微前端-qiankun"></a>阿里的微前端-qiankun</h2></blockquote>
+<p>微前端是一种多个团队通过独立发布功能的方式来共同构建现代化 web 应用的技术手段及方法策略。</p>
+<p>微前端架构具备以下几个核心价值：</p>
+<ul>
+<li><p>技术栈无关</p>
+<p>主框架不限制接入应用的技术栈，微应用具备完全自主权</p>
+</li>
+<li><p>独立开发、独立部署</p>
+<p>微应用仓库独立，前后端可独立开发，部署完成后主框架自动完成同步更新</p>
+</li>
+</ul>
+<p>微前端架构旨在解决: 一个普通应用演变成一个巨石应用后，随之而来的应用不可维护的问题。</p>
+<p>微前端的核心目标是将巨石应用拆解成若干可以自治的松耦合微应用。</p>
 <p>参考：</p>
 <ul>
 <li><p><a href="https://www.cnblogs.com/meituantech/p/9604591.html" target="_blank" rel="noopener">用微前端的方式搭建类单页应用</a></p>
@@ -545,8 +565,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -563,7 +592,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -624,6 +653,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#阿里的微前端-qiankun"><span class="nav-number">1.</span> <span class="nav-text">阿里的微前端-qiankun</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

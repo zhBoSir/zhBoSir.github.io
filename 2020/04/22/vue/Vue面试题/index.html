@@ -92,18 +92,18 @@
 
 
 
-<meta name="description" content="1. 讲一讲MVVM？ MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。  2.说一下Vue的生命周期 beforeCr">
+<meta name="description" content="1. 讲一讲MVVM？ MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。 MVVM就是一个双向绑定的过程。在vue中数据">
 <meta name="keywords" content="面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue面试题01">
 <meta property="og:url" content="https://github.com/zhBoSir/2020/04/22/vue/Vue面试题/index.html">
 <meta property="og:site_name" content="【稻稻派】">
-<meta property="og:description" content="1. 讲一讲MVVM？ MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。  2.说一下Vue的生命周期 beforeCr">
+<meta property="og:description" content="1. 讲一讲MVVM？ MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。 MVVM就是一个双向绑定的过程。在vue中数据">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-03-29T06:26:34.452Z">
+<meta property="og:updated_time" content="2022-03-31T16:08:55.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue面试题01">
-<meta name="twitter:description" content="1. 讲一讲MVVM？ MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。  2.说一下Vue的生命周期 beforeCr">
+<meta name="twitter:description" content="1. 讲一讲MVVM？ MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。 MVVM就是一个双向绑定的过程。在vue中数据">
 
 
 
@@ -393,6 +393,7 @@
         <blockquote>
 <h2 id="1-讲一讲MVVM？"><a href="#1-讲一讲MVVM？" class="headerlink" title="1. 讲一讲MVVM？"></a><font color="gold">1. 讲一讲MVVM？</font></h2></blockquote>
 <p>MVVM是Model-View-ViewModel缩写，也就是把MVC中的Controller演变成ViewModel。Model层代表数据模型，View代表UI组件，ViewModel是View和Model层的桥梁，数据会绑定到viewModel层并自动将数据渲染到页面中，视图变化的时候会通知viewModel层更新数据。</p>
+<p>MVVM就是一个双向绑定的过程。在vue中数据都是响应式的，数据变化了会驱动视图，视图更改了数据也会发生变化，比如v-model就实现了一个双向数据绑定的过程。</p>
 <blockquote>
 <h2 id="2-说一下Vue的生命周期"><a href="#2-说一下Vue的生命周期" class="headerlink" title="2.说一下Vue的生命周期"></a><font color="gold">2.说一下Vue的生命周期</font></h2></blockquote>
 <p><code>beforeCreate</code>是new Vue()之后触发的第一个钩子，<font color="pink">在当前阶段data、methods、computed以及watch上的数据和方法都不能被访问。</font></p>
@@ -627,7 +628,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

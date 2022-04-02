@@ -92,17 +92,17 @@
 
 
 
-<meta name="description" content="1.keyof 与 object.keys keyof 与 Object.keys 略有相似，只不过 keyof 取 interface 的键 123456interface Point &amp;#123;  x: number;  y: number;&amp;#125;type keys = keyof Point;  // type keys = &quot;x&quot; | &quot;y&quot;">
+<meta name="description" content="1.keyof 与 object.keys keyof 与 Object.keys 略有相似，只不过 keyof 取 interface 的键 123456interface Point &amp;#123;  x: number;  y: number;&amp;#125;type keys = keyof Point;  // type keys = &quot;x&quot; | &quot;y&quot;  2.TypeScript 声明文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ts学习笔记02">
 <meta property="og:url" content="https://github.com/zhBoSir/2022/03/25/typescript/ts学习笔记02/index.html">
 <meta property="og:site_name" content="【稻稻派】">
-<meta property="og:description" content="1.keyof 与 object.keys keyof 与 Object.keys 略有相似，只不过 keyof 取 interface 的键 123456interface Point &amp;#123;  x: number;  y: number;&amp;#125;type keys = keyof Point;  // type keys = &quot;x&quot; | &quot;y&quot;">
+<meta property="og:description" content="1.keyof 与 object.keys keyof 与 Object.keys 略有相似，只不过 keyof 取 interface 的键 123456interface Point &amp;#123;  x: number;  y: number;&amp;#125;type keys = keyof Point;  // type keys = &quot;x&quot; | &quot;y&quot;  2.TypeScript 声明文件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-03-25T16:16:40.288Z">
+<meta property="og:updated_time" content="2022-04-02T15:09:12.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ts学习笔记02">
-<meta name="twitter:description" content="1.keyof 与 object.keys keyof 与 Object.keys 略有相似，只不过 keyof 取 interface 的键 123456interface Point &amp;#123;  x: number;  y: number;&amp;#125;type keys = keyof Point;  // type keys = &quot;x&quot; | &quot;y&quot;">
+<meta name="twitter:description" content="1.keyof 与 object.keys keyof 与 Object.keys 略有相似，只不过 keyof 取 interface 的键 123456interface Point &amp;#123;  x: number;  y: number;&amp;#125;type keys = keyof Point;  // type keys = &quot;x&quot; | &quot;y&quot;  2.TypeScript 声明文件">
 
 
 
@@ -393,6 +393,9 @@
 <h2 id="1-keyof-与-object-keys"><a href="#1-keyof-与-object-keys" class="headerlink" title="1.keyof 与 object.keys"></a><code>1.keyof 与 object.keys</code></h2></blockquote>
 <p>keyof 与 Object.keys 略有相似，只不过 keyof 取 interface 的键</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">interface Point &#123;</span><br><span class="line">  x: number;</span><br><span class="line">  y: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type keys = keyof Point;  <span class="comment">// type keys = "x" | "y"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="2-TypeScript-声明文件是什么"><a href="#2-TypeScript-声明文件是什么" class="headerlink" title="2.TypeScript 声明文件是什么"></a><code>2.TypeScript 声明文件是什么</code></h2></blockquote>
+<p>ts在开发中，引用其他第三方的非ts编写JavaScript的库的时候，必须为这个类库编写一个声明文件。主要作用是描述JavaScript模块内的类型信息，声明文件以*.d.ts为后缀。</p>
 
       
     </div>
@@ -550,7 +553,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -621,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-keyof-与-object-keys"><span class="nav-number">1.</span> <span class="nav-text">1.keyof 与 object.keys</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-keyof-与-object-keys"><span class="nav-number">1.</span> <span class="nav-text">1.keyof 与 object.keys</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-TypeScript-声明文件是什么"><span class="nav-number">2.</span> <span class="nav-text">2.TypeScript 声明文件是什么</span></a></li></ol></div>
             
 
           </div>
