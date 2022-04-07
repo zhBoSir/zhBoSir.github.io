@@ -157,3 +157,46 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 ```
+
+> <font color="gold">10.JS如何判断一个对象是否为空、是否有某个属性</font>
+
+js判断一个对象是否为空
+
+```js
+// 第一种方法：
+let obj1 = {}
+if (JSON.stringify(obj1) == "{}") {
+  console.log("空对象")
+} else {
+  console.log("非空对象")
+}
+
+// 第二种方法
+let obj1 = {}
+if (Object.keys(obj1).length == 0){   
+  console.log("空对象")
+} else {
+  console.log("非空对象")
+}
+```
+
+js判断对象中是否有某个属性
+
+```js
+//  in运算符   如果某属性在指定对象或其原型链上则返回true，只需判断自身属性时，此方法不适用。
+let obj2 = { a : 1 }
+if ("a" in obj2) {
+  console.log("对象或其原型链上有此属性")
+} else {
+  console.log("对象或其原型链上无此属性")
+}
+
+
+// obj.hasOwnProperty() 对象自身属性中含有某属性，返回true。
+let obj2 = {a:1}
+if (obj2.hasOwnProperty("a")){
+   console.log("对象上有此属性")
+}else {
+   console.log("对象上无此属性")
+}
+```

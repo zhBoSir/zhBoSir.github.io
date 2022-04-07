@@ -34,6 +34,10 @@ webpack4中已经默认实现了tree shaking
 
 > ## <font color="gold">6.压缩图片文件大小 image-webpack-loader</font>
 
+> ## <font color="gold">7.uglifyjs-webpack-plugin</font>
+
+代码打包与压缩
+
 
 
 参考：

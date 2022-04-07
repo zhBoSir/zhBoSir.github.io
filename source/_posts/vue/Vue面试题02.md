@@ -8,10 +8,18 @@ tags:
 ---
 
 
-## <font color="gold">1.hash路由和history路由</font>
-location.hash的值实际就是URL中<code>#</code>后面的东西。
+## <font color="gold">1.vuex 与 本地存储（localstorage、sessionstorage）的区别</font>
 
-history实际采用了HTML5中提供的API来实现，主要有<code>history.pushState()</code>和<code>history.replaceState()</code>。
++ vuex存储在<code>内存</code>，localstorage（本地存储）则以文件的方式存储在本地,<code>永久保存</code>；sessionstorage( 会话存储 ) ,<code>临时保存</code>。
+
++ localStorage和sessionStorage只能存储字符串类型。
+
++ 当刷新页面（这里的刷新页面指的是 --> F5刷新,属于清除内存了）时vuex存储的值会丢失，sessionstorage页面关闭后就清除掉了，localstorage不会。
+
++ 应用场景：vuex用于组件之间的传值，localstorage，sessionstorage则主要用于不同页面之间的传值。
+
++ 用localstorage代替vuex, 对于不变的数据确实可以，但是当两个组件共用一个数据源（对象或数组）时，如果其中一个组件改变了该数据源，希望另一个组件响应该变化时，localstorage，sessionstorage无法做到。
+
 
 ## <font color="gold">2.请说一下你对响应式数据的理解？</font>
 
