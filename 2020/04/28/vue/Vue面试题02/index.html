@@ -92,18 +92,18 @@
 
 
 
-<meta name="description" content="1.hash路由和history路由location.hash的值实际就是URL中#后面的东西。 history实际采用了HTML5中提供的API来实现，主要有history.pushState()和history.replaceState()。 2.请说一下你对响应式数据的理解？ 对象：使用Object.defineProperty将属性进行劫持（只会劫持已经存在的属性）；多层对象是通过递归来实">
+<meta name="description" content="1.vuex 与 本地存储（localstorage、sessionstorage）的区别 vuex存储在内存，localstorage（本地存储）则以文件的方式存储在本地,永久保存；sessionstorage( 会话存储 ) ,临时保存。  localStorage和sessionStorage只能存储字符串类型。  当刷新页面（这里的刷新页面指的是 –&amp;gt; F5刷新,属于清除内存了）时v">
 <meta name="keywords" content="面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue面试题02">
 <meta property="og:url" content="https://github.com/zhBoSir/2020/04/28/vue/Vue面试题02/index.html">
 <meta property="og:site_name" content="【稻稻派】">
-<meta property="og:description" content="1.hash路由和history路由location.hash的值实际就是URL中#后面的东西。 history实际采用了HTML5中提供的API来实现，主要有history.pushState()和history.replaceState()。 2.请说一下你对响应式数据的理解？ 对象：使用Object.defineProperty将属性进行劫持（只会劫持已经存在的属性）；多层对象是通过递归来实">
+<meta property="og:description" content="1.vuex 与 本地存储（localstorage、sessionstorage）的区别 vuex存储在内存，localstorage（本地存储）则以文件的方式存储在本地,永久保存；sessionstorage( 会话存储 ) ,临时保存。  localStorage和sessionStorage只能存储字符串类型。  当刷新页面（这里的刷新页面指的是 –&amp;gt; F5刷新,属于清除内存了）时v">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-08-08T16:34:46.550Z">
+<meta property="og:updated_time" content="2022-04-07T14:39:53.518Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue面试题02">
-<meta name="twitter:description" content="1.hash路由和history路由location.hash的值实际就是URL中#后面的东西。 history实际采用了HTML5中提供的API来实现，主要有history.pushState()和history.replaceState()。 2.请说一下你对响应式数据的理解？ 对象：使用Object.defineProperty将属性进行劫持（只会劫持已经存在的属性）；多层对象是通过递归来实">
+<meta name="twitter:description" content="1.vuex 与 本地存储（localstorage、sessionstorage）的区别 vuex存储在内存，localstorage（本地存储）则以文件的方式存储在本地,永久保存；sessionstorage( 会话存储 ) ,临时保存。  localStorage和sessionStorage只能存储字符串类型。  当刷新页面（这里的刷新页面指的是 –&amp;gt; F5刷新,属于清除内存了）时v">
 
 
 
@@ -390,8 +390,18 @@
       
 
       
-        <h2 id="1-hash路由和history路由"><a href="#1-hash路由和history路由" class="headerlink" title="1.hash路由和history路由"></a><font color="gold">1.hash路由和history路由</font></h2><p>location.hash的值实际就是URL中<code>#</code>后面的东西。</p>
-<p>history实际采用了HTML5中提供的API来实现，主要有<code>history.pushState()</code>和<code>history.replaceState()</code>。</p>
+        <h2 id="1-vuex-与-本地存储（localstorage、sessionstorage）的区别"><a href="#1-vuex-与-本地存储（localstorage、sessionstorage）的区别" class="headerlink" title="1.vuex 与 本地存储（localstorage、sessionstorage）的区别"></a><font color="gold">1.vuex 与 本地存储（localstorage、sessionstorage）的区别</font></h2><ul>
+<li><p>vuex存储在<code>内存</code>，localstorage（本地存储）则以文件的方式存储在本地,<code>永久保存</code>；sessionstorage( 会话存储 ) ,<code>临时保存</code>。</p>
+</li>
+<li><p>localStorage和sessionStorage只能存储字符串类型。</p>
+</li>
+<li><p>当刷新页面（这里的刷新页面指的是 –&gt; F5刷新,属于清除内存了）时vuex存储的值会丢失，sessionstorage页面关闭后就清除掉了，localstorage不会。</p>
+</li>
+<li><p>应用场景：vuex用于组件之间的传值，localstorage，sessionstorage则主要用于不同页面之间的传值。</p>
+</li>
+<li><p>用localstorage代替vuex, 对于不变的数据确实可以，但是当两个组件共用一个数据源（对象或数组）时，如果其中一个组件改变了该数据源，希望另一个组件响应该变化时，localstorage，sessionstorage无法做到。</p>
+</li>
+</ul>
 <h2 id="2-请说一下你对响应式数据的理解？"><a href="#2-请说一下你对响应式数据的理解？" class="headerlink" title="2.请说一下你对响应式数据的理解？"></a><font color="gold">2.请说一下你对响应式数据的理解？</font></h2><ul>
 <li><p>对象：使用Object.defineProperty将属性进行劫持（只会劫持已经存在的属性）；多层对象是通过递归来实现劫持的。</p>
 </li>
@@ -665,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-hash路由和history路由"><span class="nav-number">1.</span> <span class="nav-text">1.hash路由和history路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-请说一下你对响应式数据的理解？"><span class="nav-number">2.</span> <span class="nav-text">2.请说一下你对响应式数据的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-为何vue采用异步渲染？"><span class="nav-number">3.</span> <span class="nav-text">3.为何vue采用异步渲染？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-nextTick实现原理？"><span class="nav-number">4.</span> <span class="nav-text">4.nextTick实现原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-为什么v-for和v-if不能连用"><span class="nav-number">5.</span> <span class="nav-text">5.为什么v-for和v-if不能连用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-vuex在什么场景下使用？"><span class="nav-number">6.</span> <span class="nav-text">6.vuex在什么场景下使用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-linkActiveClass与active-class？"><span class="nav-number">7.</span> <span class="nav-text">7.linkActiveClass与active-class？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-vue中v-for与v-if能同时使用吗？哪个优先级高？"><span class="nav-number">8.</span> <span class="nav-text">8.vue中v-for与v-if能同时使用吗？哪个优先级高？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-vue中data为什么是一个函数不是一个对象？vue的根实例为什么又是一个对象？"><span class="nav-number">9.</span> <span class="nav-text">9.vue中data为什么是一个函数不是一个对象？vue的根实例为什么又是一个对象？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-vue中key的作用？"><span class="nav-number">10.</span> <span class="nav-text">10.vue中key的作用？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-vuex-与-本地存储（localstorage、sessionstorage）的区别"><span class="nav-number">1.</span> <span class="nav-text">1.vuex 与 本地存储（localstorage、sessionstorage）的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-请说一下你对响应式数据的理解？"><span class="nav-number">2.</span> <span class="nav-text">2.请说一下你对响应式数据的理解？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-为何vue采用异步渲染？"><span class="nav-number">3.</span> <span class="nav-text">3.为何vue采用异步渲染？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-nextTick实现原理？"><span class="nav-number">4.</span> <span class="nav-text">4.nextTick实现原理？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-为什么v-for和v-if不能连用"><span class="nav-number">5.</span> <span class="nav-text">5.为什么v-for和v-if不能连用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-vuex在什么场景下使用？"><span class="nav-number">6.</span> <span class="nav-text">6.vuex在什么场景下使用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-linkActiveClass与active-class？"><span class="nav-number">7.</span> <span class="nav-text">7.linkActiveClass与active-class？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-vue中v-for与v-if能同时使用吗？哪个优先级高？"><span class="nav-number">8.</span> <span class="nav-text">8.vue中v-for与v-if能同时使用吗？哪个优先级高？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-vue中data为什么是一个函数不是一个对象？vue的根实例为什么又是一个对象？"><span class="nav-number">9.</span> <span class="nav-text">9.vue中data为什么是一个函数不是一个对象？vue的根实例为什么又是一个对象？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-vue中key的作用？"><span class="nav-number">10.</span> <span class="nav-text">10.vue中key的作用？</span></a></li></ol></div>
             
 
           </div>
