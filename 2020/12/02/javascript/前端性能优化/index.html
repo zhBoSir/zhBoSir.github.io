@@ -81,7 +81,7 @@
 
 
 
-  <meta name="keywords" content="理论,">
+  <meta name="keywords" content="面试,">
 
 
 
@@ -93,14 +93,14 @@
 
 
 <meta name="description" content="1.尽量减少HTTP请求数 合并文件是通过把所有脚本放在一个文件中的方式来减少请求数的，当然，也可以合并所有的CSS。  CSS Sprites是减少图片请求数量。  行内图片（Base64编码）用data: URL模式来把图片嵌入页面。">
-<meta name="keywords" content="理论">
+<meta name="keywords" content="面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端性能优化">
 <meta property="og:url" content="https://github.com/zhBoSir/2020/12/02/javascript/前端性能优化/index.html">
 <meta property="og:site_name" content="【稻稻派】">
 <meta property="og:description" content="1.尽量减少HTTP请求数 合并文件是通过把所有脚本放在一个文件中的方式来减少请求数的，当然，也可以合并所有的CSS。  CSS Sprites是减少图片请求数量。  行内图片（Base64编码）用data: URL模式来把图片嵌入页面。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-02T12:23:07.194Z">
+<meta property="og:updated_time" content="2022-04-10T11:31:21.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端性能优化">
 <meta name="twitter:description" content="1.尽量减少HTTP请求数 合并文件是通过把所有脚本放在一个文件中的方式来减少请求数的，当然，也可以合并所有的CSS。  CSS Sprites是减少图片请求数量。  行内图片（Base64编码）用data: URL模式来把图片嵌入页面。">
@@ -353,8 +353,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
                   </a>
                 </span>
 
@@ -408,23 +408,34 @@
 <h2 id="4-预加载组件"><a href="#4-预加载组件" class="headerlink" title="4.预加载组件"></a><font color="gold">4.预加载组件</font></h2><ul>
 <li>充分利用浏览器空闲的时间来请求将来会用到的组件（图片，样式和脚本）。用户访问下一页的时候，大部分组件都已经在缓存里了，所以在用户看来页面会加载得更快。</li>
 </ul>
-<h2 id="5-尽量少用iframe"><a href="#5-尽量少用iframe" class="headerlink" title="5.尽量少用iframe"></a><font color="gold">5.尽量少用iframe</font></h2><ul>
-<li><iframe>的优点：</iframe></li>
-</ul>
+<h2 id="5-尽量少用iframe"><a href="#5-尽量少用iframe" class="headerlink" title="5.尽量少用iframe"></a><font color="gold">5.尽量少用iframe</font></h2><p>iframe的优点：</p>
 <p>引入缓慢的第三方内容，比如标志和广告</p>
 <p>安全沙箱</p>
 <p>并行下载脚本</p>
-<ul>
-<li><iframe>的缺点：</iframe></li>
-</ul>
+<p>iframe的缺点：</p>
 <p>代价高昂，即使是空白的iframe</p>
 <p>阻塞页面加载</p>
 <p>非语义</p>
-<h2 id="6-避免使用CSS表达式"><a href="#6-避免使用CSS表达式" class="headerlink" title="6.避免使用CSS表达式"></a><font color="gold">6.避免使用CSS表达式</font></h2><h2 id="7-选择舍弃-import"><a href="#7-选择舍弃-import" class="headerlink" title="7.选择舍弃@import"></a><font color="gold">7.选择<link>舍弃@import</font></h2><h2 id="8-避免使用滤镜"><a href="#8-避免使用滤镜" class="headerlink" title="8.避免使用滤镜"></a><font color="gold">8.避免使用滤镜</font></h2><h2 id="9-把样式表放在顶部"><a href="#9-把样式表放在顶部" class="headerlink" title="9.把样式表放在顶部"></a><font color="gold">9.把样式表放在顶部</font></h2><h2 id="10-尽量减少DOM访问"><a href="#10-尽量减少DOM访问" class="headerlink" title="10.尽量减少DOM访问"></a><font color="gold">10.尽量减少DOM访问</font></h2><h2 id="11-把脚本放在底部"><a href="#11-把脚本放在底部" class="headerlink" title="11.把脚本放在底部"></a><font color="gold">11.把脚本放在底部</font></h2><p>脚本会阻塞并行下载</p>
-<h2 id="12-压缩JavaScript和CSS"><a href="#12-压缩JavaScript和CSS" class="headerlink" title="12.压缩JavaScript和CSS"></a><font color="gold">12.压缩JavaScript和CSS</font></h2><h2 id="13-Gzip组件"><a href="#13-Gzip组件" class="headerlink" title="13.Gzip组件"></a><font color="gold">13.Gzip组件</font></h2><p>前端工程师可以想办法明显地缩短通过网络传输HTTP请求和响应的时间。</p>
+<h2 id="6-避免使用CSS表达式"><a href="#6-避免使用CSS表达式" class="headerlink" title="6.避免使用CSS表达式"></a><font color="gold">6.避免使用CSS表达式</font></h2><h2 id="7-选择舍弃-import"><a href="#7-选择舍弃-import" class="headerlink" title="7.选择舍弃@import"></a><font color="gold">7.选择<link>舍弃@import</font></h2><h2 id="8-避免使用滤镜"><a href="#8-避免使用滤镜" class="headerlink" title="8.避免使用滤镜"></a><font color="gold">8.避免使用滤镜</font></h2><h2 id="9-把样式表放在顶部"><a href="#9-把样式表放在顶部" class="headerlink" title="9.把样式表放在顶部"></a><font color="gold">9.把样式表放在顶部</font></h2><h2 id="10-减少DOM操作"><a href="#10-减少DOM操作" class="headerlink" title="10.减少DOM操作"></a><font color="gold">10.减少DOM操作</font></h2><ul>
+<li><p>避免回流</p>
+</li>
+<li><p>文档碎片</p>
+</li>
+</ul>
+<h2 id="11-把脚本放在底部"><a href="#11-把脚本放在底部" class="headerlink" title="11.把脚本放在底部"></a><font color="gold">11.把脚本放在底部</font></h2><p>脚本会阻塞并行下载</p>
+<h2 id="12-减小文件大小"><a href="#12-减小文件大小" class="headerlink" title="12.减小文件大小"></a><font color="gold">12.减小文件大小</font></h2><ul>
+<li><p>压缩JavaScript和CSS</p>
+</li>
+<li><p>资源压缩、图片压缩、代码压缩</p>
+</li>
+</ul>
+<h2 id="13-Gzip组件"><a href="#13-Gzip组件" class="headerlink" title="13.Gzip组件"></a><font color="gold">13.Gzip组件</font></h2><p>前端工程师可以想办法明显地缩短通过网络传输HTTP请求和响应的时间。</p>
 <p>web客户端就有了支持压缩的Accept-Encoding HTTP请求头。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Accept-Encoding: gzip, deflate</span><br></pre></td></tr></table></figure></p>
 <p>尽可能多地用gzip压缩能够给页面减肥，这也是提升用户体验最简单的方法。</p>
-
+<h2 id="14-使用CDN"><a href="#14-使用CDN" class="headerlink" title="14.使用CDN"></a><font color="gold">14.使用CDN</font></h2><ul>
+<li>第三方库、大文件、大图等使用CDN链接</li>
+</ul>
+<h2 id="15-SSR服务端渲染，预渲染"><a href="#15-SSR服务端渲染，预渲染" class="headerlink" title="15.SSR服务端渲染，预渲染"></a><font color="gold">15.SSR服务端渲染，预渲染</font></h2><h2 id="16-懒加载"><a href="#16-懒加载" class="headerlink" title="16.懒加载"></a><font color="gold">16.懒加载</font></h2>
       
     </div>
     
@@ -482,7 +493,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/理论/" rel="tag"># 理论</a>
+            <a href="/tags/面试/" rel="tag"># 面试</a>
           
         </div>
       
@@ -587,7 +598,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -658,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-尽量减少HTTP请求数"><span class="nav-number">1.</span> <span class="nav-text">1.尽量减少HTTP请求数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-避免重定向"><span class="nav-number">2.</span> <span class="nav-text">2.避免重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-延迟加载组件"><span class="nav-number">3.</span> <span class="nav-text">3.延迟加载组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-预加载组件"><span class="nav-number">4.</span> <span class="nav-text">4.预加载组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-尽量少用iframe"><span class="nav-number">5.</span> <span class="nav-text">5.尽量少用iframe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-避免使用CSS表达式"><span class="nav-number">6.</span> <span class="nav-text">6.避免使用CSS表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-选择舍弃-import"><span class="nav-number">7.</span> <span class="nav-text">7.选择舍弃@import</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-避免使用滤镜"><span class="nav-number">8.</span> <span class="nav-text">8.避免使用滤镜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-把样式表放在顶部"><span class="nav-number">9.</span> <span class="nav-text">9.把样式表放在顶部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-尽量减少DOM访问"><span class="nav-number">10.</span> <span class="nav-text">10.尽量减少DOM访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-把脚本放在底部"><span class="nav-number">11.</span> <span class="nav-text">11.把脚本放在底部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-压缩JavaScript和CSS"><span class="nav-number">12.</span> <span class="nav-text">12.压缩JavaScript和CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-Gzip组件"><span class="nav-number">13.</span> <span class="nav-text">13.Gzip组件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-尽量减少HTTP请求数"><span class="nav-number">1.</span> <span class="nav-text">1.尽量减少HTTP请求数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-避免重定向"><span class="nav-number">2.</span> <span class="nav-text">2.避免重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-延迟加载组件"><span class="nav-number">3.</span> <span class="nav-text">3.延迟加载组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-预加载组件"><span class="nav-number">4.</span> <span class="nav-text">4.预加载组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-尽量少用iframe"><span class="nav-number">5.</span> <span class="nav-text">5.尽量少用iframe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-避免使用CSS表达式"><span class="nav-number">6.</span> <span class="nav-text">6.避免使用CSS表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-选择舍弃-import"><span class="nav-number">7.</span> <span class="nav-text">7.选择舍弃@import</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-避免使用滤镜"><span class="nav-number">8.</span> <span class="nav-text">8.避免使用滤镜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-把样式表放在顶部"><span class="nav-number">9.</span> <span class="nav-text">9.把样式表放在顶部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-减少DOM操作"><span class="nav-number">10.</span> <span class="nav-text">10.减少DOM操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-把脚本放在底部"><span class="nav-number">11.</span> <span class="nav-text">11.把脚本放在底部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-减小文件大小"><span class="nav-number">12.</span> <span class="nav-text">12.减小文件大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-Gzip组件"><span class="nav-number">13.</span> <span class="nav-text">13.Gzip组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-使用CDN"><span class="nav-number">14.</span> <span class="nav-text">14.使用CDN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-SSR服务端渲染，预渲染"><span class="nav-number">15.</span> <span class="nav-text">15.SSR服务端渲染，预渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-懒加载"><span class="nav-number">16.</span> <span class="nav-text">16.懒加载</span></a></li></ol></div>
             
 
           </div>

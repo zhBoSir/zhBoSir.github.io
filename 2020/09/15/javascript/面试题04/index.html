@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="【稻稻派】">
 <meta property="og:description" content="1.数组去重  ES6 Set去重123456function unique (arr) &amp;#123;  return Array.from(new Set(arr))&amp;#125;var arr = [1,1,&apos;true&apos;,&apos;true&apos;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&apos;NaN&apos;, 0,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-04-07T14:22:27.468Z">
+<meta property="og:updated_time" content="2022-04-08T04:50:29.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题04">
 <meta name="twitter:description" content="1.数组去重  ES6 Set去重123456function unique (arr) &amp;#123;  return Array.from(new Set(arr))&amp;#125;var arr = [1,1,&apos;true&apos;,&apos;true&apos;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&apos;NaN&apos;, 0,">
@@ -433,9 +433,12 @@
 <ul>
 <li><p>const声明变量后必须赋值，否则会报错</p>
 </li>
-<li><p>const声明的变量如果是简单类型的值，是不可以修改的； 如果变量的值是<code>数组</code>，也是不能修改数组的长度，但是可以通过数组的索引修改某一项的值；如果变量的值是<code>对象</code>，也是不能修改对象的，但是可以通过【对象.属性】修改属性对应的属性值。</p>
+<li><p>const声明的变量如果是简单类型的值，是不可以修改的；</p>
 </li>
 </ul>
+<p>如果变量的值是<code>数组</code>，也是不能修改数组的长度，但是可以通过数组的索引修改某一项的值；<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> aa = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">aa = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  <span class="comment">// 这样的直接赋值的话会报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 但是</span></span><br><span class="line">aa.push(<span class="number">3</span>)  <span class="comment">// 这样是可以修改const定义的常量的</span></span><br><span class="line">aa[<span class="number">0</span>] = <span class="number">3</span>   <span class="comment">// 这样也是可以修改const定义的常量的</span></span><br></pre></td></tr></table></figure></p>
+<p>如果变量的值是<code>对象</code>，也是不能修改对象的，但是可以通过【对象.属性】修改属性对应的属性值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cc = &#123;<span class="attr">name</span>: <span class="string">'jfkd'</span>&#125;</span><br><span class="line">cc = &#123;<span class="attr">name</span>: <span class="string">'fjdk'</span>, <span class="attr">age</span>: <span class="number">9</span>&#125;  <span class="comment">// 这样的直接赋值的话会报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 但是</span></span><br><span class="line">cc.gender = <span class="string">'女'</span>  <span class="comment">// 这样是可以修改const定义的常量的</span></span><br><span class="line">cc.name = <span class="string">'zhangsan'</span>  <span class="comment">// 这样是可以修改const定义的常量的</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <h2 id="9-交换变量"><a href="#9-交换变量" class="headerlink" title="9.交换变量"></a><font color="gold">9.交换变量</font></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 利用es6的数组解构，实现交换变量</span></span><br><span class="line">[a, b] = [b, a]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a)  <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(b)  <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 </blockquote>
@@ -606,7 +609,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

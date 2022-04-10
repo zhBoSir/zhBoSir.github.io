@@ -92,17 +92,17 @@
 
 
 
-<meta name="description" content="浏览器通过 HTMLParser 根据深度遍历的原则把 HTML 解析成 DOM Tree;  浏览器通过 CSSParser 将 CSS 解析成 CSS Rule Tree（CSSOM Tree）;  浏览器将 JavaScript 通过 DOM API 或者 CSSOM API 将 JS 代码解析并应用到布局中，按要求呈现响应的结果;  根据 DOM 树和 CSSOM 树来构造 render">
+<meta name="description" content="浏览器解析文档资源并渲染页面   浏览器通过 HTMLParser 根据深度遍历的原则把 HTML 解析成 DOM Tree;也就是构建节点，把所有的节点都构建出来。  浏览器通过 CSSParser 将 CSS 解析成 CSS Rule Tree（CSSOM Tree）;  浏览器将 JavaScript 通过 DOM API 或者 CSSOM API 将 JS 代码解析并应用到布局中，按要求呈">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器解析文档资源并渲染页面">
+<meta property="og:title" content="页面渲染html的过程">
 <meta property="og:url" content="https://github.com/zhBoSir/2020/01/18/javascript/浏览器解析文档资源并渲染页面/index.html">
 <meta property="og:site_name" content="【稻稻派】">
-<meta property="og:description" content="浏览器通过 HTMLParser 根据深度遍历的原则把 HTML 解析成 DOM Tree;  浏览器通过 CSSParser 将 CSS 解析成 CSS Rule Tree（CSSOM Tree）;  浏览器将 JavaScript 通过 DOM API 或者 CSSOM API 将 JS 代码解析并应用到布局中，按要求呈现响应的结果;  根据 DOM 树和 CSSOM 树来构造 render">
+<meta property="og:description" content="浏览器解析文档资源并渲染页面   浏览器通过 HTMLParser 根据深度遍历的原则把 HTML 解析成 DOM Tree;也就是构建节点，把所有的节点都构建出来。  浏览器通过 CSSParser 将 CSS 解析成 CSS Rule Tree（CSSOM Tree）;  浏览器将 JavaScript 通过 DOM API 或者 CSSOM API 将 JS 代码解析并应用到布局中，按要求呈">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-06T14:36:40.120Z">
+<meta property="og:updated_time" content="2022-04-10T15:55:50.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器解析文档资源并渲染页面">
-<meta name="twitter:description" content="浏览器通过 HTMLParser 根据深度遍历的原则把 HTML 解析成 DOM Tree;  浏览器通过 CSSParser 将 CSS 解析成 CSS Rule Tree（CSSOM Tree）;  浏览器将 JavaScript 通过 DOM API 或者 CSSOM API 将 JS 代码解析并应用到布局中，按要求呈现响应的结果;  根据 DOM 树和 CSSOM 树来构造 render">
+<meta name="twitter:title" content="页面渲染html的过程">
+<meta name="twitter:description" content="浏览器解析文档资源并渲染页面   浏览器通过 HTMLParser 根据深度遍历的原则把 HTML 解析成 DOM Tree;也就是构建节点，把所有的节点都构建出来。  浏览器通过 CSSParser 将 CSS 解析成 CSS Rule Tree（CSSOM Tree）;  浏览器将 JavaScript 通过 DOM API 或者 CSSOM API 将 JS 代码解析并应用到布局中，按要求呈">
 
 
 
@@ -138,7 +138,7 @@
 
 
 
-  <title>浏览器解析文档资源并渲染页面 | 【稻稻派】</title>
+  <title>页面渲染html的过程 | 【稻稻派】</title>
   
 
 
@@ -317,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浏览器解析文档资源并渲染页面</h1>
+          <h1 class="post-title" itemprop="name headline">页面渲染html的过程</h1>
         
 
         <div class="post-meta">
@@ -389,8 +389,10 @@
       
 
       
-        <ol>
-<li><p>浏览器通过 HTMLParser 根据深度遍历的原则把 HTML 解析成 DOM Tree;</p>
+        <font color="gold">浏览器解析文档资源并渲染页面</font>
+
+<ol>
+<li><p>浏览器通过 HTMLParser 根据深度遍历的原则把 HTML 解析成 DOM Tree;也就是构建节点，把所有的节点都构建出来。</p>
 </li>
 <li><p>浏览器通过 CSSParser 将 CSS 解析成 CSS Rule Tree（CSSOM Tree）;</p>
 </li>
@@ -405,6 +407,15 @@
 <li><p>paint：遍历 render tree，并调动硬件图形 API 来绘制每个节点。</p>
 </li>
 </ol>
+<p>这就是HTML的渲染过程，因为DOM和css并行构建，我们会把css用外部引入，可以更快的构建DOM，因为JavaScript会阻塞DOM和css构建，且操作DOM一定要在DOM构建完成，我们选择把script放在最下面。如果我们过多的在render渲染完成后改变render，那么重排和重绘就会一直被动重发执行，这也会造成渲染速度变慢。</p>
+<font color="pink">需要注意的几点:</font>
+
+<ul>
+<li><p>如果遇到link和style，那就会去下载这些外部的css资源，但是css跟DOM的构建是并行的，就是说不会阻塞DOM树的构建。</p>
+</li>
+<li><p>如果遇到script，那么页面就会把控制权交给JavaScript，直到脚本加载完毕或者是执行完毕。</p>
+</li>
+</ul>
 
       
     </div>
@@ -553,7 +564,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="【稻稻派】">
 <meta property="og:description" content="1.padding 与 margin的区别  margin是指从自身边框到另一个容器边框之间的距离，即容器外距离，是隔开元素与元素的间距；  padding是指自身边框到自身内部另一个容器边框之间的距离，即容器内距离，是盒子边框与盒子内部元素的距离。   区别：作用对象不同。padding是作用于自身的，margin是作用于外部元素的。  2.vm 与 百分比的区别 打比方：父元素的width:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-04-07T15:59:57.072Z">
+<meta property="og:updated_time" content="2022-04-10T16:39:23.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题05">
 <meta name="twitter:description" content="1.padding 与 margin的区别  margin是指从自身边框到另一个容器边框之间的距离，即容器外距离，是隔开元素与元素的间距；  padding是指自身边框到自身内部另一个容器边框之间的距离，即容器内距离，是盒子边框与盒子内部元素的距离。   区别：作用对象不同。padding是作用于自身的，margin是作用于外部元素的。  2.vm 与 百分比的区别 打比方：父元素的width:">
@@ -440,6 +440,27 @@
 <blockquote>
 <h2 id="6-怎么实现一行文字居中-，多行文字左对齐的效果"><a href="#6-怎么实现一行文字居中-，多行文字左对齐的效果" class="headerlink" title="6.怎么实现一行文字居中 ，多行文字左对齐的效果"></a><font color="gold">6.怎么实现一行文字居中 ，多行文字左对齐的效果</font></h2></blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="undefined">      border: chartreuse  1px solid;</span></span><br><span class="line"><span class="undefined">      width: 500px;</span></span><br><span class="line"><span class="undefined">      text-align: center;</span></span><br><span class="line"><span class="css">      <span class="comment">/*当p标签的宽度小于父盒子的宽度是 ，p标签居中显示 ，也就达到了视觉上的文字居中显示的效果  当p大于一行时宽度和父盒子宽度一致 的  文字就视觉上居左显示了 */</span></span></span><br><span class="line"><span class="undefined">      padding: 5px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.box</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="comment">/*使p的宽度根据文字变化*/</span></span></span><br><span class="line"><span class="undefined">      display: inline-block;</span></span><br><span class="line"><span class="undefined">      text-align: left;</span></span><br><span class="line"><span class="css">      <span class="comment">/*强制性换行 ，解决单词过长内容溢出盒子的问题*/</span></span></span><br><span class="line"><span class="undefined">      word-break: break-all;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">      一行居中显示多行居左显示</span><br><span class="line">      一行居中显示多行居左显示</span><br><span class="line">      一行居中显示多行居左显示</span><br><span class="line">      一行居中显示多行居左显示</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="7-fetch与axios的区别"><a href="#7-fetch与axios的区别" class="headerlink" title="7.fetch与axios的区别"></a><font color="gold">7.fetch与axios的区别</font></h2></blockquote>
+<ul>
+<li><p>axios 本质上是对原生XHR的封装，只不过它是Promise的实现版本，符合最新的ES规范。</p>
+</li>
+<li><p>脱离了XHR，是ES规范里新的实现方式。</p>
+</li>
+<li><p>fetch是一个底层的 api 浏览器原生支持的 ，axios 是一个封装好的框架</p>
+</li>
+<li><p>fetch返回的是一个未处理的方法集合，并不是请求的数据，可以通过这些方法得到想要的数据类型，如果想要json格式，就执行<code>response.json()</code>,如果想要字符串就<code>response.text()</code></p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'http://xxx/xxx.json？a=123'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  res.json().then(<span class="function">(<span class="params">r</span>)=&gt;</span>&#123;<span class="comment">//或者res.text()           </span></span><br><span class="line">      <span class="built_in">console</span>.log(r)<span class="comment">//这里就是处理完的后台返回的json数据        </span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<font color="pink">fetch的缺点：</font>
+
+<ul>
+<li>不支持文件上传进度监测</li>
+<li>使用不完美 ，需要封装</li>
+<li>不支持请求中止</li>
+<li>默认不带 cookie</li>
+</ul>
 
       
     </div>
@@ -603,7 +624,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -674,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-padding-与-margin的区别"><span class="nav-number">1.</span> <span class="nav-text">1.padding 与 margin的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-vm-与-百分比的区别"><span class="nav-number">2.</span> <span class="nav-text">2.vm 与 百分比的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-CommonJs和ES6-Module的区别"><span class="nav-number">3.</span> <span class="nav-text">3.CommonJs和ES6 Module的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-npm与npx"><span class="nav-number">4.</span> <span class="nav-text">4.npm与npx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-前端浏览器安全方面"><span class="nav-number">5.</span> <span class="nav-text">5.前端浏览器安全方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-怎么实现一行文字居中-，多行文字左对齐的效果"><span class="nav-number">6.</span> <span class="nav-text">6.怎么实现一行文字居中 ，多行文字左对齐的效果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-padding-与-margin的区别"><span class="nav-number">1.</span> <span class="nav-text">1.padding 与 margin的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-vm-与-百分比的区别"><span class="nav-number">2.</span> <span class="nav-text">2.vm 与 百分比的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-CommonJs和ES6-Module的区别"><span class="nav-number">3.</span> <span class="nav-text">3.CommonJs和ES6 Module的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-npm与npx"><span class="nav-number">4.</span> <span class="nav-text">4.npm与npx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-前端浏览器安全方面"><span class="nav-number">5.</span> <span class="nav-text">5.前端浏览器安全方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-怎么实现一行文字居中-，多行文字左对齐的效果"><span class="nav-number">6.</span> <span class="nav-text">6.怎么实现一行文字居中 ，多行文字左对齐的效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-fetch与axios的区别"><span class="nav-number">7.</span> <span class="nav-text">7.fetch与axios的区别</span></a></li></ol></div>
             
 
           </div>

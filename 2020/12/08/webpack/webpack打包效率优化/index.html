@@ -81,7 +81,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="面试,">
 
 
 
@@ -93,13 +93,14 @@
 
 
 <meta name="description" content="1.webpack-bundle-analyzer 插件 可视化分析包大小； 可以直观分析打包出的文件包含哪些，大小占比如何，模块包含关系，依赖项，文件是否重复。  2.mini-css-extract-plugin  插件 剥离css，less文件  3.DllPlugin 和 DllReferencePlugin分离第三方类库 DllPlugin是webpack内置的插件，不需要额外安装，直">
+<meta name="keywords" content="面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack打包效率优化">
 <meta property="og:url" content="https://github.com/zhBoSir/2020/12/08/webpack/webpack打包效率优化/index.html">
 <meta property="og:site_name" content="【稻稻派】">
 <meta property="og:description" content="1.webpack-bundle-analyzer 插件 可视化分析包大小； 可以直观分析打包出的文件包含哪些，大小占比如何，模块包含关系，依赖项，文件是否重复。  2.mini-css-extract-plugin  插件 剥离css，less文件  3.DllPlugin 和 DllReferencePlugin分离第三方类库 DllPlugin是webpack内置的插件，不需要额外安装，直">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-04-03T10:05:14.211Z">
+<meta property="og:updated_time" content="2022-04-08T02:49:57.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack打包效率优化">
 <meta name="twitter:description" content="1.webpack-bundle-analyzer 插件 可视化分析包大小； 可以直观分析打包出的文件包含哪些，大小占比如何，模块包含关系，依赖项，文件是否重复。  2.mini-css-extract-plugin  插件 剥离css，less文件  3.DllPlugin 和 DllReferencePlugin分离第三方类库 DllPlugin是webpack内置的插件，不需要额外安装，直">
@@ -352,8 +353,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
                   </a>
                 </span>
 
@@ -412,6 +413,10 @@
 <blockquote>
 <h2 id="7-uglifyjs-webpack-plugin"><a href="#7-uglifyjs-webpack-plugin" class="headerlink" title="7.uglifyjs-webpack-plugin"></a><font color="gold">7.uglifyjs-webpack-plugin</font></h2></blockquote>
 <p>代码打包与压缩</p>
+<blockquote>
+<h2 id="8-gzip压缩"><a href="#8-gzip压缩" class="headerlink" title="8.gzip压缩"></a><font color="gold">8.gzip压缩</font></h2></blockquote>
+<p>gzip压缩是一种http请求优化方式，通过减少文件体积来提高加载速度。html、js、css文件甚至json数据都可以用它压缩，可以减小60%以上的体积。前端配置gzip压缩，并且服务端使用nginx开启gzip，用来减小网络传输的流量大小。</p>
+<p>打开浏览器访问线上，F12查看控制台，如果该文件资源的响应头里显示有Content-Encoding: gzip，表示浏览器支持并且启用了Gzip压缩的资源。</p>
 <p>参考：</p>
 <p><a href="https://www.cnblogs.com/moran1992/p/11233419.html" target="_blank" rel="noopener">https://www.cnblogs.com/moran1992/p/11233419.html</a></p>
 <p><a href="https://www.cnblogs.com/moran1992/p/11233419.html" target="_blank" rel="noopener">https://www.cnblogs.com/moran1992/p/11233419.html</a></p>
@@ -471,6 +476,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
 
       
       
@@ -480,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/12/05/vue/vue3笔记/" rel="next" title="vue3笔记">
-                <i class="fa fa-chevron-left"></i> vue3笔记
+              <a href="/2020/12/05/vue/vue性能优化/" rel="next" title="vue性能优化">
+                <i class="fa fa-chevron-left"></i> vue性能优化
               </a>
             
           </div>
@@ -572,7 +583,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -643,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-webpack-bundle-analyzer-插件"><span class="nav-number">1.</span> <span class="nav-text">1.webpack-bundle-analyzer 插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-mini-css-extract-plugin-插件"><span class="nav-number">2.</span> <span class="nav-text">2.mini-css-extract-plugin  插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-DllPlugin-和-DllReferencePlugin分离第三方类库"><span class="nav-number">3.</span> <span class="nav-text">3.DllPlugin 和 DllReferencePlugin分离第三方类库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-利用scope-histing-（变量提升）-减少代码闭包形成"><span class="nav-number">4.</span> <span class="nav-text">4.利用scope histing （变量提升） 减少代码闭包形成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Tree-shaking-删除没用的函数或者变量"><span class="nav-number">5.</span> <span class="nav-text">5.Tree shaking 删除没用的函数或者变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-压缩图片文件大小-image-webpack-loader"><span class="nav-number">6.</span> <span class="nav-text">6.压缩图片文件大小 image-webpack-loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-uglifyjs-webpack-plugin"><span class="nav-number">7.</span> <span class="nav-text">7.uglifyjs-webpack-plugin</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-webpack-bundle-analyzer-插件"><span class="nav-number">1.</span> <span class="nav-text">1.webpack-bundle-analyzer 插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-mini-css-extract-plugin-插件"><span class="nav-number">2.</span> <span class="nav-text">2.mini-css-extract-plugin  插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-DllPlugin-和-DllReferencePlugin分离第三方类库"><span class="nav-number">3.</span> <span class="nav-text">3.DllPlugin 和 DllReferencePlugin分离第三方类库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-利用scope-histing-（变量提升）-减少代码闭包形成"><span class="nav-number">4.</span> <span class="nav-text">4.利用scope histing （变量提升） 减少代码闭包形成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Tree-shaking-删除没用的函数或者变量"><span class="nav-number">5.</span> <span class="nav-text">5.Tree shaking 删除没用的函数或者变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-压缩图片文件大小-image-webpack-loader"><span class="nav-number">6.</span> <span class="nav-text">6.压缩图片文件大小 image-webpack-loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-uglifyjs-webpack-plugin"><span class="nav-number">7.</span> <span class="nav-text">7.uglifyjs-webpack-plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-gzip压缩"><span class="nav-number">8.</span> <span class="nav-text">8.gzip压缩</span></a></li></ol></div>
             
 
           </div>
