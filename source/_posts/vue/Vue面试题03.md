@@ -16,3 +16,6 @@ tags:
 
 其实使用router跳转和使用history.pushState()没什么差别的，因为vue-router就是用了history.pushState()，尤其是在history模式下。
 
+## <font color="gold">2.nextTick的原理</font>
+
+[nextTick的原理](https://blog.csdn.net/longtengg1/article/details/115576081)
