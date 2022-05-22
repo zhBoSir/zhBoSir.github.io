@@ -92,17 +92,17 @@
 
 
 
-<meta name="description" content="1.闭包 变量作用域的常识：  当函数执行完毕，本作用域内的局部变量会销毁。  闭包概念： 闭包指有权访问另一个函数作用域中变量的函数。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。12345678910111213141516171819202122232425// 第一个例子：fn内部的变量被fn内部的函数访问function fn () &amp;#123;  var num =">
+<meta name="description" content="1.闭包 变量作用域的常识：  当函数执行完毕，本作用域内的局部变量会销毁。  闭包概念： 闭包指有权访问另一个函数作用域中变量的函数。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。 通俗的： 函数调用之后其变量本应该被销毁，但闭包的存在使我们仍然可以访问函数的变量。 缺点： 内存泄漏 12345678910111213141516171819202122232425// 第一个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="闭包">
 <meta property="og:url" content="https://github.com/zhBoSir/2020/08/18/javascript/闭包/index.html">
 <meta property="og:site_name" content="【稻稻派】">
-<meta property="og:description" content="1.闭包 变量作用域的常识：  当函数执行完毕，本作用域内的局部变量会销毁。  闭包概念： 闭包指有权访问另一个函数作用域中变量的函数。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。12345678910111213141516171819202122232425// 第一个例子：fn内部的变量被fn内部的函数访问function fn () &amp;#123;  var num =">
+<meta property="og:description" content="1.闭包 变量作用域的常识：  当函数执行完毕，本作用域内的局部变量会销毁。  闭包概念： 闭包指有权访问另一个函数作用域中变量的函数。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。 通俗的： 函数调用之后其变量本应该被销毁，但闭包的存在使我们仍然可以访问函数的变量。 缺点： 内存泄漏 12345678910111213141516171819202122232425// 第一个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-04-11T05:37:27.801Z">
+<meta property="og:updated_time" content="2022-04-13T08:08:24.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闭包">
-<meta name="twitter:description" content="1.闭包 变量作用域的常识：  当函数执行完毕，本作用域内的局部变量会销毁。  闭包概念： 闭包指有权访问另一个函数作用域中变量的函数。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。12345678910111213141516171819202122232425// 第一个例子：fn内部的变量被fn内部的函数访问function fn () &amp;#123;  var num =">
+<meta name="twitter:description" content="1.闭包 变量作用域的常识：  当函数执行完毕，本作用域内的局部变量会销毁。  闭包概念： 闭包指有权访问另一个函数作用域中变量的函数。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。 通俗的： 函数调用之后其变量本应该被销毁，但闭包的存在使我们仍然可以访问函数的变量。 缺点： 内存泄漏 12345678910111213141516171819202122232425// 第一个">
 
 
 
@@ -395,7 +395,12 @@
 <font color="pink" size="3"> 当函数执行完毕，本作用域内的局部变量会销毁。</font>
 
 <p>闭包概念：</p>
-<p><code><font color="pink">闭包</font>指有权访问另一个函数作用域中变量的<font color="pink">函数</font>。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一个例子：fn内部的变量被fn内部的函数访问</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> num = <span class="number">10</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// fun函数访问了fn函数的局部变量</span></span><br><span class="line">    <span class="built_in">console</span>.log(num)</span><br><span class="line">  &#125;</span><br><span class="line">  fun()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn()</span><br><span class="line"></span><br><span class="line"><span class="comment">// fn就是一个闭包函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二个例子：fn外部访问fn内部的变量</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> num = <span class="number">8</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(num)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = fn()  <span class="comment">// 用f接收返回来的函数，这样就实现了在fn外部访问到fn内部的变量</span></span><br><span class="line">f()</span><br></pre></td></tr></table></figure></p>
+<p><code><font color="pink">闭包</font>指有权访问另一个函数作用域中变量的<font color="pink">函数</font>。 简单理解就是，一个作用域可以访问另外一个函数内部的局部变量。</code></p>
+<p>通俗的：</p>
+<p>函数调用之后其变量本应该被销毁，但闭包的存在使我们仍然可以访问函数的变量。</p>
+<p>缺点：</p>
+<p>内存泄漏</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一个例子：fn内部的变量被fn内部的函数访问</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> num = <span class="number">10</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// fun函数访问了fn函数的局部变量</span></span><br><span class="line">    <span class="built_in">console</span>.log(num)</span><br><span class="line">  &#125;</span><br><span class="line">  fun()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn()</span><br><span class="line"></span><br><span class="line"><span class="comment">// fn就是一个闭包函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二个例子：fn外部访问fn内部的变量</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> num = <span class="number">8</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">fun</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(num)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = fn()  <span class="comment">// 用f接收返回来的函数，这样就实现了在fn外部访问到fn内部的变量</span></span><br><span class="line">f()</span><br></pre></td></tr></table></figure>
 <p>闭包的作用：</p>
 <p><code>延伸了变量的作用范围</code></p>
 <p><code>创建私有环境</code></p>
@@ -582,7 +587,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">136</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -593,7 +598,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -604,7 +609,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
