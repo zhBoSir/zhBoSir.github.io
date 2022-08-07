@@ -2,8 +2,9 @@
 title: webpack打包效率优化
 date: 2020-12-08 16:39:00
 categories:
-  - Vue
+  - 面试
 tags: 
+  - 面试
 ---
 
 > ## <font color="gold">1.webpack-bundle-analyzer 插件</font>
@@ -33,6 +34,16 @@ DllPlugin是webpack内置的插件，不需要额外安装，直接配置webpack
 webpack4中已经默认实现了tree shaking
 
 > ## <font color="gold">6.压缩图片文件大小 image-webpack-loader</font>
+
+> ## <font color="gold">7.uglifyjs-webpack-plugin</font>
+
+代码打包与压缩
+
+> ## <font color="gold">8.gzip压缩</font>
+
+gzip压缩是一种http请求优化方式，通过减少文件体积来提高加载速度。html、js、css文件甚至json数据都可以用它压缩，可以减小60%以上的体积。前端配置gzip压缩，并且服务端使用nginx开启gzip，用来减小网络传输的流量大小。
+
+打开浏览器访问线上，F12查看控制台，如果该文件资源的响应头里显示有Content-Encoding: gzip，表示浏览器支持并且启用了Gzip压缩的资源。
 
 
 

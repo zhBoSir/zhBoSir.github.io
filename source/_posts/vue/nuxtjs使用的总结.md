@@ -32,7 +32,7 @@ tags:
 
 <font color="yellowgreen" size="4">最后在vue-router文档中找到解决办法：</font>
 
-只需在<nuxt-link to="/" exact></nuxt-link>加上exact
+只需再<nuxt-link to="/" exact></nuxt-link>加上exact
 
 <code>exact</code>
 

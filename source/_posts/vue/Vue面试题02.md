@@ -8,10 +8,18 @@ tags:
 ---
 
 
-## <font color="gold">1.hash路由和history路由</font>
-location.hash的值实际就是URL中<code>#</code>后面的东西。
+## <font color="gold">1.vuex 与 本地存储（localstorage、sessionstorage）的区别</font>
 
-history实际采用了HTML5中提供的API来实现，主要有<code>history.pushState()</code>和<code>history.replaceState()</code>。
++ vuex存储在<code>内存</code>，localstorage（本地存储）则以文件的方式存储在本地,<code>永久保存</code>；sessionstorage( 会话存储 ) ,<code>临时保存</code>。
+
++ localStorage和sessionStorage只能存储字符串类型。
+
++ 当刷新页面（这里的刷新页面指的是 --> F5刷新,属于清除内存了）时vuex存储的值会丢失，sessionstorage页面关闭后就清除掉了，localstorage不会。
+
++ 应用场景：vuex用于组件之间的传值，localstorage，sessionstorage则主要用于不同页面之间的传值。
+
++ 用localstorage代替vuex, 对于不变的数据确实可以，但是当两个组件共用一个数据源（对象或数组）时，如果其中一个组件改变了该数据源，希望另一个组件响应该变化时，localstorage，sessionstorage无法做到。
+
 
 ## <font color="gold">2.请说一下你对响应式数据的理解？</font>
 
@@ -123,11 +131,44 @@ computed: {
 
 <code>设置链接激活时使用的 CSS 类名。</code>
 
-## <font color="gold">8.vue中this.$router.push的query与params传参区别？</font>
+## <font color="gold">8.vue中v-for与v-if能同时使用吗？哪个优先级高？</font>
+
+通过看vue的源码，源码里
 
 ```js
-
+// for是在前面的，所以v-for的优先级高
+else if (el.for) {
+  ...
+} else if (el.if) {
+  ...
+}
 ```
+<code>结论：</code>
+
+
++ v-for优先于v-if被解析
+
++ 如果同时出现，每次渲染都会先执行循环再判断条件，无论如何循环都不可避免，浪费了性能
+
++ 要避免出现这种情况，则在外层嵌套template，在上面进行v-if判断，然后在内部进行v-for循环
+
+```js
+<template v-if="isShow">
+  <p v-for="item in list">{{item}}</p>
+</template>
+```
+
+## <font color="gold">9.vue中data为什么是一个函数不是一个对象？vue的根实例为什么又是一个对象？</font>
+
++ vue组件可能存在多个实例，如果使用对象形式定义data，就会导致它们公用一个data对象，那么状态变更将会影响所有组件实例，这是不合理的，采用函数形式定义，在initData时会将其作为工厂函数返回全新data对象，有效规避多实例之间状态污染问题。
+
++ 而在vue根实例创建过程中则不存在限制，是因为根实例只能有一个，不需要担心这种情况。
+
+## <font color="gold">10.vue中key的作用？</font>
+
++ key的作用主要是为了高效的更新虚拟Dom,其原理是vue在patch过程中通过key可以精准判断两个节点是否是同一个，从而避免频繁更新不同元素，使得整个patch过程更加高效，减少Dom操作量,提高性能。
+
+
 
 
 

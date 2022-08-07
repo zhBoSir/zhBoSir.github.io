@@ -36,7 +36,7 @@ Vue.component('child',{
       <div>
         <p>this is parent compoent!</p>
         <child :message="message" v-on:getChildData="getChildData"></child>
-      </div>//在此我向大家推荐一个前端全栈开发交流圈：619586920 突破技术瓶颈，提升思维能力
+      </div>
     `,
     data(){
       return {
@@ -63,7 +63,7 @@ Vue.component('child',{
 
 # <font color="gold">2.$attrs和$listeners</font>
 
-第一种方式处理父子组件之间的数据传输有一个问题：如果父组件A下面有子组件B，组件B下面有组件C,这时如果组件A想传递数据给组件C怎么办呢？ 如果采用第一种方法，我们必须让组件A通过prop传递消息给组件B，组件B在通过prop传递消息给组件C；要是组件A和组件C之间有更多的组件，那采用这种方式就很复杂了。Vue 2.4开始提供了$attrs和$listeners来解决这个问题，能够让组件A之间传递消息给组件C。
+第一种方式处理父子组件之间的数据传输。有一个问题：如果父组件A下面有子组件B，组件B下面有组件C,这时如果组件A想传递数据给组件C怎么办呢？ 如果采用第一种方法，我们必须让组件A通过prop传递消息给组件B，组件B在通过prop传递消息给组件C；要是组件A和组件C之间有更多的组件，那采用这种方式就很复杂了。Vue 2.4开始提供了$attrs和$listeners来解决这个问题，能够让组件A之间传递消息给组件C。
 ```js
 Vue.component('C',{
     template:`
@@ -76,7 +76,7 @@ Vue.component('C',{
         this.$emit('getCData',val)
       }
     }
-  })//在此我向大家推荐一个前端全栈开发交流圈：619586920 突破技术瓶颈，提升思维能力
+  })
   Vue.component('B',{
     data(){
       return {
@@ -105,7 +105,7 @@ Vue.component('C',{
         <p>this is parent compoent!</p>
         <B :messagec="messagec" :message="message" v-on:getCData="getCData" v-on:getChildData="getChildData(message)"></B>
       </div>
-    `,//在此我向大家推荐一个前端全栈开发交流圈：619586920 突破技术瓶颈，提升思维能力
+    `,
     data(){
       return {
         message:'hello',
@@ -154,7 +154,7 @@ Vue.component('brother1',{
         bus.$emit('globalEvent',val)
       }
     }
-  })//在此我向大家推荐一个前端全栈开发交流圈：619586920 突破技术瓶颈，提升思维能力
+  })
   Vue.component('brother2',{
     template:`
       <div>
@@ -202,9 +202,9 @@ Vue.component('child',{
     template:`
       <div>
         <input type="tet" v-model="mymessage">
-      </div>
-  })
-  Vue.component('parent',{
+      </div>`
+    })
+Vue.component('parent',{
     template:`
       <div>
         <p>this is parent compoent!</p>
@@ -251,7 +251,7 @@ Vue.component('child',{
     template:`
       <div>
         <input type="text" v-model="mymessage" @change="changeValue">
-      </div>
+      </div>`
   })
   Vue.component('parent',{
     template:`
@@ -296,7 +296,7 @@ Vue.component('child',{
     template:`
       <div>
         <input type="text" v-model="mymessage" @change="changeValue">
-      </div>
+      </div>`
   })
   Vue.component('parent',{
     template:`
@@ -309,7 +309,7 @@ Vue.component('child',{
     methods:{
       changeChildValue(){
         this.$children[0].mymessage = 'hello';
-      }//在此我向大家推荐一个前端全栈开发交流圈：619586920 突破技术瓶颈，提升思维能力
+      }
     },
     data(){
       return {
@@ -329,4 +329,4 @@ Vue.component('child',{
 
 # <font color="gold"> 8.vuex处理组件之间的数据交互</font>
 
-如果业务逻辑复杂，很多组件之间需要同时处理一些公共的数据，这个时候才有上面这一些方法可能不利于项目的维护，vuex的做法就是将这一些公共的数据抽离出来，然后其他组件就可以对这个公共数据进行读写操作，这样达到了解耦的目的。
+如果业务逻辑复杂，很多组件之间需要同时处理一些公共的数据，这个时候用上面这些方法可能不利于项目的维护，vuex的做法就是将这些公共的数据抽离出来，然后其他组件就可以对这个公共数据进行读写操作，这样达到了解耦的目的。

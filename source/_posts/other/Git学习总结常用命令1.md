@@ -15,7 +15,7 @@ tags:
 - <code>ls</code> -la 列出当前文件夹下所有子文件 ,包含隐藏的文件
 - <code>ll</code> 查看当前文件夹下文件
 - <code>vim</code> 文件名，打开文件，没有这个文件的话就创建这个文件。打开文件后，按“I”按钮，可以进入编辑状态。如：vim a.txt 然后就可以在命令行中编辑a.txt文件了
-- <code>退出vim编辑模式</code>的操作：先按esc按钮推出插入状态，然后输入冒号:进入输入命令状态，输入wq，就保存并退出了。
+- <code>退出vim编辑模式</code>的操作：先按esc按钮退出插入状态，然后输入冒号:进入输入命令状态，输入wq，就保存并退出了。
 - <code>git bash退出vim编辑模式的操作：</code>vim 文件名，打开文件，然后按<code>i</code>开始输入，输入完成后按<code>esc</code>退出编辑模式，然后按<code>shift+:</code>后输入<code>wq</code>即可。
 - <code>cat 文件名</code> 用cat命令可以显示文件里面的内容
 
