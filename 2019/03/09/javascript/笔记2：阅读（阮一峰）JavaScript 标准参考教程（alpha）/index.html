@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})()
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="16. Object.keys方法返回数组的所有键名。1234var arr = [&amp;apos;a&amp;apos;, &amp;apos;b&amp;apos;, &amp;apos;c&amp;apos;];Object.keys(arr)// [&amp;quot;0&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;] 数组成员的键名是固定的（默认总是0、1、2…），对象的键名一律为字符串，所以，数组的键名其实也是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记2：阅读（阮一峰）JavaScript 标准参考教程（alpha）">
+<meta property="og:url" content="https://github.com/zhBoSir/2019/03/09/javascript/笔记2：阅读（阮一峰）JavaScript 标准参考教程（alpha）/index.html">
+<meta property="og:site_name" content="【稻稻派】">
+<meta property="og:description" content="16. Object.keys方法返回数组的所有键名。1234var arr = [&amp;apos;a&amp;apos;, &amp;apos;b&amp;apos;, &amp;apos;c&amp;apos;];Object.keys(arr)// [&amp;quot;0&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;] 数组成员的键名是固定的（默认总是0、1、2…），对象的键名一律为字符串，所以，数组的键名其实也是">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-02T05:42:12.030Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔记2：阅读（阮一峰）JavaScript 标准参考教程（alpha）">
+<meta name="twitter:description" content="16. Object.keys方法返回数组的所有键名。1234var arr = [&amp;apos;a&amp;apos;, &amp;apos;b&amp;apos;, &amp;apos;c&amp;apos;];Object.keys(arr)// [&amp;quot;0&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;] 数组成员的键名是固定的（默认总是0、1、2…），对象的键名一律为字符串，所以，数组的键名其实也是">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/zhBoSir/2019/03/09/javascript/笔记2：阅读（阮一峰）JavaScript 标准参考教程（alpha）/">
+
+
+
+
+
+  <title>笔记2：阅读（阮一峰）JavaScript 标准参考教程（alpha） | 【稻稻派】</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5b93ebb0fd146cd06067eddf81273ea7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<!--右上角GitHub-->
+	<a href="https://github.com/zhBoSir" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<!--右上角GitHub-->
+	
+	
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">【稻稻派】</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-报表">
+          <a href="/my/echarts/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>
+            
+            报表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成果">
+          <a href="/my/achievement/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br>
+            
+            成果
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zhBoSir/2019/03/09/javascript/笔记2：阅读（阮一峰）JavaScript 标准参考教程（alpha）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhBo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="【稻稻派】">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">笔记2：阅读（阮一峰）JavaScript 标准参考教程（alpha）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T09:48:51+08:00">
+                2019-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>16.</strong> Object.keys方法返回数组的所有键名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</span><br><span class="line"></span><br><span class="line">Object.keys(arr)</span><br><span class="line">// [&quot;0&quot;, &quot;1&quot;, &quot;2&quot;]</span><br></pre></td></tr></table></figure></p>
+<p>数组成员的键名是固定的（默认总是0、1、2…），对象的键名一律为字符串，所以，数组的键名其实也是字符串。之所以可以用数值读取，是因为非字符串的键名会被转为字符串。</p>
+<p><strong>17.</strong> 对象有两种读取成员的方法：点结构（object.key）和方括号结构（object[key]）。但是，对于数值的键名，不能使用点结构。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3];</span><br><span class="line">arr.0 // SyntaxError</span><br></pre></td></tr></table></figure></p>
+<p>arr.0的写法不合法，因为单独的数值不能作为标识符（identifier）。所以，数组成员只能用方括号arr[0]表示（方括号是运算符，可以接受数值）。</p>
+<p><strong>18.</strong> 只要是数组，就一定有length属性。该属性是一个动态的值，等于键名中的最大整数加上1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;a&apos;, &apos;b&apos;];</span><br><span class="line">arr.length // 2</span><br><span class="line"></span><br><span class="line">arr[2] = &apos;c&apos;;</span><br><span class="line">arr.length // 3</span><br><span class="line"></span><br><span class="line">arr[9] = &apos;d&apos;;</span><br><span class="line">arr.length // 10</span><br><span class="line"></span><br><span class="line">arr[1000] = &apos;e&apos;;</span><br><span class="line">arr.length // 1001</span><br></pre></td></tr></table></figure></p>
+<p>上面代码表示，数组的数字键不需要连续，length属性的值总是比最大的那个整数键大1。另外，这也表明数组是一种动态的数据结构，可以随时增减数组的成员。<br>length属性是可写的。如果人为设置一个小于当前成员个数的值，该数组的成员会自动减少到length设置的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [ &apos;a&apos;, &apos;b&apos;, &apos;c&apos; ];</span><br><span class="line">arr.length // 3</span><br><span class="line"></span><br><span class="line">arr.length = 2;</span><br><span class="line">arr // [&quot;a&quot;, &quot;b&quot;]</span><br></pre></td></tr></table></figure></p>
+<p>上面代码表示，当数组的length属性设为2（即最大的整数键只能是1）那么整数键2（值为c）就已经不在数组中了，被自动删除了。</p>
+<p>清空数组的一个有效方法，就是将length属性设为0。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [ &apos;a&apos;, &apos;b&apos;, &apos;c&apos; ];</span><br><span class="line"></span><br><span class="line">arr.length = 0;</span><br><span class="line">arr // []</span><br></pre></td></tr></table></figure></p>
+<p>如果人为设置length大于当前元素个数，则数组的成员数量会增加到这个值，新增的位置都是空位，读取新增的位置都会返回undefined。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = [&apos;a&apos;];</span><br><span class="line"></span><br><span class="line">a.length = 3;</span><br><span class="line">a[1] // undefined</span><br></pre></td></tr></table></figure></p>
+<p>由于数组本质上是一种对象，所以可以为数组添加属性，但是这不影响length属性的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = [];</span><br><span class="line"></span><br><span class="line">a[&apos;p&apos;] = &apos;abc&apos;;</span><br><span class="line">a.length // 0</span><br><span class="line"></span><br><span class="line">a[2.1] = &apos;abc&apos;;</span><br><span class="line">a.length // 0</span><br></pre></td></tr></table></figure></p>
+<p>上面代码将数组的键分别设为字符串和小数，结果都不影响length属性。因为，length属性的值就是等于最大的数字键加1，而这个数组没有整数键，所以length属性保持为0。</p>
+<p><strong>19.</strong> 检查某个键名是否存在的运算符in，适用于对象，也适用于数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [ &apos;a&apos;, &apos;b&apos;, &apos;c&apos; ];</span><br><span class="line">2 in arr  // true</span><br><span class="line">&apos;2&apos; in arr // true</span><br><span class="line">4 in arr // false</span><br></pre></td></tr></table></figure></p>
+<p>上面代码表明，数组存在键名为2的键。由于键名都是字符串，所以数值2会自动转成字符串。</p>
+<p>注意，如果数组的某个位置是空位，in运算符返回false。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [];</span><br><span class="line">arr[100] = &apos;a&apos;;</span><br><span class="line"></span><br><span class="line">100 in arr // true</span><br><span class="line">1 in arr // false</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，数组arr只有一个成员arr[100]，其他位置的键名都会返回false。</p>
+<p><strong>20.</strong> for…in循环不仅可以遍历对象，也可以遍历数组，毕竟数组只是一种特殊对象。for…in遍历出来的是键名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = [1, 2, 3];</span><br><span class="line">for (var i in a) &#123;</span><br><span class="line">  console.log(a[i]);</span><br><span class="line">&#125;</span><br><span class="line">// 1</span><br><span class="line">// 2</span><br><span class="line">// 3</span><br></pre></td></tr></table></figure></p>
+<p>数组的forEach方法，可以用来遍历数组。forEach遍历出来时键值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var colors = [&apos;red&apos;, &apos;green&apos;, &apos;blue&apos;];</span><br><span class="line">colors.forEach(function (color) &#123;</span><br><span class="line">  console.log(color);</span><br><span class="line">&#125;);</span><br><span class="line">// red</span><br><span class="line">// green</span><br><span class="line">// blue</span><br></pre></td></tr></table></figure></p>
+<p><strong>21.</strong> 使用delete命令删除一个数组成员，会形成空位，并且不会影响length属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a = [1, 2, 3];</span><br><span class="line">delete a[1];</span><br><span class="line"></span><br><span class="line">a[1] // undefined</span><br><span class="line">a.length // 3</span><br><span class="line">console.log(a)  // [1,,3]</span><br></pre></td></tr></table></figure></p>
+<p><strong>22.</strong> 如果一个对象的所有键名都是正整数或零，并且有length属性，那么这个对象就很像数组，语法上称为“类似数组的对象”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  0: &apos;a&apos;,</span><br><span class="line">  1: &apos;b&apos;,</span><br><span class="line">  2: &apos;c&apos;,</span><br><span class="line">  length: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj[0] // &apos;a&apos;</span><br><span class="line">obj[1] // &apos;b&apos;</span><br><span class="line">obj.length // 3</span><br><span class="line">obj.push(&apos;d&apos;) // TypeError: obj.push is not a function</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，对象obj就是一个类似数组的对象。但是，“类似数组的对象”并不是数组，因为它们不具备数组特有的方法。对象obj没有数组的push方法，使用该方法就会报错。</p>
+<p>“类似数组的对象”的根本特征，就是具有length属性。只要有length属性，就可以认为这个对象类似于数组。但是有一个问题，这种length属性不是动态值，不会随着成员的变化而变化。而数组的length属性是动态值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  length: 0</span><br><span class="line">&#125;;</span><br><span class="line">obj[3] = &apos;d&apos;;</span><br><span class="line">obj.length // 0</span><br></pre></td></tr></table></figure></p>
+<p>上面代码为对象obj添加了一个数字键，但是length属性没变。这就说明了obj不是数组。</p>
+<p>典型的“类似数组的对象”是函数的arguments对象，以及大多数 DOM 元素集，还有字符串。</p>
+<p><strong>23.</strong>  JavaScript 允许非数值的相加。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">true + true // 2</span><br><span class="line">1 + true // 2</span><br></pre></td></tr></table></figure></p>
+<p>如果一个运算子是字符串，另一个运算子是非字符串，这时非字符串会转成字符串，再连接在一起。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">false + &apos;a&apos; // &quot;falsea&quot;</span><br></pre></td></tr></table></figure></p>
+<p>由于从左到右的运算次序，字符串的位置不同会导致不同的结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;3&apos; + 4 + 5 // &quot;345&quot;</span><br><span class="line">3 + 4 + &apos;5&apos; // &quot;75&quot;</span><br></pre></td></tr></table></figure></p>
+<p>除了加法运算符，其他算术运算符它们的规则是：所有运算子一律转为数值，再进行相应的数学运算。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 - &apos;2&apos; // -1</span><br><span class="line">1 * &apos;2&apos; // 2</span><br><span class="line">1 / &apos;2&apos; // 0.5</span><br></pre></td></tr></table></figure></p>
+<p><strong>24.</strong> 如果运算子是对象，必须先转成原始类型的值，然后再相加。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123; p: 1 &#125;;</span><br><span class="line">obj + 2 // &quot;[object Object]2&quot;</span><br></pre></td></tr></table></figure></p>
+<p>对象的toString方法默认返回[object Object]</p>
+<p>对象转成原始类型的值，规则如下：<br>首先，自动调用对象的valueOf方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123; p: 1 &#125;;</span><br><span class="line">obj.valueOf() // &#123; p: 1 &#125;</span><br></pre></td></tr></table></figure></p>
+<p>一般来说，对象的valueOf方法总是返回对象自身，这时再自动调用对象的toString方法，将其转为字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123; p: 1 &#125;;</span><br><span class="line">obj.valueOf().toString() // &quot;[object Object]&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>25.</strong> 余数运算符（%），运算结果的正负号由第一个运算子的正负号决定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-1 % 2 // -1</span><br><span class="line">1 % -2 // 1</span><br></pre></td></tr></table></figure></p>
+<p><strong>26.</strong> 自增和自减运算符有一个需要注意的地方，就是放在变量之后，会先返回变量操作前的值，再进行自增/自减操作；放在变量之前，会先进行自增/自减操作，再返回变量操作后的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x = 1;</span><br><span class="line">var y = 1;</span><br><span class="line"></span><br><span class="line">x++ // 1</span><br><span class="line">++y // 2</span><br></pre></td></tr></table></figure></p>
+<p><strong>27.</strong> 数值运算符的作用在于可以将任何值转为数值（与Number函数的作用相同）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+true // 1</span><br><span class="line">+[] // 0</span><br><span class="line">+&#123;&#125; // NaN</span><br></pre></td></tr></table></figure></p>
+<p><strong>28.</strong> 指数运算符（**）完成指数运算，前一个运算子是底数，后一个运算子是指数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 ** 4 // 16</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+	
+	<div>
+		
+			<div>
+	
+		<div style="text-align: center; color: #eee; font-size: 14px;">
+		  -------------------本文阅读结束，你离大神又近了一步------------------------
+		</div>
+	
+</div>
+		
+	</div>
+	
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="zhBo 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="zhBo 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/07/javascript/笔记1：阅读（阮一峰）JavaScript 标准参考教程（alpha）/" rel="next" title="笔记1：阅读（阮一峰）JavaScript 标准参考教程（alpha）">
+                <i class="fa fa-chevron-left"></i> 笔记1：阅读（阮一峰）JavaScript 标准参考教程（alpha）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/11/other/vscode使用技巧以及快捷键/" rel="prev" title="vscode使用技巧以及快捷键">
+                vscode使用技巧以及快捷键 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="zhBo">
+            
+              <p class="site-author-name" itemprop="name">zhBo</p>
+              <p class="site-description motion-element" itemprop="description">自律、沉淀...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">141</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhBoSir" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/zhbosir" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-book"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhBo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+<div class="powered-by">
+	<i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+	  本站访客数:<span id="busuanzi_value_site_uv"></span>
+	</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  <!--博客页面宠物-->
+  undefined
+  
+  <!--点击爆炸效果-->
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

@@ -1,0 +1,29 @@
+.main-nav .nav{width: 800px}
+.main-nav .nav .nav-box li{width: auto;margin-left: 20px;margin-right: 20px;}
+.footer{text-align: center;height: 80px;line-height: 80px;}
+.login-container{background:url(../images/login/login_bg_02.jpg) no-repeat center center;height:648px;position:relative;}
+a{color: #666666;}
+.login-box{top:116px;left:50%;margin-left:120px;position: absolute; width: 346px; background-color: rgba(255,253,245,0.8); border-radius: 4px; box-shadow: 0 0 4px rgba(187,187,187,.7); overflow: hidden; padding: 15px; color: #666666;}
+.login-tab{width: 170px;float: left;}
+.login-tab.l{padding: 18px;font-weight: 300;font-size: 24px;}
+.login-tab.r{text-align: right;width: auto;padding-top: 25px;font-size: 16px;}
+.form{margin-top: 40px;padding: 20px;}
+.form .alert{position: relative;height: 25px;}
+.form .info{color: #e84646; display: none;}
+.form .info i{font-size: 14px;top:0px;}
+.form .info span{margin-left: 5px;}
+.form label{float: none;}
+.item{position: relative; margin-bottom: 15px;}
+.item-fox{border: 1px solid #bdbdbd; height: 38px; width: 304px;}
+.item-fox i{position: absolute;left: 10px;top: 8px;}
+.item-fox img{position: absolute; top: 0; right: 0; width: 88px; height: 38px;}
+.itxt{line-height: 18px; height: 18px; border: 1; padding: 10px 0 10px 40px; width: 264px; float: none; overflow: hidden; font-size: 14px;}
+.code{width: 180px;}
+.tools{color: #666666;height: 28px;}
+.wangjimima{width: 100px;float: left;}
+.zhuce{float: right;}
+.zhuce a{color:#e84646;}
+
+.item-btn{text-align:center;width:100%;margin: 0;margin-bottom:0px;}
+.item-btn .btn{height: 38px;width: 100%;line-height: 38px;background-color: #e84646;border-radius: 4px;box-shadow: 0 0 4px rgba(187,187,187,.7);font-size: 18px;color:#ffffff;cursor:pointer;}
+

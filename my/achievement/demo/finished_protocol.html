@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>判断有没有阅读完协议</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      position: relative;
+      height: 100vh;
+      background-color: rgba(0,0,0,.8)
+    }
+    .modal {
+      width: 600px;
+      height: 450px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      background-color: #fff;
+    }
+    #notice {
+      width: 90%;
+      display: inline-block;
+      margin-bottom: 12px;
+      border-radius: 5px;
+      padding: 5px;
+      border: 2px solid green;
+    }
+    #rules {
+      width: 100%;
+      height: 260px;
+      padding: 5px 0;
+    }
+    textarea {
+      border: none;
+      font-size: 18px;
+    }
+    textarea::-webkit-scrollbar {
+      display: none;
+    }
+    .modal h5 {
+      font-size: 24px;
+      width: 100%;
+      text-align: center;
+      font-weight: normal;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="modal">
+      <form name="registration">
+        <p>
+          </p><h5>xxx协议</h5>
+          <textarea id="rules">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at laoreet magna. 
+          Aliquam erat volutpat. Praesent molestie, dolor ut eleifend aliquam, mi ligula ultrices sapien, quis cursus 
+          neque dui nec risus. Duis tincidunt lobortis purus eu aliquet. Quisque in dignissim magna. Aenean ac lorem at 
+          velit ultrices consequat. Nulla luctus nisi ut libero cursus ultrices. Pellentesque nec dignissim enim. Phasellus 
+          ut quam lacus, sed ultricies diam. Vestibulum convallis rutrum dolor, sit amet egestas velit scelerisque id. 
+          Proin non dignissim nisl. Sed mi odio, ullamcorper eget mattis id, malesuada vitae libero. Integer dolor lorem, 
+          mattis sed dapibus a, faucibus id metus. Duis iaculis dictum pulvinar. In nisi nibh, dapibus ac blandit at, porta 
+          at arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent 
+          dictum ipsum aliquet erat eleifend sit amet sollicitudin felis tempus. Aliquam congue cursus venenatis. Maecenas 
+          luctus pellentesque placerat. Mauris nisl odio, condimentum sed fringilla a, consectetur id ligula. Praesent sem 
+          sem, aliquet non faucibus vitae, iaculis nec elit. Nullam volutpat, lectus et blandit bibendum, nulla lorem congue 
+          turpis, ac pretium tortor sem ut nibh. Donec vel mi in ligula hendrerit sagittis. Donec faucibus viverra fermentum. 
+          Fusce in arcu arcu. Nullam at dignissim massa. Cras nibh est, pretium sit amet faucibus eget, sollicitudin in 
+          ligula. Vivamus vitae urna mauris, eget euismod nunc. Aenean semper gravida enim non feugiat. In hac habitasse 
+          platea dictumst. Cras eleifend nisl volutpat ante condimentum convallis. Donec varius dolor malesuada erat 
+          consequat congue. Donec eu lacus ut sapien venenatis tincidunt. Quisque sit amet tellus et enim bibendum varius et 
+          a orci. Donec aliquet volutpat scelerisque. Proin et tortor dolor. Ut aliquet, dolor a mattis sodales, odio diam 
+          pulvinar sem, egestas pretium magna eros vitae felis. Nam vitae magna lectus, et ornare elit. Morbi feugiat, ipsum 
+          ac mattis congue, quam neque mollis tortor, nec mollis nisl dolor a tortor. Maecenas varius est sit amet elit 
+          interdum quis placerat metus posuere. Duis malesuada justo a diam vestibulum vel aliquam nisi ornare. Integer 
+          laoreet nisi a odio ornare non congue turpis eleifend. Cum sociis natoque penatibus et magnis dis parturient montes, 
+          nascetur ridiculus mus. Cras vulputate libero sed arcu iaculis nec lobortis orci fermentum.
+          </textarea>
+        <p></p>
+        <p style="padding: 5px 0 5px 20px;">
+          <input type="checkbox" name="accept" id="agree">
+          <label for="agree">我已阅读此协议。</label>
+        </p>
+        <p class="p2" style="width: 100%;text-align: center;">
+          <input type="submit" id="nextstep" value="下一步" style="width: 100px;height: 30px;background: #fff;">
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function checkReading () {
+      // 这块的if判断相当于一个flag，表示协议只要阅读完一次，状态就是true了
+      if (checkReading.read) {
+        return; 
+      }
+
+      // 判定元素是否滚动到底
+      // 如果元素滚动到底，下面等式返回true，没有则返回false.
+      // element.scrollHeight - element.scrollTop === element.clientHeight
+
+      // 1.Element.scrollTop 属性可以获取或设置一个元素的内容垂直滚动的像素数。
+      // 一个元素的 scrollTop 值是这个元素的内容顶部（卷起来的）到它的视口可见内容（的顶部）的距离的度量。当一个元素的内容没有产生垂直方向的滚动条，那么它的 scrollTop 值为0。
+      // 2.Element.scrollHeight 这个只读属性是一个元素内容高度的度量，包括由于溢出导致的视图中不可见内容。
+      // 3.clientHeight是元素内部的高度(单位像素)，包含内边距，但不包括水平滚动条、边框和外边距。 clientHeight 可以通过 CSS height + CSS padding - 水平滚动条高度 (如果存在)来计算。
+
+      checkReading.read = this.scrollHeight - this.scrollTop === this.clientHeight;
+      // 这块通过document.标签的name.标签的name获取标签
+      document.registration.accept.disabled = document.getElementById("nextstep").disabled = !checkReading.read;
+      checkReading.noticeBox.innerHTML = checkReading.read ? "感谢阅读完毕！" : "请阅读下面的协议内容";
+    }
+
+    window.onload = function () {
+      var oToBeRead = document.getElementById("rules");
+      checkReading.noticeBox = document.createElement("span");
+      document.registration.accept.checked = false;
+      checkReading.noticeBox.id = "notice";
+      oToBeRead.parentNode.insertBefore(checkReading.noticeBox, oToBeRead);
+      oToBeRead.parentNode.insertBefore(document.createElement("br"), oToBeRead);
+      // 监听textarea的滚动
+      oToBeRead.onscroll = checkReading;
+      // 改变checkReading的this指向，this指向改成textarea
+      checkReading.call(oToBeRead);
+    }
+  </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

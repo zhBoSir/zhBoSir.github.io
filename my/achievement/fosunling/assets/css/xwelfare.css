@@ -1,0 +1,152 @@
+.xwelfare-banner{
+	width: 100%;
+	height:358px;
+}
+.xwelfare-center{
+	/*border: 1px solid red;*/
+	height: 960px;
+}
+.center-top{
+	/*border: 1px solid blue;*/
+	height: 300px;
+	position: relative;
+	overflow: hidden;
+}
+.top-left{
+	width: 270px;
+	height: 300px;
+	/*border: 1px solid blueviolet;*/
+	background-color: white;
+}
+.left-share{
+	margin-top: 36px;
+}
+.top-right{
+	width:890px;
+	height: 300px;
+	/*border: 1px solid navajowhite;*/
+	position: relative;
+}
+.right-first,.right-two,.right-third{
+	width: 200px;
+	height: 80px;
+	position: absolute;
+}
+.right-first{
+	top: 55px;
+	left:20px;
+}
+.right-two{
+	bottom: 40px;
+	left:310px;
+}
+.right-third{
+	top: 55px;
+	left:605px;
+}
+.right-first .first-number,.right-two .two-number,.right-third .third-number{
+	width: 35px;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	font-size: 96px;
+	color: #25a7dd;
+}
+.right-first .first-text,.right-two .two-text,.right-third .third-text{
+	width: 140px;
+	height: 80px;
+}
+.right-first .first-text span,.right-two .two-text span,.right-third .third-text span{
+	display: block;
+}
+.center-middle{
+	/*border: 1px solid brown;*/
+	height: 300px;
+	background-color: white;
+	position: relative;
+	box-sizing: border-box;
+}
+.center-middle .middle-head{
+	padding-top:30px;
+}
+.center-middle .middle-enjoy{
+	position: relative;
+}
+.center-middle .middle-enjoy span{
+	position: absolute;
+	top: 80px;
+	left: 275px;
+	color: white;
+}
+.middle-hid{
+	width: 1180px;
+	height: 300px;
+	background-color:black;
+	opacity: 0.4;
+	filter:alpha(opacity=40);             
+	position:absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	display: none;
+}
+.middle-hid span,.left-hid span,.right-hid span{
+	display: block;
+	margin-top: 60px;
+	margin-bottom:40px;
+	padding-left: 40px;
+	color: white;
+}
+.middle-hid p,.left-hid p,.right-hid p{
+	padding-left:40px;
+	color: white;
+	padding-right:60px;
+}
+.center-bottom{
+	/*border: 1px solid yellow;*/
+	height: 300px;
+}
+.bottom-left{
+	/*border: 1px solid goldenrod;*/
+	background-color: white;
+	width: 570px;
+	height: 300px;
+	position: relative;
+}
+.bottom-left .left-beautifulwoman{
+	position: relative;
+}
+.bottom-left .left-beautifulwoman .beautifulwoman{
+	position: absolute;
+	color: white;
+	top:80px;
+	left: 120px;
+}
+.left-hid,.right-hid{
+    width: 570px;
+	height: 300px;
+	background-color:black;
+	opacity: 0.4;
+	filter:alpha(opacity=40);
+	position:absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.bottom-right{
+	/*border: 1px solid green;*/
+	width: 570px;
+	height: 300px;
+	background-color: white;
+	position: relative;
+}
+.bottom-right .right-settingsun{
+	position: relative;
+}
+.bottom-right .right-settingsun span{
+	position: absolute;
+	top: 80px;
+	left:152px;
+	color: white;
+}
+

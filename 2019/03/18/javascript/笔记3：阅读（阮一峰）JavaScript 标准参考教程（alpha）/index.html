@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})()
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="31. 下面六个值会被转为false  undefined null false 0 NaN “”或’’（空字符串）例如：1234if (&amp;apos;&amp;apos;) &amp;#123;  // JavaScript 自动将空字符串，转为布尔值false  console.log(&amp;apos;true&amp;apos;);&amp;#125;// 没有任何输出   空数组（[]）和空对象（{}）对应的布尔值，都是tru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记3：阅读（阮一峰）JavaScript 标准参考教程（alpha）">
+<meta property="og:url" content="https://github.com/zhBoSir/2019/03/18/javascript/笔记3：阅读（阮一峰）JavaScript 标准参考教程（alpha）/index.html">
+<meta property="og:site_name" content="【稻稻派】">
+<meta property="og:description" content="31. 下面六个值会被转为false  undefined null false 0 NaN “”或’’（空字符串）例如：1234if (&amp;apos;&amp;apos;) &amp;#123;  // JavaScript 自动将空字符串，转为布尔值false  console.log(&amp;apos;true&amp;apos;);&amp;#125;// 没有任何输出   空数组（[]）和空对象（{}）对应的布尔值，都是tru">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-02T05:42:12.031Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔记3：阅读（阮一峰）JavaScript 标准参考教程（alpha）">
+<meta name="twitter:description" content="31. 下面六个值会被转为false  undefined null false 0 NaN “”或’’（空字符串）例如：1234if (&amp;apos;&amp;apos;) &amp;#123;  // JavaScript 自动将空字符串，转为布尔值false  console.log(&amp;apos;true&amp;apos;);&amp;#125;// 没有任何输出   空数组（[]）和空对象（{}）对应的布尔值，都是tru">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/zhBoSir/2019/03/18/javascript/笔记3：阅读（阮一峰）JavaScript 标准参考教程（alpha）/">
+
+
+
+
+
+  <title>笔记3：阅读（阮一峰）JavaScript 标准参考教程（alpha） | 【稻稻派】</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5b93ebb0fd146cd06067eddf81273ea7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<!--右上角GitHub-->
+	<a href="https://github.com/zhBoSir" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<!--右上角GitHub-->
+	
+	
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">【稻稻派】</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-报表">
+          <a href="/my/echarts/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>
+            
+            报表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成果">
+          <a href="/my/achievement/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br>
+            
+            成果
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zhBoSir/2019/03/18/javascript/笔记3：阅读（阮一峰）JavaScript 标准参考教程（alpha）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhBo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="【稻稻派】">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">笔记3：阅读（阮一峰）JavaScript 标准参考教程（alpha）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T16:03:29+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>31.</strong> 下面六个值会被转为false</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>false</li>
+<li>0</li>
+<li>NaN</li>
+<li>“”或’’（空字符串）<br>例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (&apos;&apos;) &#123;  // JavaScript 自动将空字符串，转为布尔值false</span><br><span class="line">  console.log(&apos;true&apos;);</span><br><span class="line">&#125;</span><br><span class="line">// 没有任何输出</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>空数组（[]）和空对象（{}）对应的布尔值，都是true。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if ([]) &#123;</span><br><span class="line">  console.log(&apos;true&apos;);</span><br><span class="line">&#125;</span><br><span class="line">// true</span><br><span class="line"></span><br><span class="line">if (&#123;&#125;) &#123;</span><br><span class="line">  console.log(&apos;true&apos;);</span><br><span class="line">&#125;</span><br><span class="line">// true</span><br></pre></td></tr></table></figure></p>
+<p><strong>32.</strong> JavaScript 内部，所有数字都是以64位浮点数形式储存，即使整数也是如此。所以，1与1.0是相同的，是同一个数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 === 1.0   // true</span><br></pre></td></tr></table></figure></p>
+<p>由于浮点数不是精确的值，所以涉及小数的比较和运算要特别小心。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0.1 + 0.2 === 0.3</span><br><span class="line">// false</span><br><span class="line"></span><br><span class="line">0.3 / 0.1</span><br><span class="line">// 2.9999999999999996</span><br><span class="line"></span><br><span class="line">(0.3 - 0.2) === (0.2 - 0.1)</span><br><span class="line">// false</span><br></pre></td></tr></table></figure></p>
+<p>JavaScript中，绝对值小于2的53次方的整数，即-2的53到2的53，都可以精确表示。由于2的53次方是一个16位的十进制数值，所以简单的法则就是，JavaScript 对15位的十进制数都可以精确处理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Math.pow(2, 53)</span><br><span class="line">// 9007199254740992</span><br><span class="line"></span><br><span class="line">// 多出的三个有效数字，将无法保存</span><br><span class="line">9007199254740992111</span><br><span class="line">// 9007199254740992000</span><br></pre></td></tr></table></figure></p>
+<p>上面示例表明，大于2的53次方以后，多出来的有效数字（最后三位的111）都会无法保存，变成0。</p>
+<p><strong>33.</strong> NaN不是独立的数据类型，而是一个特殊数值，它的数据类型依然属于Number，使用typeof运算符可以看得很清楚。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeof NaN // &apos;number&apos;</span><br></pre></td></tr></table></figure></p>
+<p>NaN在布尔运算时被当作false。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Boolean(NaN) // false</span><br></pre></td></tr></table></figure></p>
+<p>NaN与任何数（包括它自己）的运算，得到的都是NaN。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NaN + 32  // NaN</span><br><span class="line">NaN - 32  // NaN</span><br><span class="line">NaN * 32  // NaN</span><br><span class="line">NaN / 32  // NaN</span><br></pre></td></tr></table></figure></p>
+<p><strong>34.</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">parseInt(1.23) // 1</span><br><span class="line">// 等同于</span><br><span class="line">parseInt(&apos;1.23&apos;) // 1</span><br></pre></td></tr></table></figure></p>
+<p>字符串转为整数的时候，是一个个字符依次转换，如果遇到不能转为数字的字符，就不再进行下去，返回已经转好的部分。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">parseInt(&apos;8a&apos;) // 8</span><br><span class="line">parseInt(&apos;12**&apos;) // 12</span><br><span class="line">parseInt(&apos;12.34&apos;) // 12</span><br><span class="line">parseInt(&apos;15e2&apos;) // 15</span><br><span class="line">parseInt(&apos;15px&apos;) // 15</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">parseInt(&apos;abc&apos;) // NaN</span><br><span class="line">parseInt(&apos;.3&apos;) // NaN</span><br><span class="line">parseInt(&apos;&apos;) // NaN</span><br><span class="line">parseInt(&apos;+&apos;) // NaN</span><br><span class="line">parseInt(&apos;+1&apos;) // 1</span><br></pre></td></tr></table></figure>
+<p>parseInt的返回值只有两种可能，要么是一个十进制整数，要么是NaN。</p>
+<p><strong>35.</strong> parseFloat的转换结果不同于Number函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">parseFloat(true)  // NaN</span><br><span class="line">Number(true) // 1</span><br><span class="line"></span><br><span class="line">parseFloat(null) // NaN</span><br><span class="line">Number(null) // 0</span><br><span class="line"></span><br><span class="line">parseFloat(&apos;&apos;) // NaN</span><br><span class="line">Number(&apos;&apos;) // 0</span><br><span class="line"></span><br><span class="line">parseFloat(&apos;123.45#&apos;) // 123.45</span><br><span class="line">Number(&apos;123.45#&apos;) // NaN</span><br></pre></td></tr></table></figure></p>
+<p><strong>36.</strong> 判断NaN更可靠的方法是，利用NaN为唯一不等于自身的值的这个特点，进行判断。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function myIsNaN(value) &#123;</span><br><span class="line">  return value !== value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>37.</strong> 如果长字符串必须分成多行，可以在每一行的尾部使用反斜杠。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var longString = &apos;Long \</span><br><span class="line">long \</span><br><span class="line">long \</span><br><span class="line">string&apos;;</span><br><span class="line"></span><br><span class="line">longString</span><br><span class="line">// &quot;Long long long string&quot;</span><br></pre></td></tr></table></figure></p>
+<p>连接运算符（+）可以连接多个单行字符串，将长字符串拆成多行书写，输出的时候也是单行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var longString = &apos;Long &apos;</span><br><span class="line">  + &apos;long &apos;</span><br><span class="line">  + &apos;long &apos;</span><br><span class="line">  + &apos;string&apos;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>38.</strong> 反斜杠（\）转义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\0 ：null</span><br><span class="line">\n ：换行符</span><br><span class="line">\r ：回车键</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;\a&apos;</span><br><span class="line">// &quot;a&quot;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，a是一个正常字符，前面加反斜杠没有特殊含义，反斜杠会被自动省略。</p>
+<p><strong>39.</strong> Base64 就是一种编码方法，可以将任意值转成 0～9、A～Z、a-z、+和/这64个字符组成的可打印字符。<br>JavaScript 原生提供两个 Base64 相关的方法。<br>btoa()：任意值转为 Base64 编码<br>atob()：Base64 编码转为原来的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var string = &apos;Hello World!&apos;;</span><br><span class="line">btoa(string) // &quot;SGVsbG8gV29ybGQh&quot;</span><br><span class="line">atob(&apos;SGVsbG8gV29ybGQh&apos;) // &quot;Hello World!&quot;</span><br></pre></td></tr></table></figure></p>
+<p>注意，这两个方法不适合非 ASCII 码的字符，会报错。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">btoa(&apos;你好&apos;) // 报错</span><br></pre></td></tr></table></figure></p>
+<p>要将非 ASCII 码字符转为 Base64 编码，必须中间插入一个转码环节，再使用这两个方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function b64Encode(str) &#123;</span><br><span class="line">  return btoa(encodeURIComponent(str));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function b64Decode(str) &#123;</span><br><span class="line">  return decodeURIComponent(atob(str));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b64Encode(&apos;你好&apos;) // &quot;JUU0JUJEJUEwJUU1JUE1JUJE&quot;</span><br><span class="line">b64Decode(&apos;JUU0JUJEJUEwJUU1JUE1JUJE&apos;) // &quot;你好&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>40.</strong> 对象的所有键名都是字符串，所以加不加引号都可以。如果键名是数值，会被自动转为字符串。</p>
+<p><strong>41.</strong> 如果两个变量指向同一个原始类型的值。那么，变量这时都是值的拷贝。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x = 1;</span><br><span class="line">var y = x;</span><br><span class="line"></span><br><span class="line">x = 2;</span><br><span class="line">y // 1</span><br></pre></td></tr></table></figure></p>
+<p>y和x并不是指向同一个内存地址。</p>
+<p><strong>42.</strong> 对象如果使用方括号运算符，键名必须放在引号里面，否则会被当作变量处理。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var foo = &apos;bar&apos;;</span><br><span class="line"></span><br><span class="line">var obj = &#123;</span><br><span class="line">  foo: 1,</span><br><span class="line">  bar: 2</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.foo  // 1</span><br><span class="line">obj[foo]  // 2</span><br></pre></td></tr></table></figure></p>
+<p>数字键可以不加引号，因为会自动转成字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  0.7: &apos;Hello World&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj[&apos;0.7&apos;] // &quot;Hello World&quot;</span><br><span class="line">obj[0.7] // &quot;Hello World&quot;</span><br></pre></td></tr></table></figure></p>
+<p>注意，数值键名不能使用点运算符（因为会被当成小数点），只能使用方括号运算符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  123: &apos;hello world&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.123 // 报错</span><br><span class="line">obj[123] // &quot;hello world&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>43.</strong> 查看一个对象本身的所有属性，可以使用Object.keys方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  key1: 1,</span><br><span class="line">  key2: 2</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Object.keys(obj);</span><br><span class="line">// [&apos;key1&apos;, &apos;key2&apos;]</span><br></pre></td></tr></table></figure></p>
+<p><strong>44,</strong> in运算符用于检查对象是否包含某个属性（注意，检查的是键名，不是键值），如果包含就返回true，否则返回false。它的左边是一个字符串，表示属性名，右边是一个对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123; p: 1 &#125;;</span><br><span class="line">&apos;p&apos; in obj // true</span><br><span class="line">&apos;toString&apos; in obj // true</span><br></pre></td></tr></table></figure></p>
+<p>in运算符的一个问题是，它不能识别哪些属性是对象自身的，哪些属性是继承的。就像上面代码中，对象obj本身并没有toString属性，但是in运算符会返回true，因为这个属性是继承的。</p>
+<p>这时，可以使用对象的hasOwnProperty方法判断一下，是否为对象自身的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125;;</span><br><span class="line">if (&apos;toString&apos; in obj) &#123;</span><br><span class="line">  console.log(obj.hasOwnProperty(&apos;toString&apos;)) // false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>45.</strong> for…in循环用来遍历一个对象的全部属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;a: 1, b: 2, c: 3&#125;;</span><br><span class="line"></span><br><span class="line">for (var i in obj) &#123;</span><br><span class="line">  console.log(&apos;键名：&apos;, i);</span><br><span class="line">  console.log(&apos;键值：&apos;, obj[i]);</span><br><span class="line">&#125;</span><br><span class="line">// 键名： a</span><br><span class="line">// 键值： 1</span><br><span class="line">// 键名： b</span><br><span class="line">// 键值： 2</span><br><span class="line">// 键名： c</span><br><span class="line">// 键值： 3</span><br></pre></td></tr></table></figure></p>
+<p>for…in循环有两个使用注意点</p>
+<ul>
+<li>它遍历的是对象所有可遍历（enumerable）的属性，会跳过不可遍历的属性。</li>
+<li>它不仅遍历对象自身的属性，还遍历继承的属性。</li>
+</ul>
+<p>如果继承的属性是可遍历的，那么就会被for…in循环遍历到。但是，一般情况下，都是只想遍历对象自身的属性，所以使用for…in的时候，应该结合使用hasOwnProperty方法，在循环内部判断一下，某个属性是否为对象自身的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123; name: &apos;老张&apos; &#125;;</span><br><span class="line"></span><br><span class="line">for (var key in person) &#123;</span><br><span class="line">  if (person.hasOwnProperty(key)) &#123;</span><br><span class="line">    console.log(key);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// name</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+	
+	<div>
+		
+			<div>
+	
+		<div style="text-align: center; color: #eee; font-size: 14px;">
+		  -------------------本文阅读结束，你离大神又近了一步------------------------
+		</div>
+	
+</div>
+		
+	</div>
+	
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="zhBo 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="zhBo 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/11/other/vscode使用技巧以及快捷键/" rel="next" title="vscode使用技巧以及快捷键">
+                <i class="fa fa-chevron-left"></i> vscode使用技巧以及快捷键
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/18/javascript/笔记4：阅读（阮一峰）JavaScript 标准参考教程（alpha）/" rel="prev" title="笔记4：阅读（阮一峰）JavaScript 标准参考教程（alpha）">
+                笔记4：阅读（阮一峰）JavaScript 标准参考教程（alpha） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="zhBo">
+            
+              <p class="site-author-name" itemprop="name">zhBo</p>
+              <p class="site-description motion-element" itemprop="description">自律、沉淀...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">141</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhBoSir" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/zhbosir" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-book"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhBo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+<div class="powered-by">
+	<i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+	  本站访客数:<span id="busuanzi_value_site_uv"></span>
+	</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  <!--博客页面宠物-->
+  undefined
+  
+  <!--点击爆炸效果-->
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

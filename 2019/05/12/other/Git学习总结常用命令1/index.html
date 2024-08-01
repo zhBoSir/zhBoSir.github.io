@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})()
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Git,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="常用的一些命令  vim编辑器===============================  mkdir  创建文件夹  如：mkdir demo ls 列出当前文件夹下所有子文件 （但不包含隐藏的文件） ls -la 列出当前文件夹下所有子文件 ,包含隐藏的文件 ll 查看当前文件夹下文件 vim 文件名，打开文件，没有这个文件的话就创建这个文件。打开文件后，按“I”按钮，可以进入编辑状态。如">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git学习总结常用命令1">
+<meta property="og:url" content="https://github.com/zhBoSir/2019/05/12/other/Git学习总结常用命令1/index.html">
+<meta property="og:site_name" content="【稻稻派】">
+<meta property="og:description" content="常用的一些命令  vim编辑器===============================  mkdir  创建文件夹  如：mkdir demo ls 列出当前文件夹下所有子文件 （但不包含隐藏的文件） ls -la 列出当前文件夹下所有子文件 ,包含隐藏的文件 ll 查看当前文件夹下文件 vim 文件名，打开文件，没有这个文件的话就创建这个文件。打开文件后，按“I”按钮，可以进入编辑状态。如">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2024-07-23T14:51:05.527Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git学习总结常用命令1">
+<meta name="twitter:description" content="常用的一些命令  vim编辑器===============================  mkdir  创建文件夹  如：mkdir demo ls 列出当前文件夹下所有子文件 （但不包含隐藏的文件） ls -la 列出当前文件夹下所有子文件 ,包含隐藏的文件 ll 查看当前文件夹下文件 vim 文件名，打开文件，没有这个文件的话就创建这个文件。打开文件后，按“I”按钮，可以进入编辑状态。如">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/zhBoSir/2019/05/12/other/Git学习总结常用命令1/">
+
+
+
+
+
+  <title>Git学习总结常用命令1 | 【稻稻派】</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5b93ebb0fd146cd06067eddf81273ea7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<!--右上角GitHub-->
+	<a href="https://github.com/zhBoSir" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<!--右上角GitHub-->
+	
+	
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">【稻稻派】</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-报表">
+          <a href="/my/echarts/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>
+            
+            报表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成果">
+          <a href="/my/achievement/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br>
+            
+            成果
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zhBoSir/2019/05/12/other/Git学习总结常用命令1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhBo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="【稻稻派】">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git学习总结常用命令1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T00:29:39+08:00">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>常用的一些命令</strong></p>
+<blockquote>
+<p>vim编辑器===============================</p>
+<ul>
+<li><code>mkdir</code>  创建文件夹  如：mkdir demo</li>
+<li><code>ls</code> 列出当前文件夹下所有子文件 （但不包含隐藏的文件）</li>
+<li><code>ls</code> -la 列出当前文件夹下所有子文件 ,包含隐藏的文件</li>
+<li><code>ll</code> 查看当前文件夹下文件</li>
+<li><code>vim</code> 文件名，打开文件，没有这个文件的话就创建这个文件。打开文件后，按“I”按钮，可以进入编辑状态。如：vim a.txt 然后就可以在命令行中编辑a.txt文件了</li>
+<li><code>退出vim编辑模式</code>的操作：先按esc按钮退出插入状态，然后输入冒号:进入输入命令状态，输入wq，就保存并退出了。</li>
+<li><code>git bash退出vim编辑模式的操作：</code>vim 文件名，打开文件，然后按<code>i</code>开始输入，输入完成后按<code>esc</code>退出编辑模式，然后按<code>shift+:</code>后输入<code>wq</code>即可。</li>
+<li><code>cat 文件名</code> 用cat命令可以显示文件里面的内容</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>提交和撤销===============================</p>
+<ul>
+<li><code>git add 文件名</code> 把文件添加到暂存区，将工作区的新建/修改添加到暂存区 如：git add a.txt</li>
+<li><code>git rm –cached 文件名</code> 把添加到暂存区的文件撤销回来。 如: git rm –cached a.txt</li>
+<li><code>git status</code> 查看工作区（即写代码的地方）、暂存区的状态</li>
+<li><code>git commit</code> 将暂存区的内容提交到本地库</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>git配置用户名和邮箱===============================</p>
+<ul>
+<li><code>git config user.name 用户名</code> 设置用户名</li>
+<li><code>git config user.email 邮箱</code> 设置邮箱</li>
+<li><code>git config –global user.name 用户名</code> 全局设置用户名</li>
+<li><code>git config –global user.email 邮箱</code> 全局设置邮箱</li>
+<li><code>git log</code> 查看所有的提交记录</li>
+<li><code>git log –pretty=oneline 或 git log –oneline</code> 把所有的提交记录按每一条每一行显示出来</li>
+<li><code>多屏显示控制方式</code> 1.空格向下翻页  2.b向上翻页 3.q退出 如：有时候显示的内容比较多，一页没有显示完，可以通过这3个方式来操作。</li>
+<li><code>git reflog</code> 把提交记录按精简的方式展示出来。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>回滚到某一分支===============================</p>
+<ul>
+<li><code>HEAD</code> git命令窗口里面的HEAD代表的是指针的意思。HEAD在哪里就指向哪条数据。</li>
+<li><code>git reset –hard 某个提交记录的哈希值</code> 把git回退或者前进到具体的某个版本上。如：git reset –hard b8b2de0</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>删除文件、比较文件===============================</p>
+<ul>
+<li>从本地库删除文件的操作，第一步：<code>rm 文件名</code>，表示删除了工作区的文件；第二步：git add . ，删除了暂存区的这个文件；第三步： git commit -m ‘注释’，删除了本地库的这个文件。</li>
+<li><code>git diff [文件名]</code>将工作区中的文件和暂存区的文件比较。</li>
+<li><code>git diff [本地库中历史版本] [文件名]</code>将工作区中的文件和本地库历史记录的文件比较。</li>
+<li><code>git diff</code>不带文件名的话是比较多个文件。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>分支===============================</p>
+<ul>
+<li><code>git branch</code> 列出当前分支清单</li>
+<li><code>git branch -a</code> 查看远程分支和本地分支</li>
+<li><code>git branch -v</code> 查看各个分支最后一个提交信息</li>
+<li><code>git branch [分支名]</code> 新建分支</li>
+<li><code>git checkout [分支名]</code> 切换到具体的分支</li>
+<li><code>合并分支的操作步骤：</code></li>
+<li>第一步：<code>git checkout [要合并其他分支上内容的分支]</code>切换到接受修改的分支上，比如：在dev分支上修改了内容，想把内容合并到master分支，目前在dev分支上，就需要先切换到master分支上。</li>
+<li>第二步：<code>git merge [有新内容的分支名]</code> 执行merge命令。如：要把dev分支上的内容合并到master分支上，那么就是git merge dev</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>切换分支</p>
+<ul>
+<li><code>git checkout -b [本地创建分支名] origin/[远程分支名]</code>把分支切换到远程仓库新建的分支上，并在本地创建和远程分支对应的本地分支名</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>新建分支、删除分支</p>
+<ul>
+<li><code>git push –set-upstream origin [分支名]</code>新建远程分支 (也可以是把本地分支关联到这个远程分支上)</li>
+<li><code>git branch -d [分支名]</code>删除分支</li>
+<li><code>git push origin -d [分支名]</code>删除远程分支</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>冲突===============================</p>
+<ul>
+<li>git merge合并的时候出现冲突时，看一下是哪个文件冲突了。然后用<code>vim 文件名</code>打开文件，把文件里面的由于冲突产生的特殊标记删除掉，Head表示的是当前分支的内容，然后把冲突的地方不需要的代码删除掉。再用<code>git add .</code>后再用<code>git commit </code>提交即可【注意这一步commit的时候是不能带文件名的】。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>远程分支=====================</p>
+<ul>
+<li><code>git remote -v</code>查看远程分支</li>
+<li><code>git remote add 远程分支别名 远程分支地址</code> 例如：git remote add origin <a href="https://github.com/zhBoSir/gittest.git">https://github.com/zhBoSir/gittest.git</a></li>
+</ul>
+</blockquote>
+<ul>
+<li><code>git push 远程分支别名 远程分支的名字 </code> 例：git push origin master</li>
+<li><code><font color="red">有时候用github和别人一起开发项目，自己建的git库，别人clone后push代码没有权限，应该怎么操作？（团队内部协作）</font></code><ul>
+<li>第一步:点击GitHub仓库的【settings】</li>
+<li>第二步：点击【collaborators】即合作者的意思</li>
+<li>第三步：在【add collaborators输入框】里输入被邀请人的GitHub账号。</li>
+<li>第四步：点击【copy invite link】把里面的链接发送给被邀请的人。</li>
+<li>第五步：被邀请人只要接受邀请就有提交代码的权限了。</li>
+</ul>
+</li>
+<li><code>git pull [远程分支别名] [远程分支的名字]</code>拉取远程分支的内容。</li>
+<li><code>git pull [远程分支别名] [远程分支的名字] = git fetch [远程分支别名] [远程分支的名字] + git merge</code><ul>
+<li>第一步：git fetch 是把远程分支的内容抓取过来，抓取过来后，本地文件并没有改变。</li>
+<li>第二步：git merge [远程分支别名/远程分支的名字] 是把远程分支上的内容合并到本地仓库上。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><font color="red">Github上怎么给别人提交代码？（跨团队协作）</font></p>
+<ul>
+<li>第一步：<code>fork</code>别人的远程仓库；</li>
+<li>第二步：把fork的仓库<code>clone</code>到本地；</li>
+<li>第三步：在clone下来的项目上修改代码然后；<code>push</code>到自己fork的自己的仓库；</li>
+<li>第四步：给对方发送<code>pull request</code><br>点击<code>new request</code>再点击<code>create new request</code></li>
+<li>第五步：对方接受到pull request后会在pull request的地方显示一个数字，审核后<code>merge</code>一下即可（merge pull request）。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>暂存</p>
+</blockquote>
+<p>stash命令可以很好的解决这样的问题。当你不想提交当前完成了一半的代码，但是却不得不修改一个紧急Bug，那么使用<code>Git stash</code>就可以将你当前未提交到本地(和服务器)的代码推入到git的栈中，这时候你的工作区间和上一次提交的内容是完全一样的，所以你可以放心的修 Bug，等到修完Bug，提交到服务器上后，再使用<code>git stash apply</code>将以前一半的工作应用回来。</p>
+<p>当你多次使用’git stash’命令后，你的栈里将充满了未提交的代码，这时候你会对将哪个版本应用回来有些困惑，<code>git stash list</code>命令可以将当前的Git栈信息打印出来，你只需要将找到对应的版本号，例如使用<code>git stash apply stash@{1}</code>就可以将你指定版本号为stash@{1}的工作取出来，当你将所有的栈都应用回来的时候，可以使用<code>git stash clear</code>来将栈清空</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+	
+	<div>
+		
+			<div>
+	
+		<div style="text-align: center; color: #eee; font-size: 14px;">
+		  -------------------本文阅读结束，你离大神又近了一步------------------------
+		</div>
+	
+</div>
+		
+	</div>
+	
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="zhBo 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="zhBo 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/18/javascript/笔记4：阅读（阮一峰）JavaScript 标准参考教程（alpha）/" rel="next" title="笔记4：阅读（阮一峰）JavaScript 标准参考教程（alpha）">
+                <i class="fa fa-chevron-left"></i> 笔记4：阅读（阮一峰）JavaScript 标准参考教程（alpha）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/06/javascript/笔记5：阅读（阮一峰）JavaScript 标准参考教程（alpha）/" rel="prev" title="笔记5：阅读（阮一峰）JavaScript 标准参考教程（alpha）">
+                笔记5：阅读（阮一峰）JavaScript 标准参考教程（alpha） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="zhBo">
+            
+              <p class="site-author-name" itemprop="name">zhBo</p>
+              <p class="site-description motion-element" itemprop="description">自律、沉淀...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">141</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhBoSir" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/zhbosir" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-book"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhBo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+<div class="powered-by">
+	<i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+	  本站访客数:<span id="busuanzi_value_site_uv"></span>
+	</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  <!--博客页面宠物-->
+  undefined
+  
+  <!--点击爆炸效果-->
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

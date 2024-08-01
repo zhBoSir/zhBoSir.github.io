@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})()
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="121. 微任务 Promise 的回调函数不是正常的异步任务，而是微任务（microtask）。它们的区别在于，正常任务追加到下一轮事件循环，微任务追加到本轮事件循环。这意味着，微任务的执行时间一定早于正常任务。123456789101112setTimeout(function() &amp;#123;  console.log(1);&amp;#125;, 0);new Promise(function (">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记9：阅读（阮一峰）JavaScript 标准参考教程（alpha）">
+<meta property="og:url" content="https://github.com/zhBoSir/2019/07/06/javascript/笔记9：阅读（阮一峰）JavaScript 标准参考教程（alpha）/index.html">
+<meta property="og:site_name" content="【稻稻派】">
+<meta property="og:description" content="121. 微任务 Promise 的回调函数不是正常的异步任务，而是微任务（microtask）。它们的区别在于，正常任务追加到下一轮事件循环，微任务追加到本轮事件循环。这意味着，微任务的执行时间一定早于正常任务。123456789101112setTimeout(function() &amp;#123;  console.log(1);&amp;#125;, 0);new Promise(function (">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-02T05:42:12.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔记9：阅读（阮一峰）JavaScript 标准参考教程（alpha）">
+<meta name="twitter:description" content="121. 微任务 Promise 的回调函数不是正常的异步任务，而是微任务（microtask）。它们的区别在于，正常任务追加到下一轮事件循环，微任务追加到本轮事件循环。这意味着，微任务的执行时间一定早于正常任务。123456789101112setTimeout(function() &amp;#123;  console.log(1);&amp;#125;, 0);new Promise(function (">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/zhBoSir/2019/07/06/javascript/笔记9：阅读（阮一峰）JavaScript 标准参考教程（alpha）/">
+
+
+
+
+
+  <title>笔记9：阅读（阮一峰）JavaScript 标准参考教程（alpha） | 【稻稻派】</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5b93ebb0fd146cd06067eddf81273ea7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<!--右上角GitHub-->
+	<a href="https://github.com/zhBoSir" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<!--右上角GitHub-->
+	
+	
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">【稻稻派】</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-报表">
+          <a href="/my/echarts/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>
+            
+            报表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成果">
+          <a href="/my/achievement/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br>
+            
+            成果
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zhBoSir/2019/07/06/javascript/笔记9：阅读（阮一峰）JavaScript 标准参考教程（alpha）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhBo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="【稻稻派】">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">笔记9：阅读（阮一峰）JavaScript 标准参考教程（alpha）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-06T23:59:39+08:00">
+                2019-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>121.</strong> <code>微任务</code></p>
+<p>Promise 的回调函数不是正常的异步任务，而是微任务（microtask）。它们的区别在于，正常任务追加到下一轮事件循环，微任务追加到本轮事件循环。这意味着，微任务的执行时间一定早于正常任务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function() &#123;</span><br><span class="line">  console.log(1);</span><br><span class="line">&#125;, 0);</span><br><span class="line"></span><br><span class="line">new Promise(function (resolve, reject) &#123;</span><br><span class="line">  resolve(2);</span><br><span class="line">&#125;).then(console.log);</span><br><span class="line"></span><br><span class="line">console.log(3);</span><br><span class="line">// 3</span><br><span class="line">// 2</span><br><span class="line">// 1</span><br></pre></td></tr></table></figure></p>
+<p>上面代码的输出结果是321。这说明then的回调函数的执行时间，早于setTimeout(fn, 0)。因为then是本轮事件循环执行，setTimeout(fn, 0)在下一轮事件循环开始时执行。</p>
+<p><strong>122.</strong><br>如果参数节点是 DOM 已经存在的节点，appendChild()方法会将其从原来的位置，移动到新位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var div = document.getElementById(&apos;myDiv&apos;);</span><br><span class="line">document.body.appendChild(div);</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，插入的是一个已经存在的节点myDiv，结果就是该节点会从原来的位置，移动到document.body的尾部。</p>
+<p><strong>123.</strong> </p>
+<p>如何移除当前节点的所有子节点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var element = document.getElementById(&apos;top&apos;);</span><br><span class="line">while (element.firstChild) &#123;</span><br><span class="line">  element.removeChild(element.firstChild);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>124.</strong><br><code>Element.dataset</code></p>
+<p>网页元素可以自定义data-属性，用来添加数据。</p>
+<p>Element.dataset属性返回一个对象，可以从这个对象读写data-属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> &lt;article</span><br><span class="line">   id=&quot;foo&quot;</span><br><span class="line">   data-columns=&quot;3&quot;</span><br><span class="line">   data-index-number=&quot;12314&quot;</span><br><span class="line">   data-parent=&quot;cars&quot;&gt;</span><br><span class="line">   ...</span><br><span class="line"> &lt;/article&gt;</span><br><span class="line"></span><br><span class="line">var article = document.getElementById(&apos;foo&apos;);</span><br><span class="line">article.dataset.columns // &quot;3&quot;</span><br><span class="line">article.dataset.indexNumber // &quot;12314&quot;</span><br><span class="line">article.dataset.parent // &quot;cars&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>125.</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 视口高度</span><br><span class="line">document.documentElement.clientHeight</span><br><span class="line"></span><br><span class="line">// 网页总高度</span><br><span class="line">document.body.clientHeight</span><br></pre></td></tr></table></figure></p>
+<p><code>Element.scrollHeight</code>属性返回一个整数值（小数会四舍五入），表示当前元素的总高度（单位像素），包括溢出容器、当前不可见的部分。它包括padding，但是不包括border、margin以及水平滚动条的高度（如果有水平滚动条的话），还包括伪元素（::before或::after）的高度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 返回网页的总高度</span><br><span class="line">document.documentElement.scrollHeight</span><br><span class="line">document.body.scrollHeight</span><br></pre></td></tr></table></figure></p>
+<p><strong>126.</strong></p>
+<p><code>Element.scrollLeft，Element.scrollTop</code></p>
+<p>Element.scrollLeft属性表示当前元素的水平滚动条向右侧滚动的像素数量，Element.scrollTop属性表示当前元素的垂直滚动条向下滚动的像素数量。</p>
+<p>设置该属性的值，会导致浏览器将当前元素自动滚动到相应的位置。</p>
+<p><strong>127.</strong></p>
+<p><code>Element.clientHeight，Element.clientWidth</code> 与 <code>Element.offsetHeight，Element.offsetWidth</code></p>
+<font color="pink"><br>Element.clientHeight属性返回一个整数值，表示元素节点的 CSS 高度（单位像素），只对块级元素生效，对于行内元素返回0。如果块级元素没有设置 CSS 高度，则返回实际高度。<br><br>除了元素本身的高度，它还包括padding部分，但是不包括border、margin。如果有水平滚动条，还要减去水平滚动条的高度。注意，这个值始终是整数，如果是小数会被四舍五入。<br><br>Element.clientWidth属性返回元素节点的 CSS 宽度，同样只对块级元素有效，也是只包括元素本身的宽度和padding，如果有垂直滚动条，还要减去垂直滚动条的宽度。<br></font>
+
+<font color="gold"><br>Element.offsetHeight属性返回一个整数，表示元素的 CSS 垂直高度（单位像素），包括元素本身的高度、padding 和 border，以及水平滚动条的高度（如果存在滚动条）。<br><br>Element.offsetWidth属性表示元素的 CSS 水平宽度（单位像素），其他都与Element.offsetHeight一致。<br><br>这两个属性都是只读属性，只比Element.clientHeight和Element.clientWidth多了边框的高度或宽度。<br></font>
+
+<p><strong>128.</strong></p>
+<p><code>Element.offsetLeft，Element.offsetTop</code><br>Element.offsetLeft返回当前元素左上角相对于Element.offsetParent节点的水平位移，Element.offsetTop返回垂直位移，单位为像素。通常，这两个值是指相对于父节点的位移。</p>
+<p>下面的代码可以算出元素左上角相对于整张网页的坐标。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function getElementPosition(e) &#123;</span><br><span class="line">  var x = 0;</span><br><span class="line">  var y = 0;</span><br><span class="line">  while (e !== null)  &#123;</span><br><span class="line">    x += e.offsetLeft;</span><br><span class="line">    y += e.offsetTop;</span><br><span class="line">    e = e.offsetParent;</span><br><span class="line">  &#125;</span><br><span class="line">  return &#123;x: x, y: y&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>129.</strong> <code>Element.scrollIntoView()</code></p>
+<p>Element.scrollIntoView方法<code>滚动当前元素，进入浏览器的可见区域</code>，类似于设置window.location.hash的效果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">el.scrollIntoView(); // 等同于el.scrollIntoView(true)</span><br><span class="line">el.scrollIntoView(false);</span><br></pre></td></tr></table></figure></p>
+<p>该方法可以接受一个布尔值作为参数。如果为true，表示元素的顶部与当前区域的可见部分的顶部对齐（前提是当前区域可滚动）；如果为false，表示元素的底部与当前区域的可见部分的尾部对齐（前提是当前区域可滚动）。如果没有提供该参数，默认为true。</p>
+<p><strong>130.</strong> <code>Element.getBoundingClientRect</code>方法返回一个对象，提供当前元素节点的大小、位置等信息，基本上就是 CSS 盒状模型的所有信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var rect = obj.getBoundingClientRect();</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，getBoundingClientRect方法返回的rect对象，具有以下属性（全部为只读）。</p>
+<p><code>x</code>：元素左上角相对于视口的横坐标</p>
+<p><code>y</code>：元素左上角相对于视口的纵坐标</p>
+<p><code>height</code>：元素高度</p>
+<p><code>width</code>：元素宽度</p>
+<p><code>left</code>：元素左上角相对于视口的横坐标，与x属性相等</p>
+<p><code>right</code>：元素右边界相对于视口的横坐标（等于x + width）</p>
+<p><code>top</code>：元素顶部相对于视口的纵坐标，与y属性相等</p>
+<p><code>bottom</code>：元素底部相对于视口的纵坐标（等于y + height）</p>
+<p>由于元素相对于视口（viewport）的位置，会随着页面滚动变化，因此表示位置的四个属性值，都不是固定不变的。如果想得到绝对位置，可以将left属性加上window.scrollX，top属性加上window.scrollY。dd</p>
+<p>注意，getBoundingClientRect方法的所有属性，都把边框（border属性）算作元素的一部分。也就是说，都是从边框外缘的各个点来计算。因此，width和height包括了元素本身 + padding + border。</p>
+<p>另外，上面的这些属性，都是继承自原型的属性，Object.keys会返回一个空数组，这一点也需要注意。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var rect = document.body.getBoundingClientRect();</span><br><span class="line">Object.keys(rect) // []</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，rect对象没有自身属性，而Object.keys方法只返回对象自身的属性，所以返回了一个空数组。</p>
+<p><strong>131.</strong> <font color="orange"> <code>Element.focus()，Element.blur()</code></font></p>
+<p>Element.focus方法用于将当前页面的焦点，转移到指定元素上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&apos;my-span&apos;).focus();</span><br></pre></td></tr></table></figure></p>
+<p>该方法可以接受一个对象作为参数。参数对象的preventScroll属性是一个布尔值，指定是否将当前元素停留在原始位置，而不是滚动到可见区域。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function getFocus() &#123;</span><br><span class="line">  document.getElementById(&apos;btn&apos;).focus(&#123;preventScroll:false&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码会让btn元素获得焦点，并滚动到可见区域。</p>
+<p>最后，从document.activeElement属性可以得到当前获得焦点的元素。</p>
+<p>Element.blur方法用于将焦点从当前元素移除。</p>
+<p><strong>132.</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// HTML 代码为</span><br><span class="line">// &lt;button&gt;Hello World&lt;/button&gt;</span><br><span class="line">var b = document.querySelector(&apos;button&apos;);</span><br><span class="line">b.setAttribute(&apos;name&apos;, &apos;myButton&apos;);</span><br><span class="line">b.setAttribute(&apos;disabled&apos;, true);</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，button元素的name属性被设成myButton，disabled属性被设成true。</p>
+<p>这里有两个地方需要注意，首先，属性值总是字符串，其他类型的值会自动转成字符串，比如布尔值true就会变成字符串true；其次，上例的disable属性是一个布尔属性，对于&lt;button&gt;元素来说，这个属性不需要属性值，只要设置了就总是会生效，因此setAttribute方法里面可以将disabled属性设成任意值。</p>
+<p><strong>133.</strong></p>
+<p>操作 CSS 样式最简单的方法，就是使用网页元素节点的getAttribute方法、setAttribute方法和removeAttribute方法，直接读写或删除网页元素的style属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div.setAttribute(</span><br><span class="line">  &apos;style&apos;,</span><br><span class="line">  &apos;background-color:red;&apos; + &apos;border:1px solid black;&apos;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码相当于下面的 HTML 代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;background-color:red; border:1px solid black;&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>134.</strong> </p>
+<p>删除一个元素的所有行内样式，最简便的方法就是设置cssText为空字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">divStyle.cssText = &apos;&apos;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>135.</strong></p>
+<p>实例：<code>添加样式表</code></p>
+<p>网页添加样式表有两种方式。一种是添加一张内置样式表，即在文档中添加一个&lt;style&gt;节点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 写法一</span><br><span class="line">var style = document.createElement(&apos;style&apos;);</span><br><span class="line">style.setAttribute(&apos;media&apos;, &apos;screen&apos;);</span><br><span class="line">style.innerHTML = &apos;body&#123;color:red&#125;&apos;;</span><br><span class="line">document.head.appendChild(style);</span><br><span class="line"></span><br><span class="line">// 写法二</span><br><span class="line">var style = (function () &#123;</span><br><span class="line">  var style = document.createElement(&apos;style&apos;);</span><br><span class="line">  document.head.appendChild(style);</span><br><span class="line">  return style;</span><br><span class="line">&#125;)();</span><br><span class="line">style.sheet.insertRule(&apos;.foo&#123;color:red;&#125;&apos;, 0);</span><br></pre></td></tr></table></figure></p>
+<p>另一种是添加外部样式表，即在文档中添加一个<link>节点，然后将href属性指向外部样式表的 URL。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var linkElm = document.createElement(&apos;link&apos;);</span><br><span class="line">linkElm.setAttribute(&apos;rel&apos;, &apos;stylesheet&apos;);</span><br><span class="line">linkElm.setAttribute(&apos;type&apos;, &apos;text/css&apos;);</span><br><span class="line">linkElm.setAttribute(&apos;href&apos;, &apos;reset-min.css&apos;);</span><br><span class="line"></span><br><span class="line">document.head.appendChild(linkElm);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+	
+	<div>
+		
+			<div>
+	
+		<div style="text-align: center; color: #eee; font-size: 14px;">
+		  -------------------本文阅读结束，你离大神又近了一步------------------------
+		</div>
+	
+</div>
+		
+	</div>
+	
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="zhBo 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="zhBo 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/02/javascript/mock数据使用总结/" rel="next" title="mock数据使用总结">
+                <i class="fa fa-chevron-left"></i> mock数据使用总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/06/javascript/笔记10：阅读（阮一峰）JavaScript 标准参考教程（alpha）/" rel="prev" title="笔记10：阅读（阮一峰）JavaScript 标准参考教程（alpha）">
+                笔记10：阅读（阮一峰）JavaScript 标准参考教程（alpha） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="zhBo">
+            
+              <p class="site-author-name" itemprop="name">zhBo</p>
+              <p class="site-description motion-element" itemprop="description">自律、沉淀...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">141</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhBoSir" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/zhbosir" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-book"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhBo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+<div class="powered-by">
+	<i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+	  本站访客数:<span id="busuanzi_value_site_uv"></span>
+	</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  <!--博客页面宠物-->
+  undefined
+  
+  <!--点击爆炸效果-->
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

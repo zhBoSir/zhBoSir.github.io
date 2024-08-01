@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <title>AppStroe卡片展开效果</title>
+
+    <style>
+        :root {
+            font-size: 15px;
+            font-family: Helvetica;
+
+            /* 定义变量 */
+            --body-width: 480px;
+            --card-width: 420px;
+            --card-height: 280px;
+            --img-height: 226px;
+            --img-height-expanded: 320px;
+
+            background-color: #333;
+        }
+        body {
+            width: var(--body-width);
+            background-color: #eee;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem 0;
+            /* 去除滚动条的样式 */
+            scrollbar-width: none;  /* firefox */
+            -ms-overflow-style: none;  /* ie10+ */
+        }
+        /* 去除webkit内核的滚动条样式 */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        /* 关键代码，防止卡片展开后，下面的内容穿帮漏出来，取消了滚动 */
+        body.noscroll {
+            overflow: hidden;
+        }
+        .card {
+            width: var(--card-width);
+            height: var(--card-height);
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 .2rem 2rem rgba(0,0,0,.1);
+            margin: 1rem 0;
+            /* 卡片展开与叠起的动画,采用贝塞尔曲线的动画运动方式 */
+            /* 达到好看效果的关键代码 */
+            transition: all .3s cubic-bezier(0,1,.95,1.05);
+        }
+        .card img {
+            display: block;
+            width: 100%;
+            height: var(--img-height);
+            object-fit: cover;
+            /* 因为父级是有圆角的，但是被图片挡住，所以这里把上面的两个圆角放出来 */
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+        .card h4 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: .8rem 1.2rem;
+            background-color: #fff;
+            line-height: 2rem;
+            letter-spacing: -.5px;
+            /* 因为父级是有圆角的，但是h4的背景挡住，所以这里把下面的两个圆角放出来 */
+            padding-bottom: 0;
+        }
+        .card .content-wrapper {
+            height: 0;
+            overflow: hidden;
+            transition: all .3s ease-out;
+            opacity: .8;
+        }
+        .card .content-wrapper .content {
+            padding: 0 1.2rem;
+            background-color: #fff;
+            /* 关键代码，配合下面js使用，让文字内容在固定高度区域可以滚动 */
+            overflow: auto;
+            /* 去除滚动条的样式 */
+            scrollbar-width: none;  /* firefox */
+            -ms-overflow-style: none;  /* ie10+ */
+        }
+        /* 去除webkit内核的滚动条样式 */
+        .card .content-wrapper .content::-webkit-scrollbar {
+            display: none;
+        }
+        .card p {
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+        }
+        /* active classes below */
+        .card.active {
+            /* 关键代码，这块图片展开的时候放大了 */
+            transform: translateY(var(--data-offset-top)) scale(calc(480/420));
+            transform-origin: 50% 0;
+            border-radius: 0;
+        }
+        .card.active h4 {
+            padding-bottom: .8rem;
+        }
+        .card.active img {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            /* 卡片打开的时候，图片的变高了 */
+            height: var(--img-height-expanded);
+        }
+        .card.active .content-wrapper {
+            height: 100vh;
+            transition: all .3s ease-out;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 用到的知识点： -->
+    <!-- 1.jquery等第三方库可以使用node安装一下，然后从node_modules中引用 -->
+    <!-- 2.css定义变量，可以参考自己的博客笔记 -->
+    <!-- 3.object-fit CSS 属性指定可替换元素的内容应该如何适应到其使用的高度和宽度确定的框，有【contain、cover、fill、none、scale-down】几个值。cover该对象将被剪裁以适应内容框。 -->
+
+    <div class="card">
+        <img src="images/timg3.jpg" alt="">
+        <h4>APP OF THE DAY</h4>
+        <div class="content-wrapper">
+            <div class="content">
+                <p>Powerful image processing, simple API</p>
+                <p>imgix transforms, optimizes, and intelligently caches your entire image library for fast websites and apps using simple and robust URL parameters.</p>
+                <p>Over 100 real-time image operations, plus client libraries and CMS plugins for easy integrations with your product.</p>
+                <p>Serve optimized images to every device quickly with a worldwide CDN optimized for visual content.</p>
+                <p>We don’t charge to create variations of your Master Images. You can be as creative with the service as possible.</p>
+                <p>Billions of images served daily</p>
+                <p>Internet businesses of all sizes use imgix's robust infrastructure to power fast, crisp visual experiences for their customers.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/times.jpg" alt="">
+        <h4>HAVE A NICE DAY</h4>
+        <div class="content-wrapper">
+            <div class="content">
+                <p>Powerful image processing, simple API</p>
+                <p>imgix transforms, optimizes, and intelligently caches your entire image library for fast websites and apps using simple and robust URL parameters.</p>
+                <p>Over 100 real-time image operations, plus client libraries and CMS plugins for easy integrations with your product.</p>
+                <p>Serve optimized images to every device quickly with a worldwide CDN optimized for visual content.</p>
+                <p>We don’t charge to create variations of your Master Images. You can be as creative with the service as possible.</p>
+                <p>Billions of images served daily</p>
+                <p>Internet businesses of all sizes use imgix's robust infrastructure to power fast, crisp visual experiences for their customers.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/timg.jpg" alt="">
+        <h4>IPAD PRO OF THE DAY</h4>
+        <div class="content-wrapper">
+            <div class="content">
+                <p>Powerful image processing, simple API</p>
+                <p>imgix transforms, optimizes, and intelligently caches your entire image library for fast websites and apps using simple and robust URL parameters.</p>
+                <p>Over 100 real-time image operations, plus client libraries and CMS plugins for easy integrations with your product.</p>
+                <p>Serve optimized images to every device quickly with a worldwide CDN optimized for visual content.</p>
+                <p>We don’t charge to create variations of your Master Images. You can be as creative with the service as possible.</p>
+                <p>Billions of images served daily</p>
+                <p>Internet businesses of all sizes use imgix's robust infrastructure to power fast, crisp visual experiences for their customers.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/timg2.jpg" alt="">
+        <h4>MOON IN THE DAY</h4>
+        <div class="content-wrapper">
+            <div class="content">
+                <p>Powerful image processing, simple API</p>
+                <p>imgix transforms, optimizes, and intelligently caches your entire image library for fast websites and apps using simple and robust URL parameters.</p>
+                <p>Over 100 real-time image operations, plus client libraries and CMS plugins for easy integrations with your product.</p>
+                <p>Serve optimized images to every device quickly with a worldwide CDN optimized for visual content.</p>
+                <p>We don’t charge to create variations of your Master Images. You can be as creative with the service as possible.</p>
+                <p>Billions of images served daily</p>
+                <p>Internet businesses of all sizes use imgix's robust infrastructure to power fast, crisp visual experiences for their customers.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/timg5.jpg" alt="">
+        <h4>APPLE OF SUN</h4>
+        <div class="content-wrapper">
+            <div class="content">
+                <p>Powerful image processing, simple API</p>
+                <p>imgix transforms, optimizes, and intelligently caches your entire image library for fast websites and apps using simple and robust URL parameters.</p>
+                <p>Over 100 real-time image operations, plus client libraries and CMS plugins for easy integrations with your product.</p>
+                <p>Serve optimized images to every device quickly with a worldwide CDN optimized for visual content.</p>
+                <p>We don’t charge to create variations of your Master Images. You can be as creative with the service as possible.</p>
+                <p>Billions of images served daily</p>
+                <p>Internet businesses of all sizes use imgix's robust infrastructure to power fast, crisp visual experiences for their customers.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $('.card').on('click', function(e) {
+            let card = $(e.currentTarget)
+            // 关键代码
+            // 这段代码是card向上translateY的值
+            let card_offset_scrolltop = $(card).offset().top - $(window).scrollTop()
+            // 关键代码
+            // 在card类中定义一个--data-offset-top变量
+            $(card).css('--data-offset-top', card_offset_scrolltop * -1 + 'px')
+
+            $(card).toggleClass('active')
+
+            if ($(card).hasClass('active')) {
+                $('body').addClass('noscroll')
+            } else {
+                $('body').removeClass('noscroll')
+            }
+
+            // 关键代码
+            // 文字内容的高度等于 window的高度 减去 图片的高度 减去 h4的高度
+            let ratio = 480/420  // 因为图片再展开的时候scale放大了
+            let myHeight = $(window).height()
+            myHeight -= $(card).find('img').outerHeight() * ratio
+            myHeight -= $(card).find('h4').outerHeight() * ratio
+            myHeight /= ratio
+            $(card).find('.content').css('height', myHeight)
+        })
+    </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>

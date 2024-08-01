@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})()
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面试,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.把一个字符串的英文字母大小写取反（大写变成小写，小写变成大写）  1234567891011121314151617let str = &quot;秦腔就像秦人，si不LiWO, hello&quot;str = str.replace(/[a-zA-Z]/g, content =&amp;gt; &amp;#123;  // content: 每一次正则匹配的结果  // 第一种解决思路：把字母转换为大写后，看是否和之前一样，">
+<meta name="keywords" content="面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题01">
+<meta property="og:url" content="https://github.com/zhBoSir/2019/06/26/javascript/面试题01/index.html">
+<meta property="og:site_name" content="【稻稻派】">
+<meta property="og:description" content="1.把一个字符串的英文字母大小写取反（大写变成小写，小写变成大写）  1234567891011121314151617let str = &quot;秦腔就像秦人，si不LiWO, hello&quot;str = str.replace(/[a-zA-Z]/g, content =&amp;gt; &amp;#123;  // content: 每一次正则匹配的结果  // 第一种解决思路：把字母转换为大写后，看是否和之前一样，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2024-07-23T14:51:05.464Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试题01">
+<meta name="twitter:description" content="1.把一个字符串的英文字母大小写取反（大写变成小写，小写变成大写）  1234567891011121314151617let str = &quot;秦腔就像秦人，si不LiWO, hello&quot;str = str.replace(/[a-zA-Z]/g, content =&amp;gt; &amp;#123;  // content: 每一次正则匹配的结果  // 第一种解决思路：把字母转换为大写后，看是否和之前一样，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/zhBoSir/2019/06/26/javascript/面试题01/">
+
+
+
+
+
+  <title>面试题01 | 【稻稻派】</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5b93ebb0fd146cd06067eddf81273ea7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<!--右上角GitHub-->
+	<a href="https://github.com/zhBoSir" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<!--右上角GitHub-->
+	
+	
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">【稻稻派】</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-报表">
+          <a href="/my/echarts/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>
+            
+            报表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成果">
+          <a href="/my/achievement/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br>
+            
+            成果
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zhBoSir/2019/06/26/javascript/面试题01/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhBo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="【稻稻派】">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面试题01</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-26T17:00:00+08:00">
+                2019-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <font color="skyblue"><b>1.把一个字符串的英文字母大小写取反（大写变成小写，小写变成大写）</b></font>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">"秦腔就像秦人，si不LiWO, hello"</span></span><br><span class="line"></span><br><span class="line">str = str.replace(<span class="regexp">/[a-zA-Z]/g</span>, content =&gt; &#123;</span><br><span class="line">  <span class="comment">// content: 每一次正则匹配的结果</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 第一种解决思路：把字母转换为大写后，看是否和之前一样，一样的话就是大写要转成小写，不一样的话就是小写要转成大写</span></span><br><span class="line">  <span class="keyword">return</span> content.toUpperCase() === content ? content.toLowerCase() : content.toUpperCase()</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 第二种解决思路： 利用ascll码表，大写字母的取值范围在（65~90）</span></span><br><span class="line">  <span class="comment">// if (content.charCodeAt() &gt;= 65 &amp;&amp; content.charCodeAt() &lt;= 90) &#123;</span></span><br><span class="line">  <span class="comment">//     return content.toLowerCase()</span></span><br><span class="line">  <span class="comment">// &#125; else &#123;</span></span><br><span class="line">  <span class="comment">//     return content.toUpperCase()</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(str) ==&gt;秦腔就像秦人，SI不lIwo, HELLO</span><br></pre></td></tr></table></figure>
+<p><code>解析：</code></p>
+<p>replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</p>
+<p>语法：stringObject.replace(regexp/substr,replacement)</p>
+<p>regexp/substr 必需。规定子字符串或要替换的模式的 RegExp 对象。</p>
+<p>replacement  必需。一个字符串值。规定了替换文本或生成替换文本的函数。</p>
+<p>如果 regexp 具有全局标志 g，那么 replace() 方法将替换所有匹配的子串。否则，它只替换第一个匹配子串。</p>
+<font color="skyblue"><b>2.求输出的打印结果</b></font>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Foo是构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Foo的私有方法</span></span><br><span class="line">  Foo.a = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// this指new的实例</span></span><br><span class="line">  <span class="keyword">this</span>.a = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 把Foo当做类，在原型上设置实例公有的属性方法，这个a方法只有实例才能调用</span></span><br><span class="line">Foo.prototype.a = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 把Foo当做普通对象设置私有的属性方法，这个a方法只有Foo能调用</span></span><br><span class="line">Foo.a = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">4</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面的输出是：</span></span><br><span class="line">Foo.a()</span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> Foo()  <span class="comment">// new实例的时候，也会执行构造函数里的代码，这时把普通对象Foo的a方法变成了输出console.log(1)的构造函数里这个方法</span></span><br><span class="line">obj.a()  <span class="comment">// 一个实例公有和私有上有同名的方法，会优先执行私有上的方法</span></span><br><span class="line">Foo.a()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 最后输出的结果：  </span></span><br><span class="line">==&gt;  <span class="number">4</span></span><br><span class="line">==&gt;  <span class="number">2</span></span><br><span class="line">==&gt;  <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<font color="skyblue">3.求输出的打印结果</font>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var b = 10;</span><br><span class="line"></span><br><span class="line">(function b() &#123;</span><br><span class="line">  b = 20</span><br><span class="line">  console.log(b)  // 输出函数</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line">console.log(b)  // 10</span><br></pre></td></tr></table></figure>
+<font color="skyblue"><b>4.将数组var a=[1, 2, 3]变成数组[4, 3, 2, 1]下面的方式正确的是？</b></font>
+
+<p>A. a.reverse().unshift(4)</p>
+<p>B. a.push(4).reverse()</p>
+<p>C. a.push(4); a.reverse()</p>
+<p>D. a.splice(3, 1, 4).reverse()</p>
+<p>正确答案：A和C</p>
+<font color="gold">解析：</font>
+
+<p>B选项因为a.push(4)返回的是数组的长度（即是4），4.reverse()当然不正确。</p>
+<p>相关知识点：</p>
+<p><code>1.</code>push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。</p>
+<p><code>2.</code>pop() 方法用于删除并返回数组的最后一个元素。</p>
+<p><code>3.</code>push() 方法和 pop() 方法使用数组提供的先进后出栈的功能。</p>
+<hr>
+
+<p>D选项的解析a.splice(3, 1, 4)返回的是删除元素组成的数组，因为删除元素是空，所以返回一个空数组，所以[].reverse()也不对。</p>
+<p>相关知识点：</p>
+<p><code>1.</code>splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。</p>
+<p><code>2.</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">arrayObject.splice(index,howmany,item1,.....,itemX)</span><br><span class="line"></span><br><span class="line"><span class="comment">// index	必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//howmany	必需。要删除的项目数量。如果设置为 0，则不会删除项目。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//item1, ..., itemX	可选。向数组添加的新项目。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//返回值</span></span><br><span class="line"><span class="comment">//Array	包含被删除项目的新数组，如果有的话。</span></span><br></pre></td></tr></table></figure>
+<p>splice() 方法可删除从 index 处开始的零个或多个元素，并且用参数列表中声明的一个或多个值来替换那些被删除的元素。<br>如果从 arrayObject 中删除了元素，则返回的是含有被删除的元素的数组。</p>
+<font color="skyblue"><b>5.请问下面哪种方式可以在不改变原来数组的情况下，拷贝出新数组b,且满足b!=a，a数组为[1,2,3]</b></font>
+
+<p><code>A.</code> let b=a;</p>
+<p><code>B.</code> let b=a.slice();</p>
+<p><code>C.</code> let b=a.splice(0,0);</p>
+<p><code>D.</code> let b=a.concat();</p>
+<p>答案： B 和 D</p>
+<font color="gold">解析：</font>
+
+<p>A选项让b=a，b和a指向同一引用地址，所以不符合b!=a</p>
+<p>B选项 slice(begin, [end]) 方法<code>返回一个新的数组对象</code>，这一对象是一个由 begin 和 end 决定的原数组的浅拷贝（包括 begin，不包括end）。<code>原始数组不会被改变。</code></p>
+<p>begin 可选 提取起始处的索引（从 0 开始），从该索引开始提取原数组元素。</p>
+<p>end 可选 提取终止处的索引（从 0 开始），在该索引处结束提取原数组元素。</p>
+<p>所以B选项是正确的。</p>
+<p>C选项从0索引开始删除，删除0个，返回的是删除元素，没有删除的元素是空的，所以不符合。</p>
+<p>D选项 concat() 方法用于合并两个或多个数组。<code>此方法不会更改现有数组，而是返回一个新数组。</code></p>
+<p>a.concat()与空合并返回新数组仍是[1,2,3],所以D也正确。</p>
+<font color="skyblue"><b>6.以下代码，分别给节点#box增加如下样式，问节点#box距离body的上边距是多少？</b></font>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"margin:0;padding:0;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span> <span class="attr">style</span>=<span class="string">"top:10px;margin:20px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>A.如果设置position: static;则上边距为?px</p>
+<p>B.如果设置position: relative;则上边距为?px</p>
+<p>C.如果设置position: absolute;则上边距为?px</p>
+<p>D.如果设置position: sticky;则上边距为?px</p>
+<font color="gold">解析：</font>
+
+<p><code>static</code>    默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。   A选项忽略了top，属于正常流，所以上边距是20px</p>
+<p><code>relative</code>    生成相对定位的元素，相对于其正常位置进行定位。   B选项有margin的20px + 相对自己top的10px，所以是30px</p>
+<p><code>absolute</code>    生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。   C选项有margin的20px + 相对父亲body的top的10px，所以是30px</p>
+<p><code>fixed</code>生成固定定位的元素，相对于浏览器窗口进行定位。</p>
+<p><code>sticky粘性定位</code></p>
+<font color="greenyellow">粘性定位可以被认为是相对定位和固定定位的混合。元素在跨越特定阈值前为相对定位，之后为固定定位。例如：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#one</span> &#123; <span class="attribute">position</span>: sticky; <span class="attribute">top</span>: <span class="number">10px</span>; &#125;</span><br></pre></td></tr></table></figure><br><br>在 viewport 视口滚动到元素 top 距离小于 10px 之前，元素为相对定位。之后，元素将固定在与顶部距离 10px 的位置，直到 viewport 视口回滚到阈值以下。<br><br>粘性定位常用于定位字母列表的头部元素。标示 B 部分开始的头部元素在滚动 A 部分时，始终处于 A 的下方。而在开始滚动 B 部分时，B 的头部会固定在屏幕顶部，直到所有 B 的项均完成滚动后，才被 C 的头部替代。<br><br>须指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。</font>  D选项到top距离容器10px的位置就固定了，所以上边距是10px<br><br><font color="skyblue"><b>7.实现动态加载一个JavaScript资源，但是有几处需要补充处理下。</b></font>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> head = <span class="built_in">document</span>.getElementByTagName(<span class="string">'head'</span>)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">script.type=<span class="string">'text/javascript'</span></span><br><span class="line"></span><br><span class="line">script.src=<span class="string">'vue.js'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定资源加载成功事件</span></span><br><span class="line">script<span class="number">.1</span> = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定资源加载失败事件</span></span><br><span class="line">script<span class="number">.2</span> = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">head.insertBefore(script,head.firstChild)</span><br></pre></td></tr></table></figure>
+<font color="gold">解析：</font>
+
+<p>insertBefore(newItem,existingItem)方法可在已有的子节点前插入一个新的子节点。</p>
+<p>1处应该填onLoad,2处应该填onError</p>
+<font color="skyblue"><b>8.实现一个parse方法，作用如下：</b></font>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  b: &#123; <span class="attr">c</span>: <span class="number">4</span>&#125;,</span><br><span class="line">  d: [&#123;<span class="attr">e</span>: <span class="number">5</span>&#125;, &#123;<span class="attr">e</span>: <span class="number">6</span>&#125;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(parse(object,<span class="string">'b.c'</span>) == <span class="number">4</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(parse(object,<span class="string">'d[0].e'</span>) == <span class="number">5</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(parse(object,<span class="string">'d.0.e'</span>) == <span class="number">5</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(parse(object,<span class="string">'d[1].e'</span>) == <span class="number">6</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(parse(object,<span class="string">'d.1.e'</span>) == <span class="number">6</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(parse(object,<span class="string">'f'</span>) == <span class="string">'undefined'</span>)  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<font color="gold">实现的方法：</font><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parse</span> (<span class="params">obj, path</span>) </span>&#123;</span><br><span class="line">   path = path.replace(<span class="string">'['</span>, <span class="string">'.'</span>).replace(<span class="string">']'</span>, <span class="string">''</span>)</span><br><span class="line">   <span class="keyword">var</span> res = <span class="string">'undefined'</span></span><br><span class="line">   <span class="comment">// 深拷贝</span></span><br><span class="line">   <span class="keyword">var</span> temp = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj))</span><br><span class="line">   path.split(<span class="string">'.'</span>).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">     temp = temp[key]</span><br><span class="line">   &#125;)</span><br><span class="line">   <span class="keyword">return</span> temp || res</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure><br><br>&gt; <font color="skyblue"><b>数组reduce的示例：</b></font><br>- 计算数组中每个元素出现的次数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> names = [<span class="string">'Alice'</span>, <span class="string">'Bob'</span>, <span class="string">'Tiff'</span>, <span class="string">'Bruce'</span>, <span class="string">'Alice'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> countedNames = names.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">allNames, name</span>) </span>&#123; </span><br><span class="line">  <span class="keyword">if</span> (name <span class="keyword">in</span> allNames) &#123;</span><br><span class="line">    allNames[name]++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    allNames[name] = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> allNames;</span><br><span class="line">&#125;, &#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// countedNames is:</span></span><br><span class="line"><span class="comment">// &#123; 'Alice': 2, 'Bob': 1, 'Tiff': 1, 'Bruce': 1 &#125;</span></span><br></pre></td></tr></table></figure><br><br>- 按属性对object分类<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> people = [</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'Alice'</span>, <span class="attr">age</span>: <span class="number">21</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'Max'</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'Jane'</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">groupBy</span>(<span class="params">objectArray, property</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> objectArray.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">acc, obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> key = obj[property];</span><br><span class="line">    <span class="keyword">if</span> (!acc[key]) &#123;</span><br><span class="line">      acc[key] = [];</span><br><span class="line">    &#125;</span><br><span class="line">    acc[key].push(obj);</span><br><span class="line">    <span class="keyword">return</span> acc;</span><br><span class="line">  &#125;, &#123;&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> groupedPeople = groupBy(people, <span class="string">'age'</span>);</span><br><span class="line"><span class="comment">// groupedPeople is:</span></span><br><span class="line"><span class="comment">// &#123; </span></span><br><span class="line"><span class="comment">//   20: [</span></span><br><span class="line"><span class="comment">//     &#123; name: 'Max', age: 20 &#125;, </span></span><br><span class="line"><span class="comment">//     &#123; name: 'Jane', age: 20 &#125;</span></span><br><span class="line"><span class="comment">//   ], </span></span><br><span class="line"><span class="comment">//   21: [&#123; name: 'Alice', age: 21 &#125;] </span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure><br><br>- 数组去重<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// sort()的用法需要注意：</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">7</span>,<span class="number">777</span>,<span class="number">1111</span>,<span class="number">9</span>].sort()</span><br><span class="line">返回的是 [<span class="number">1</span>,<span class="number">11</span>,<span class="number">1111</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">777</span>,<span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> result = arr.sort().reduce(<span class="function">(<span class="params">init, current</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(init.length === <span class="number">0</span> || init[init.length<span class="number">-1</span>] !== current) &#123;</span><br><span class="line">        init.push(current);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> init;</span><br><span class="line">&#125;, []);</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">//[1,2,3,4,5]</span></span><br></pre></td></tr></table></figure><br><br>参考来源：<br><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="noopener">Array.prototype.reduce()</a><br><br><br><font color="skyblue"><b>9.箭头函数与普通函数的区别</b></font>
+
+<p>普通函数可以有匿名函数，也可以有具体名函数，但是箭头函数都是匿名函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 具名函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// code</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 匿名函数</span></span><br><span class="line"><span class="keyword">let</span> func=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数全都是匿名函数</span></span><br><span class="line"><span class="keyword">let</span> func=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>箭头函数不能用于构造函数，不能使用new<br>普通函数可以用于构造函数，以此创建对象实例。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.name=name;</span><br><span class="line">   <span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> admin=<span class="keyword">new</span> Person(<span class="string">"恩诺小弦"</span>,<span class="number">18</span>);</span><br><span class="line"><span class="built_in">console</span>.log(admin.name);</span><br><span class="line"><span class="built_in">console</span>.log(admin.age);</span><br></pre></td></tr></table></figure></p>
+<p>箭头函数中this的指向不同</p>
+<p>在普通函数中，this总是指向调用它的对象，如果用作构造函数，this指向创建的对象实例。</p>
+<p>箭头函数本身不创建this，但是它在声明时可以捕获其所在上下文的this供自己使用。</p>
+<p>箭头函数的 this 永远指向其上下文的 this。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"恩诺1"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">wrap</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name=<span class="string">"恩诺2"</span>;</span><br><span class="line">  <span class="keyword">let</span> func=<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);  <span class="comment">// 恩诺2</span></span><br><span class="line">  &#125;</span><br><span class="line">  func();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> en=<span class="keyword">new</span> wrap();</span><br></pre></td></tr></table></figure>
+<p>箭头函数不绑定arguments，取而代之用rest参数…解决</p>
+<p>每一个普通函数调用后都具有一个arguments对象，用来存储实际传递的参数。但是箭头函数并没有此对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line">A(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">8</span>);  <span class="comment">//  [1, 2, 3, 4, 5, 8, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> B = <span class="function">(<span class="params">b</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line">B(<span class="number">2</span>,<span class="number">92</span>,<span class="number">32</span>,<span class="number">32</span>);   <span class="comment">// Uncaught ReferenceError: arguments is not defined</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> C = <span class="function">(<span class="params">...c</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(c);</span><br><span class="line">&#125;</span><br><span class="line">C(<span class="number">3</span>,<span class="number">82</span>,<span class="number">32</span>,<span class="number">11323</span>);  <span class="comment">// [3, 82, 32, 11323]</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+	
+	<div>
+		
+			<div>
+	
+		<div style="text-align: center; color: #eee; font-size: 14px;">
+		  -------------------本文阅读结束，你离大神又近了一步------------------------
+		</div>
+	
+</div>
+		
+	</div>
+	
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="zhBo 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="zhBo 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/24/javascript/笔记8：阅读（阮一峰）JavaScript 标准参考教程（alpha）/" rel="next" title="笔记8：阅读（阮一峰）JavaScript 标准参考教程（alpha）">
+                <i class="fa fa-chevron-left"></i> 笔记8：阅读（阮一峰）JavaScript 标准参考教程（alpha）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/26/css/z-index的重新认识/" rel="prev" title="z-index的重新认识">
+                z-index的重新认识 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="zhBo">
+            
+              <p class="site-author-name" itemprop="name">zhBo</p>
+              <p class="site-description motion-element" itemprop="description">自律、沉淀...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">141</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhBoSir" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/zhbosir" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-book"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhBo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+<div class="powered-by">
+	<i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+	  本站访客数:<span id="busuanzi_value_site_uv"></span>
+	</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  <!--博客页面宠物-->
+  undefined
+  
+  <!--点击爆炸效果-->
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

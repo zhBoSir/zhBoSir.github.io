@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head><meta name="generator" content="Hexo 3.8.0">
+		<meta charset="utf-8">
+		<title>图片懒加载（多张）</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.container {
+				margin: 10px auto;
+			}
+			p {
+				font-size: 20px;
+				color: gold;
+				text-align: center;
+			}
+			.imgBox {
+				margin: 10px auto;
+				width: 600px;
+				height: 300px;
+				background: url(images/frameH.png) no-repeat center center;
+			}
+			.imgBox .img {
+				display: none;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<p>往下滚动鼠标试试效果</p>
+		<div class="container"></div>
+	<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+	<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		// 知识点：
+		// 1.es6中的fill()方法
+		// fill() 方法用于将一个固定值替换数组的元素。
+		// array.fill(value, start, end)
+		// （value	必需。填充的值。）（start	可选。开始填充位置。）（end	可选。停止填充位置 (默认为 array.length)）
+		// ========================================================
+
+		// 2.new Array()
+		// new Array(size);
+		// new Array(element0, element1, ..., elementn);
+		// 参数 size 是期望的数组元素个数。返回的数组，length 字段将被设为 size 的值。
+		// 参数 element ..., elementn 是参数列表。当使用这些参数来调用构造函数 Array() 时，新创建的数组的元素就会被初始化为这些值。它的 length 字段也会被设置为参数的个数。
+		// 如果调用构造函数 Array() 时没有使用参数，那么返回的数组为空，length 字段为 0。
+    // 当调用构造函数时只传递给它一个数字参数，该构造函数将返回具有指定个数、元素为 undefined 的数组。
+		// new Array(20).fill(null)创建一个每一项有null,length为20的数组。
+		// ===========================================================
+
+		// 3.
+		// Array.from(arrayLike[, mapFn[, thisArg]])
+		// arrayLike
+		// 想要转换成数组的伪数组对象或可迭代对象。
+		// mapFn 可选
+		// 如果指定了该参数，新数组中的每个元素会执行该回调函数。
+		// thisArg 可选
+		// 可选参数，执行回调函数 mapFn 时 this 对象。
+		//【返回值】
+		// 一个新的数组实例。
+
+		// 例1：
+		// 数组去重合并
+		// function combine(){
+		//     let arr = [].concat.apply([], arguments);  //没有去重复的新数组
+		//     return Array.from(new Set(arr));
+		// }
+
+		// var m = [1, 2, 2], n = [2,3,3];
+		// console.log(combine(m,n));                     // [1, 2, 3]
+
+		// 例2：
+		// Array.from('foo');
+		// [ "f", "o", "o" ]
+
+		let $container = $('.container'),
+				$window = $(window)
+		let str = ''
+		new Array(20).fill(null).forEach(item => {
+			str+=`<div class="imgBox">
+				<img class="img" src="" alt="" data-img="images/lianmeng.jpg">
+			</div>`
+		})
+		$container.html(str)
+
+		let $imgBoxs = $container.children('.imgBox')
+		$window.on('load scroll', function() {
+			let $windowDistance = $window.outerHeight() + $window.scrollTop()
+			$imgBoxs.each((index, item) => {
+				$item = $(item)
+				let $imgDistance = $item.outerHeight() + $item.offset().top
+				let isLoad = $item.attr('isLoad')
+				if ($imgDistance <= $windowDistance && isLoad !== 'true') {
+					$item.attr('isLoad', true)
+					let $img = $item.children('img')
+					$img.attr('src', $img.attr('data-img'))
+					$img.on('load', function() {
+						$img.stop().fadeIn()
+					})
+				}
+			})
+		})
+	</script>
+</html>

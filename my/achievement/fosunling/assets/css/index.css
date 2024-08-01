@@ -1,0 +1,175 @@
+/*index-banner*/
+.index-banner,.index-banner .bd li,.index-banner .bd li a{height:358px;}
+.index-banner{position:relative;}
+/*公告*/
+.index-notice{height:50px}
+.index-notice-wrap{height: 50px;display:inline-block;}
+.index-notice-wrap .nl{width: 69px;height:50px;padding: 15px 0 0 3px;}
+.index-notice-wrap .nl i{position: relative;top:0px;}
+.index-notice-wrap .nr{height:30px;line-height:30px;overflow:hidden;position: relative;top:11px;}
+.index-notice-wrap .nr ul li a{color:black}
+.index-notice-wrap .nr ul li a:hover{color:red;text-decoration:underline;}
+.index-notice-wrap .nr ul li.fontColor a{color:black}
+.index-notice-wrap .nr ul li.fontColor a:hover{color:red;text-decoration:underline;}
+.index-notice-wrap .line{text-align:left;width:100%;}
+
+/*签到、新手标、创富人生计划、体验金*/
+.index-newpeople-area{
+	position: relative;
+    overflow: hidden;
+}
+.index-newpeople-area .index-npaw-qiandao{
+	width:284px;height:403px;background:url(../images/index/everyday_bg.png) no-repeat center center;
+	border:1px solid #e94747;
+	text-align: center;
+	padding-top: 10px;
+	}
+.index-newpeople-area .index-npaw-qiandao p{
+	margin-top: 15px;
+	color: white;
+}
+.index-newpeople-area .index-npaw-qiandao a{
+	width:120px;height:42px;line-height:42px;border: 1px solid white;margin: 0 auto;
+	background-color:transparent;
+}
+.index-newpeople-area .index-npaw-right{
+	margin-left: 10px;
+	position: relative;
+	width: 883px;
+	height: 415px;
+}
+.index-npaw-right .index-npawr-up{
+	height: 200px;
+}
+.index-npawr-up img{
+	padding-top:17px;
+}
+.index-npawr-up .index-up-newhand{
+	background: white;
+	width: 454px;
+	height: 200px;
+	float: left;
+	border:1px solid #d9d6d6;
+}
+.index-npawr-up .index-up-newhand div{
+	width: 180px;
+	float: left;
+}
+.index-npawr-up .index-up-newhand div.newhand{
+	padding: 30px 0px 0px 70px;
+}
+
+.index-npawr-up .index-up-life{
+	background: white;
+	width: 415px;
+	float: left;
+	margin-left: 10px;
+	border:1px solid #d9d6d6;
+	height: 200px;
+}
+.index-npawr-up .index-up-life div{
+	width: 180px;
+	float: left;
+}
+.index-npawr-up .index-up-life div.life{
+	padding: 70px 0px 0px 40px;
+}
+
+
+.index-npaw-right .index-npawr-down{
+	background: white;
+	margin-top: 10px;
+	height:201px;
+	border:1px solid #d9d6d6;
+}
+.index-npaw-right .index-npawr-down div{
+	width: 250px;
+	float: left;
+}
+.index-npaw-right .index-npawr-down img{
+	padding: 40px 0px 0px 0px;
+	margin-left: 15px;
+}
+.index-npaw-right .index-npawr-down div.tiyan{
+	width: 300px;
+	padding: 70px 0px 0px 40px;
+}
+.index-npaw-right .index-npawr-down div.tiyan-btn{
+	padding-top:80px;
+	padding-left: 40px;
+}
+
+
+/*星理财、星福利、星尊享的标题公共样式*/
+.module-title,.module-title span{font-weight: normal;}
+.module-title .red-vline {margin-top: -6px;}	
+.module-title .gray-vline{margin: 0 2px;}
+.index-title-box a{padding-top:5px;}
+.index-title-box a:hover{text-decoration:underline;}
+/*星福利*/
+.index-welfare .index-welfare-product .index-wp-item{
+	width:388px;height:251px;position:relative;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;}
+.index-welfare:hover .index-welfare-product:hover .index-wp-item:hover{
+	transform:scale(.98);
+	-webkit-transform:scale(.98)}
+.index-baizhuan{background:url(../images/index/index_welfare_01.png) no-repeat center center;}
+.index-leling{background:url(../images/index/index_welfare_02.png) no-repeat center center;}
+.index-jiaren{background:url(../images/index/index_welfare_03.png) no-repeat center center;}
+.index-wp-item .index-wp-item-txt{position:absolute;left:20px;bottom:20px;}
+.index-wp-item-txt:hover{text-decoration: underline;}
+.index-wp-item .index-wp-item-mark{width:65px;height:48px;background:url(../images/index/welfare_mark.png) no-repeat center center;text-align:center;padding-top:10px;position:absolute;right:10px;top:0;}
+/*星尊享*/
+.index-enjoy .index-enjoy-content{width:100%;height:247px;background:url(../images/index/01_06.png) no-repeat center center;}
+.index-enjoy .index-enjoy-content .index-ec-wrap{padding:60px 0 55px 90px;width:1090px;margin:0 auto;}
+.index-ec-wrap h2{font-size:42px;}
+.index-ec-wrap p{padding:20px 0 15px 0;}
+.index-ec-wrap .index-ec-btn{display:inline-block;border:2px solid #965c18;color:#965c18;text-align:center;line-height:46px;height:46px;width:194px;font-size:24px;}
+/*媒体*/
+.index-media{width:1124px;margin:0 auto;border:1px solid #d9d6d6;margin-top:44px;padding:24px 28px 45px;}
+.index-media .index-media-item{width:357px;} 
+.index-media-item .index-mi-title h3,.index-media-item .index-mi-title a{display:inline-block;}
+.index-media .index-media-item p{padding-bottom:10px;}
+.index-media .index-media-item p a{font-size:14px;color:#333;}
+.index-media-item a:hover{text-decoration:underline;}
+.index-media-item img{
+	transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+}
+.index-media-item img:hover{
+	transform:scale(.98);
+	-webkit-transform:scale(.98)
+}
+/*合作伙伴*/
+.index-partner{background-color:#fafafb;padding:40px 0 54px;}
+.index-partner .index-partner-wrap h2{text-align:center;padding-bottom:40px;}
+.index-partner .index-partner-wrap ul li{float:left;margin-right:10px;}
+.index-partner .index-partner-wrap ul .index-partner-specal-li{margin-right:0;}
+/*用户招募*/
+.index-search-user{width:100%;padding:70px 0 50px 0;text-align: center;background:url(../images/index/index_user_expe.png) no-repeat center center;min-width:1180px;}
+.index-search-user p{font-size:44px;}
+.index-search-user a{margin:50px auto 0;width:228px;height:54px;line-height:54px;color:#ef1719;font-size:24px;}
+
+
+/*添加阴影*/
+.index-npaw-qiandao:hover,.index-up-newhand:hover,.index-up-life:hover,.index-npawr-down:hover{
+	-webkit-box-shadow:0 0 10px rgba(192,192,192, .5);  
+  -moz-box-shadow:0 0 10px rgba(192,192,192, .5);  
+  box-shadow:0 0 10px rgba(192,192,192, .5); 
+  cursor:pointer;
+}
+.index-up-newhand img,.index-up-life img,.index-npawr-down img{
+  	-webkit-transition: all 0.4s linear;  
+-moz-transition: all 0.4s linear;  
+-ms-transition: all 0.4s linear;  
+-o-transition: all 0.4s linear;  
+transition: all 0.4s linear;  
+}
+.index-up-newhand:hover img,.index-up-life:hover img,.index-npawr-down:hover img{
+padding-left: 10px;  
+}

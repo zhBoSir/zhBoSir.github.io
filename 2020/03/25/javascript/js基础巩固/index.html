@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})()
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="this问题  es6的class类里constructor里面的this指向实例对象，方法里面的this指向这个方法的调用者。   对象创建 ES6是基于类class创建对象。 ES6之前是用一种称为构造函数的特殊函数来定义对象和他们的特征。  new在执行时做的四件事 1, 在内存中创建一个新的空对象； 2, 让this指向这个新的对象； 3, 执行构造函数里面的代码，给这个新对象添加属性和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js基础巩固">
+<meta property="og:url" content="https://github.com/zhBoSir/2020/03/25/javascript/js基础巩固/index.html">
+<meta property="og:site_name" content="【稻稻派】">
+<meta property="og:description" content="this问题  es6的class类里constructor里面的this指向实例对象，方法里面的this指向这个方法的调用者。   对象创建 ES6是基于类class创建对象。 ES6之前是用一种称为构造函数的特殊函数来定义对象和他们的特征。  new在执行时做的四件事 1, 在内存中创建一个新的空对象； 2, 让this指向这个新的对象； 3, 执行构造函数里面的代码，给这个新对象添加属性和">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2024-07-23T14:51:05.391Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js基础巩固">
+<meta name="twitter:description" content="this问题  es6的class类里constructor里面的this指向实例对象，方法里面的this指向这个方法的调用者。   对象创建 ES6是基于类class创建对象。 ES6之前是用一种称为构造函数的特殊函数来定义对象和他们的特征。  new在执行时做的四件事 1, 在内存中创建一个新的空对象； 2, 让this指向这个新的对象； 3, 执行构造函数里面的代码，给这个新对象添加属性和">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/zhBoSir/2020/03/25/javascript/js基础巩固/">
+
+
+
+
+
+  <title>js基础巩固 | 【稻稻派】</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5b93ebb0fd146cd06067eddf81273ea7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<!--右上角GitHub-->
+	<a href="https://github.com/zhBoSir" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<!--右上角GitHub-->
+	
+	
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">【稻稻派】</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-报表">
+          <a href="/my/echarts/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>
+            
+            报表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成果">
+          <a href="/my/achievement/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br>
+            
+            成果
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zhBoSir/2020/03/25/javascript/js基础巩固/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhBo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="【稻稻派】">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js基础巩固</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-25T23:27:18+08:00">
+                2020-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<h2 id="this问题"><a href="#this问题" class="headerlink" title="this问题"></a>this问题</h2></blockquote>
+<ul>
+<li>es6的<code>class类里constructor里面的this</code>指向实例对象，<code>方法里面的this</code>指向这个方法的调用者。</li>
+</ul>
+<blockquote>
+<h2 id="对象创建"><a href="#对象创建" class="headerlink" title="对象创建"></a>对象创建</h2></blockquote>
+<p>ES6是基于类class创建对象。</p>
+<p>ES6之前是用一种称为构造函数的特殊函数来定义对象和他们的特征。</p>
+<blockquote>
+<h2 id="new在执行时做的四件事"><a href="#new在执行时做的四件事" class="headerlink" title="new在执行时做的四件事"></a>new在执行时做的四件事</h2></blockquote>
+<p>1, 在内存中创建一个新的空对象；</p>
+<p>2, 让this指向这个新的对象；</p>
+<p>3, 执行构造函数里面的代码，给这个新对象添加属性和方法；</p>
+<p>4, 返回这个新对象（所以构造函数里面不需要return）</p>
+<blockquote>
+<h2 id="构造函数中的静态成员和实例成员"><a href="#构造函数中的静态成员和实例成员" class="headerlink" title="构造函数中的静态成员和实例成员"></a>构造函数中的静态成员和实例成员</h2></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Star</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.age = age</span><br><span class="line">  <span class="keyword">this</span>.sing = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我会唱歌'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">Star.sex = <span class="string">'男'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ldh = <span class="keyword">new</span> Star(<span class="string">'刘德华'</span>, <span class="number">18</span>)</span><br><span class="line">ldh.sing()</span><br></pre></td></tr></table></figure>
+<p>像上面的name、age、sing都是通过this添加的成员，这些就是<code>实例成员</code>，实例成员只能通过实例化的对象来访问。</p>
+<p>添加到构造函数上的成员就叫做<code>静态成员</code>，例如上面的sex。只能通过构造函数来访问。</p>
+<blockquote>
+<h2 id="new构造函数创建实例时，为什么公共的函数要放到prototype原型上？"><a href="#new构造函数创建实例时，为什么公共的函数要放到prototype原型上？" class="headerlink" title="new构造函数创建实例时，为什么公共的函数要放到prototype原型上？"></a>new构造函数创建实例时，为什么公共的函数要放到prototype原型上？</h2></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.age = age</span><br><span class="line">  <span class="comment">// this.sing = function () &#123;</span></span><br><span class="line">  <span class="comment">//   console.log('唱歌')</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.sing = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'唱歌'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ldh = <span class="keyword">new</span> Person(<span class="string">'刘德华'</span>, <span class="number">58</span>)</span><br><span class="line"><span class="keyword">let</span> lf = <span class="keyword">new</span> Person(<span class="string">'路飞'</span>, <span class="number">38</span>)</span><br></pre></td></tr></table></figure>
+<font color="skyblue">解析：</font>
+
+<p>每new一个实例的时候，里面的sing方法都会开辟一块内存，存在浪费内存问题。 所以把每个实例都要用的公共函数定义到prototype原型上就解决了这个问题，所有对象的实例就可以共享这些方法。</p>
+<ul>
+<li>JavaScript规定，每个构造函数都有一个<code>prototype</code>属性，指向一个对象，叫做原型对象。</li>
+<li><code>原型的作用是共享方法。</code></li>
+<li><code>每一个实例对象都会有一个属性<strong>proto</strong>指向构造函数的prototype原型对象。</code>之所以实例对象可以使用构造函数prototype原型对象的属性和方法，就是因为实例对象有<strong>proto</strong>原型的存在。</li>
+<li><code><strong>proto</strong>对象原型和原型对象prototype是等价的。</code><hr>
+
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldh.__proto__.constructor 与 Person.prototype.constructor  都指向Person这个构造函数</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Person.prototype.sing = function () &#123;</span></span><br><span class="line"><span class="comment">//   console.log('唱歌')</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">  <span class="comment">// 构造函数的原型对象是一个对象，之前是把sing方法挂载到这个对象上。下面是把原型对象重新赋值了一个对象，所以原型对象的constructor没有了，需要手动的利用constructor指回原来的构造函数。</span></span><br><span class="line">  <span class="keyword">constructor</span>: Person,</span><br><span class="line">  sing: function () &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'唱歌'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  movie: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'电影'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ldh = <span class="keyword">new</span> Person(<span class="string">'刘德华'</span>, <span class="number">58</span>)</span><br><span class="line"><span class="keyword">let</span> lf = <span class="keyword">new</span> Person(<span class="string">'路飞'</span>, <span class="number">38</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">还是上面的例子，ldh.__proto__指向的是Person构造函数的原型对象prototype，Person.prototype原型对象也有__proto__，指向<span class="built_in">Object</span>.prototype;<span class="built_in">Object</span>.prototype原型对象也有__proto__，指向<span class="literal">null</span>。</span><br></pre></td></tr></table></figure>
+<p><code>只要是对象都有一个<strong>proto</strong>原型。</code></p>
+<blockquote>
+<h2 id="ES6之前的继承"><a href="#ES6之前的继承" class="headerlink" title="ES6之前的继承"></a>ES6之前的<code>继承</code></h2></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line">Father.prototype.money = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'父亲有钱'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 通过构造函数和call实现属性继承</span></span><br><span class="line">  Father.call(<span class="keyword">this</span>, name, age)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 通过new一个父亲构造函数，并把Son原型对象里的constructor重新手动指回Son,因为Son.prototype = new Father()这一步改变了Son原型对象里的constructor</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过这两步实现方法的继承</span></span><br><span class="line">Son.prototype = <span class="keyword">new</span> Father()</span><br><span class="line">Son.prototype.contructor = Son</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> lf = <span class="keyword">new</span> Son(<span class="string">'路飞'</span>, <span class="number">18</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="ES6中class类"><a href="#ES6中class类" class="headerlink" title="ES6中class类"></a>ES6中class类</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Star</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> Star) <span class="comment">// ==&gt; function</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>类的本质其实还是一个函数，也可以简单的认为 类就是 构造函数的另外一种写法。</p>
+<p>ES6的类其实就是语法糖。</p>
+<blockquote>
+<h2 id="严格模式（use-strict）"><a href="#严格模式（use-strict）" class="headerlink" title="严格模式（use strict）"></a>严格模式（use strict）</h2></blockquote>
+<p><code>“use strict” 指令只允许出现在脚本或函数的开头。</code></p>
+<ul>
+<li><p>使用严格模式，未声明的变量使用会报错</p>
+</li>
+<li><p>函数要先声明了才能调用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line">myFunction();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    y = <span class="number">3.14</span>;   <span class="comment">// 报错 (y 未定义)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不允许删除变量或对象。不允许删除函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">delete</span> x;   <span class="comment">// 报错</span></span><br><span class="line"></span><br><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params">p1, p2</span>) </span>&#123;&#125;;</span><br><span class="line"><span class="keyword">delete</span> x;   <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不允许变量重名:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params">p1, p1</span>) </span>&#123;&#125;;   <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>禁止this关键字指向全局对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正常模式下，函数里的this指向window</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !<span class="keyword">this</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 返回false，因为"this"指向全局对象，"!this"就是false</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line"><span class="meta">    "use strict"</span>;</span><br><span class="line">    <span class="keyword">return</span> !<span class="keyword">this</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 返回true，因为严格模式下，this的值为undefined，所以"!this"为true。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保留关键字</p>
+</li>
+</ul>
+<font color="gold" size="4">为什么使用严格模式？</font>
+
+<ul>
+<li><p>消除Javascript语法的一些不合理、不严谨之处，保证代码运行的安全；</p>
+</li>
+<li><p>提高编译器效率，增加运行速度；</p>
+</li>
+<li><p>为未来新版本的Javascript做好铺垫。</p>
+</li>
+</ul>
+<blockquote>
+<h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2></blockquote>
+<p>高阶函数是对其他函数进行操作的函数，它接收函数作为参数或将函数作为返回值输出。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种情况：函数也是一种数据类型，同样可以作为参数，传递给另外一个函数使用，最典型的就是作为回调函数。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params">callback</span>) </span>&#123;</span><br><span class="line">  callback &amp;&amp; callback()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'1'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 第二种情况</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn()</span><br></pre></td></tr></table></figure></p>
+<p>里面的fn就是一个高阶函数</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+	
+	<div>
+		
+			<div>
+	
+		<div style="text-align: center; color: #eee; font-size: 14px;">
+		  -------------------本文阅读结束，你离大神又近了一步------------------------
+		</div>
+	
+</div>
+		
+	</div>
+	
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="zhBo 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="zhBo 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/22/javascript/判断类型/" rel="next" title="判断类型">
+                <i class="fa fa-chevron-left"></i> 判断类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/06/css/修改滚动条样式/" rel="prev" title="修改滚动条样式：">
+                修改滚动条样式： <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="zhBo">
+            
+              <p class="site-author-name" itemprop="name">zhBo</p>
+              <p class="site-description motion-element" itemprop="description">自律、沉淀...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">141</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhBoSir" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/zhbosir" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-book"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#this问题"><span class="nav-number">1.</span> <span class="nav-text">this问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象创建"><span class="nav-number">2.</span> <span class="nav-text">对象创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new在执行时做的四件事"><span class="nav-number">3.</span> <span class="nav-text">new在执行时做的四件事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数中的静态成员和实例成员"><span class="nav-number">4.</span> <span class="nav-text">构造函数中的静态成员和实例成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new构造函数创建实例时，为什么公共的函数要放到prototype原型上？"><span class="nav-number">5.</span> <span class="nav-text">new构造函数创建实例时，为什么公共的函数要放到prototype原型上？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-number">6.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6之前的继承"><span class="nav-number">7.</span> <span class="nav-text">ES6之前的继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6中class类"><span class="nav-number">8.</span> <span class="nav-text">ES6中class类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#严格模式（use-strict）"><span class="nav-number">9.</span> <span class="nav-text">严格模式（use strict）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高阶函数"><span class="nav-number">10.</span> <span class="nav-text">高阶函数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhBo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+<div class="powered-by">
+	<i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+	  本站访客数:<span id="busuanzi_value_site_uv"></span>
+	</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  <!--博客页面宠物-->
+  undefined
+  
+  <!--点击爆炸效果-->
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

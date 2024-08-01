@@ -1,0 +1,23 @@
+.tran-wrap{padding-top:42px;}
+.tran-wrap .tran-pd{padding:3px 10px;}
+.tran-wrap .tran-date-grounp {padding-bottom:30px;}
+.tran-wrap .tran-date-grounp label,.tran-condition label{padding-right:40px;}
+.tran-wrap .tran-date-grounp input{width:140px;height:34px;border:1px solid #d9d6d6;font-size:18px;}
+.tran-btn{width:94px;height:34px;text-align:center;line-height:34px;display:inline-block;}
+/*筛选条件*/
+.tran-condition ul li{float:left;padding-right:50px;}
+.tran-condition ul li a{color:#adabab;display:inline-block;width:60px;height:30px;text-align:center;line-height:30px;}
+.tran-condition .tran-li-active a{color:#fff;background-color:#ef1719;}
+/*表格*/
+.tran-table{padding-top:36px;}
+.tran-table table tr{color:#666;}
+.tran-table table .tran-table-title{background-color:#fdf4f4;color:#000}
+.tran-table table td{text-align:center;height:64px;line-height:64px;border:1px solid #efecec;}
+.tran-table table .tran-table-title td{height:36px;line-height:36px;}
+.tran-table table .tran-td-time{width:205px;}
+.tran-table table .tran-td-type{width:136px;}
+.tran-table table .tran-td-money{width:146px;}
+.tran-table table .tran-td-state{width:152px;}
+.tran-table table .tran-td-remark{width:218px;}
+/*分页*/
+.tran-page{padding-top:20px;}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人通</title>
+  <link href="js/plugins/fullPage/jquery.fullPage.css" type="text/css" rel="stylesheet">
+  <link href="js/plugins/layui/css/layui.css" type="text/css" rel="stylesheet">
+  <link href="css/reset.css" type="text/css" rel="stylesheet">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+
+  <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="js/jquery.fomoney.js" type="text/javascript"></script>
+  <script src="js/plugins/layui/layui.js" type="text/javascript"></script>
+  <script type="text/javascript">var domain  = '${serverIp}'; fomoney.apiUrl = '${serverIp}/api/v1'; </script>
+  <script src="js/fomoney.common.js" type="text/javascript"></script>
+  <style type="text/css">
+    .personal-index-body{background-color:#fff;}
+    .personal-index .container{padding:100px 0 135px 0;background:url(images/personal_index_bg02.png) no-repeat bottom center;position:relative;}
+    .personal-index .container .bg-line1{position:absolute;top:270px;left:-84px;z-index:-99;}
+    .personal-index .container .bg-line2{position:absolute;top:215px;right:0px;z-index:-99;}
+    .personal-index .container .need-load{margin-bottom:25px;}
+    .personal-index .container .tbx{width:402px;height:290px;background-color:#000000;opacity: 0.5;filter:alpha(opacity=50);}
+    .personal-index .container .txt-box{width:402px;height:290px;text-align:center;padding:60px 0 55px 0;color:#fff;position: relative;z-index: 2}
+    .personal-index .container .need-load .txt-box{top: 0;left: -402px;}
+    .personal-index .container .need-car .txt-box{top: 0;right: -402px}
+    .personal-index .container .txt-box h2{font-size:26px;}
+    .personal-index .container .txt-box p{font-size:16px;padding:5px 0 30px 0;}
+    .personal-index .container .txt-box .apply-btn{background-color:#a58b5c;width:224px;height:50px;line-height:50px;font-size:18px;color:#fff;}
+    .personal-index .container .I-need{position: relative;overflow:hidden;cursor:pointer;height:290px;}
+    .personal-index .container .need-load .shadow{background: url(images/personal_index01.png) no-repeat center;}
+    .personal-index .container .need-car .shadow{background: url(images/personal_index02.png) no-repeat center;}
+    .personal-index .container .shadow{width:1200px;height:290px;z-index:-10;background-size: cover;position: absolute;top: 0;bottom: 0;left: 0;right: 0;-webkit-transition:all 1s;-moz-transition:all 1s;-ms-transition:all 1s;-o-transition:all 1s;transition:all 1s;-webkit-transform:scale(1);-moz-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);transform:scale(1);transform-origin:50% 50%;-o-transform-origin:50% 50%;-ms-transform-origin:50% 50%;-moz-transform-origin:50% 50%;-webkit-transform-origin:50% 50%;}
+    .personal-index .container .I-need:hover .shadow{-webkit-transform:scale(1.03);-moz-transform:scale(1.03);-ms-transform:scale(1.03);-o-transform:scale(1.03);transform:scale(1.03);}
+  
+    /*动画*/
+    .need-load{-webkit-animation: bounceInLeft 1 1s ease-out;animation: bounceInLeft 1 1s ease-out;}
+    .need-car{-webkit-animation: bounceInRight 1 1s ease-out;animation: bounceInRight 1 1s ease-out;}
+    </style>
+</head>
+<body>
+   <!--头部-->
+<div class="header">
+	<div class="hd-box wc1200 clearfix">
+		<a class="hd-logo fl" href="index.html">
+			<img src="images/logo.svg" alt="" title="科技金融智造未来">
+		</a>
+		<ul class="nav fr clearfix">
+			<li><a href="index.html">首页</a></li>
+			<li class="active"><a href="personalIndex.html">个人通</a></li>
+			<li><a href="companyIndex.html">企业通</a></li>
+			<li><a href="enIndex.html">走进金服</a></li>
+			<li><a href="appDownload.html">APP下载</a></li>
+		</ul>
+	</div>
+</div>
+
+<!--主要内容块-->
+<div class="personal-index">
+  <div class="container wc1200">
+    <div class="bg-line1"><img src="images/personal_index_bg01.png" alt=""></div>
+    <div class="bg-line2"><img src="images/personal_index_bg01.png" alt=""></div>
+    <div class="need-load I-need clearfix">
+      <div class="fl tbx"></div>
+      <div class="txt-box fl">
+        <h2>我要贷款</h2>
+        <p>借款不求人，就这么简易！</p>
+        <a class="btn apply-btn" href="loanSunSalary.html">立即申请</a>
+      </div>
+      <div class="shadow"></div>
+    </div>
+    <div class="need-car I-need clearfix">
+      <div class="fr tbx"></div>
+      <div class="txt-box fr">
+        <h2>我要买车</h2>
+        <p>创富汽车金融，启动梦想里程！</p>
+        <a class="btn apply-btn" href="pcar.html">立即申请</a>
+      </div>
+      <div class="shadow"></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="footer text-center">
+  <div class="wc1200 content">
+    <ul class="clearfix">
+      <li><a href="https://www.fosun.com/" target="_blank">复星集团</a></li>
+        <li><a href="aboutUs.html">关于金服</a></li>
+        <li><a href="developmentHistory.html">里程碑</a></li>
+        <li><a href="cooperativePartner.html">合作伙伴</a></li>
+        <li><a href="joinUs.html">加入我们</a></li>
+        <li><a class="ft-last-li" href="contactUs.html">联系我们</a></li>
+      </ul>
+      <p class="mt20">版权所有©掌星宝(上海)网络科技有限公司 &nbsp;&nbsp;
+        <!-- |&nbsp;&nbsp;沪公网安备  31010102002363&nbsp; -->
+        |&nbsp;&nbsp;沪ICP备17043191号
+      </p>
+      <p>服务热线：400-700-8808</p>
+      <div class="weixin">
+        <div>
+          <span class="fuwu">微信服务号</span>
+            <span class="dingyue">微信订阅号</span>
+        </div>
+        <div><img src="images/weixin.png" alt="" height="84px"></div>
+      </div>
+  </div>
+  <!-- <div>
+    <img src="images/icon_sina.png" alt="新浪" />&nbsp;&nbsp;&nbsp;
+    <img src="images/icon_wechat.png" alt="微信" />
+  </div> -->
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    $(".need-load").click(function(){
+      window.location.href="loanSunSalary.html"
+    });
+    $(".need-car").click(function(){
+      window.location.href="pcar.html"
+    });
+  })
+</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

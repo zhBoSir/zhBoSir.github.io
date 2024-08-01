@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})()
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="S O L I D五大设计原则  S 单一职责原则（注：一个程序只做好一件事；如果功能过于复杂就拆分开，每个部分保持独立。）  O 开放封闭原则（注：对扩展开放，对修改封闭；增加需求时，扩展新代码，而非修改已有代码。 这是软件设计的终极目标。）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js设计模式">
+<meta property="og:url" content="https://github.com/zhBoSir/2020/06/02/javascript/js设计模式/index.html">
+<meta property="og:site_name" content="【稻稻派】">
+<meta property="og:description" content="S O L I D五大设计原则  S 单一职责原则（注：一个程序只做好一件事；如果功能过于复杂就拆分开，每个部分保持独立。）  O 开放封闭原则（注：对扩展开放，对修改封闭；增加需求时，扩展新代码，而非修改已有代码。 这是软件设计的终极目标。）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-02T05:42:12.006Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js设计模式">
+<meta name="twitter:description" content="S O L I D五大设计原则  S 单一职责原则（注：一个程序只做好一件事；如果功能过于复杂就拆分开，每个部分保持独立。）  O 开放封闭原则（注：对扩展开放，对修改封闭；增加需求时，扩展新代码，而非修改已有代码。 这是软件设计的终极目标。）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/zhBoSir/2020/06/02/javascript/js设计模式/">
+
+
+
+
+
+  <title>js设计模式 | 【稻稻派】</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5b93ebb0fd146cd06067eddf81273ea7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<!--右上角GitHub-->
+	<a href="https://github.com/zhBoSir" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<!--右上角GitHub-->
+	
+	
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">【稻稻派】</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-报表">
+          <a href="/my/echarts/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>
+            
+            报表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-成果">
+          <a href="/my/achievement/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br>
+            
+            成果
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zhBoSir/2020/06/02/javascript/js设计模式/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhBo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="【稻稻派】">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js设计模式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-02T14:20:02+08:00">
+                2020-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<h2 id="S-O-L-I-D五大设计原则"><a href="#S-O-L-I-D五大设计原则" class="headerlink" title="S O L I D五大设计原则"></a>S O L I D五大设计原则</h2></blockquote>
+<ul>
+<li><p>S <code>单一职责原则</code><br>（注：一个程序只做好一件事；如果功能过于复杂就拆分开，每个部分保持独立。）</p>
+</li>
+<li><p>O <code>开放封闭原则</code><br>（注：对扩展开放，对修改封闭；增加需求时，扩展新代码，而非修改已有代码。 这是软件设计的终极目标。）</p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>L <code>李氏置换原则</code><br>（注：子类能覆盖父类；父类能出现的地方子类就能出现；js中使用较少&lt;弱类型 &amp; 继承使用较少&gt;）</p>
+</li>
+<li><p>I <code>接口独立原则</code><br>（注：保持接口的单一独立，避免出现‘胖接口’； js中没有接口，使用较少）</p>
+</li>
+<li><p>D <code>依赖导致原则</code><br>（注：面向接口编程，依赖于抽象而不依赖于具体。js中使用较少&lt;弱类型 &amp; 没有接口&gt;）</p>
+</li>
+</ul>
+<blockquote>
+<h2 id="第一道题："><a href="#第一道题：" class="headerlink" title="第一道题："></a>第一道题：</h2></blockquote>
+<p>打车时，可以打专车或者快车。任何车都有车牌号和名称。</p>
+<p>不同车价格不同，快车每公里1元，专车每公里2元。</p>
+<p>行程开始时，显示车辆信息</p>
+<p>行程结束时，显示打车金额（假定行程是5公里）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 车类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (num, name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.num = num</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 快车类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Kuaiche</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (num, name, price) &#123;</span><br><span class="line">    <span class="keyword">super</span>(num, name)</span><br><span class="line">    <span class="keyword">this</span>.price = <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 专车类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Zhuanche</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (num, name, price) &#123;</span><br><span class="line">    <span class="keyword">super</span>(num, name)</span><br><span class="line">    <span class="keyword">this</span>.price = <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 行程</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trip</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (car) &#123;</span><br><span class="line">    <span class="keyword">this</span>.car = car</span><br><span class="line">  &#125;</span><br><span class="line">  start () &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`行程开始，名称：<span class="subst">$&#123; <span class="keyword">this</span>.car.name &#125;</span>, 车牌号：<span class="subst">$&#123; <span class="keyword">this</span>.car.num &#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  end () &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`行程结束，金额 <span class="subst">$&#123; <span class="keyword">this</span>.car.price * <span class="number">5</span> &#125;</span>元`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">let</span> car = <span class="keyword">new</span> Kuaiche(<span class="number">100</span>, <span class="string">'大众'</span>)</span><br><span class="line"><span class="keyword">let</span> trip = <span class="keyword">new</span> Trip(car)</span><br><span class="line">trip.start()</span><br><span class="line">trip.end()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="第二道题："><a href="#第二道题：" class="headerlink" title="第二道题："></a>第二道题：</h2></blockquote>
+<p>某停车场，分3层，每层100车位</p>
+<p>每个车位都能监控到车辆的驶入和离开</p>
+<p>车辆进入前，显示每层的空余车位数量</p>
+<p>车辆进入时，摄像头可识别车牌号和时间</p>
+<p>车辆出来时，出口显示器显示车牌号和停车时长</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 停车场</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Park</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(floors) &#123;</span><br><span class="line">    <span class="keyword">this</span>.floors = floors || []</span><br><span class="line">    <span class="keyword">this</span>.camera = <span class="keyword">new</span> Camera()</span><br><span class="line">    <span class="keyword">this</span>.screen = <span class="keyword">new</span> Screen()</span><br><span class="line">    <span class="keyword">this</span>.carList = &#123;&#125;  <span class="comment">// 存储摄像头拍摄返回的车辆信息</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">in</span> (car) &#123;</span><br><span class="line">    <span class="comment">// 通过摄像头获取信息</span></span><br><span class="line">    <span class="keyword">const</span> info = <span class="keyword">this</span>.camera.shot(car)</span><br><span class="line">    <span class="comment">// 停到某个停车位</span></span><br><span class="line">    <span class="keyword">const</span> i = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">100</span> % <span class="number">100</span>)  <span class="comment">// 生成一个随机数1~100</span></span><br><span class="line">    <span class="keyword">const</span> place = <span class="keyword">this</span>.floors[<span class="number">0</span>].places[i]</span><br><span class="line">    place.in()</span><br><span class="line">    info.place = place</span><br><span class="line">    <span class="keyword">this</span>.carList[car.num] = info</span><br><span class="line">  &#125;</span><br><span class="line">  out (car) &#123;</span><br><span class="line">    <span class="comment">// 获取信息</span></span><br><span class="line">    <span class="keyword">const</span> info = <span class="keyword">this</span>.carList[car.num]</span><br><span class="line">    <span class="comment">// 将停车位清空</span></span><br><span class="line">    <span class="keyword">const</span> place = info.place</span><br><span class="line">    place.out()</span><br><span class="line">    <span class="comment">// 显示时间</span></span><br><span class="line">    <span class="keyword">this</span>.screen.show(car, info.inTime)</span><br><span class="line">    <span class="comment">// 清空记录</span></span><br><span class="line">    <span class="keyword">delete</span> <span class="keyword">this</span>.carList[car.num]</span><br><span class="line">  &#125;</span><br><span class="line">  emptyNum () &#123;  <span class="comment">// 显示每层还有多少空位</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.floors.map( <span class="function"><span class="params">floor</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123; floor.index &#125;</span>层有<span class="subst">$&#123; floor.emptyPlaceNum() &#125;</span>空车位`</span></span><br><span class="line">    &#125;).join(<span class="string">'\n'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 车辆</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (num) &#123;</span><br><span class="line">    <span class="keyword">this</span>.num = num</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 层</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Floor</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (index, places) &#123;</span><br><span class="line">    <span class="keyword">this</span>.index = index  <span class="comment">// 第几层</span></span><br><span class="line">    <span class="keyword">this</span>.places = places || []  <span class="comment">// 总共有多少车位</span></span><br><span class="line">  &#125;</span><br><span class="line">  emptyPlaceNum () &#123;  <span class="comment">// 空的车位数量</span></span><br><span class="line">    <span class="keyword">let</span> num = <span class="number">0</span></span><br><span class="line">    <span class="keyword">this</span>.places.forEach(<span class="function"><span class="params">p</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (p.empty) &#123;</span><br><span class="line">        num += <span class="number">1</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> num</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 车位</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Place</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> () &#123;</span><br><span class="line">    <span class="keyword">this</span>.empty = <span class="literal">true</span>  <span class="comment">// 车位默认是空的</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">in</span> () &#123;  <span class="comment">// 车辆进入时，车位状态改变为有车</span></span><br><span class="line">    <span class="keyword">this</span>.empty = <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  out () &#123;  <span class="comment">// 车辆出来时，车位状态改变空</span></span><br><span class="line">    <span class="keyword">this</span>.empty = <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 摄像头</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Camera</span> </span>&#123;</span><br><span class="line">  shot (car) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      num: car.num,</span><br><span class="line">      inTime: <span class="built_in">Date</span>.now()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 出口显示屏</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Screen</span> </span>&#123;</span><br><span class="line">  show (car, inTime) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'车牌号'</span>, car.num)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'停车时间'</span>, <span class="built_in">Date</span>.now() - inTime)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试--------------------</span></span><br><span class="line"><span class="comment">// 初始化停车场（3层，每层100个车位）</span></span><br><span class="line"><span class="keyword">const</span> floors = []</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ ) &#123;</span><br><span class="line">  <span class="keyword">const</span> places = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; <span class="number">100</span>; j++ ) &#123;</span><br><span class="line">    places[j] = <span class="keyword">new</span> Place()</span><br><span class="line">  &#125;</span><br><span class="line">  floors[i] = <span class="keyword">new</span> Floor(i+<span class="number">1</span>, places)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 停车场</span></span><br><span class="line"><span class="keyword">const</span> park = <span class="keyword">new</span> Park(floors)</span><br><span class="line"><span class="comment">// 初始化车辆</span></span><br><span class="line"><span class="keyword">const</span> car1 = <span class="keyword">new</span> Car(<span class="number">1001</span>)</span><br><span class="line"><span class="keyword">const</span> car2 = <span class="keyword">new</span> Car(<span class="number">1002</span>)</span><br><span class="line"><span class="keyword">const</span> car3 = <span class="keyword">new</span> Car(<span class="number">1003</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'第一辆车进入'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(park.emptyNum())</span><br><span class="line">park.in(car1)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'第二辆车进入'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(park.emptyNum())</span><br><span class="line">park.in(car2)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'第一辆车离开'</span>)</span><br><span class="line">park.out(car1)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'第二辆车离开'</span>)</span><br><span class="line">park.out(car2)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'第三辆车进入'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(park.emptyNum())</span><br><span class="line">park.in(car3)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2></blockquote>
+<p>例子：jQuery的$、react的React.createElement都是一个工厂模式设计的函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vnode</span> (<span class="title">tag</span>, <span class="title">attrs</span>, <span class="title">children</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...省略内部代码...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">React.createElement = <span class="function"><span class="keyword">function</span> (<span class="params">tag, attrs, children</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Vnode(tag, attrs, children)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">jQuery</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (selector) &#123;</span><br><span class="line">    <span class="keyword">let</span> slice = <span class="built_in">Array</span>.prototype.slice</span><br><span class="line">    <span class="keyword">let</span> dom = slice.call(<span class="built_in">document</span>.querySelectorAll(selector))</span><br><span class="line">    <span class="keyword">let</span> len = dom ? dom.length : <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">      <span class="keyword">this</span>[i] = dom[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.length = len</span><br><span class="line">    <span class="keyword">this</span>.selector = selector || <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line">  append (node) &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  addClass (name) &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//...此处省略</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.$ = <span class="function"><span class="keyword">function</span> (<span class="params">selector</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> jQuery(selector)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2></blockquote>
+<p>就是说这个函数只能被new一次,例如一个项目的登录、购物车模块，在项目中只有一个实例; jQuery只有一个$。这里用一个java代码的例子举例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">SingleObject</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 注意，私有化构造函数，外部不能new，只能内部new</span></span><br><span class="line">  private SingleObject () &#123;&#125;</span><br><span class="line">  <span class="comment">// 唯一被 new 出来的对象</span></span><br><span class="line">  private SingleObject instance = <span class="literal">null</span></span><br><span class="line">  <span class="comment">// 获取对象的唯一接口</span></span><br><span class="line">  public SingleObject getInstance () &#123;</span><br><span class="line">    <span class="keyword">if</span> (instance == <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="comment">// 只 new 一次</span></span><br><span class="line">      instance = <span class="keyword">new</span> SingleObject()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 对象方法</span></span><br><span class="line">  public <span class="keyword">void</span> login (username, password) &#123;</span><br><span class="line">    System.out.printIn(<span class="string">'login....'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面这个是利用js的类静态方法实现的单例模式：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里要分清楚类的实例方法 和 类的静态方法</span></span><br><span class="line"><span class="comment">// 实例方法 即new 实例化后，实例才能调用的方法</span></span><br><span class="line"><span class="comment">// 静态方法 只能类调用，new 实例后的实例不能调用</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingObject</span> </span>&#123;</span><br><span class="line">  login () &#123;  <span class="comment">// 类的实例方法</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'login.....'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">SingObject.prototype.register = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  <span class="comment">// 类的实例方法</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'register....'</span>)</span><br><span class="line">&#125;</span><br><span class="line">SingObject.getInstance = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  <span class="comment">// 类的静态方法</span></span><br><span class="line">  <span class="keyword">let</span> instance</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!instance) &#123;</span><br><span class="line">      instance = <span class="keyword">new</span> SingObject()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">let</span> obj1 = SingObject.getInstance()</span><br><span class="line">obj1.login()</span><br><span class="line"><span class="keyword">let</span> obj2 = SingObject.getInstance()</span><br><span class="line">obj2.login()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj1 === obj2)  <span class="comment">// ===&gt; true  // 符合单例模式只能new一次</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj3 = <span class="keyword">new</span> SingObject()</span><br><span class="line">obj3.login()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj1 === obj3)  <span class="comment">// ===&gt; false</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<h2 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h2></blockquote>
+<p>装饰器就是一个函数，可以实现代码的复用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span> (<span class="params">target</span>) </span>&#123;</span><br><span class="line">  target.isOk = <span class="literal">true</span>  <span class="comment">// 这里的target就是Person</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@test</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个装饰器的作用：给Person类加一个isOk属性</span></span><br><span class="line"></span><br><span class="line">@test</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Students</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Students类也被装饰器修饰，那么他也就会增加一个isOk的属性</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+	
+	<div>
+		
+			<div>
+	
+		<div style="text-align: center; color: #eee; font-size: 14px;">
+		  -------------------本文阅读结束，你离大神又近了一步------------------------
+		</div>
+	
+</div>
+		
+	</div>
+	
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="zhBo 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="zhBo 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/01/javascript/跨域/" rel="next" title="跨域">
+                <i class="fa fa-chevron-left"></i> 跨域
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/22/javascript/关闭blank打开的新页面/" rel="prev" title="关闭blank打开的新页面">
+                关闭blank打开的新页面 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="zhBo">
+            
+              <p class="site-author-name" itemprop="name">zhBo</p>
+              <p class="site-description motion-element" itemprop="description">自律、沉淀...</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">141</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhBoSir" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/zhbosir" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-book"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#S-O-L-I-D五大设计原则"><span class="nav-number">1.</span> <span class="nav-text">S O L I D五大设计原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一道题："><span class="nav-number">2.</span> <span class="nav-text">第一道题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二道题："><span class="nav-number">3.</span> <span class="nav-text">第二道题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式"><span class="nav-number">4.</span> <span class="nav-text">工厂模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式"><span class="nav-number">5.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#装饰器模式"><span class="nav-number">6.</span> <span class="nav-text">装饰器模式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhBo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+<div class="powered-by">
+	<i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+	  本站访客数:<span id="busuanzi_value_site_uv"></span>
+	</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  <!--博客页面宠物-->
+  undefined
+  
+  <!--点击爆炸效果-->
+  
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

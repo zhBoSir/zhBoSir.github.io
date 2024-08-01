@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="keywords" content="星之灵，复星星之灵，复星集团，金融理财，互联网理财平台，个人理财，第三方理财，fosunling">
+	<meta name="description" content="复星集团旗下星之灵，星之灵，打造具有产业深度、多维度生态圈特点的综合性互联网投融资信息中介平台，以及为非标资产提供流动性的交易平台。以价值投资的理念为指导，结合风控管理体系，通过提供完整准确的信息，为投资人带来不一样的财富管理体验!fosunling.com">
+	<title>星之灵-复星集团旗下金融平台-登录</title>
+	<link rel="shortcut icon" href="assets/images/common/favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/login.css">
+	<link rel="stylesheet" href="vendor/plugins/layer/skin/layer.css">
+</head>
+<body>
+	<!-- 导航条 -->
+	<div class="header">
+	    <!--main-nav-->
+	    <div class="main-nav">
+	        <div class="cn1180 nav-wrap pr clearfix">
+	            <div class="main-nav-logo fl">
+	                <a href="#">
+	                    <div style="float: left">
+	                        <img src="assets/images/common/logo.png" alt="星之灵">
+	                    </div>
+	                </a>
+	            </div>
+	            <div class="nav fl">
+	                <ul class="nav-box fr clearfix" id="navBox">
+	                    <li><a href="index.html">首页</a></li>
+	                    <li><a href="mobileapp.html">下载星之灵APP</a></li>
+	                    <li><a href="#">关于我们</a></li>
+	                </ul>
+	            </div>
+
+	        </div>
+	    </div>
+	    <!--main-nav end-->
+	</div><!--header end-->
+
+
+	<!--主体内容-->
+	<div class="login-container">
+			<div class="login-box">
+				<div class="login-tab l">
+					<a href="javascript:void(0)">登录星之灵</a>
+				</div>
+				<div class="login-tab r">
+					<a href="javascript:void(0)">切换到企业登录</a>
+				</div>
+				<form id="form-login" method="post" action="#">
+					<div class="form">
+						<div class="alert">
+							<div class="info"><i class="iconfont icon-henghao"></i><span>用户名密码不匹配，请重新输入</span></div>
+						</div>
+						<div class="item item-fox">
+							<i class="iconfont icon-account"></i>
+							<input id="mobile" type="text" class="itxt" name="mobile" tabindex="1" autocomplete="off" value="" placeholder="手机号">
+						</div>
+						<div class="item item-fox">
+							<i class="iconfont icon-suo"></i>
+							<input type="password" id="password" name="password" class="itxt" tabindex="2" autocomplete="off" placeholder="密码">
+							<span class="iconfont icon-bukejian text-right-btn" id="eyes_btn"></span>
+						</div>
+						<div class="item item-fox">
+							<i class="iconfont icon-tupian"></i>
+							<input type="text" id="verifyCode" name="verifyCode" class="itxt code" tabindex="3" placeholder="验证码" maxlength="8">
+						</div>
+						<div class="item tools">
+							<div class="wangjimima">忘记密码？</div>
+							<div class="zhuce">没有账户？<a href="register.html">立即注册</a></div>
+						</div>
+						<div class="item item-btn">
+							<input type="submit" class="btn" value="立即登录" id="btn-login">
+						</div>
+					</div>
+				</form>
+			</div>
+	</div><!--index-container end-->
+
+
+	<!--footer(包括ft-channel和ft-copyright)-->
+	<div class="footer">
+		<p>版权所有 © 上海星灵资产管理有限公司 | Copyright Shanghai Fosunling Asset Management Co., LTD. ALL Rights Reserved</p>
+	</div><!--footer end-->
+
+<!--vendor-->
+<script src="vendor/jquery/jquery-1.11.3.min.js"></script>
+<script src="vendor/jquery/jquery.validate.min.js"></script>
+<script src="vendor/jquery/jquery.form.min.js"></script>
+<script src="vendor/plugins/layer/layer.js"></script>
+<script src="assets/js/fosunBase.js"></script>
+<script src="assets/js/fosunUtil.js"></script>
+<script>
+$(document).ready(function(){
+	fosunBase.eyeBtn();
+	$("#form-login").validate({
+	    rules: {
+	    	mobile: {
+	    		required: true,
+	    	},
+	    	password:"required",
+	    	verifyCode:"required"
+	    },
+	    messages: {
+	    	mobile: {
+	    		required: "请输入用户名或手机号",
+	    	},
+	    	password:"请输入密码",
+	    	verifyCode:"请输入图片验证码"
+	    },
+	    showErrors:function(errorMap,errorList) {
+	    	if(errorList.length>0){
+	    		$(".alert .info span").html(errorList[0].message);
+	    		$(".alert .info").show();
+	    	}
+	    },
+	    submitHandler:function(form){
+	    	var index = lloadfun('正在登录请稍后...');
+	    	var options = {
+			 	dataType: 'json',
+		        success: function(json){
+		        	if(json.success){
+		        		goUrl(json.returnUrl);
+		        	}else{
+		        		$(".alert .info span").html(json.message);
+			    		$(".alert .info").show();
+			    		$("#btn-login").attr("disabled",false);
+		        	}
+		        	lclose(index);
+		        },
+		        error:function(){lclose(index);$("#btn-login").attr("disabled",false);}
+		    };
+	    	$(form).ajaxSubmit(options);
+	    	$("#btn-login").attr("disabled",true);
+        }
+    });
+});
+</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,109 @@
+.lifeplan-container{background-color: white;}
+.lifeplan-banner{width: 100%;height: 755px;}
+.lifeplan-banner-img{background:url(../images/lifeplan/lifeplan.jpg) no-repeat center center;width:100%;height:753px;min-width:1180px;}
+.lifeplan-banner .banner-text{width: 1180px;height: 220px;padding-top: 530px;}
+.lifeplan-banner .banner-text .text-title{margin-left: 200px;margin-bottom: 50px;}
+.lifeplan-banner .banner-text .text-title .title{font-size: 36px;color:#67361f;padding: 0 45px;}
+.lifeplan-banner .banner-text .text-explain .explain{display: inline-block;width: 90px;height: 30px;background-color: #0d277f;color: white;line-height: 30px;text-align: center;}
+.lifeplan-banner .banner-text .text-explain a{display: inline-block;border-left:15px solid #0d277f;border-top:15px solid transparent;border-bottom: 15px solid transparent;border-right: 15px solid transparent;position: relative;top: 7px;}
+.lifeplan-banner .banner-text .text-explain .explain-title{color:#0d277f;}
+.lifeplan-banner .banner-text p{color: #666666;}
+.lifeplan-invitation{width: 100%;height: 240px;box-sizing: border-box;background-color: white;text-align: center;}
+.lifeplan-invitation img{width: 555px;height: 147px;padding-top: 40px;padding-bottom: 60px;}
+/*创富人生三重礼*/
+.lifeplan-threegift{width:1180px;margin: 0 auto;}
+.lifeplan-threegift .threegift-title{margin-left: 200px;}
+.lifeplan-threegift .threegift-title .title{font-size: 36px;color:#67361f;padding: 0 20px;}
+.lifeplan-threegift .threegift-details{width: 1180px;margin-top: 60px;}
+.lifeplan-threegift .threegift-details a{display: inline-block;width: 330px;height: 230px;}
+.lifeplan-threegift .threegift-details .secondgift{margin:0 73px;}
+.lifeplan-threegift .threegift-details .firstgift span,.lifeplan-threegift .threegift-details .secondgift span,.lifeplan-threegift .threegift-details .thirdgift span{color: #666666;display: block;width:330px;height: 30px;line-height: 30px;text-align: center;}
+.lifeplan-threegift .threegift-introduce{margin-top: 85px;}
+.lifeplan-threegift .threegift-introduce p a{color: #333333;}
+.lifeplan-threegift .threegift-example{margin-top: 70px;}
+.lifeplan-threegift .threegift-example p span{color: #2b3995;margin-left: 20px;}
+.lifeplan-threegift .threegift-example .example-calculate{font-size: 30px;color: #666666;}
+.lifeplan-threegift .threegift-example .example-calculate a{color: red;}
+/*创富人生邀请人级别与返现计算方法*/
+.lifeplan-bg{width: 100%;height:1520px;background:url(../images/lifeplan/bar.jpg) repeat-x;margin-top: 70px;}
+.lifeplan-bg .bg-level{width:1180px;margin: 0 auto;padding-top:85px;}
+.lifeplan-bg .bg-level .level-title{margin-left: 40px;}
+.lifeplan-bg .bg-level .level-title .title{font-size: 36px;color:white;padding: 0 45px;}
+.lifeplan-bg .bg-level .level-details{width: 1180px;height: 388px;background-color:#063186;margin-top: 48px;position: relative;}
+.lifeplan-bg .bg-level .level-details .details-title{border-bottom: 1px solid #1a49a5;width:1127px;margin: 0 auto;padding-top: 30px;padding-bottom: 20px;}
+.lifeplan-bg .bg-level .level-details .details-title .title-rank{color: #F0F0F0;}
+.lifeplan-bg .bg-level .level-details .details-title .title-calculator{margin-left:295px;color: #F0F0F0;}
+.lifeplan-bg .bg-level .level-details .details-show{width: 1090px; height: 250px;}
+/*创富人生邀请人级别table展示*/
+.lifeplan-bg .bg-level .level-details .details-show .show-table table{color: #F0F0F0;}
+.lifeplan-bg .bg-level .level-details .details-show .show-table .proportion{color:#d29335;}
+.lifeplan-bg .bg-level .level-details .details-show .show-table table tr{width: 445px;height: 45px;}
+.lifeplan-bg .bg-level .level-details .details-show .show-table table .rank{width: 110px;}
+.lifeplan-bg .bg-level .level-details .details-show .show-table table .principal{width: 200px;}
+.lifeplan-bg .bg-level .level-details .details-show .show-line{display: inline-block;height: 290px;border-left: 1px solid #1A49A5;position: absolute;top: 87px;left: 500px;}
+/*创富人生返现模拟计算器*/
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator{width: 575px;}
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-selfcapital label,
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-friendscapital label,
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-cashback label{display: block;color: #F0F0F0;}
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-selfcapital input,
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-friendscapital input,
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-cashback input{display: inline-block;width: 315px;height: 45px;font-size:20px;color: #666666;line-height: 45px;padding-left:10px;}
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-selfcapital,
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-friendscapital,
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-cashback{position: relative;}
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-selfcapital .money,
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-friendscapital .money,
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-cashback .money{color: #ababab; position: absolute; top:45px; right: 265px;}
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-selfcapital span{color:#F0F0F0;}
+.lifeplan-bg .bg-level .level-details .details-show .show-calculator .calculator-cashback button{width: 200px;height: 45px;background-color:#ffad01;color: #F0F0F0;margin-left: 35px;border: none;}
+.lifeplan-bg .bg-level .level-invitation{text-align: center;margin-top: 45px;margin-bottom: 75px;}
+/*创富人生排行榜*/
+.lifeplan-bg .bg-list{width:1180px;margin: 0 auto;}
+.lifeplan-bg .bg-list .list-title{margin-left: 200px;}
+.lifeplan-bg .bg-list .list-title .title{font-size: 36px;color:white;padding: 0 60px;}
+.lifeplan-bg .bg-list .list-classification{margin-top: 90px;width:100%;}
+.lifeplan-bg .bg-list .list-classification .classification-earn .first,.lifeplan-bg .bg-list .list-classification .classification-share .first{background:url(../images/lifeplan/first.png) no-repeat;}
+.lifeplan-bg .bg-list .list-classification .classification-earn .second,.lifeplan-bg .bg-list .list-classification .classification-share .second{background:url(../images/lifeplan/second.png) no-repeat;}
+.lifeplan-bg .bg-list .list-classification .classification-earn .third,.lifeplan-bg .bg-list .list-classification .classification-share .third{background:url(../images/lifeplan/third.png) no-repeat;}
+.lifeplan-bg .bg-list .list-classification .classification-earn .fourth,.lifeplan-bg .bg-list .list-classification .classification-share .fourth{background:url(../images/lifeplan/fourth.png) no-repeat;}
+.lifeplan-bg .bg-list .list-classification .classification-earn .fifth,.lifeplan-bg .bg-list .list-classification .classification-share .fifth{background:url(../images/lifeplan/fifth.png) no-repeat;}
+.lifeplan-bg .bg-list .list-classification .classification-earn,.lifeplan-bg .bg-list .list-classification .classification-share{width: 522px;text-align: center;color: #F0F0F0;}
+.lifeplan-bg .bg-list .list-classification .classification-earn ul li,.lifeplan-bg .bg-list .list-classification .classification-share ul li{width: 522px;height: 72px;line-height: 72px;}
+/*常见问题与活动规则*/
+.lifeplan-pr{background-color: #4a73c2;padding-bottom:65px;}
+.lifeplan-pr .pr-problems,.lifeplan-pr .pr-rule{width: 1180px;margin: 0 auto;color: #F0F0F0;padding-top: 50px;}
+.lifeplan-pr .pr-problems p,.lifeplan-pr .pr-rule p{color: #fff1d3;width: 146px;height: 30px;line-height: 30px;text-align: center;border-left:4px solid #fff1d3;}
+.lifeplan-pr .pr-problems ul li span{display: block;}
+.lifeplan-pr .pr-problems ul li{height: 75px;}
+.lifeplan-pr .pr-problems ul li span a{display: inline-block;width: 25px;height: 25px;border-radius: 25px;background-color: #19459f;line-height: 25px;text-align: center;color: #a3b5d9;}
+.lifeplan-pr .pr-rule .tel{color: #f2a005;}
+/*============================================================================*/
+/*邀请方式页面*/
+.invite-title{line-height:72px;}
+.invite-species a{display: inline-block;padding:0 20px;font-size: 16px;color: #999;margin-top: 26px;}
+.invite-species .way{color: red;border-right: 1px solid #999999;}
+.invite-mode-wrap{padding:0 20px;}
+.invite-mode-wrap h3{padding:30px 0 15px 0;font-weight:bold;font-size:16px;}
+.invite-mode-wrap p{font-size:14px;padding:20px 0;color:#666;}
+.invite-mode-wrap input{border:1px solid #eee;height:40px;line-height:40px;width:550px;color:#999;background-color:#EBEBE4;padding-left:10px;}
+.invite-mode-wrap .invite-input-grounp2 input{width:120px;}
+.invite-mode-wrap .invite-input-grounp1 a,.invite-mode-wrap .invite-input-grounp2 a{width:130px;height:40px;line-height:40px;text-align:center;color:#fff;background-color:#ef1719;display:inline-block;}
+/*邀请记录页面*/
+.invite-species .record{color: red;border-left: 1px solid #999999;}
+.invite-sum-wrap{width:786px;border:1px solid #eee;padding:30px;margin-top:20px;}
+.invite-sum-wrap .invite-sum-left{border-right:1px solid #eee;width:560px;padding:15px 0;}
+.sum-left-item{width:130px}
+.sum-left-item span,.invite-sum-right span{color:#ef1719;font-size:24px;}
+.sum-left-item p{color:#666;font-size:14px;padding-top:10px;}
+.invite-symbol{font-size:36px;color:#999;padding:15px 20px 0 0;}
+.invite-sum-right{width:200px;text-align:center;padding:10px 0;line-height:68px;}
+.invite-record-table{padding:30px 0 0 0;}
+.invite-record-table tr td{border:1px solid #eee;height:40px;}
+.invite-record-table thead tr{background-color:#F3F9FF;text-align:center;}
+.invite-record-table tbody .invite-no-record td{background-color:#f8f8f8;text-align:center;}
+.invite-td-num{width:180px;}
+.invite-td-name{width:150px;}
+.invite-td-date{width:180px;}
+.invite-td-reward{width:150px;}
+.invite-td-remarks{width:180px;}

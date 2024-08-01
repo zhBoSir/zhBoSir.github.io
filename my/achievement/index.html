@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>achievement</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="chart"></div>
+
+  <script src="./../echarts/js/echarts.min.js"></script>
+  <script type="text/javascript">
+    let demos = {
+      2373: 'demo/water_drop.html',
+      5449: 'demo/card_open.html',
+      2289: 'demo/draw_lines.html',
+      2518: 'demo/flop.html',
+      4730: 'demo/layout01.html',
+      1952: 'demo/layout02.html',
+      926: 'demo/layout03.html',
+      4536: 'demo/array_methods.html',
+      750: 'demo/apple_se.html',
+      493: 'demo/finished_protocol.html',
+      385: 'demo/font_drop.html',
+      4960: 'demo/spotlight.html',
+      8694000: 'demo/rocket/index.html',
+      5668: 'demo/lazy_load/index01.html',
+      339: 'demo/lazy_load/index02.html',
+      27000: 'fomoney/index.html',
+      671: 'fosunling/index.html'
+    }
+    var myChart = echarts.init(document.querySelector('.chart'))
+    //跳转代码
+    myChart.on('click', function (params) {
+      console.log(params)
+      window.open(demos[params.value]);
+      // window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.value));
+    });
+
+    var colorList = [
+      [
+        '#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed',
+        '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0',
+        '#1e90ff', '#ff6347', '#7b68ee', '#d0648a', '#ffd700',
+        '#6b8e23', '#4ea397', '#3cb371', '#b8860b', '#7bd9a5'
+      ],
+      [
+        '#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed',
+        '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0',
+        '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700',
+        '#6b8e23', '#ff00ff', '#3cb371', '#b8860b', '#30e0e0'
+      ],
+      [
+        '#929fff', '#9de0ff', '#ffa897', '#af87fe', '#7dc3fe',
+        '#bb60b2', '#433e7c', '#f47a75', '#009db2', '#024b51',
+        '#0780cf', '#765005', '#e75840', '#26ccd8', '#3685fe',
+        '#9977ef', '#f5616f', '#f7b13f', '#f9e264', '#50c48f'
+      ]
+    ][2];
+
+    option = {
+      // 图表标题
+      title: {
+        show: true, //显示策略，默认值true,可选为：true（显示） | false（隐藏）
+        text: '动画效果demo', //主标题文本，'\n'指定换行
+        x: 'center', // 水平安放位置，默认为左对齐，可选为：
+        // 'center' ¦ 'left' ¦ 'right'
+        // ¦ {number}（x坐标，单位px）
+        y: 'bottom', // 垂直安放位置，默认为全图顶端，可选为：
+        // 'top' ¦ 'bottom' ¦ 'center'
+        // ¦ {number}（y坐标，单位px）
+        //textAlign: null          // 水平对齐方式，默认根据x设置自动调整
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: '#ccc', // 标题边框颜色
+        borderWidth: 0, // 标题边框线宽，单位px，默认为0（无边框）
+        padding: 5, // 标题内边距，单位px，默认各方向内边距为5，
+        // 接受数组分别设定上右下左边距，同css
+        itemGap: 10, // 主副标题纵向间隔，单位px，默认为10，
+        textStyle: {
+          fontSize: 18,
+          fontWeight: 'bolder',
+          color: '#333' // 主标题文字颜色
+        },
+        subtextStyle: {
+          color: '#aaa' // 副标题文字颜色
+        }
+      },
+      backgroundColor: '#fff',
+      tooltip: {},
+      animationDurationUpdate: function (idx) {
+        // 越往后的数据延迟越大
+        return idx * 100;
+      },
+      animationEasingUpdate: 'bounceIn',
+      color: ['#fff', '#fff', '#fff'],
+      series: [{
+        type: 'graph',
+        layout: 'force',
+        force: {
+          repulsion: 500,
+          edgeLength: 10
+        },
+        roam: true,
+        label: {
+          normal: {
+            show: true
+          }
+        },
+        data: [{
+          "name": "充电水滴效果",
+          "value": 2373,
+          "symbolSize": 48,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[0],
+              "color": colorList[0]
+            }
+          }
+        }, {
+          "name": "AppStroe卡片展开效果",
+          "value": 5449,
+          "symbolSize": 73,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[1],
+              "color": colorList[1]
+            }
+          }
+        }, {
+          "name": "读书动态划线效果",
+          "value": 2289,
+          "symbolSize": 67,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[2],
+              "color": colorList[2]
+            }
+          }
+        }, {
+          "name": "翻牌效果",
+          "value": 2518,
+          "symbolSize": 50,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[3],
+              "color": colorList[3]
+            }
+          }
+        }, {
+          "name": "反双飞翼布局",
+          "value": 4730,
+          "symbolSize": 88,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[4],
+              "color": colorList[4]
+            }
+          }
+        }, {
+          "name": "双飞翼布局",
+          "value": 1952,
+          "symbolSize": 55,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[5],
+              "color": colorList[5]
+            }
+          }
+        }, {
+          "name": "圣杯布局",
+          "value": 926,
+          "symbolSize": 70,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[6],
+              "color": colorList[6]
+            }
+          }
+        }, {
+          "name": "数组some等一些方法的例子",
+          "value": 4536,
+          "symbolSize": 67,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[7],
+              "color": colorList[7]
+            }
+          }
+        }, {
+          "name": "苹果SE官网切换手机颜色效果",
+          "value": 750,
+          "symbolSize": 47,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[8],
+              "color": colorList[8]
+            }
+          }
+        }, {
+          "name": "判断有没有阅读完协议",
+          "value": 493,
+          "symbolSize": 82,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[9],
+              "color": colorList[9]
+            }
+          }
+        }, {
+          "name": "宽度缩小，字掉下去问题",
+          "value": 385,
+          "symbolSize": 59,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[10],
+              "color": colorList[10]
+            }
+          }
+        }, {
+          "name": "聚光灯效果",
+          "value": 4960,
+          "symbolSize": 90,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[11],
+              "color": colorList[11]
+            }
+          }
+        }, {
+          "name": "火箭飞行动画",
+          "value": 8694000,
+          "symbolSize": 134,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[12],
+              "color": colorList[12]
+            }
+          }
+        }, {
+          "name": "图片懒加载（单张）",
+          "value": 5668,
+          "symbolSize": 75,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[13],
+              "color": colorList[13]
+            }
+          }
+        }, {
+          "name": "图片懒加载（多张）",
+          "value": 339,
+          "symbolSize": 68,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[14],
+              "color": colorList[14]
+            }
+          }
+        }, {
+          "name": "星之灵",
+          "value": 671,
+          "symbolSize": 62,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[15],
+              "color": colorList[15]
+            }
+          }
+        }, {
+          "name": "复星金服",
+          "value": 27000,
+          "symbolSize": 114,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[16],
+              "color": colorList[16]
+            }
+          }
+        }, {
+          "name": "抗击新型肺炎我们在行动",
+          "value": 10777000,
+          "symbolSize": 130,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[17],
+              "color": colorList[17]
+            }
+          }
+        }, {
+          "name": "疫情中的逆行者",
+          "value": 92000,
+          "symbolSize": 123,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[18],
+              "color": colorList[18]
+            }
+          }
+        }, {
+          "name": "一张图看懂新冠肺炎",
+          "value": 20000,
+          "symbolSize": 141,
+          "draggable": true,
+          "itemStyle": {
+            "normal": {
+              "shadowBlur": 100,
+              "shadowColor": colorList[19],
+              "color": colorList[19]
+            }
+          },
+          "url": "https://gallery.echartsjs.com/preview.html?c=xPLngHx_Z&v=1"
+        }]
+      }]
+    }
+
+    // 3.把配置项给实例对象
+    myChart.setOption(option)
+    // 4.图表跟随屏幕大小自动适应
+    window.addEventListener('resize', function() {
+      myChart.resize()
+    })
+  </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>

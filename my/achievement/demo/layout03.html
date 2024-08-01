@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <title>圣杯布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+				body {
+					/* 这里的最小宽度不要小于650px,否则会换行，可能给padding和left的值有关 */
+					min-width: 700px;  /* 为了保证窗口不能缩太小无法展示左右，可以给body加上 min-width */
+				}
+        .container {
+					padding: 0 210px;  /* 圣杯布局的关键代码*/
+					overflow: hidden;
+          background-color: #ccc;
+        }
+				.left, .right, .middle {
+					position: relative;  /* 圣杯布局的关键代码*/
+				}
+        .left {
+					width: 200px;
+					height: 200px;
+					background-color: gold;
+					float: left;
+					margin-left: -100%;  /* 圣杯布局的关键代码*/
+					left: -210px;  /* 圣杯布局的关键代码*/
+        }
+        .right {
+					width: 200px;
+					height: 200px;
+					background-color: pink;
+					float: left;
+					margin-left: -200px;  /* 圣杯布局的关键代码*/
+					right: -210px;  /* 圣杯布局的关键代码*/
+        }
+        .middle {
+					width: 100%;
+					height: 360px;
+					float: left;
+					background-color: lightblue;
+        }
+    </style>
+</head>
+    
+<body>
+    <div class="container">
+        <div class="middle"></div>
+				<div class="left"></div>
+				<div class="right"></div>
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>

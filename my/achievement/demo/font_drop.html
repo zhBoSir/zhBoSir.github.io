@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <title>动画执行过程中字掉下去问题</title>
+
+    <style>
+        /* aa */
+        .aa {
+            width: 400px;
+            border: 1px solid gold;
+            margin: 200px auto;
+            transition: all 3s ease;
+        }
+
+        .aa:active {
+            width: 0;
+        }
+
+        /* bb */
+        /* 给bb加overflow:hidden */
+        .bb {
+            width: 400px;
+            border: 1px solid gold;
+            margin: 400px auto;
+            transition: all 3s ease;
+            overflow: hidden;
+        }
+
+        .bb span {
+            display: inline-block;
+            width: 400px;
+        }
+
+        .bb:active {
+            width: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 鼠标长按看下效果（aa是有问题的代码） -->
+    <div class="aa">《魔道祖师》国产动漫，比较好看，确实好看</div>
+
+
+    <!-- bb是正确的要实现的效果 -->
+    <!-- 给里面的文字包裹一个span标签，然后设置样式 -->
+    <div class="bb"><span>《魔道祖师》国产动漫，比较好看，确实好看</span></div>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>平台贷</title>
+  <link href="js/plugins/fullPage/jquery.fullPage.css" type="text/css" rel="stylesheet">
+  <link href="js/plugins/layui/css/layui.css" type="text/css" rel="stylesheet">
+  <link href="css/reset.css" type="text/css" rel="stylesheet">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+
+  <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="js/jquery.fomoney.js" type="text/javascript"></script>
+  <script src="js/plugins/layui/layui.js" type="text/javascript"></script>
+  <script type="text/javascript">var domain  = '${serverIp}'; fomoney.apiUrl = '${serverIp}/api/v1'; </script>
+  <script src="js/fomoney.common.js" type="text/javascript"></script>
+  <style type="text/css">
+    .en-banner { 
+      height: 245px;
+      background: url('images/company_banner.jpg') no-repeat center center;
+      background-size: cover;
+    }
+    .company-load-ptd .common-content .common-right .info .guarantee{padding:40px 0 0 0;margin:0; }
+		.company-load-ptd .common-content .common-right .info .guarantee li{margin-right:40px;}
+		.company-load-ptd .common-content .common-right .info p{padding:30px 0 20px 0;}
+  </style>
+</head>
+<body>
+   <!--头部-->
+<div class="header">
+	<div class="hd-box wc1200 clearfix">
+		<a class="hd-logo fl" href="index.html">
+			<img src="images/logo.svg" alt="" title="科技金融智造未来">
+		</a>
+		<ul class="nav fr clearfix">
+      <li><a href="index.html">首页</a></li>
+			<li><a href="personalIndex.html">个人通</a></li>
+			<li class="active"><a href="companyIndex.html">企业通</a></li>
+			<li><a href="enIndex.html">走进金服</a></li>
+			<li><a href="appDownload.html">APP下载</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="en-banner"></div>
+
+<!--主要内容块-->
+<div class="company-load-ptd company-tong wc1200">
+  <div class="common-content clearfix">
+    <!--左边选项卡-->
+    <div class="common-left fl content-tab">
+      <div class="data-section">
+        <ul class="layui-tab-title line">
+          <li><a href="${ctx }/companyIndex/loanStarbusiness.html">星商贷</a></li>
+          <li class="layui-this"><a href="${ctx }/companyIndex/loanPlatform.html">平台贷</a></li>
+          <li><a href="${ctx }/companyIndex/loanFactoring.html">保理业务</a></li>		
+        </ul>
+      </div>
+    </div>
+    <!--右边内容-->
+    <div class="common-right fr">
+      <div class="ad"><img src="images/company_ptd_ad.png" alt="平台贷-助力企业梦想"></div>
+      <div class="info">
+        <h2>平台贷介绍</h2>
+        <div class="clearfix">
+          <h3 class="fl">全线上：<span>从申请到放款，全线上完成</span></h3>
+          <!-- <h3 class="fl">超低日息：<span>按日计息，最低至万分之2.49</span></h3> -->
+        </div>
+        <div class="clearfix">
+          <h3 class="fl">超高额度：<span>最高可借500万</span></h3>
+          <h3 class="fl">随借随还：<span>60天内随借随还</span></h3>					
+        </div>
+        
+        <p>基于小企业经营收入，经营稳定性，企业主个人征信等结构化数据做综合风险评定，向小企业主提供贷款服务。</p>	
+        <h3 class="fs16">合作平台：</h3>
+        <ul class="guarantee clearfix">
+          <li>
+            <img src="images/company_ptd_icon01.png" alt="亚马逊">
+          </li>
+          <li>
+            <img src="images/company_ptd_icon02.png" alt="帮">
+          </li>
+          <li>
+            <img src="images/company_ptd_icon03.png" alt="构家">
+          </li>
+          <!-- <li>
+            <img src="images/company_ptd_icon04.png" alt="钢银电商" />
+          </li> -->
+        </ul>
+        <p class="mt20">服务热线：400-700-8808</p>
+        <div class="btn-box"><a class="btn common-btn" href="javascript:void(0);" id="applyButton">我要申请</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer text-center">
+  <div class="wc1200 content">
+    <ul class="clearfix">
+      <li><a href="https://www.fosun.com/" target="_blank">复星集团</a></li>
+        <li><a href="aboutUs.html">关于金服</a></li>
+        <li><a href="developmentHistory.html">里程碑</a></li>
+        <li><a href="cooperativePartner.html">合作伙伴</a></li>
+        <li><a href="joinUs.html">加入我们</a></li>
+        <li><a class="ft-last-li" href="contactUs.html">联系我们</a></li>
+      </ul>
+      <p class="mt20">版权所有©掌星宝(上海)网络科技有限公司 &nbsp;&nbsp;
+        <!-- |&nbsp;&nbsp;沪公网安备  31010102002363&nbsp; -->
+        |&nbsp;&nbsp;沪ICP备17043191号
+      </p>
+      <p>服务热线：400-700-8808</p>
+      <div class="weixin">
+        <div>
+          <span class="fuwu">微信服务号</span>
+            <span class="dingyue">微信订阅号</span>
+        </div>
+        <div><img src="images/weixin.png" alt="" height="84px"></div>
+      </div>
+  </div>
+  <!-- <div>
+    <img src="images/icon_sina.png" alt="新浪" />&nbsp;&nbsp;&nbsp;
+    <img src="images/icon_wechat.png" alt="微信" />
+  </div> -->
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

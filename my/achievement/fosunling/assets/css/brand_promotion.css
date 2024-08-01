@@ -1,0 +1,42 @@
+@charset "utf-8";
+@import url("//at.alicdn.com/t/font_wwly6vyp5lxcrf6r.css");
+.bp-container{background-color:#fff;}
+.bp-banner{background:url(../images/brand_promotion/brandp_banner.jpg) no-repeat center center;width:100%;height:351px;min-width:1180px;}
+.bp-door{padding-top:100px;text-align:center;width:1180px;margin:0 auto;}
+.bp-common-title{font-size:38px;color:#333;font-weight:bold;}
+.bp-common-img{padding-top:30px;}
+.bp-p1{font-size:18px;color:#878787;font-weight:bold;line-height:1.8;padding-top:18px;}
+.bp-p2{font-size:22px;color:#656565;font-weight:bold;padding:30px 0;}
+.bp-css-p1{font-size:20px;color:#666;}
+.bp-css-p2{margin-top:30px;}
+.bp-door-ul li{display:inline-block;width:180px;height:126px;background-color:#f1f1f1;float:left;margin:0 5px;padding-top:60px;}
+.bp-door-ul li i{color:#e63232;font-size:34px;padding:60px 0 25px 0;}
+.bp-door-ul li p{font-size:18px;color:#656565;font-weight:bold;}
+/*专业风控团队*/
+.bp-riskmg{padding-top:80px;text-align:center;width:1180px;margin:0 auto;}
+.bp-riskmg-content{padding-top:70px;} 
+.bp-riskmg-content .bp-riskmg-left{width:295px;height:395px;background:url(../images/brand_promotion/brandp_sit.png) no-repeat center center;}
+.bp-riskmg-content .bp-riskmg-right{border:1px solid #dbdbdb;width:828px;height:393px;text-align:left;padding-left:55px;position:relative;}
+.bp-riskmg-content .bp-riskmg-right .bp-red-h4,.bp-riskmg-content .bp-riskmg-right .bp-red-p{color:#e63232;font-weight:bold;font-size:18px;}
+.bp-riskmg-content .bp-riskmg-right .bp-red-h4{padding:80px 0 15px 0;font-size:22px;}
+.bp-riskmg-content .bp-riskmg-right p{padding-left:48px;line-height:1}
+.bp-riskmg-right .bp-riskmg-img1{position:absolute;left:48px;top:92px;}
+.bp-riskmg-right .bp-riskmg-img2{position:absolute;right:46px;top:40px;}
+/*资金安全保障*/
+.bp-content-wrap{width:1180px;margin:0 auto;}
+.bp-security{padding-top:75px;text-align:center;}
+.bp-security .bp-security-content{width:100%;height:326px;background-color:#f1f1f1;margin-top:70px;}
+.bp-security-content .bp-security-left{width:600px;height:326px;background:url(../images/brand_promotion/brandp_safe.png) no-repeat center center;}
+.bp-security-content .bp-security-right{width:580px;height:326px;text-align:left;}
+.bp-security-content .bp-security-right .bp-right-p1{padding-top:65px;}
+.bp-right-p1,.bp-right-p2{font-size:20px;color:#666;}
+.bp-security-right p{line-height:1.8;}
+/*穿透底层资产*/
+.bp-floor{text-align:center;}
+.bp-floor{padding-top:85px;}
+.bp-floor p{padding-bottom:125px;}
+.bp-floor span{color:#e63232;}
+.bp-floor p{padding-top:50px;}
+.bp-floor .bp-floor-center{width:1180px;margin:0 auto;}
+/*样式初始化*/
+.bp-container h4{margin:0;padding:0;}
