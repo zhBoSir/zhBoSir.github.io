@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="【稻稻派】">
 <meta property="og:description" content="grid布局 父容器使用display: grid/inline-grid; 一个m行n列的网格，需要使用m+1条横向，n+1条纵向网格线组成；  使用grid-template-rows、grid-template-columns这两个属性来划分行和列。12345678910111213/* 划分为纯数值 */&amp;#123;  grid-template-rows: 100px 100px 100">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2024-08-07T14:11:27.150Z">
+<meta property="og:updated_time" content="2024-08-07T14:18:59.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="grid布局学习">
 <meta name="twitter:description" content="grid布局 父容器使用display: grid/inline-grid; 一个m行n列的网格，需要使用m+1条横向，n+1条纵向网格线组成；  使用grid-template-rows、grid-template-columns这两个属性来划分行和列。12345678910111213/* 划分为纯数值 */&amp;#123;  grid-template-rows: 100px 100px 100">
@@ -417,8 +417,10 @@
 <p>合并写法<code>grid-gap: num1 num2</code>,num1表示行间距，num2表格列间距</p>
 <h3 id="网格横纵向布局"><a href="#网格横纵向布局" class="headerlink" title="网格横纵向布局"></a>网格横纵向布局</h3><p><code>grid-auto-flow:row</code>横向布局</p>
 <p><code>grid-auto-flow:column</code>纵向布局</p>
-<h3 id="项目对齐方式"><a href="#项目对齐方式" class="headerlink" title="项目对齐方式"></a>项目对齐方式</h3><p><code>justify-items</code>水平对齐方式</p>
-<p><code>align-items</code>垂直对齐方式</p>
+<h3 id="项目对齐方式"><a href="#项目对齐方式" class="headerlink" title="项目对齐方式"></a>项目对齐方式</h3><p><code>justify-items</code>水平对齐方式，值有<code>start</code>|<code>center</code>|<code>end</code></p>
+<p><code>align-items</code>垂直对齐方式，值有<code>start</code>|<code>center</code>|<code>end</code></p>
+<p>复合写法：</p>
+<p><code>place-items:</code> align-items(垂直方向) justify-items(水平方向)</p>
 
       
     </div>
